@@ -38,7 +38,7 @@ class MuseumsService {
    */
   async getMuseumById(id) {
     try {
-      const museum = await MuseumModel.findById(id).populate('plan').populate('owner').populate('exhibitions').populate('artworks') ;
+      const museum = await MuseumModel.findById(id).populate('plan').populate('owner') ;
       return museum ? museum : null;
     } catch (error) {
       console.error('Error fetching museum by ID:', error);

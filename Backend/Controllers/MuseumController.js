@@ -95,3 +95,14 @@ export const deleteMuseum = async (req, res) => {
     });
   }
 };
+
+export const getMuseumByOwnerId = async (req, res) => {
+  try {
+    const { ownerId } = req.params;
+    const museums = await MuseumModel.find({ owner: ownerId });
+    res.status(200).json({ success: true, data: museums });
+  } catch (error) {
+    console.error(`Error getting museums with owner ID ${ownerId}:`, error);
+    res.status(500).json({ message: 'Internal server error', success: false });
+  }
+};

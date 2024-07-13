@@ -22,6 +22,15 @@ async createMuseum(museumData) {
       throw error;
     }
   }
+  async getMuseumByOwnerId(ownerId) {
+    try {
+        const response = await this.api.get(`/museums/owner/${ownerId}`);
+        return response.data.data;
+    } catch (error) {
+        console.error(`Error getting museum with owner ID ${ownerId}:`, error);
+        throw error;
+    }
+}
 
   /**
    * Retrieves a list of museums.
