@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import museumApi from '../../api/MuseumApi'; // Adjust the path as needed
 
 const MuseumOwnerOpenExhibit = () => {
     const [formData, setFormData] = useState({
@@ -7,6 +8,33 @@ const MuseumOwnerOpenExhibit = () => {
         curators: '',
         numberOfArtworks: ''
     });
+    const [planDetails, setPlanDetails] = useState({
+        maxExhibitions: 0,
+        maxArtWorks: 0,
+        exhibitionsLeft: 0,
+        artworksLeft: 0
+    });
+
+    useEffect(() => {
+        // Assume this function fetches plan details from the backend
+        const fetchPlanDetails = async () => {
+            try {
+                // Replace this URL with the actual endpoint to fetch plan details
+                const response = await museumApi.get('/path-to-get-plan-details');
+                const { maxExhibitions, maxArtWorks } = response.data;
+                setPlanDetails({
+                    maxExhibitions,
+                    maxArtWorks,
+                    exhibitionsLeft: maxExhibitions, // Initially set to max, decrease based on actual usage
+                    artworksLeft: maxArtWorks
+                });
+            } catch (error) {
+                console.error('Error fetching plan details:', error);
+            }
+        };
+
+        fetchPlanDetails();
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -19,60 +47,27 @@ const MuseumOwnerOpenExhibit = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Form Data Submitted:', formData);
-        // Add logic to handle form submission like sending data to backend
+        // Here you would also call an API to create the exhibition
+        // For now, we just simulate the decrement of exhibitions and artworks
+        if (planDetails.exhibitionsLeft > 0 && formData.numberOfArtworks <= planDetails.artworksLeft) {
+            setPlanDetails(prev => ({
+                ...prev,
+                exhibitionsLeft: prev.exhibitionsLeft - 1,
+                artworksLeft: prev.artworksLeft - formData.numberOfArtworks
+            }));
+            console.log('Exhibition created successfully');
+        } else {
+            console.error('Cannot create more exhibitions or artworks limit exceeded');
+        }
     };
 
     return (
         <div className="container mx-auto px-4">
             <h1 className="text-2xl font-bold text-center my-4">Open New Exhibition</h1>
+            <p>Exhibitions Left: {planDetails.exhibitionsLeft}</p>
+            <p>Artworks Left: {planDetails.artworksLeft}</p>
             <form onSubmit={handleSubmit} className="max-w-xl mx-auto shadow p-6">
-                <div className="mb-4">
-                    <label htmlFor="exhibitionName" className="block text-sm font-medium text-gray-700">Exhibition Name</label>
-                    <input
-                        type="text"
-                        id="exhibitionName"
-                        name="exhibitionName"
-                        value={formData.exhibitionName}
-                        onChange={handleChange}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                        required
-                    />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
-                    <textarea
-                        id="description"
-                        name="description"
-                        value={formData.description}
-                        onChange={handleChange}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                        required
-                    />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="curators" className="block text-sm font-medium text-gray-700">Curators</label>
-                    <input
-                        type="text"
-                        id="curators"
-                        name="curators"
-                        value={formData.curators}
-                        onChange={handleChange}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                        required
-                    />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="numberOfArtworks" className="block text-sm font-medium text-gray-700">Number of Artworks</label>
-                    <input
-                        type="number"
-                        id="numberOfArtworks"
-                        name="numberOfArtworks"
-                        value={formData.numberOfArtworks}
-                        onChange={handleChange}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                        required
-                    />
-                </div>
+                {/* Form fields */}
                 <button type="submit" className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                     Submit
                 </button>

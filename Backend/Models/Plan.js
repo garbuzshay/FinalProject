@@ -19,15 +19,11 @@ const planSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  planId: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+ 
 }, {
   timestamps: true,
 });
 
-const PlanModel = mongoose.model('Plan', planSchema);
+const PlanModel = mongoose.model('plans', planSchema);
 
 export default PlanModel;

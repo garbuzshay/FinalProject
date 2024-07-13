@@ -11,8 +11,8 @@ class RequestActions {
       zipcode: request.museumZipCode,
       phoneNumber: request.museumPhoneNumber,
       email: request.museumEmail,
-      ownerID: request.user,
-      planID: request.planId,
+      owner: request.user,
+      plan: request.plan,
     };
     await MuseumsService.createMuseum(museumData);
   }
@@ -49,7 +49,7 @@ class RequestsService {
         user: newUser._id,
         type: "Museum-Opening",
         status: 'Pending',
-        planId: userData.plan,
+        plan: userData.plan,
         paymentMethodId: paymentMethodId,
         museumName: museumData.name,
         museumAddress: museumData.address,

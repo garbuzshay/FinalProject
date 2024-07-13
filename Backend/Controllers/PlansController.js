@@ -3,9 +3,7 @@ import PlanModel from '../Models/Plan.js';
 // Create a new plan
 export const createPlan = async (req, res) => {
   try {
-    const planData = req.body;
-    planData.planId = planData.name.split(' ').join('').toLowerCase();
-    
+    // const planData = req.body;    
     const newPlan = new PlanModel(req.body);
     await newPlan.save();
     res.status(201).json({

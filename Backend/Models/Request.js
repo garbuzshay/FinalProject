@@ -25,7 +25,7 @@ const requestSchema = new mongoose.Schema({
     enum: ['Museum-Opening', 'Museum-Change-Plan'],
     required: true,
   },
-  planId: { type: String, required: true },
+  plan: {  type: mongoose.Schema.Types.ObjectId,ref:'plans', required: true },
   paymentMethodId: { type: String, required: true }, // Store Stripe payment method ID
   // Museum data for "Museum Opening Request"
   museumName: { type: String},

@@ -30,7 +30,7 @@ export default function ChoosePlan() {
 
   const tableHeaders = plans.length > 0
     ? Object.keys(plans[0]).filter(key => 
-        !['_id', 'createdAt', 'updatedAt', '__v', 'planId','maxExhibitions','maxArtWorks'].includes(key))
+        !['_id', 'createdAt', 'updatedAt', '__v', 'plan','maxExhibitions','maxArtWorks'].includes(key))
     : [];
 
   return (
@@ -52,7 +52,7 @@ export default function ChoosePlan() {
           </TableHead>
           <TableBody>
             {plans.map(plan => (
-              <TableRow key={plan.planId}>
+              <TableRow key={plan._id}>
                 {tableHeaders.map(header => (
                   <TableCell key={header}>
                     {header === 'price' ? `$${plan[header]}` : plan[header]}
@@ -60,10 +60,10 @@ export default function ChoosePlan() {
                 ))}
                 <TableCell>
                   <Button
-                    variant={selectedPlan === plan.planId ? 'contained' : 'outlined'}
-                    onClick={() => handlePlanClick(plan.planId)}
+                    variant={selectedPlan === plan._id ? 'contained' : 'outlined'}
+                    onClick={() => handlePlanClick(plan._id)}
                   >
-                    {selectedPlan === plan.planId ? 'Selected' : 'Select'}
+                    {selectedPlan === plan._id ? 'Selected' : 'Select'}
                   </Button>
                 </TableCell>
               </TableRow>

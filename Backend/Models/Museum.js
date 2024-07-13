@@ -8,8 +8,8 @@ const museumSchema = new mongoose.Schema({
   zipcode: { type: String, required: true },
   phoneNumber: { type: String, required: true },
   email: { type: String, required: true },
-  ownerID: { type: mongoose.Schema.Types.ObjectId, ref: 'users', required: true },
-  planID: { type: String, ref: 'plans', required: true },
+  owner: { type: mongoose.Schema.Types.ObjectId, ref: 'users', required: true },
+  plan: { type: mongoose.Schema.Types.ObjectId, ref: 'plans', required: true },
 }, {
   timestamps: true,
 });
