@@ -12,6 +12,7 @@ import AdminTermsPricesPackages from './components/admin/AdminTermsPricesPackage
 import AdminRequestsManagement from "./components/admin/AdminRequestsManagement ";
 import MusuemOwnerPage from "./pages/MusuemOwnerPage";
 import CuartorPage from "./pages/CuartorPage";
+import MuseumOwnerOpenExhibit from "./components/museumOwner/MuseumOwnerOpenExhibit";
 const App = () => {
   return (
     <div className="App">
@@ -31,9 +32,9 @@ const App = () => {
           <Route path="" element={<AdminLogin />} />
         </Route>
         <Route path="/owner" element={<MusuemOwnerPage />}>
+          <Route path='open-exhibit' element={<MuseumOwnerOpenExhibit />} />
         
-        
-        
+    
         </Route>
         <Route path="/curator" element={<CuartorPage />}>
         </Route>
