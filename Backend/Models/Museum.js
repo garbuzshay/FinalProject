@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const museumSchema = new mongoose.Schema({
-  museumName: { type: String, required: true },
+  name: { type: String, required: true },
   address: { type: String, required: true },
   city: { type: String, required: true },
   state: { type: String, required: true },
@@ -9,7 +9,7 @@ const museumSchema = new mongoose.Schema({
   phoneNumber: { type: String, required: true },
   email: { type: String, required: true },
   ownerID: { type: mongoose.Schema.Types.ObjectId, ref: 'users', required: true },
-  planID: { type: mongoose.Schema.Types.ObjectId, ref: 'plans', required: true },
+  planID: { type: String, ref: 'plans', required: true },
 }, {
   timestamps: true,
 });
