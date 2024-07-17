@@ -23,7 +23,7 @@ class MuseumsService {
    */
   async getMuseums() {
     try {
-      const museums = await MuseumModel.find();
+      const museums = await MuseumModel.find().populate('plan').populate('owner').populate('exhibitions').populate('artworks');
       return museums;
     } catch (error) {
       console.error('Error fetching museums:', error);
@@ -38,7 +38,7 @@ class MuseumsService {
    */
   async getMuseumById(id) {
     try {
-      const museum = await MuseumModel.findById(id).populate('plan').populate('owner') ;
+      const museum = await MuseumModel.findById(id).populate('plan').populate('owner').populate('exhibitions').populate('artworks') ;
       return museum ? museum : null;
     } catch (error) {
       console.error('Error fetching museum by ID:', error);

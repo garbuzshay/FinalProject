@@ -11,6 +11,8 @@ import {
   validateChoosePlan,
 } from "../validators/registrationValidators";
 import requestsApi from "../api/RequestsApi";
+import { loginWithEmailPassword } from "../utils/auth";
+import { useUserContext } from "./UserContext"; // Import useUserContext
 
 export const RegisterContext = React.createContext();
 
@@ -21,6 +23,8 @@ export const RegisterProvider = ({ children }) => {
     userData: {},
     museumData: {},
   });
+
+  const { login } = useUserContext(); 
 
   const steps = [
     {
@@ -64,9 +68,15 @@ export const RegisterProvider = ({ children }) => {
   };
 
   const submitData = async () => {
-    await requestsApi.createRequest(formData);
-    setFormData({ userData: {}, museumData: {} });
-    setStep(0);
+    try {
+
+      await requestsApi.createRequest({...formData, type: "Museum-Opening"});
+      await login(formData.userData.email, formData.userData.password);  
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    }
+    // setFormData({ userData: {}, museumData: {} });
+    // setStep(0);
   };
 
   return (

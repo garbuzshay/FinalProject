@@ -7,7 +7,7 @@ const AdminHeader = () => {
             <Header 
                 title="Admin Dashboard" 
                 buttonText="Logout" 
-                buttonPath="/admin"
+                buttonPath="/logout"
             />
         </div>
     );

@@ -9,11 +9,12 @@ import {
 } from '../controllers/MuseumController.js';
 
 const router = Router();
-
-router.post('/', createMuseum);
 router.get('/', getMuseums);
 router.get('/:id', getMuseumById);
-router.put('/:id', updateMuseum);
-router.delete('/:id', deleteMuseum);
 router.get('/owner/:ownerId', getMuseumByOwnerId); // Add the new route
+
+router.post('/', createMuseum);
+router.put('/:id', updateMuseum);
+
+router.delete('/:id', deleteMuseum);
 export default router;

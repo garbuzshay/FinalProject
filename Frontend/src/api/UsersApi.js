@@ -1,16 +1,14 @@
-import axios from 'axios';
 import config from '../config.js';
+import BaseApi from './BaseApi.js';
 
 const { apiBaseUrl } = config;
 
 /**
  * A class to handle API requests related to users.
  */
-class UsersApi {
+class UsersApi extends BaseApi {
   constructor() {
-    this.api = axios.create({
-      baseURL: apiBaseUrl,
-    });
+    super(apiBaseUrl);
   }
 
   /**

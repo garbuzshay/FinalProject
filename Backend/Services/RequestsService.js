@@ -37,28 +37,33 @@ class RequestsService {
   
   async createRequest(requestData) {
     try {
-      const { userData, museumData } = requestData;
+      const { userData, museumData, type } = requestData;
       const { paymentMethodId = "paymentTokenId" } = requestData;
 
-      const newUser = await UsersService.createUser(userData);
-      if (!newUser) {
-        throw new Error('Error creating user');
+      let newUser;
+      if (type === "Museum-Opening") {
+        userData.role = 'MuseumOwner';
+        newUser = await UsersService.createUser(userData);
+        if (!newUser) {
+          throw new Error('Error creating user');
+        }
       }
 
       const newRequest = new RequestModel({
-        user: newUser._id,
-        type: "Museum-Opening",
+        user: newUser ? newUser._id : null,
+        type,
         status: 'Pending',
         plan: userData.plan,
         paymentMethodId: paymentMethodId,
-        museumName: museumData.name,
-        museumAddress: museumData.address,
-        museumCity: museumData.city,
-        museumState: museumData.state,
-        museumZipCode: museumData.zipCode,
-        museumPhoneNumber: museumData.phoneNumber,
-        museumEmail: museumData.email,
+        museumName: museumData?.name,
+        museumAddress: museumData?.address,
+        museumCity: museumData?.city,
+        museumState: museumData?.state,
+        museumZipCode: museumData?.zipCode,
+        museumPhoneNumber: museumData?.phoneNumber,
+        museumEmail: museumData?.email,
       });
+
 
       await newRequest.save();
       return newRequest;

@@ -7,7 +7,7 @@ const CuratorHeader = () => {
             <Header 
                 title="Curator Dashboard" 
                 buttonText="Logout" 
-                buttonPath="/" // Adjust this path according to your application's routing
+                buttonPath="/logout" // Adjust this path according to your application's routing
             />
         </div>
     );

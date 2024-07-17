@@ -1,12 +1,10 @@
-import axios from "axios";
 import config from "../config.js";
+import BaseApi from "./BaseApi.js";
 const { apiBaseUrl } = config;
 
-class MuseumApi  {
+class MuseumApi  extends BaseApi {
     constructor() {
-        this.api = axios.create({
-            baseURL: apiBaseUrl,
-        });
+      super(apiBaseUrl);
     }
 
 

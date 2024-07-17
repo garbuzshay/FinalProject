@@ -10,7 +10,7 @@ const sideBarData = {
     ],
     MuseumOwner: [
       { name: "Owner Dashboard", path: "/owner" },
-      { name: "Exhibitions Management", path: "/owner/exhibitions" },
+      { name: "Exhibitions Management", path: "/owner/exhibiton-list" },
       { name: "Open New Exhibitons", path: "/owner/open-exhibit"},
       { name: "Edit Plan", path: "/owner/editMuseumPlan"},
       { name: "Contact us", path: "/owner/Contact us"},

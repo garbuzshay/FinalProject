@@ -5,9 +5,15 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import router from "./Routes/index.js";
 import db from './Models/db.js';
+import admin from 'firebase-admin';
+import serviceAccount from './serviceAccountKey.json' assert { type: 'json' };
+import createAdminUser from "./Utils/adminUtils.js";
 
 config();
 
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -20,3 +26,22 @@ app.use('/api', router);
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
+
+
+
+// const adminData = {
+//   name: 'admin',
+//   lastName: 'admin',
+//   email: 'admin@gmail.com',
+//   password: 'Cc161514Cc',
+//   phoneNumber: '+972525000501',
+//   terms: true,
+// };
+
+// createAdminUser(adminData)
+//   .then((adminUser) => {
+//     console.log('Admin user created:', adminUser);
+//   })
+//   .catch((error) => {
+//     console.error('Error creating admin user:', error);
+//   });

@@ -7,7 +7,7 @@ const MuseumOwnerHeader = () => {
             <Header 
                 title="Museum Owner Dashboard" 
                 buttonText="Logout" 
-                buttonPath="/" // Adjust this path according to your application's routing
+                buttonPath="/logout" // Adjust this path according to your application's routing
             />
         </div>
     );
