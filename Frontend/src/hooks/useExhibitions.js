@@ -7,10 +7,10 @@ const useExhibitions = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchExhibitions = async () => {
+        const fetchExhibitions = async (museumId) => {
             setIsLoading(true);
             try {
-                const data = await exhibitionsApi.getExhibitions();
+                const data = await exhibitionsApi.getExhibitions({museumId});
                 setExhibitions(data); // Make sure this matches the structure of your API response
                 setIsLoading(false);
             } catch (error) {

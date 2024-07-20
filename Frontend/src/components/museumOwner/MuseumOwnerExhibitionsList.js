@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import ExhibitCard from '../components/ExhibitCard'; // Adjust the path as needed
+import ExhibitCard from '../exhibitions/ExhibitCard'; // Adjust the path as needed
 import useExhibitions from '../../hooks/useExhibitions';
 
 const MuseumOwnerExhibitionsList = () => {
-  const {exhibitions}= useExhibitions();
-  const [loading] = useState(true);
+  const {exhibitions, loading}= useExhibitions();
 
   if (loading) {
     return <div>Loading...</div>;

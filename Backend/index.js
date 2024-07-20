@@ -14,6 +14,7 @@ config();
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
+ 
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -28,14 +29,15 @@ app.listen(PORT, () => {
 });
 
 
-
+//cinamon@gmail.com Generated Password: 2b186486
 // const adminData = {
 //   name: 'admin',
 //   lastName: 'admin',
 //   email: 'admin@gmail.com',
-//   password: 'Cc161514Cc',
-//   phoneNumber: '+972525000501',
+//   password: 'admin123',
+//   phoneNumber: '+972522835145',
 //   terms: true,
+//   role : {roleId : '1', roleName: 'Admin'}
 // };
 
 // createAdminUser(adminData)

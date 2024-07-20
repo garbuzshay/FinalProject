@@ -12,7 +12,7 @@ const IntroPage = () => {
 
   
   return (
-    <div>
+    <div >
       <ContentSection
         logoSrc={logoSrc}
         explanation={explanation}

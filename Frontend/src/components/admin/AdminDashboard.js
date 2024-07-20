@@ -2,7 +2,7 @@
 import React from "react";
 import MuseumCard from "../../museums/MuseumCard" 
 import museumsData from "../../data/museumsData";
-import ExhibitCard from "../../exhibitions/ExhibitCard";
+import ExhibitCard from "../exhibitions/ExhibitCard";
 import exhibitionsData from "../../data/exhibitionsData";
 
 const AdminDashboard = () => {

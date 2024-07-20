@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
   phoneNumber: { type: String, required: true },
   terms: { type: Boolean },
   paymentMethodId: { type: String }, // Stripe payment method ID
+  role: { type: mongoose.Schema.Types.ObjectId, ref: 'roles' }, // Reference to Role schema
 }, {
   timestamps: true,
 });

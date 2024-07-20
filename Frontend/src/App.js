@@ -36,7 +36,7 @@ const App = () => {
         <Route path="/curator/login" element={<Login requiredRole="Curator" />} /> */}
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/admin" element={<PrivateRoute requiredRole="Admin"><AdminPage /></PrivateRoute>}>
-          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="" element={<AdminDashboard />} />
           <Route path="museums" element={<AdminMuseumList />} />
           <Route path="exhibitions" element={<AdminExhibitList />} />
           <Route path="users" element={<AdminUserList />} />

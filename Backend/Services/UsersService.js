@@ -2,6 +2,7 @@ import UserModel from '../Models/User.js';
 import admin from 'firebase-admin';
 import { toE164 } from '../Utils/phoneUtils.js';
 import { generateRandomPassword } from '../Utils/passwordUtils.js';
+import RoleModel from '../Models/Role.js';  // Import the Role model
 
 class UsersService {
   /**
@@ -11,7 +12,7 @@ class UsersService {
    */
   async createUser(userData) {
     try {
-      const { name, lastName, email, phoneNumber, terms } = userData;
+      const { name, lastName, email, phoneNumber, terms, role } = userData;
       let password = userData.password;
 
       const formattedNumber = toE164(phoneNumber);
@@ -21,11 +22,23 @@ class UsersService {
       if (existingUser) {
         return existingUser;
       }
+
       if (!password) {
         password = generateRandomPassword();
         console.log(email + ' Generated Password:', password);
       }
       
+      // Fetch the role objectId from the database
+      let roleId = null;
+      if (role) {
+        const roleRecord = await RoleModel.findOne({ roleName: role });
+        if (roleRecord) {
+          roleId = roleRecord._id;
+        } else {
+          throw new Error('Invalid role');
+        }
+      }
+
       // Create the user in Firebase Authentication
       const userRecord = await admin.auth().createUser({
         email,
@@ -36,8 +49,8 @@ class UsersService {
 
       // Set custom user claims (roles)
       let claims = {};
-      if (userData.role) {
-        claims = { role: userData.role };
+      if (role) {
+        claims = { role };
         await admin.auth().setCustomUserClaims(userRecord.uid, claims);
       }
 
@@ -49,6 +62,7 @@ class UsersService {
         email,
         phoneNumber: formattedNumber,
         terms,
+        role: roleId,
       });
 
       await newUser.save();
@@ -60,16 +74,61 @@ class UsersService {
     }
   }
 
-  async getUsers() {
+  async getUsers(currentUserId) {
     try {
-      const users = await UserModel.find();
+      const users = await UserModel.aggregate([
+        {
+          $match: { _id: { $ne: currentUserId } } // Exclude the current user
+        },
+        {
+          $lookup: {
+            from: 'museums', // The name of the museum collection
+            localField: '_id', // The local field from the user collection
+            foreignField: 'owner', // The foreign field from the museum collection
+            as: 'museumData' // The name of the array field to add the museum data
+          }
+        },
+        {
+          $unwind: { // Deconstructs the museumData array
+            path: '$museumData',
+            preserveNullAndEmptyArrays: true // Keep users without a museum
+          }
+        },
+        {
+          $lookup: {
+            from: 'roles', // The name of the roles collection
+            localField: 'role', // The local field from the user collection
+            foreignField: '_id', // The foreign field from the roles collection
+            as: 'roleData' // The name of the array field to add the role data
+          }
+        },
+        {
+          $unwind: { // Deconstructs the roleData array
+            path: '$roleData',
+            preserveNullAndEmptyArrays: true // Keep users without a role
+          }
+        },
+        {
+          $project: { // Select the fields to include in the output
+            uid: 1,
+            name: 1,
+            lastName: 1,
+            email: 1,
+            phoneNumber: 1,
+            terms: 1,
+            paymentMethodId: 1,
+            role: '$roleData.roleName', // Include the role name
+            museumName: '$museumData.name' // Include the museum name
+          }
+        }
+      ]);
+  
       return users;
     } catch (error) {
       console.error('Error fetching users:', error);
       throw error;
     }
   }
-
   /**
    * Retrieves a user by ID.
    * @param {String} id - The user ID.

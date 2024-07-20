@@ -23,9 +23,9 @@ class ExhibitionsApi extends BaseApi {
   /**
    * Retrieves a list of exhibitions.
    */
-  async getExhibitions() {
+  async getExhibitions({museumId}) {
     try {
-      const response = await this.api.get('/exhibitions');
+      const response = await this.api.get('/exhibitions', {params: {museumId}});
       return response.data.data;
     } catch (error) {
       console.error('Error getting exhibitions:', error);

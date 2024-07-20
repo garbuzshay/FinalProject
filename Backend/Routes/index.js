@@ -9,8 +9,8 @@ import authenticateUser from '../Middlewares/AuthenticateUser.js';
 const router = Router();
 
 router.use('/auth', AuthRouter);
-router.use('/plans', authenticateUser, PlansRouter);
-router.use('/requests', authenticateUser, RequestsRouter);
+router.use('/plans', PlansRouter);
+router.use('/requests', RequestsRouter);
 router.use('/users', UsersRouter);
 router.use('/museums', MuseumRouter)
 router.use('/exhibitions', ExhibitionRouter);

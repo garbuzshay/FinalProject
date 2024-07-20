@@ -24,7 +24,7 @@ export const createUser = async (req, res) => {
  */
 export const getUsers = async (req, res) => {
   try {
-    const users = await UsersService.getUsers();
+    const users = await UsersService.getUsers(req.user?._id);
     res.status(200).json({
       message: 'Users retrieved successfully',
       success: true,
