@@ -81,6 +81,16 @@ async createMuseum(museumData) {
       throw error;
     }
   }
+
+  async getMuseumByOwner() {
+    try {
+      const response = await this.api.get('/museums/owner');
+      return response.data.data;
+    } catch (error) {
+      console.error('Error getting museums for the owner:', error);
+      throw error;
+    }
+  }
 }
 
 const museumApi = new MuseumApi();

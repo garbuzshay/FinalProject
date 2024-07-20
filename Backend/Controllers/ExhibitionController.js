@@ -1,8 +1,11 @@
 import ExhibitionsService from '../Services/ExhibitionsService.js';
+import MuseumsService from '../Services/MuseumsService.js';
 
 export const createExhibition = async (req, res) => {
   try {
-    const exhibition = await ExhibitionsService.createExhibition(req.body);
+    const data = req.body;
+    const museum = await MuseumsService.getMuseumByOwnerId(req.user._id);
+    const exhibition = await ExhibitionsService.createExhibition({...data, museum: museum._id});
     res.status(201).json({
       message: 'Exhibition created successfully',
       success: true,

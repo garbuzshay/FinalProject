@@ -1,4 +1,5 @@
 import MuseumsService from "../Services/MuseumsService.js";
+
 export const createMuseum = async (req, res) => {
   try {
     const museum = await MuseumsService.createMuseum(req.body);
@@ -96,13 +97,37 @@ export const deleteMuseum = async (req, res) => {
   }
 };
 
+// export const getMuseumByOwnerId = async (req, res) => {
+//   const  ownerId  = req.user._id;
+//   try {
+//     const museums = await MuseumModel.find({ owner: ownerId });
+//     res.status(200).json({ success: true, data: museums });
+//   } catch (error) {
+//     console.error(`Error getting museums with owner ID ${ownerId}:, error`);
+//     console.log(error)
+//     res.status(500).json({ message: 'Internal server error', success: false });
+//   }
+// };
+
 export const getMuseumByOwnerId = async (req, res) => {
+  const  ownerId  = req.user._id;
   try {
-    const { ownerId } = req.params;
-    const museums = await MuseumModel.find({ owner: ownerId });
-    res.status(200).json({ success: true, data: museums });
+    const museum = await MuseumsService.getMuseumByOwnerId(ownerId);
+    if (!museum) {
+      return res.status(404).json({
+        message: 'Museum not found',
+        success: false
+      });
+    }
+    res.status(200).json({
+      message: 'Museums retrieved successfully',
+      success: true,
+      data: museum
+    });
   } catch (error) {
-    console.error(`Error getting museums with owner ID ${ownerId}:`, error);
-    res.status(500).json({ message: 'Internal server error', success: false });
+    res.status(500).json({
+      message: error.message,
+      success: false
+    });
   }
 };

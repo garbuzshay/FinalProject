@@ -76,6 +76,16 @@ class MuseumsService {
       throw error;
     }
   }
+
+  async getMuseumByOwnerId(ownerId) {
+    try {
+      const museum = await MuseumModel.findOne({ owner: ownerId }).populate('plan').populate('owner').populate('exhibitions').populate('artworks');
+      return museum;
+    } catch (error) {
+      console.error(`Error getting museums with owner ID ${ownerId}:`, error);
+      throw error;
+    }
+  }
 }
 
 export default new MuseumsService();

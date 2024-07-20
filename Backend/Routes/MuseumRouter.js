@@ -6,12 +6,14 @@ import {
   updateMuseum,
   deleteMuseum,
   getMuseumByOwnerId // Import the new controller function
-} from '../controllers/MuseumController.js';
+} from '../Controllers/MuseumController.js';
+import authenticateUser from '../Middlewares/AuthenticateUser.js';
+
 
 const router = Router();
 router.get('/', getMuseums);
+router.get('/owner',authenticateUser,  getMuseumByOwnerId); // Add the new route
 router.get('/:id', getMuseumById);
-router.get('/owner/:ownerId', getMuseumByOwnerId); // Add the new route
 
 router.post('/', createMuseum);
 router.put('/:id', updateMuseum);
