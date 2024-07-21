@@ -20,7 +20,7 @@ const AdminExhibitList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {exhibitions.map((exhibit, index) => (
+                    {exhibitions.map((exhibit) => (
                         <tr key={exhibit._id}>
                             <td className="border px-4 py-2">{exhibit.name}</td>
                             <td className="border px-4 py-2">{exhibit.museum.name}</td>

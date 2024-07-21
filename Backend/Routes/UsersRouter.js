@@ -11,7 +11,6 @@ const router = Router();
 
 router.get("/", authenticateUser, authorizeUser("Admin"), getUsers);
 router.get("/:id", getUserById);
-
 router.put("/:id", updateUser);
 router.delete("/:id", deleteUser);
 

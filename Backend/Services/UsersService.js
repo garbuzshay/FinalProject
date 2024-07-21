@@ -219,6 +219,10 @@ class UsersService {
       throw error;
     }
   }
+
+  //
+  
+  //
 }
 
 export default new UsersService();

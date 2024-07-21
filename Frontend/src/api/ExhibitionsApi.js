@@ -23,15 +23,17 @@ class ExhibitionsApi extends BaseApi {
   /**
    * Retrieves a list of exhibitions.
    */
-  async getExhibitions({museumId}) {
+  async getExhibitions() {
     try {
-      const response = await this.api.get('/exhibitions', {params: {museumId}});
+      const response = await this.api.get('/exhibitions');
       return response.data.data;
     } catch (error) {
       console.error('Error getting exhibitions:', error);
       throw error;
     }
   }
+
+  
 
   /**
    * Retrieves an exhibition by its ID.
@@ -71,7 +73,20 @@ class ExhibitionsApi extends BaseApi {
       throw error;
     }
   }
+
+  async getMuseumOwnerExhibitions() {
+    try {
+      const response = await this.api.get(`/exhibitions/my`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error getting exhibitions for museum with ID :`, error);
+      throw error;
+    }
+  }
 }
+
+
+
 
 const exhibitionsApi = new ExhibitionsApi();
 export default exhibitionsApi;

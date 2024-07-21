@@ -1,8 +1,9 @@
 import ExhibitCard from '../exhibitions/ExhibitCard'; // Adjust the path as needed
-import useExhibitions from '../../hooks/useExhibitions';
+import useMuseumOwnerExhibitions from '../../hooks/useMuseumExhibitions';
+
 
 const MuseumOwnerExhibitionsList = () => {
-  const {exhibitions, loading}= useExhibitions();
+  const {exhibitions, loading}= useMuseumOwnerExhibitions();
 
   if (loading) {
     return <div>Loading...</div>;

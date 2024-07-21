@@ -91,6 +91,15 @@ async createMuseum(museumData) {
       throw error;
     }
   }
+  async getMuseumByCurator(curatorId) {
+    try {
+        const response = await this.api.get(`/museums/curators/${curatorId}`);
+        return response.data.data;
+    } catch (error) {
+        console.error(`Error getting museum by curator ID ${curatorId}:`, error);
+        throw error;
+    }
+}
 }
 
 const museumApi = new MuseumApi();

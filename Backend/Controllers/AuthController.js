@@ -1,4 +1,5 @@
 import UserModel from '../Models/User.js';
+import ExhibitionModelonModel from '../Models/Exhibition.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -57,3 +58,38 @@ export const login = async (req, res) => {
     });
   }
 };
+
+///
+export const getCurrentUser = async (req, res) => {
+  try {
+    const user = req.user;
+    const userRole = req.userRole;
+    const museum = req.museum;
+
+    let responseData = {
+      name: user.name,
+      role: userRole,
+    };
+
+    if (userRole === 'museumOwner') {
+      responseData.museumName = museum?.name;
+    } else if (userRole === 'curator') {
+      responseData.museumName = museum?.name;
+      responseData.exhibitName = 'ExhibitName'; // Adjust accordingly if you have an exhibit service
+      // responseData.museumName = (await ExhibitionModelonModel.find({ curators: user._id }).populate('museum'));
+    }
+
+    res.status(200).json({
+      message: 'User details retrieved successfully',
+      success: true,
+      data: responseData,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: 'Internal server error',
+      success: false,
+    });
+  }
+};
+
+////

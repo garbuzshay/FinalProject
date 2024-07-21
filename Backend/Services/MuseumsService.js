@@ -86,6 +86,15 @@ class MuseumsService {
       throw error;
     }
   }
+
+  async getMuseumByCurator(curatorId) {
+    try {
+      const museum = await MuseumModel.findOne({ curators: curatorId });
+      return museum;
+    } catch (error) {
+      throw new Error('Error fetching museum by curator');
+    }
+  }
 }
 
 export default new MuseumsService();

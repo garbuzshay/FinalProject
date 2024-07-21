@@ -99,3 +99,19 @@ export const deleteExhibition = async (req, res) => {
     });
   }
 };
+
+export const getMuseumExhibitions = async (req, res) => {
+  try {
+    const exhibitions = await ExhibitionsService.getMuseumExhibitions(req.museum._id);
+    res.status(200).json({
+      message: 'Exhibitions retrieved successfully',
+      success: true,
+      data: exhibitions,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+      success: false,
+    });
+  }
+};

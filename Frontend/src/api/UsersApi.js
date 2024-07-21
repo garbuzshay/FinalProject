@@ -80,6 +80,16 @@ class UsersApi extends BaseApi {
       throw error;
     }
   }
+
+  async getCurrentUser() {
+    try {
+      const response = await this.api.get('/auth/user');
+      return response.data.data;
+    } catch (error) {
+      console.error('Error getting current user:', error);
+      throw error;
+    }
+  }
 }
 
 const usersApi = new UsersApi();

@@ -7,10 +7,10 @@ const useExhibitions = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchExhibitions = async (museumId) => {
+        const fetchExhibitions = async () => {
             setIsLoading(true);
             try {
-                const data = await exhibitionsApi.getExhibitions({museumId});
+                const data = await exhibitionsApi.getExhibitions();
                 setExhibitions(data); // Make sure this matches the structure of your API response
                 setIsLoading(false);
             } catch (error) {
@@ -26,3 +26,37 @@ const useExhibitions = () => {
 };
 
 export default useExhibitions;
+
+// import { useState, useEffect } from 'react';
+// import exhibitionsApi from '../api/ExhibitionsApi';
+// import { useUserContext } from '../contexts/UserContext';
+
+// const useMuseumOwnerExhibitions = () => {
+//   const { user } = useUserContext();
+//   const [exhibitions, setExhibitions] = useState([]);
+//   const [isLoading, setIsLoading] = useState(false);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     const fetchExhibitions = async () => {
+//       setIsLoading(true);
+//       try {
+//         const data = await exhibitionsApi.getMuseumOwnerExhibitions();
+//         setExhibitions(data);
+//         setIsLoading(false);
+//       } catch (error) {
+//         setError(error.message);
+//         setIsLoading(false);
+//       }
+//     };
+
+//     if (user && user.role === 'MuseumOwner') {
+//       fetchExhibitions();
+//     }
+//   }, [user]);
+
+//   return { exhibitions, isLoading, error };
+// };
+
+// export default useMuseumOwnerExhibitions;
+

@@ -9,7 +9,7 @@ const sideBarData = {
       { name: "Terms, Prices and Packages", path: "/admin/terms-prices-packages" },
     ],
     MuseumOwner: [
-      { name: "Owner Dashboard", path: "/owner" },
+      { name: "Owner Dashboard", path: "/owner/" },
       { name: "Exhibitions Management", path: "/owner/exhibiton-list" },
       { name: "Open New Exhibitons", path: "/owner/open-exhibit"},
       { name: "Edit Plan", path: "/owner/editMuseumPlan"},

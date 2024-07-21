@@ -57,6 +57,14 @@ class ExhibitionsService {
   async deleteExhibition(id) {
     return await ExhibitionModel.findByIdAndDelete(id);
   }
+
+  async getMuseumExhibitions (museumId) {
+    return await ExhibitionModel.find({ museum: museumId }).populate('curators').populate('museum').populate('artworks');
+  }
+
+
 }
+  //
+
 
 export default new ExhibitionsService();

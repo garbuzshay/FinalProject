@@ -1,5 +1,34 @@
 import MuseumsService from "../Services/MuseumsService.js";
 
+
+//
+export const getMuseumByCurator = async (req, res) => {
+  const curatorId = req.params.curatorId;
+  try {
+    const museum = await MuseumsService.getMuseumByCurator(curatorId);
+    if (!museum) {
+      return res.status(404).json({
+        message: 'Museum not found',
+        success: false
+      });
+    }
+    res.status(200).json({
+      message: 'Museum retrieved successfully',
+      success: true,
+      data: museum
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+      success: false
+    });
+  }
+};
+
+
+
+
+//
 export const createMuseum = async (req, res) => {
   try {
     const museum = await MuseumsService.createMuseum(req.body);
@@ -97,17 +126,6 @@ export const deleteMuseum = async (req, res) => {
   }
 };
 
-// export const getMuseumByOwnerId = async (req, res) => {
-//   const  ownerId  = req.user._id;
-//   try {
-//     const museums = await MuseumModel.find({ owner: ownerId });
-//     res.status(200).json({ success: true, data: museums });
-//   } catch (error) {
-//     console.error(`Error getting museums with owner ID ${ownerId}:, error`);
-//     console.log(error)
-//     res.status(500).json({ message: 'Internal server error', success: false });
-//   }
-// };
 
 export const getMuseumByOwnerId = async (req, res) => {
   const  ownerId  = req.user._id;
