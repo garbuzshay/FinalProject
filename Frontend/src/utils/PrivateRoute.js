@@ -17,7 +17,7 @@ const PrivateRoute = ({ children, requiredRole }) => {
     return <Navigate to={loginPath} />;
   }
 
-  if (requiredRole && user.role !== requiredRole) {
+  if (requiredRole && user.role.roleName !== requiredRole) {
     // Redirect to the Unauthorized page if the user doesn't have the required role
     return <Navigate to="/unauthorized" />;
   }

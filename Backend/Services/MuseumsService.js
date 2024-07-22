@@ -1,4 +1,5 @@
 import MuseumModel from '../models/Museum.js';
+import UserModel from '../Models/User.js';
 
 class MuseumsService {
   /**
@@ -10,6 +11,7 @@ class MuseumsService {
     try {
       const museum = new MuseumModel(museumData);
       await museum.save();
+      await UserModel.findByIdAndUpdate(museumData.owner, { museum: museum._id });
       return museum;
     } catch (error) {
       console.error('Error creating museum:', error);

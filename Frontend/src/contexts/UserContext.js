@@ -1,8 +1,8 @@
-// src/context/UserContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { subscribeToAuthChanges, loginWithEmailPassword, logoutUser } from '../utils/auth';
 import { rolePaths } from '../data/rolePaths';
+import usersApi from '../api/UsersApi'; // Import the UsersApi
 
 // Create a context for the user
 const UserContext = createContext();
@@ -12,13 +12,31 @@ export const UserProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  const fetchUserFromDB = async () => {
+    try {
+      const userData = await usersApi.getCurrentUser();
+      return userData;
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+      throw error;
+    }
+  };
+
   useEffect(() => {
-    const unsubscribe = subscribeToAuthChanges(async (user) => {
-      if (user) {
-        const idTokenResult = await user.getIdTokenResult();
-        const userWithRole = { ...user, role: idTokenResult.claims.role };
-        setUser(userWithRole);
-        localStorage.setItem('userToken', await user.getIdToken(true));
+    const unsubscribe = subscribeToAuthChanges(async (firebaseUser) => {
+      if (firebaseUser) {
+        const idTokenResult = await firebaseUser.getIdTokenResult();
+        const userWithRole = { ...firebaseUser, role: idTokenResult.claims.role };
+
+        try {
+          const userData = await fetchUserFromDB();
+          setUser({ ...userWithRole, ...userData });
+          localStorage.setItem('userToken', await firebaseUser.getIdToken(true));
+        } catch (error) {
+          console.error('Error setting user:', error);
+          setUser(null);
+          localStorage.removeItem('userToken');
+        }
       } else {
         setUser(null);
         localStorage.removeItem('userToken');
@@ -31,11 +49,12 @@ export const UserProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const userWithRole = await loginWithEmailPassword(email, password);
-      setUser(userWithRole);
+      const firebaseUser = await loginWithEmailPassword(email, password);
+      const userData = await fetchUserFromDB();
+      setUser({ ...firebaseUser, ...userData });
 
       // Redirect based on role
-      const rolePath = rolePaths[userWithRole.role]?.dashboard || '/unauthorized';
+      const rolePath = rolePaths[firebaseUser.role]?.dashboard || '/unauthorized';
       navigate(rolePath);
     } catch (error) {
       throw new Error(error.message);

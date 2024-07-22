@@ -4,8 +4,7 @@ import MuseumsService from '../Services/MuseumsService.js';
 export const createExhibition = async (req, res) => {
   try {
     const data = req.body;
-    const museum = await MuseumsService.getMuseumByOwnerId(req.user._id);
-    const exhibition = await ExhibitionsService.createExhibition({...data, museum: museum._id});
+    const exhibition = await ExhibitionsService.createExhibition({...data, museum: req.user.museum._id});
     res.status(201).json({
       message: 'Exhibition created successfully',
       success: true,
@@ -102,7 +101,7 @@ export const deleteExhibition = async (req, res) => {
 
 export const getMuseumExhibitions = async (req, res) => {
   try {
-    const exhibitions = await ExhibitionsService.getMuseumExhibitions(req.museum._id);
+    const exhibitions = await ExhibitionsService.getMuseumExhibitions(req.user.museum._id);
     res.status(200).json({
       message: 'Exhibitions retrieved successfully',
       success: true,
@@ -112,6 +111,22 @@ export const getMuseumExhibitions = async (req, res) => {
     res.status(500).json({
       message: error.message,
       success: false,
+    });
+  }
+};
+
+export const getExhibitionsWithDetails = async (req, res) => {
+  try {
+    const exhibitions = await ExhibitionsService.getExhibitionsWithDetails();
+    res.status(200).json({
+      message: 'Exhibitions with details retrieved successfully',
+      success: true,
+      data: exhibitions
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+      success: false
     });
   }
 };

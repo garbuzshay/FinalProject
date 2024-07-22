@@ -27,8 +27,7 @@ const authenticateUser = async (req, res, next) => {
     req.user = user; // Attach user to the request object
     req.userRole = role; // Attach user role to the request object
 
-    const museum = await MuseumsService.getMuseumByOwnerId(req.user._id);
-    req.museum = museum; // Attach museum to the request object
+    
     next(); // Proceed to the next middleware or route handler
   } catch (error) {
     console.error('Error verifying token:', error);

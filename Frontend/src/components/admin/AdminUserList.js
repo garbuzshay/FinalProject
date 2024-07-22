@@ -78,7 +78,7 @@ const MuseumOwnerList = ({ users, updateUser, deleteUser }) => (
             <td className="border px-4 py-2">
               {user.name} {user.lastName}
             </td>
-            <td className="border px-4 py-2">{user.museumName || "N/A"}</td>
+            <td className="border px-4 py-2">{user.museum.name || "N/A"}</td>
             <td className="border px-4 py-2">{user.email}</td>
             <td className="border px-4 py-2">{user.phoneNumber}</td>
             <td className="border px-4 py-2">
@@ -152,9 +152,10 @@ const AdminUserList = () => {
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div style={{ color: "red" }}>{error}</div>;
+  console.log(users);
 
-  const museumOwners = users.filter(user => user.role === 'MuseumOwner');
-  const curators = users.filter(user => user.role === 'Curator');
+  const museumOwners = users.filter(user => user.role.roleName === 'MuseumOwner');
+  const curators = users.filter(user => user.role.roleName === 'Curator');
 
   return (
     <div>

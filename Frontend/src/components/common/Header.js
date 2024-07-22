@@ -1,34 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import usersApi from '../../api/UsersApi';
-import museumApi from '../../api/MuseumApi';
-
+import { useUserContext } from '../../contexts/UserContext';
 
 const Header = ({ buttonText, buttonPath }) => {
     const navigate = useNavigate();
     const [title, setTitle] = useState('');
+    const { user } = useUserContext();
 
     useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                const user = await usersApi.getCurrentUser();
-                if (user.role === 'Admin') {
-                    setTitle('Admin Dashboard');
-                } else if (user.role === 'MuseumOwner') {
-                    const museum = await museumApi.getMuseumByOwner();
-                    setTitle(`Hello ${user.name}, Wellcome to ${museum.name} CMS `);
-                } else if (user.role === 'Curator') {
-                  // to fill///
-                  const museum = await museumApi.getMuseumByCurator(user._id);
-                    setTitle(`Hello ${user.name}, Welcome to the Curators area in ${museum.name} museum CMS`);
-                }
-            } catch (error) {
-                console.error('Error fetching user:', error);
+        const getTitle = () => {
+            if (!user || !user.role) return;
+
+            switch (user.role.roleName) {
+                case 'Admin':
+                    return 'Admin Dashboard';
+                case 'MuseumOwner':
+                    return `Hello ${user.name}, Welcome to ${user.museum.name} CMS`;
+                case 'Curator':
+                    return `Hello ${user.name}, Welcome to the Curator's area in ${user.museum.name} CMS`;
+                default:
+                    return '';
             }
         };
 
-        fetchUser();
-    }, []);
+        setTitle(getTitle());
+    }, [user]);
 
     const handleButtonClick = () => {
         navigate(buttonPath);
@@ -49,4 +45,4 @@ const Header = ({ buttonText, buttonPath }) => {
     );
 };
 
-export default Header;
+export default Header

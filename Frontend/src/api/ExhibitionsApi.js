@@ -83,6 +83,16 @@ class ExhibitionsApi extends BaseApi {
       throw error;
     }
   }
+  async getExhibitionsWithDetails() {
+    try {
+      const response = await this.api.get('/exhibitions/details');
+      return response.data.data;
+    } catch (error) {
+      console.error('Error getting exhibitions with details:', error);
+      throw error;
+    }
+  }
+  
 }
 
 

@@ -9,7 +9,7 @@ class ExhibitionsService {
     const { curators, museum: museumId, ...otherData } = exhibitionData;
     
     try {
-      const curatorPromises = curators.map(curatorData => UsersService.createUser({...curatorData, role: 'Curator'}));
+      const curatorPromises = curators.map(curatorData => UsersService.createUser({...curatorData, role: 'Curator', museum: museumId}));
       const createdCurators = await Promise.all(curatorPromises);
       const curatorIds = createdCurators.map(curator => curator._id);
 
@@ -43,11 +43,11 @@ class ExhibitionsService {
   }
 
   async getExhibitions() {
-    return await ExhibitionModel.find().populate('curators').populate('museum').populate('artworks');
+    return await ExhibitionModel.find().populate('curators', 'name').populate('museum', 'name').populate('artworks');
   }
 
   async getExhibitionById(id) {
-    return await ExhibitionModel.findById(id).populate('curators').populate('museum').populate('artworks');
+    return await ExhibitionModel.findById(id).populate('curators', 'name').populate('museum', 'name').populate('artworks', 'name');
   }
 
   async updateExhibition(id, exhibitionData) {
@@ -62,7 +62,35 @@ class ExhibitionsService {
     return await ExhibitionModel.find({ museum: museumId }).populate('curators').populate('museum').populate('artworks');
   }
 
-
+//
+async getExhibitionsWithDetails() {
+  try {
+    const exhibitions = await ExhibitionModel.find()
+      .populate({
+        path: 'curators',
+        select: 'name' // Assuming 'name' is a field in the user schema
+      })
+      .populate({
+        path: 'museum',
+        select: 'name' // Assuming 'name' is a field in the museum schema
+      })
+      .populate('artworks');
+    
+    return exhibitions.map(exhibition => ({
+      exhibitionName: exhibition.name,
+      description: exhibition.description,
+      maxArtworks: exhibition.maxArtworks,
+      curators: exhibition.curators.map(curator => curator.name),
+      museumName: exhibition.museum.name,
+      createdAt: exhibition.createdAt,
+      updatedAt: exhibition.updatedAt
+    }));
+  } catch (error) {
+    console.error('Error retrieving exhibitions with details:', error);
+    throw error;
+  }
+}
+//
 }
   //
 

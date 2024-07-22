@@ -1,5 +1,5 @@
 import express from 'express';
-import { createExhibition, getExhibitions, getExhibitionById, updateExhibition, deleteExhibition, getMuseumExhibitions } from '../Controllers/ExhibitionController.js';
+import { createExhibition, getExhibitions, getExhibitionById, updateExhibition, deleteExhibition, getMuseumExhibitions, getExhibitionsWithDetails } from '../Controllers/ExhibitionController.js';
 import authenticateUser from '../Middlewares/AuthenticateUser.js';
 import authorizeUser from '../Middlewares/AuthorizeUser.js';
 const router = express.Router();
@@ -11,4 +11,8 @@ router.get('/my',authenticateUser,authorizeUser("MuseumOwner"), getMuseumExhibit
 router.put('/:id', updateExhibition);
 router.delete('/:id', deleteExhibition);
 
+// 
+router.get('/details', authenticateUser, getExhibitionsWithDetails);
+
+// 
 export default router;

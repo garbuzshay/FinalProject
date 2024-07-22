@@ -12,7 +12,7 @@ class UsersService {
    */
   async createUser(userData) {
     try {
-      const { name, lastName, email, phoneNumber, terms, role } = userData;
+      const { name, lastName, email, phoneNumber, terms, role , museum } = userData;
       let password = userData.password;
 
       const formattedNumber = toE164(phoneNumber);
@@ -63,6 +63,7 @@ class UsersService {
         phoneNumber: formattedNumber,
         terms,
         role: roleId,
+        museum : userData.museum,
       });
 
       await newUser.save();
@@ -76,73 +77,17 @@ class UsersService {
 
   async getUsers(currentUserId) {
     try {
-      const users = await UserModel.aggregate([
-        {
-          $match: { _id: { $ne: currentUserId } } // Exclude the current user
-        },
-        {
-          $lookup: {
-            from: 'museums', // The name of the museum collection
-            localField: '_id', // The local field from the user collection
-            foreignField: 'owner', // The foreign field from the museum collection
-            as: 'museumData' // The name of the array field to add the museum data
-          }
-        },
-        {
-          $unwind: { // Deconstructs the museumData array
-            path: '$museumData',
-            preserveNullAndEmptyArrays: true // Keep users without a museum
-          }
-        },
-        {
-          $lookup: {
-            from: 'roles', // The name of the roles collection
-            localField: 'role', // The local field from the user collection
-            foreignField: '_id', // The foreign field from the roles collection
-            as: 'roleData' // The name of the array field to add the role data
-          }
-        },
-        {
-          $unwind: { // Deconstructs the roleData array
-            path: '$roleData',
-            preserveNullAndEmptyArrays: true // Keep users without a role
-          }
-        },
-        {
-          $project: { // Select the fields to include in the output
-            uid: 1,
-            name: 1,
-            lastName: 1,
-            email: 1,
-            phoneNumber: 1,
-            terms: 1,
-            paymentMethodId: 1,
-            role: '$roleData.roleName', // Include the role name
-            museumName: '$museumData.name' // Include the museum name
-          }
-        }
-      ]);
-  
-      return users;
-    } catch (error) {
-      console.error('Error fetching users:', error);
-      throw error;
+      // Find users excluding the current user
+      const users = await UserModel.find({ _id: { $ne: currentUserId } })
+        .populate('museum') // Populate the museum field with the museum name
+        .populate('role', 'roleName'); // Populate the role field with the role name
+        return users;
+      } catch (error) {
+        console.error('Error fetching users:', error);
+        throw error;
+      }
+
     }
-  }
-  /**
-   * Retrieves a user by ID.
-   * @param {String} id - The user ID.
-   * @returns {Object|null} The fetched user or null if not found.
-   */
-  async getUserById(id) {
-    try {
-      const user = await UserModel.findById(id);
-      return user ? user : null;
-    } catch (error) {
-      console.error('Error fetching user by ID:', error);
-      throw error;
-    }
-  }
 
   /**
    * Retrieves a user by Firebase UID.
@@ -151,7 +96,10 @@ class UsersService {
    */
   async getUserByUid(uid) {
     try {
-      const user = await UserModel.findOne({ uid });
+      let user = await UserModel.findOne({ uid }).populate('role');
+      if (user.museum) {
+          user = user.populate('museum');
+      }
       return user ? user : null;
     } catch (error) {
       console.error('Error fetching user by UID:', error);
@@ -219,10 +167,6 @@ class UsersService {
       throw error;
     }
   }
-
-  //
-  
-  //
 }
 
 export default new UsersService();

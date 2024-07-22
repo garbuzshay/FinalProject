@@ -60,31 +60,20 @@ export const login = async (req, res) => {
 };
 
 ///
+
 export const getCurrentUser = async (req, res) => {
   try {
+    // The user object is already attached to the request by the authenticateUser middleware
     const user = req.user;
-    const userRole = req.userRole;
-    const museum = req.museum;
-
-    let responseData = {
-      name: user.name,
-      role: userRole,
-    };
-
-    if (userRole === 'museumOwner') {
-      responseData.museumName = museum?.name;
-    } else if (userRole === 'curator') {
-      responseData.museumName = museum?.name;
-      responseData.exhibitName = 'ExhibitName'; // Adjust accordingly if you have an exhibit service
-      // responseData.museumName = (await ExhibitionModelonModel.find({ curators: user._id }).populate('museum'));
-    }
 
     res.status(200).json({
-      message: 'User details retrieved successfully',
+      message: 'User fetched successfully',
       success: true,
-      data: responseData,
+      data: user, 
+      
     });
-  } catch (error) {
+  } catch (err) {
+    console.error('Error fetching current user:', err);
     res.status(500).json({
       message: 'Internal server error',
       success: false,
