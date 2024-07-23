@@ -19,6 +19,7 @@ import Unauthorized from "./pages/Unauthorized";
 import Login from "./components/common/Login";
 import Logout from "./pages/LogoutPage";
 import ResetPassword from "./components/common/ResetPassword";
+import MuseumOwnerEditExhibitionPage from "./pages/MuseumOwnerEditExhibitionPage";
 
 const App = () => {
   return (
@@ -47,6 +48,7 @@ const App = () => {
         <Route path="/owner" element={<PrivateRoute requiredRole="MuseumOwner"><MusuemOwnerPage /></PrivateRoute>}>
           <Route path='open-exhibit' element={<MuseumOwnerOpenExhibit />} />
           <Route path='exhibiton-list' element={<MuseumOwnerExhibitionsList/>}/>
+          <Route path="exhibiton-list/:id" element={<MuseumOwnerEditExhibitionPage/>} />
     
         </Route>
         <Route path="/curator"  element={<PrivateRoute requiredRole="Curator"><CuartorPage /></PrivateRoute>} >

@@ -7,7 +7,7 @@ const router = express.Router();
 router.post('/',authenticateUser,authorizeUser("MuseumOwner") ,createExhibition);
 router.get('/', authenticateUser, getExhibitions);
 router.get('/my',authenticateUser,authorizeUser("MuseumOwner"), getMuseumExhibitions);
-// router.get('/:id', getExhibitionById);
+router.get('/:id', getExhibitionById);
 router.put('/:id', updateExhibition);
 router.delete('/:id', deleteExhibition);
 

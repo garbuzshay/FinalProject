@@ -1,6 +1,8 @@
+// Frontend\src\components\common\ConfirmationDialog.js
+
 import React from 'react';
 
-const ConfirmationDialog = ({ message, onConfirm, onCancel }) => {
+const ConfirmationDialog = ({ message, onConfirm, onCancel, type="button" }) => {
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
             <div className="bg-white p-6 rounded shadow-lg text-center">
@@ -9,6 +11,7 @@ const ConfirmationDialog = ({ message, onConfirm, onCancel }) => {
                     <button
                         className="bg-green-500 text-white px-4 py-2 rounded mr-2"
                         onClick={onConfirm}
+                        type={type}
                     >
                         Yes
                     </button>

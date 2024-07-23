@@ -47,7 +47,7 @@ class ExhibitionsService {
   }
 
   async getExhibitionById(id) {
-    return await ExhibitionModel.findById(id).populate('curators', 'name').populate('museum', 'name').populate('artworks', 'name');
+    return await ExhibitionModel.findById(id).populate('curators', 'name lastName email phoneNumber').populate('museum', 'name').populate('artworks', 'name');
   }
 
   async updateExhibition(id, exhibitionData) {
