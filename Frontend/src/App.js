@@ -19,7 +19,10 @@ import Unauthorized from "./pages/Unauthorized";
 import Login from "./components/common/Login";
 import Logout from "./pages/LogoutPage";
 import ResetPassword from "./components/common/ResetPassword";
-import MuseumOwnerEditExhibitionPage from "./pages/MuseumOwnerEditExhibitionPage";
+import MuseumOwnerEditExhibition from "./components/museumOwner/MuseumOwnerEditExhibition";
+import MuseumOwnerContactUs from "./components/museumOwner/MuseumOwnerConatctUs";
+import CuratorContactUs from "./components/curator/CuratorContactUs";
+// import ContactUs from "./components/common/ContantUs";
 
 const App = () => {
   return (
@@ -48,10 +51,12 @@ const App = () => {
         <Route path="/owner" element={<PrivateRoute requiredRole="MuseumOwner"><MusuemOwnerPage /></PrivateRoute>}>
           <Route path='open-exhibit' element={<MuseumOwnerOpenExhibit />} />
           <Route path='exhibiton-list' element={<MuseumOwnerExhibitionsList/>}/>
-          <Route path="exhibiton-list/:id" element={<MuseumOwnerEditExhibitionPage/>} />
+          <Route path="exhibiton-list/:id" element={<MuseumOwnerEditExhibition/>} />
+          <Route path="contact-us" element={<MuseumOwnerContactUs />} />
     
         </Route>
         <Route path="/curator"  element={<PrivateRoute requiredRole="Curator"><CuartorPage /></PrivateRoute>} >
+        <Route path="contact-us" element={<CuratorContactUs />} />
         </Route>
       </Routes>
     </div>

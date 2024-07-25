@@ -3,6 +3,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = ({ links }) => {
+  if (!links || links.length === 0) {
+    return (
+      <div className="h-full bg-gray-800 text-white w-64 p-5 md:w-64 sm:w-48 sm:p-3">
+        <h2 className="text-2xl font-semibold mb-5 sm:text-xl">Waiting for museum to be approved</h2>
+      </div>
+    );
+  }
+
   return (
     <div className="h-full bg-gray-800 text-white w-64 p-5 md:w-64 sm:w-48 sm:p-3">
       <h2 className="text-2xl font-semibold mb-5 sm:text-xl">

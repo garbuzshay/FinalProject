@@ -1,0 +1,163 @@
+2024-07-24 19:22:41 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:22:41 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:22:41 [31merror[39m: Error retrieving exhibition with ID 669fdd96252883f23dc5c8ef: Schema hasn't been registered for model "artworks".
+Use mongoose.model(name, schema)
+2024-07-24 19:22:41 [31merror[39m: Error retrieving exhibition with ID 669fdd96252883f23dc5c8ef: Schema hasn't been registered for model "artworks".
+Use mongoose.model(name, schema)
+2024-07-24 19:23:33 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:23:33 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:23:41 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:23:41 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:24:19 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:24:19 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:24:35 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:24:35 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:25:00 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:25:00 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:27:42 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:29:26 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:29:33 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:29:42 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:30:02 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":[],"newCurators":[{"name":"siso","lastName":"siso","email":"sisos@gmail.com","phoneNumber":"0547474747"}],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 19:33:53 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":[],"newCurators":[{"name":"siso","lastName":"siso","email":"sisos@gmail.com","phoneNumber":"0547474747"}],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 19:35:31 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":[],"newCurators":[{"name":"siso","lastName":"siso","email":"sisos@gmail.com","phoneNumber":"0547474747"}],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 19:39:44 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":[],"newCurators":[{"name":"siso","lastName":"siso","email":"sisos@gmail.com","phoneNumber":"0547474747"}],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 19:43:23 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":[],"newCurators":[{"name":"siso1","lastName":"siso1","email":"sis1os@gmail.com","phoneNumber":"0522474747"}],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 19:43:28 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 19:43:42 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:45:11 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:45:18 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:45:22 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:45:25 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 19:45:32 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 19:45:34 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:45:41 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 19:45:45 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 19:45:48 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 19:46:03 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:46:19 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae","66a12f2d5e0a604a77d703eb"],"newCurators":[{"name":"tufo","lastName":"tufo","email":"tufo@gmail.com","phoneNumber":"0514741747"}],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 19:46:22 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 19:46:24 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:46:32 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae","66a12f2d5e0a604a77d703eb"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 19:46:36 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 19:47:37 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:47:43 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae","66a12f2d5e0a604a77d703eb"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 19:47:49 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 19:55:05 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:01:19 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae","66a12f2d5e0a604a77d703eb","66a12fdc5e0a604a77d7042e"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 20:01:19 [31merror[39m: Error updating exhibition with ID 669fdd96252883f23dc5c8ef: logger is not defined
+2024-07-24 20:02:06 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae","66a12f2d5e0a604a77d703eb","66a12fdc5e0a604a77d7042e"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 20:02:07 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae","66a12f2d5e0a604a77d703eb","66a12c0c9cc5f5654c0642ae","66a12f2d5e0a604a77d703eb","66a12fdc5e0a604a77d7042e"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 20:02:23 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 20:02:25 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:04:18 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:04:26 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 20:04:26 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 20:04:36 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:04:39 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 20:04:42 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:06:17 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae"],"newCurators":[{"name":"hgjgjh","lastName":"tereteert","email":"kjhhgf@gmail.com","phoneNumber":"0525000520"}],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 20:06:19 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae","66a1348ba03076e27f1c0107"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 20:06:27 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 20:06:29 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:07:16 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:11:04 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:11:36 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:11:43 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:12:22 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae","66a1348ba03076e27f1c0107"],"newCurators":[{"name":"dadadada","lastName":"dsdsdsd","email":"daddyt@mail.com","phoneNumber":"05350594487"}],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 20:12:23 [31merror[39m: Error updating exhibition with ID 669fdd96252883f23dc5c8ef: The phone number must be a non-empty E.164 standard compliant identifier string.
+2024-07-24 20:12:23 [31merror[39m: Error updating exhibition with ID 669fdd96252883f23dc5c8ef: The phone number must be a non-empty E.164 standard compliant identifier string.
+2024-07-24 20:12:31 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae","66a1348ba03076e27f1c0107"],"newCurators":[{"name":"dadadada","lastName":"dsdsdsd","email":"daddyt@mail.com","phoneNumber":"0535594487"}],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 20:12:32 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae","66a1348ba03076e27f1c0107","66a13600a03076e27f1c012e"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 20:12:33 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:13:17 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:13:47 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:13:57 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae","66a1348ba03076e27f1c0107"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 20:13:57 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae","66a1348ba03076e27f1c0107"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 20:13:57 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:14:46 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae","66a1348ba03076e27f1c0107"],"newCurators":[{"name":"haarby","lastName":"darbu","email":"darbu@mail.com","phoneNumber":"0591234567"}],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 20:14:48 [32minfo[39m: Updating exhibition with ID: 669fdd96252883f23dc5c8ef and data: {"name":"test","description":"testo","maxArtworks":10,"curators":["66a12c0c9cc5f5654c0642ae","66a1348ba03076e27f1c0107","66a13688a03076e27f1c0148"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 20:14:48 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:15:10 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:17:05 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:17:10 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:17:55 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:18:42 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 20:18:52 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 20:18:53 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:18:55 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 20:19:29 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:19:31 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 20:19:32 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:19:35 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 20:19:51 [32minfo[39m: Retrieving exhibition with ID: 669fdd96252883f23dc5c8ef
+2024-07-24 20:20:26 [32minfo[39m: Retrieving all exhibitions
+2024-07-24 20:20:36 [32minfo[39m: Retrieving all exhibitions
+2024-07-24 20:20:38 [32minfo[39m: Retrieving all exhibitions
+2024-07-24 20:22:34 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 20:22:42 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 20:22:50 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 20:53:35 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a13f81f650a73c2fd8b56d
+2024-07-24 20:54:06 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a13f81f650a73c2fd8b56d
+2024-07-24 20:54:45 [32minfo[39m: Creating exhibition with data: {"name":"firstMuseum","description":"This is our First abcd Museum","maxArtworks":"25","curators":[{"name":"dcba","lastName":"dcba","email":"dcba@hotmail.com","phoneNumber":"0591234567"}]}
+2024-07-24 20:55:12 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a13f81f650a73c2fd8b56d
+2024-07-24 20:55:21 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a13f81f650a73c2fd8b56d
+2024-07-24 20:55:22 [32minfo[39m: Retrieving exhibition with ID: 66a13fe8f650a73c2fd8b599
+2024-07-24 20:55:37 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a13f81f650a73c2fd8b56d
+2024-07-24 20:55:43 [32minfo[39m: Retrieving exhibition with ID: 66a13fe8f650a73c2fd8b599
+2024-07-24 20:55:48 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a13f81f650a73c2fd8b56d
+2024-07-24 20:55:56 [32minfo[39m: Retrieving all exhibitions
+2024-07-24 20:58:17 [32minfo[39m: Retrieving all exhibitions
+2024-07-24 20:58:27 [32minfo[39m: Retrieving all exhibitions
+2024-07-24 21:11:28 [32minfo[39m: Retrieving all exhibitions
+2024-07-24 21:11:32 [32minfo[39m: Retrieving all exhibitions
+2024-07-24 21:12:24 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 21:12:27 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 21:13:27 [32minfo[39m: Creating exhibition with data: {"name":"Garbu","description":"nothing!","maxArtworks":"9","curators":[{"name":"no","lastName":"thing","email":"nothing@hotmail.com","phoneNumber":"0581234567"}]}
+2024-07-24 21:13:33 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 21:13:35 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-24 21:13:41 [32minfo[39m: Updating exhibition with ID: 66a14449f650a73c2fd8b6a1 and data: {"name":"Garbuz","description":"nothing!","maxArtworks":9,"curators":["66a14448f650a73c2fd8b69b"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 21:13:42 [32minfo[39m: Updating exhibition with ID: 66a14449f650a73c2fd8b6a1 and data: {"name":"Garbuz","description":"nothing!","maxArtworks":9,"curators":["66a14448f650a73c2fd8b69b"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-24 21:13:42 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-24 21:13:44 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 21:13:46 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-24 21:14:29 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 21:15:00 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-24 21:15:23 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 21:16:26 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 21:16:52 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-24 21:21:14 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a13f81f650a73c2fd8b56d
+2024-07-24 21:22:13 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a13f81f650a73c2fd8b56d
+2024-07-24 21:46:53 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a13f81f650a73c2fd8b56d
+2024-07-24 21:55:30 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a13f81f650a73c2fd8b56d
+2024-07-24 21:55:32 [32minfo[39m: Retrieving exhibition with ID: 66a13fe8f650a73c2fd8b599
+2024-07-24 21:55:39 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a13f81f650a73c2fd8b56d
+2024-07-24 21:56:10 [32minfo[39m: Retrieving all exhibitions
+2024-07-25 09:44:48 [32minfo[39m: Retrieving all exhibitions
+2024-07-25 10:01:52 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-25 10:04:51 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-25 10:04:53 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-25 10:05:02 [32minfo[39m: Updating exhibition with ID: 66a14449f650a73c2fd8b6a1 and data: {"name":"Garbuz","description":"nothing!","maxArtworks":9,"curators":[],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-25 10:05:02 [32minfo[39m: Updating exhibition with ID: 66a14449f650a73c2fd8b6a1 and data: {"name":"Garbuz","description":"nothing!","maxArtworks":9,"curators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-25 10:05:02 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-25 10:05:08 [32minfo[39m: Updating exhibition with ID: 66a14449f650a73c2fd8b6a1 and data: {"name":"Garbuz","description":"nothing!","maxArtworks":"10","curators":[],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-25 10:05:09 [32minfo[39m: Updating exhibition with ID: 66a14449f650a73c2fd8b6a1 and data: {"name":"Garbuz","description":"nothing!","maxArtworks":"10","curators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-25 10:05:09 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-25 10:05:11 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-25 10:31:57 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-25 10:32:02 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-25 10:45:59 [32minfo[39m: Retrieving all exhibitions
+2024-07-25 11:20:22 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-25 11:20:31 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-25 11:33:24 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-25 11:34:10 [32minfo[39m: Creating exhibition with data: {"name":"Apple","description":"iphone, ipad and airPods","maxArtworks":"3","curators":[{"name":"apple","lastName":"apple","email":"apple@gmail.com","phoneNumber":"0599988776"}]}
+2024-07-25 11:34:16 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-25 11:34:29 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-25 11:34:31 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-25 11:34:34 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-25 11:34:37 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-25 11:34:40 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-25 11:34:43 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-25 11:34:51 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-25 11:34:55 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-25 11:40:57 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254

@@ -29,7 +29,8 @@ app.listen(PORT, () => {
 });
 
 
-//ofekaz24@gmail.com Generated Password: 3bd52fcc
+//mensch.edutainment@gmail.com  Password: Mensch123
+//apple@gmail.com Generated Password: 29bd4db4
 // abcdef@gmail.com Generated Password: d8601e15
 //shay.garbuz Shay123
 // const adminData = {

@@ -1,0 +1,7 @@
+2024-07-24 19:22:41 [31merror[39m: Error retrieving exhibition with ID 669fdd96252883f23dc5c8ef: Schema hasn't been registered for model "artworks".
+Use mongoose.model(name, schema)
+2024-07-24 19:22:41 [31merror[39m: Error retrieving exhibition with ID 669fdd96252883f23dc5c8ef: Schema hasn't been registered for model "artworks".
+Use mongoose.model(name, schema)
+2024-07-24 20:01:19 [31merror[39m: Error updating exhibition with ID 669fdd96252883f23dc5c8ef: logger is not defined
+2024-07-24 20:12:23 [31merror[39m: Error updating exhibition with ID 669fdd96252883f23dc5c8ef: The phone number must be a non-empty E.164 standard compliant identifier string.
+2024-07-24 20:12:23 [31merror[39m: Error updating exhibition with ID 669fdd96252883f23dc5c8ef: The phone number must be a non-empty E.164 standard compliant identifier string.

@@ -13,13 +13,13 @@ const sideBarData = {
       { name: "Exhibitions Management", path: "/owner/exhibiton-list" },
       { name: "Open New Exhibitons", path: "/owner/open-exhibit"},
       { name: "Edit Plan", path: "/owner/editMuseumPlan"},
-      { name: "Contact us", path: "/owner/Contact us"},
+      { name: "Contact us", path: "/owner/contact-us"},
 
     ],
     Curator: [
       { name: "Curator Dashboard", path: "/curator/dashboard" },
       { name: "Exhibitions Management", path: "/curator/exhibitions" },
-      { name: "Contact us", path: "/Curator/Contact us"},
+      { name: "Contact us", path: "/curator/contact-us"},
     ],
   };
   

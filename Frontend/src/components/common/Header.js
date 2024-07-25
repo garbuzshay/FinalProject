@@ -15,7 +15,7 @@ const Header = ({ buttonText, buttonPath }) => {
                 case 'Admin':
                     return 'Admin Dashboard';
                 case 'MuseumOwner':
-                    return `Hello ${user.name}, Welcome to ${user.museum.name} CMS`;
+                    return `Hello ${user.name}, Welcome to ${user.museum? user.museum.name : "your museum "} CMS`;
                 case 'Curator':
                     return `Hello ${user.name}, Welcome to the Curator's area in ${user.museum.name} CMS`;
                 default:
@@ -31,7 +31,7 @@ const Header = ({ buttonText, buttonPath }) => {
     };
 
     return (
-        <header className="bg-white shadow p-4 flex justify-between items-center">
+        <header className="shadow p-4 flex justify-between items-center">
             <h1 className="text-xl font-semibold sm:text-lg">{title}</h1>
             <div className="sm:mt-2">
                 <button

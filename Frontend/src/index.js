@@ -9,7 +9,7 @@ import { RegisterProvider } from "./contexts/RegisterContext";
 import { UserProvider } from "./contexts/UserContext";
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Router>
       <UserProvider>
         <IntroProvider>
@@ -18,8 +18,8 @@ ReactDOM.render(
           </RegisterProvider>
         </IntroProvider>
       </UserProvider>
-    </Router>
-  </React.StrictMode>,
+    </Router>,
+  // </React.StrictMode>,
   document.getElementById("root")
 );
 
