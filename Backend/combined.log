@@ -161,3 +161,142 @@ Use mongoose.model(name, schema)
 2024-07-25 11:34:51 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
 2024-07-25 11:34:55 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
 2024-07-25 11:40:57 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-27 16:25:51 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-27 16:25:51 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-27 16:25:57 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-27 16:25:58 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-27 16:27:43 [32minfo[39m: Updating exhibition with ID: 66a14449f650a73c2fd8b6a1 and data: {"name":"Garbuz","description":"nothing!","maxArtworks":10,"curators":[],"newCurators":[{"name":"Tanya ","lastName":"Garbuz","email":"Tanya@gmail.com","phoneNumber":"0523739176"}],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-27 16:27:46 [32minfo[39m: Updating exhibition with ID: 66a14449f650a73c2fd8b6a1 and data: {"name":"Garbuz","description":"nothing!","maxArtworks":10,"curators":["66a4f5d20b752113002b0c1e"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-27 16:27:46 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-27 16:27:50 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-27 17:10:05 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-27 17:10:14 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-27 17:10:14 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-27 17:10:17 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-27 17:10:20 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-27 17:10:27 [32minfo[39m: Retrieving exhibitions for museum with ID: 669fdcd3252883f23dc5c8a8
+2024-07-27 17:10:42 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-27 17:14:00 [32minfo[39m: Retrieving all exhibitions
+2024-07-27 17:14:10 [32minfo[39m: Retrieving all exhibitions
+2024-07-27 17:14:32 [32minfo[39m: Retrieving all exhibitions
+2024-07-27 17:14:40 [32minfo[39m: Retrieving all exhibitions
+2024-07-27 17:15:21 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-27 17:15:47 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-27 17:15:48 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-27 17:15:53 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-27 17:15:56 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-27 17:16:10 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-27 17:16:11 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-27 17:16:21 [32minfo[39m: Updating exhibition with ID: 66a20e047376e149bae1968e and data: {"name":"Apple","description":"iphone, ipad and airPods","maxArtworks":"25","curators":["66a20e047376e149bae19689"],"newCurators":[],"museum":"66a1f4ad8e090cb24ddc3254"}
+2024-07-27 17:16:21 [32minfo[39m: Updating exhibition with ID: 66a20e047376e149bae1968e and data: {"name":"Apple","description":"iphone, ipad and airPods","maxArtworks":"25","curators":["66a20e047376e149bae19689"],"museum":"66a1f4ad8e090cb24ddc3254"}
+2024-07-27 17:16:21 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-27 17:16:28 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-27 17:16:28 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-27 17:16:33 [32minfo[39m: Updating exhibition with ID: 66a20e047376e149bae1968e and data: {"name":"Apple","description":"iphone, ipad and airPods","maxArtworks":"1500","curators":["66a20e047376e149bae19689"],"newCurators":[],"museum":"66a1f4ad8e090cb24ddc3254"}
+2024-07-27 17:16:34 [32minfo[39m: Updating exhibition with ID: 66a20e047376e149bae1968e and data: {"name":"Apple","description":"iphone, ipad and airPods","maxArtworks":"1500","curators":["66a20e047376e149bae19689"],"museum":"66a1f4ad8e090cb24ddc3254"}
+2024-07-27 17:16:34 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-27 17:16:52 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-27 17:16:53 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-27 17:16:56 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-27 17:17:01 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-27 17:17:02 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-27 17:17:11 [32minfo[39m: Updating exhibition with ID: 66a20e047376e149bae1968e and data: {"name":"Apple","description":"iphone, ipad and airPods","maxArtworks":"-1500","curators":["66a20e047376e149bae19689"],"newCurators":[],"museum":"66a1f4ad8e090cb24ddc3254"}
+2024-07-27 17:17:11 [32minfo[39m: Updating exhibition with ID: 66a20e047376e149bae1968e and data: {"name":"Apple","description":"iphone, ipad and airPods","maxArtworks":"-1500","curators":["66a20e047376e149bae19689"],"museum":"66a1f4ad8e090cb24ddc3254"}
+2024-07-27 17:17:11 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-27 17:17:43 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-27 17:17:44 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-27 17:17:49 [32minfo[39m: Updating exhibition with ID: 66a20e047376e149bae1968e and data: {"name":"Apple","description":"iphone, ipad and airPods","maxArtworks":"25","curators":["66a20e047376e149bae19689"],"newCurators":[],"museum":"66a1f4ad8e090cb24ddc3254"}
+2024-07-27 17:17:49 [32minfo[39m: Updating exhibition with ID: 66a20e047376e149bae1968e and data: {"name":"Apple","description":"iphone, ipad and airPods","maxArtworks":"25","curators":["66a20e047376e149bae19689"],"museum":"66a1f4ad8e090cb24ddc3254"}
+2024-07-27 17:17:49 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-27 17:18:02 [32minfo[39m: Retrieving exhibitions for museum with ID: 66a1f4ad8e090cb24ddc3254
+2024-07-27 17:18:03 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-27 17:49:36 [32minfo[39m: Retrieving exhibitions for User with ID: 66a20e047376e149bae19689
+2024-07-27 17:50:14 [32minfo[39m: Retrieving exhibitions for User with ID: 66a139cd8705b46ecf53f501
+2024-07-27 17:50:25 [32minfo[39m: Retrieving exhibitions for User with ID: 66a139cd8705b46ecf53f501
+2024-07-27 17:51:14 [32minfo[39m: Retrieving exhibitions for User with ID: 66a139cd8705b46ecf53f501
+2024-07-27 17:51:36 [32minfo[39m: Retrieving exhibitions for User with ID: 66a139cd8705b46ecf53f501
+2024-07-27 17:51:51 [32minfo[39m: Retrieving exhibitions for User with ID: 66a139cd8705b46ecf53f501
+2024-07-27 17:52:41 [32minfo[39m: Retrieving exhibitions for User with ID: 66a20e047376e149bae19689
+2024-07-27 17:53:21 [32minfo[39m: Retrieving all exhibitions
+2024-07-27 17:54:53 [32minfo[39m: Retrieving exhibitions for User with ID: 66a20e047376e149bae19689
+2024-07-27 17:55:00 [32minfo[39m: Retrieving exhibitions for User with ID: 66a20e047376e149bae19689
+2024-07-27 17:56:28 [32minfo[39m: Retrieving exhibitions for User with ID: 66a20e047376e149bae19689
+2024-07-27 17:57:00 [32minfo[39m: Retrieving exhibitions for User with ID: 66a20e047376e149bae19689
+2024-07-27 17:57:18 [32minfo[39m: Retrieving exhibitions for User with ID: 66a20e047376e149bae19689
+2024-07-27 17:57:36 [32minfo[39m: Retrieving exhibitions for User with ID: 66a139cd8705b46ecf53f501
+2024-07-27 17:57:49 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-27 17:58:58 [32minfo[39m: Creating exhibition with data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"26","curators":[{"name":"Mirit","lastName":"Cohen","email":"mirit@gmail.com","phoneNumber":"0528736396"}]}
+2024-07-27 17:59:07 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-27 17:59:11 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-27 18:00:33 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-27 18:07:47 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-27 18:08:17 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 18:08:23 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 18:08:27 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 18:08:33 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 18:08:47 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:05:12 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:14:45 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:15:02 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:16:55 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:19:28 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:23:38 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:30:08 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:30:15 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:30:21 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:30:51 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:32:00 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:33:09 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-27 19:33:10 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-27 19:34:23 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:43:15 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:44:48 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:45:32 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:46:40 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:46:43 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:46:49 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:46:54 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:48:01 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:54:09 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:54:28 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:55:21 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:55:22 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:55:34 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 19:55:35 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 20:03:14 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 20:11:47 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 20:18:21 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 20:39:47 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 20:40:51 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 20:42:41 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 20:48:17 [32minfo[39m: Creating artwork for exhibition with ID: [object Object]
+2024-07-27 20:48:17 [31merror[39m: Error creating artwork for exhibition with ID [object Object]: artworks validation failed: exhibition: Cast to ObjectId failed for value "[object Object]" (type string) at path "exhibition" because of "BSONError", artist: Cast to ObjectId failed for value "aa" (type string) at path "artist" because of "BSONError"
+2024-07-27 20:57:59 [32minfo[39m: Creating artwork for exhibition with ID: [object Object]
+2024-07-27 20:57:59 [31merror[39m: Error creating artwork for exhibition with ID [object Object]: artworks validation failed: exhibition: Cast to ObjectId failed for value "[object Object]" (type string) at path "exhibition" because of "BSONError", artist: Path `artist` is required., description: Path `description` is required., createdDateByArtist: Path `createdDateByArtist` is required., title: Path `title` is required.
+2024-07-27 20:59:15 [32minfo[39m: Creating artwork for exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-27 20:59:15 [31merror[39m: Error creating artwork for exhibition with ID 66a14449f650a73c2fd8b6a1: artworks validation failed: artist: Cast to ObjectId failed for value "aaa" (type string) at path "artist" because of "BSONError"
+2024-07-27 21:02:16 [32minfo[39m: Creating artwork for exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-27 21:02:52 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-27 21:04:19 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-27 21:04:57 [32minfo[39m: Creating artwork for exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-27 21:05:02 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-27 21:07:24 [32minfo[39m: Creating artwork for exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-27 21:07:29 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-27 21:15:12 [32minfo[39m: Creating artwork for exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-27 21:15:18 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-27 21:18:19 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-27 21:19:04 [32minfo[39m: Retrieving exhibitions for User with ID: 66a139cd8705b46ecf53f501
+2024-07-27 21:20:56 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-27 21:21:20 [32minfo[39m: Creating artwork for exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-27 21:21:20 [31merror[39m: Error creating artwork for exhibition with ID 66a50b3541ee98b8e81e42d7: ArtworkService is not defined
+2024-07-27 21:21:32 [32minfo[39m: Creating artwork for exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-27 21:21:32 [31merror[39m: Error creating artwork for exhibition with ID 66a50b3541ee98b8e81e42d7: ArtworkService is not defined
+2024-07-27 21:21:50 [32minfo[39m: Creating artwork for exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-27 21:21:56 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-27 21:24:08 [32minfo[39m: Creating artwork for exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-27 21:24:40 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-27 21:25:10 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-27 21:27:51 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-27 21:27:54 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-27 21:28:11 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-27 21:28:44 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1

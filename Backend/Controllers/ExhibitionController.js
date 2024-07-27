@@ -1,5 +1,6 @@
 import ExhibitionsService from '../Services/ExhibitionsService.js';
-import logger from '../utils/logger.js'; // Assuming you have a logger utility
+import ArtworkService from '../Services/ArtworkService.js';
+import logger from '../Utils/logger.js'; // Assuming you have a logger utility
 
 export const createExhibition = async (req, res) => {
   try {
@@ -13,6 +14,30 @@ export const createExhibition = async (req, res) => {
     });
   } catch (error) {
     logger.error(`Error creating exhibition: ${error.message}`);
+    res.status(400).json({
+      message: error.message,
+      success: false
+    });
+  }
+};
+
+export const createArtworkInExhibition = async (req, res) => {
+  try {
+    const { id: exhibitionId } = req.params;  // Extract exhibition ID from URL parameters
+    const artworkData = { ...req.body, exhibition: exhibitionId };  // Include exhibition ID in the artwork data
+
+    logger.info(`Creating artwork for exhibition with ID: ${exhibitionId}`);
+    const artwork = await ArtworkService.createArtwork(artworkData);
+
+    await ExhibitionsService.addArtworkToExhibition(exhibitionId, artwork._id);
+    
+    res.status(201).json({
+      message: 'Artwork created successfully',
+      success: true,
+      data: artwork
+    });
+  } catch (error) {
+    logger.error(`Error creating artwork for exhibition with ID ${req.params.id}: ${error.message}`);
     res.status(400).json({
       message: error.message,
       success: false
@@ -114,10 +139,17 @@ export const deleteExhibition = async (req, res) => {
   }
 };
 
-export const getMuseumExhibitions = async (req, res) => {
+export const getUserExhibitions = async (req, res) => {
+  let exhibitions = [];
   try {
-    logger.info(`Retrieving exhibitions for museum with ID: ${req.user.museum._id}`);
-    const exhibitions = await ExhibitionsService.getMuseumExhibitions(req.user.museum._id);
+    logger.info(`Retrieving exhibitions for User with ID: ${req.user._id}`);
+
+    if (req.user.role.roleName === 'MuseumOwner') {
+      exhibitions = await ExhibitionsService.getMuseumExhibitions(req.user.museum._id);
+    } else if (req.user.role.roleName === 'Curator') {
+      exhibitions = await ExhibitionsService.getCuratorExhibitions(req.user._id);
+    }
+
     res.status(200).json({
       message: 'Exhibitions retrieved successfully',
       success: true,

@@ -63,25 +63,7 @@ class ExhibitionsService {
       .populate("artworks", "name");
   }
 
-  // async updateExhibition(id, exhibitionData) {
-  //   if (exhibitionData.newCurators) {
-  //     const curatorPromises = exhibitionData.newCurators.map((curatorData) =>
-  //       UsersService.createUser({
-  //         ...curatorData,
-  //         role: "Curator",
-  //         museum: exhibitionData.museum,
-  //       })
-  //     );
-  //     const createdCurators = await Promise.all(curatorPromises);
-  //     const curatorIds = createdCurators.map((curator) => curator._id);
-  //     exhibitionData.curators = curatorIds;
-  //     delete exhibitionData.newCurators;
-  //   }
-  //   return await ExhibitionModel.findByIdAndUpdate(id, exhibitionData, {
-  //     new: true,
-  //     runValidators: true,
-  //   });
-  // }
+
   async updateExhibition(id, exhibitionData) {
     try {
       // Fetch the existing exhibition to get the current curators
@@ -141,7 +123,12 @@ class ExhibitionsService {
       .populate("museum")
       .populate("artworks");
   }
-
+  async getCuratorExhibitions(curatorId) {
+    return await ExhibitionModel.find({ curators: { $in: [curatorId] } })
+    .populate("curators")
+    .populate("museum")
+    .populate("artworks");
+  }
   //
   async getExhibitionsWithDetails() {
     try {
@@ -167,6 +154,20 @@ class ExhibitionsService {
       }));
     } catch (error) {
       console.error("Error retrieving exhibitions with details:", error);
+      throw error;
+    }
+  }
+
+  async addArtworkToExhibition(exhibitionId, artworkId) {
+    try {
+      const exhibition = await ExhibitionModel.findById(exhibitionId);
+      if (!exhibition) {
+        throw new Error('Exhibition not found');
+      }
+      exhibition.artworks.push(artworkId);
+      await exhibition.save();
+    } catch (error) {
+      console.error('Error adding artwork to exhibition:', error);
       throw error;
     }
   }

@@ -28,7 +28,8 @@ app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
 
-
+//Tanya@gmail.com Generated Password: 227166a1
+//mirit@gmail.com Generated Password: 3c5e9b93
 //mensch.edutainment@gmail.com  Password: Mensch123
 //apple@gmail.com Generated Password: 29bd4db4
 // abcdef@gmail.com Generated Password: d8601e15

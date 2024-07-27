@@ -74,7 +74,7 @@ class ExhibitionsApi extends BaseApi {
     }
   }
 
-  async getMuseumOwnerExhibitions() {
+  async getUserExhibitions() {
     try {
       const response = await this.api.get(`/exhibitions/my`);
       return response.data.data;

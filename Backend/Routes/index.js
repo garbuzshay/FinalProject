@@ -7,6 +7,8 @@ import MuseumRouter from './MuseumRouter.js';
 import ExhibitionRouter from './ExhibitionRouter.js';
 import ContactUsRouter from './ContactUsRouter.js'; // Import the new ContactUsRouter
 import authenticateUser from '../Middlewares/AuthenticateUser.js';
+import ArtworkRouter from './ArtworkRouter.js';
+import ArtistRouter from './ArtistRouter.js';
 
 const router = Router();
 
@@ -17,5 +19,7 @@ router.use('/users', UsersRouter);
 router.use('/museums', MuseumRouter);
 router.use('/exhibitions', ExhibitionRouter);
 router.use('/contact', ContactUsRouter); // Add the new ContactUsRouter
+router.use('/artworks', ArtworkRouter);
+router.use('/artists', ArtistRouter);
 
 export default router;

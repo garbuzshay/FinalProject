@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import exhibitionsApi from '../api/ExhibitionsApi';
 
-const useMuseumOwnerExhibitions = () => {
+const useUserExhibitions = () => {
     const [exhibitions, setExhibitions] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ const useMuseumOwnerExhibitions = () => {
         const fetchExhibitions = async () => {
             setIsLoading(true);
             try {
-                const data = await exhibitionsApi.getMuseumOwnerExhibitions();
+                const data = await exhibitionsApi.getUserExhibitions();
                 setExhibitions(data); // Make sure this matches the structure of your API response
                 setIsLoading(false);
             } catch (error) {
@@ -25,4 +25,4 @@ const useMuseumOwnerExhibitions = () => {
     return { exhibitions, isLoading, error };
 };
 
-export default useMuseumOwnerExhibitions;
+export default useUserExhibitions;
