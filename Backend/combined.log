@@ -300,3 +300,322 @@ Use mongoose.model(name, schema)
 2024-07-27 21:27:54 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
 2024-07-27 21:28:11 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
 2024-07-27 21:28:44 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 09:48:05 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 09:48:11 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 09:48:25 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 09:49:04 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 09:52:26 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 09:52:28 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 09:52:58 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-28 09:53:43 [32minfo[39m: Retrieving exhibitions for User with ID: 66a139cd8705b46ecf53f501
+2024-07-28 09:53:44 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-28 09:53:45 [32minfo[39m: Retrieving exhibitions for User with ID: 66a139cd8705b46ecf53f501
+2024-07-28 09:53:58 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 09:57:13 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 09:57:56 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 10:01:03 [32minfo[39m: Retrieving exhibitions for User with ID: 66a20e047376e149bae19689
+2024-07-28 10:04:33 [32minfo[39m: Creating artwork for exhibition with ID: 66a20e047376e149bae1968e
+2024-07-28 10:04:37 [32minfo[39m: Retrieving exhibitions for User with ID: 66a20e047376e149bae19689
+2024-07-28 10:05:54 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:07:01 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:07:15 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:07:20 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:10:11 [32minfo[39m: Creating exhibition with data: {"name":"try New Exhibition","description":"one more try","maxArtworks":"4","imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs3Kh7uTsaz1i0xL5Bf8lqXWshGOSdncPwfw&s","curators":[{"name":"try","lastName":"try","email":"try@gmail.com","phoneNumber":"0522222222"}]}
+2024-07-28 10:10:22 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:10:41 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:10:43 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 10:11:33 [32minfo[39m: Updating exhibition with ID: 66a14449f650a73c2fd8b6a1 and data: {"name":"Garbuz","description":"nothing!","maxArtworks":10,"curators":["66a4f5d20b752113002b0c1e"],"newCurators":[{"name":"Grigory","lastName":"Garbuz","email":"GrigoryGarbuz@gmail.com","phoneNumber":"0528229043"}],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 10:11:35 [32minfo[39m: Updating exhibition with ID: 66a14449f650a73c2fd8b6a1 and data: {"name":"Garbuz","description":"nothing!","maxArtworks":10,"curators":["66a4f5d20b752113002b0c1e","66a5ef27eed289d1e039aca1"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 10:11:35 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 10:12:12 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:12:15 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:12:16 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 10:14:18 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 10:14:34 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:14:35 [32minfo[39m: Retrieving exhibition with ID: 66a5eed6eed289d1e039ac6e
+2024-07-28 10:14:48 [32minfo[39m: Updating exhibition with ID: 66a5eed6eed289d1e039ac6e and data: {"name":"try New Exhibition","description":"one more try","maxArtworks":4,"imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThb_ZrEilyV3Tmktl08xBeUQyjfXnXMcRoXg&s","curators":["66a5eed5eed289d1e039ac68"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 10:14:48 [32minfo[39m: Updating exhibition with ID: 66a5eed6eed289d1e039ac6e and data: {"name":"try New Exhibition","description":"one more try","maxArtworks":4,"imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThb_ZrEilyV3Tmktl08xBeUQyjfXnXMcRoXg&s","curators":["66a5eed5eed289d1e039ac68"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 10:14:48 [32minfo[39m: Retrieving exhibition with ID: 66a5eed6eed289d1e039ac6e
+2024-07-28 10:14:50 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:14:54 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:15:06 [32minfo[39m: Retrieving exhibition with ID: 66a5eed6eed289d1e039ac6e
+2024-07-28 10:16:06 [32minfo[39m: Updating exhibition with ID: 66a5eed6eed289d1e039ac6e and data: {"name":"try New Exhibition","description":"one more try","maxArtworks":"5","imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThb_ZrEilyV3Tmktl08xBeUQyjfXnXMcRoXg&s","curators":["66a5eed5eed289d1e039ac68"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 10:16:06 [32minfo[39m: Updating exhibition with ID: 66a5eed6eed289d1e039ac6e and data: {"name":"try New Exhibition","description":"one more try","maxArtworks":"5","imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThb_ZrEilyV3Tmktl08xBeUQyjfXnXMcRoXg&s","curators":["66a5eed5eed289d1e039ac68"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 10:16:07 [32minfo[39m: Retrieving exhibition with ID: 66a5eed6eed289d1e039ac6e
+2024-07-28 10:17:11 [32minfo[39m: Retrieving exhibition with ID: 66a5eed6eed289d1e039ac6e
+2024-07-28 10:18:30 [32minfo[39m: Retrieving exhibition with ID: 66a5eed6eed289d1e039ac6e
+2024-07-28 10:18:50 [32minfo[39m: Retrieving exhibition with ID: 66a5eed6eed289d1e039ac6e
+2024-07-28 10:19:08 [32minfo[39m: Retrieving exhibition with ID: 66a5eed6eed289d1e039ac6e
+2024-07-28 10:19:15 [32minfo[39m: Retrieving exhibition with ID: 66a5eed6eed289d1e039ac6e
+2024-07-28 10:19:17 [32minfo[39m: Retrieving exhibition with ID: 66a5eed6eed289d1e039ac6e
+2024-07-28 10:19:27 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:19:28 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 10:19:31 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:19:32 [32minfo[39m: Retrieving exhibition with ID: 66a5eed6eed289d1e039ac6e
+2024-07-28 10:20:21 [32minfo[39m: Retrieving exhibition with ID: 66a5eed6eed289d1e039ac6e
+2024-07-28 10:20:22 [32minfo[39m: Retrieving exhibition with ID: 66a5eed6eed289d1e039ac6e
+2024-07-28 10:22:28 [32minfo[39m: Retrieving exhibition with ID: 66a5eed6eed289d1e039ac6e
+2024-07-28 10:22:43 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:22:44 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 10:22:49 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:22:53 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:22:54 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 10:23:21 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 10:23:22 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:24:35 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 10:29:11 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 10:29:51 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 10:30:20 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 10:33:33 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 10:33:41 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 10:34:37 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 10:35:30 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 10:35:52 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 10:36:47 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 10:37:03 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 10:37:23 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 10:37:24 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 10:38:42 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:38:44 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 10:38:46 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:38:55 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:40:10 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:56:56 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:57:08 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:57:09 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:57:20 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:57:34 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:57:37 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:57:39 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:57:43 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 10:57:48 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:02:48 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:03:04 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:03:06 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:04:50 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:04:54 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:05:05 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:07:04 [32minfo[39m: Retrieving exhibitions for User with ID: 66a20e047376e149bae19689
+2024-07-28 11:07:34 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:07:36 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:18:06 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:21:07 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:28:42 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:31:59 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:32:02 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:32:04 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:53:42 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:53:46 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:53:49 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:54:32 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 11:54:42 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 11:54:45 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 11:54:51 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 13:26:40 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 13:27:07 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 13:27:12 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 13:27:27 [32minfo[39m: Retrieving exhibitions for User with ID: 66a20e047376e149bae19689
+2024-07-28 13:41:09 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 13:49:10 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 13:49:45 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 13:50:11 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 13:51:05 [32minfo[39m: Retrieving exhibitions for User with ID: 66a20e047376e149bae19689
+2024-07-28 13:51:22 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 13:51:26 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 13:57:21 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 13:57:24 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 13:57:25 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 13:57:27 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 13:58:11 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:00:56 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 14:01:28 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:01:29 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:13:05 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 14:13:08 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:21:26 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:25:39 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:25:43 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:25:51 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:25:53 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:26:05 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 14:26:08 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 14:26:33 [32minfo[39m: Retrieving exhibitions for User with ID: 66a20e047376e149bae19689
+2024-07-28 14:26:47 [32minfo[39m: Retrieving exhibitions for User with ID: 66a4f5d20b752113002b0c1e
+2024-07-28 14:27:02 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 14:28:43 [32minfo[39m: Retrieving exhibitions for User with ID: 66a139cd8705b46ecf53f501
+2024-07-28 14:28:45 [32minfo[39m: Retrieving exhibitions for User with ID: 66a139cd8705b46ecf53f501
+2024-07-28 14:28:47 [32minfo[39m: Retrieving exhibition with ID: 66a20e047376e149bae1968e
+2024-07-28 14:28:50 [32minfo[39m: Retrieving exhibitions for User with ID: 66a139cd8705b46ecf53f501
+2024-07-28 14:29:02 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:50:22 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:50:24 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:50:26 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:50:29 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:50:35 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:50:36 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:50:38 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:50:38 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:50:41 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:50:44 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:51:26 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:52:18 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:52:21 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 14:55:48 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:00:50 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:00:59 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:01:05 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:07:44 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:07:48 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:08:06 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:10:16 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:13:49 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:13:55 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:14:32 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:14:34 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:14:40 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:17:02 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:17:05 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:18:24 [32minfo[39m: Creating exhibition with data: {"name":"hey","description":"hey","maxArtworks":"11","imageUrl":"https://hopewissel.wordpress.com/wp-content/uploads/2014/12/try.jpg","curators":[{"name":"hey","lastName":"hey","email":"hey@gmail.com","phoneNumber":"0528585857"}]}
+2024-07-28 15:18:32 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:22:33 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:22:48 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:22:50 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:22:53 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:38:40 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:40:03 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:40:21 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:40:58 [32minfo[39m: Creating exhibition with data: {"name":"heyyy","description":"heyee","maxArtworks":"19","imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiYxvK0-INqqGrK2R1EWljD_0_dpW3Se6Ccg&s","curators":[{"name":"hola","lastName":"hole","email":"holahole@!mail.com","phoneNumber":"057411417"}]}
+2024-07-28 15:40:58 [31merror[39m: Error creating exhibition: The phone number must be a non-empty E.164 standard compliant identifier string.
+2024-07-28 15:41:15 [32minfo[39m: Creating exhibition with data: {"name":"heyyy","description":"heyee","maxArtworks":"19","imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiYxvK0-INqqGrK2R1EWljD_0_dpW3Se6Ccg&s","curators":[{"name":"hola","lastName":"hole","email":"holahole@!mail.com","phoneNumber":"0523696987"}]}
+2024-07-28 15:41:16 [31merror[39m: Error creating exhibition: The email address is improperly formatted.
+2024-07-28 15:41:30 [32minfo[39m: Creating exhibition with data: {"name":"heyyy","description":"heyee","maxArtworks":"19","imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiYxvK0-INqqGrK2R1EWljD_0_dpW3Se6Ccg&s","curators":[{"name":"hola","lastName":"hole","email":"holahole@gmail.com","phoneNumber":"0523696987"}]}
+2024-07-28 15:41:35 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:41:43 [32minfo[39m: Retrieving exhibition with ID: 66a63c7c4e249cd44afccfd5
+2024-07-28 15:41:48 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:42:01 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:42:05 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:42:08 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:42:58 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:43:09 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:45:01 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:45:05 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:45:08 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:45:10 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:45:26 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:45:53 [32minfo[39m: Retrieving exhibitions for User with ID: 669e5b851acdddd131463ac8
+2024-07-28 15:48:33 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 15:48:40 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 15:48:46 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 15:51:41 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 15:54:22 [32minfo[39m: Creating exhibition with data: {"name":"final test","description":"finalyu","maxArtworks":"10","imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkk1JE6P8-MKyb0wgEaMigs7A4s6w86yjcBA&s","curators":[{"name":"final","lastName":"finaly","email":"final@gmail.com","phoneNumber":"0529787895"},{"name":"finaly","lastName":"final","email":"finaly@gmail.com","phoneNumber":"0529787665"}]}
+2024-07-28 16:10:07 [32minfo[39m: Creating exhibition with data: {"name":"almsot","description":"4:20","maxArtworks":"2","imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnVb_Zy52PcOE9dbc8hali1A7ne8eQ3-wLrA&s","curators":[{"name":"four","lastName":"twenty","email":"4.20@gmail.com","phoneNumber":"0524204204"}]}
+2024-07-28 16:12:05 [32minfo[39m: Creating exhibition with data: {"name":"almost","description":"4:20 again","maxArtworks":"23","imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnVb_Zy52PcOE9dbc8hali1A7ne8eQ3-wLrA&s","curators":[{"name":"zz","lastName":"zz","email":"zz@gmail.com","phoneNumber":"0533256561"}]}
+2024-07-28 16:17:05 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 16:17:24 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 16:18:05 [32minfo[39m: Retrieving exhibitions for User with ID: 66a20e047376e149bae19689
+2024-07-28 16:18:28 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 16:28:28 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 16:29:58 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 16:32:02 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 16:34:34 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 16:34:36 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 16:35:06 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 16:39:59 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 16:40:10 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"25","imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 16:40:10 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"25","imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 16:40:11 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 16:47:02 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:10:34 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 18:11:05 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:11:08 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:11:09 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:11:11 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:11:13 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:13:28 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:13:33 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:20:34 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:20:52 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:21:16 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:21:19 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:22:35 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:23:06 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:25:28 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:28:53 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:29:09 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:31:06 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:33:56 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:34:40 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:34:50 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:39:22 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 18:40:04 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:40:55 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 18:41:45 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 18:43:35 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 18:47:32 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 18:49:25 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 18:49:28 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":25,"imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 18:49:29 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":25,"imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 18:49:29 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 18:51:27 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 18:51:32 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"24","imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 18:51:32 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"24","imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 18:51:32 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 18:51:36 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 18:51:41 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"25","imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 18:51:41 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"25","imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 18:51:41 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 18:51:47 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 18:51:53 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"24","imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 18:51:53 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"24","imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 18:51:53 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 18:52:00 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"25","imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 18:52:00 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"25","imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 18:52:00 [32minfo[39m: Retrieving exhibition with ID: 66a50b3541ee98b8e81e42d7
+2024-07-28 18:53:09 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 18:57:07 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 18:57:55 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 18:57:59 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 18:58:24 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 18:58:38 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 18:58:40 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 18:58:45 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 18:58:47 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 18:58:57 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 19:01:22 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 19:01:26 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 19:02:54 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 19:02:54 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 19:04:25 [32minfo[39m: Retrieving exhibition with ID: 66a14449f650a73c2fd8b6a1
+2024-07-28 19:10:52 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"24","imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 19:10:52 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"24","imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 19:11:02 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"25","imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"newCurators":[],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 19:11:02 [32minfo[39m: Updating exhibition with ID: 66a50b3541ee98b8e81e42d7 and data: {"name":"Caspo","description":"Caspi Caspo","maxArtworks":"25","imageUrl":"https://media.licdn.com/dms/image/C4E0BAQFngfOFBKbrKA/company-logo_200_200/0/1630617206564/caspo_one_logo?e=2147483647&v=beta&t=wF0pH_50gQGqJl4WAPvmN43zb9NKwsqkKrex0XADOQQ","curators":["66a50b3441ee98b8e81e42d1"],"museum":"669fdcd3252883f23dc5c8a8"}
+2024-07-28 19:14:53 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 19:24:51 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 19:25:33 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 19:30:24 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 19:30:51 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 19:31:03 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 19:33:29 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 19:36:48 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 19:39:57 [32minfo[39m: Retrieving all exhibitions
+2024-07-28 19:40:45 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 19:41:00 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 19:49:23 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 19:50:21 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 19:56:26 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 19:56:33 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 19:56:52 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 19:58:23 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 19:58:29 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 20:01:00 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 20:04:38 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 20:06:28 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 20:08:08 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 20:08:24 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 20:08:29 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 20:08:30 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 20:09:39 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 20:09:40 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 20:09:48 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1
+2024-07-28 20:09:52 [32minfo[39m: Retrieving exhibitions for User with ID: 66a50b3441ee98b8e81e42d1

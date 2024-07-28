@@ -24,7 +24,13 @@ import MuseumOwnerContactUs from "./components/museumOwner/MuseumOwnerConatctUs"
 import CuratorContactUs from "./components/curator/CuratorContactUs";
 import CuratorExhibitionsList from "./components/curator/CuratorExhibitionsList";
 import CuratorArtsList from "./components/curator/CuratorArtsList";
-import { ExhibitionsProvider } from './contexts/ExhibitionsContext';
+import MuseumOwnerCuratorsList from "./components/museumOwner/MuseumOwnerCuratorsList.js";
+import { ExhibitionsProvider } from "./contexts/ExhibitionsContext";
+import { MuseumProvider } from "./contexts/MuseumContext"; // Import the MuseumProvider
+import MuseumOwnerDashboard from "./components/museumOwner/MuseumOwnerDashboard.js";
+import { AdminProvider } from "./contexts/AdminContext.js";
+import CuratorEditArtwork from "./components/curator/CuratorEditArtwork.js";
+
 
 const App = () => {
   return (
@@ -35,15 +41,14 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-        {/* <Route path="/admin/login" element={<Login requiredRole="Admin" />} />
-        <Route path="/owner/login" element={<Login requiredRole="MuseumOwner" />} />
-        <Route path="/curator/login" element={<Login requiredRole="Curator" />} /> */}
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route
           path="/admin"
           element={
             <PrivateRoute requiredRole="Admin">
-              <AdminPage />
+              <AdminProvider>
+                <AdminPage />
+              </AdminProvider>
             </PrivateRoute>
           }
         >
@@ -62,10 +67,13 @@ const App = () => {
           path="/owner"
           element={
             <PrivateRoute requiredRole="MuseumOwner">
-              <MusuemOwnerPage />
+              <MuseumProvider>
+                <MusuemOwnerPage />
+              </MuseumProvider>
             </PrivateRoute>
           }
         >
+          <Route path="" element={<MuseumOwnerDashboard />} />
           <Route path="open-exhibit" element={<MuseumOwnerOpenExhibit />} />
           <Route
             path="exhibiton-list"
@@ -76,36 +84,22 @@ const App = () => {
             element={<MuseumOwnerEditExhibition />}
           />
           <Route path="contact-us" element={<MuseumOwnerContactUs />} />
+          <Route path="my-curators" element={<MuseumOwnerCuratorsList />} />
         </Route>
-        {/* <Route
+        <Route
           path="/curator"
           element={
             <PrivateRoute requiredRole="Curator">
-              <CuartorPage />
+              <ExhibitionsProvider>
+                <CuartorPage />
+              </ExhibitionsProvider>
             </PrivateRoute>
           }
         >
           <Route path="exhibiton-list" element={<CuratorExhibitionsList />} />
           <Route path="exhibiton-list/:id" element={<CuratorArtsList />} />
+          <Route path="exhibiton-list/:exhibitionId/:artworkId" element={<CuratorEditArtwork />} />
           <Route path="contact-us" element={<CuratorContactUs />} />
-        </Route> */}
-         <Route
-          path="/curator"
-          element={
-            <PrivateRoute requiredRole="Curator">
-              <CuartorPage />
-            </PrivateRoute>
-          }
-        >
-          <Route path="*" element={
-            <ExhibitionsProvider>
-              <Routes>
-                <Route path="exhibiton-list" element={<CuratorExhibitionsList />} />
-                <Route path="exhibiton-list/:id" element={<CuratorArtsList />} />
-                <Route path="contact-us" element={<CuratorContactUs />} />
-              </Routes>
-            </ExhibitionsProvider>
-          } />
         </Route>
       </Routes>
     </div>
@@ -113,3 +107,5 @@ const App = () => {
 };
 
 export default App;
+
+

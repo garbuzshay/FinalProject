@@ -18,7 +18,7 @@ const ExhibitCard = ({ id, name, description, imageUrl, location, artworks, cura
             <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{name}</div>
                 <p className="text-gray-700 text-base">{description}</p>
-                <p className="text-gray-700 text-base"><strong>Location:</strong> {location}</p>
+                {location && <p className="text-gray-700 text-base"><strong>Location:</strong> {location}</p>} 
                 <p className="text-gray-700 text-base"><strong>Artworks:</strong> {artworks}</p>
                 <p className="text-gray-700 text-base"><strong>Curators:</strong> {curators}</p>
             </div>

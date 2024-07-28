@@ -1,34 +1,35 @@
-import React from "react";
-import useRequests from "../../hooks/useRequests";
-import FormConfirmButton from "../common/FormConfirmButton"; // Adjust the path as needed
+import React from 'react';
+import { useAdminContext } from '../../contexts/AdminContext';
+import FormConfirmButton from '../common/FormConfirmButton'; // Adjust the path as needed
 
 const AdminRequestsManagement = () => {
-  const { requests, loading, error, updateRequestStatus } = useRequests();
+  const { requestsData } = useAdminContext();
+  const { requests, isLoading, error, updateRequestStatus } = requestsData;
 
-  if (loading) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
 
   if (error) {
-    return <div style={{ color: "red" }}>{error}</div>;
+    return <div style={{ color: 'red' }}>{error}</div>;
   }
 
   const sortedRequests = requests.sort(
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   );
   const pendingRequests = sortedRequests.filter(
-    (request) => request.status === "Pending"
+    (request) => request.status === 'Pending'
   );
   const answeredRequests = sortedRequests.filter(
-    (request) => request.status !== "Pending"
+    (request) => request.status !== 'Pending'
   );
 
   const handleApprove = (id) => {
-    updateRequestStatus(id, "Approved");
+    updateRequestStatus(id, 'Approved');
   };
 
   const handleReject = (id) => {
-    updateRequestStatus(id, "Rejected");
+    updateRequestStatus(id, 'Rejected');
   };
 
   const renderRequestRows = (request) => {
@@ -42,8 +43,7 @@ const AdminRequestsManagement = () => {
         <td className="border px-4 py-2">{request.type}</td>
         <td className="border px-4 py-2">{request.status}</td>
         <td className="border px-4 py-2">{formattedDate}</td>
-
-        {request.status === "Pending" && (
+        {request.status === 'Pending' && (
           <td className="border px-6 ">
             <FormConfirmButton
               onSubmit={() => handleApprove(request._id)}

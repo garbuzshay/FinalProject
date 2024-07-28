@@ -12,7 +12,10 @@ const museumSchema = new mongoose.Schema({
   plan: { type: mongoose.Schema.Types.ObjectId, ref: 'plans', required: true },
   exhibitions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'exhibitions' }], // Adding exhibitions reference array
   artworks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'artworks' }], // Adding artworks reference array
-
+  imageUrl: {
+    type: String,
+    required: true,
+  },
 
 }, {
   timestamps: true,

@@ -1,40 +1,48 @@
-// src/components/admin/AdminDashboard.js
-import React from "react";
-import MuseumCard from "../../museums/MuseumCard" 
-import museumsData from "../../data/museumsData";
-import ExhibitCard from "../exhibitions/ExhibitCard";
-import exhibitionsData from "../../data/exhibitionsData";
+import React from 'react';
+import MuseumCard from '../../museums/MuseumCard';
+import ExhibitCard from '../exhibitions/ExhibitCard';
+import { useAdminContext } from '../../contexts/AdminContext';
 
 const AdminDashboard = () => {
+  const { museumsData, exhibitionsData, requestsData } = useAdminContext();
+  const { museums, isLoading: isLoadingMuseums, error: errorMuseums } = museumsData;
+  const { exhibitions, isLoading: isLoadingExhibitions, error: errorExhibitions } = exhibitionsData;
+
+  if (isLoadingMuseums || isLoadingExhibitions) return <div>Loading...</div>;
+  if (errorMuseums) return <div style={{ color: 'red' }}>{errorMuseums}</div>;
+  if (errorExhibitions) return <div style={{ color: 'red' }}>{errorExhibitions}</div>;
+
   return (
     <div className="p-4">
       <h2 className="text-2xl font-semibold mb-5">Dashboard</h2>
 
       <p className="mt-5">The most visited museums</p>
       <div className="flex flex-wrap justify-center">
-        {museumsData.map((museum, index) => (
+        {museums.map((museum) => (
           <MuseumCard
-            key={index}
+            key={museum._id}
             name={museum.name}
             description={museum.description}
             imageUrl={museum.imageUrl}
             location={museum.location}
-            exhibitions={museum.exhibitions}
-            artworks={museum.artworks}
+            exhibitions={museum.exhibitions.length}
+            artworks={museum.artworks.length}
           />
         ))}
       </div>
 
       <p className="mt-5">The most visited exhibitions</p>
       <div className="flex flex-wrap justify-center">
-        {exhibitionsData.map((exhibit, index) => (
+        {exhibitions.map((exhibit) => (
           <ExhibitCard
-            key={index}
+            key={exhibit._id}
+            id={exhibit._id}
             name={exhibit.name}
             description={exhibit.description}
             imageUrl={exhibit.imageUrl}
-            location={exhibit.location}
-            artworks={exhibit.artworks}
+            location={exhibit.museum ? exhibit.museum.name : 'Unknown'}
+            artworks={exhibit.artworks.length}
+            curators={exhibit.curators.length}
           />
         ))}
       </div>

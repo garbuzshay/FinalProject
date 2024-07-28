@@ -127,10 +127,10 @@ export const deleteMuseum = async (req, res) => {
 };
 
 
-export const getMuseumByOwnerId = async (req, res) => {
-  const  ownerId  = req.user._id;
+export const getUserMuseum = async (req, res) => {
+  const userId = req.user._id;
   try {
-    const museum = await MuseumsService.getMuseumByOwnerId(ownerId);
+    const museum = await MuseumsService.getMuseumByOwnerId(userId);
     if (!museum) {
       return res.status(404).json({
         message: 'Museum not found',
@@ -138,7 +138,7 @@ export const getMuseumByOwnerId = async (req, res) => {
       });
     }
     res.status(200).json({
-      message: 'Museums retrieved successfully',
+      message: 'Museum retrieved successfully',
       success: true,
       data: museum
     });

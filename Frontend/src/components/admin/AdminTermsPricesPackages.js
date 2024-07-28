@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import usePlans from "../../hooks/usePlans";
+import { useAdminContext } from "../../contexts/AdminContext";
 import EditableTable from "../common/EditableTable";
 
 const AdminTermsPricesPackages = () => {
@@ -8,7 +8,8 @@ const AdminTermsPricesPackages = () => {
   );
   const [isEditingTerms, setIsEditingTerms] = useState(false);
   const [newTerms, setNewTerms] = useState(terms);
-  const { plans, loading, error, updatePlan, addPlan, deletePlan } = usePlans();
+  const { plansData } = useAdminContext();
+  const { plans, loading, error, updatePlan, addPlan, deletePlan } = plansData;
   const [editingPlanIndex, setEditingPlanIndex] = useState(null);
   const [newPlanData, setNewPlanData] = useState({});
   const [isAdding, setIsAdding] = useState(false);
@@ -68,12 +69,11 @@ const AdminTermsPricesPackages = () => {
   const plansWithActions = plans.map((plan, index) => ({
     ...plan,
     actions: {
-        onSave: handleSavePlan,
-        onDelete: handleDeletePlan,
-        onEdit: handleEditPlan
-    }
-}));
-
+      onSave: handleSavePlan,
+      onDelete: handleDeletePlan,
+      onEdit: handleEditPlan,
+    },
+  }));
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -334,11 +334,8 @@ const AdminTermsPricesPackages = () => {
           ))}
         </tbody>
       </table>
-     
     </div>
   );
 };
 
-  
-  export default AdminTermsPricesPackages;
-
+export default AdminTermsPricesPackages;

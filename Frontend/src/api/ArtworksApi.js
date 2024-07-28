@@ -33,7 +33,19 @@ class ArtworksApi extends BaseApi {
       throw error;
     }
   }
+
+
+  async updateArtwork(artworkId, artworkData) {
+    try {
+      const response = await this.api.put(`/artworks/${artworkId}`, artworkData);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error updating artwork with ID ${artworkId}:`, error);
+      throw error;
+    }
+  }
 }
+
 
 const artworksApi = new ArtworksApi();
 export default artworksApi;

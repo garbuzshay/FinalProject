@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import ArtworksApi from '../../api/ArtworksApi';
 
+
 const CuratorCreateArtwork = ({exhibitionId}) => {
   
   const { register, handleSubmit, formState: { errors }, reset } = useForm();

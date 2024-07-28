@@ -19,8 +19,8 @@ const CuratorExhibitionsList = () => {
             id={exhibition._id}
             name={exhibition.name}
             description={exhibition.description}
-            imageUrl="https://via.placeholder.com/150" // Placeholder image URL; replace with actual image URL if available
-            location={`${exhibition.museum.city}, ${exhibition.museum.state}`}
+            location={exhibition.museum.name} // Assuming museum is an object with a name field
+            imageUrl={exhibition.imageUrl || 'https://via.placeholder.com/150'}
             artworks={exhibition.artworks.map((artwork) => artwork.title).join(', ')} // Assuming artworks is an array of objects with a title field
             curators={exhibition.curators.map((curator) => curator.name).join(', ')}
           />

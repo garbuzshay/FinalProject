@@ -1,5 +1,5 @@
-import MuseumModel from '../models/Museum.js';
-import UserModel from '../Models/User.js';
+import MuseumModel from "../models/Museum.js";
+import UserModel from "../Models/User.js";
 
 class MuseumsService {
   /**
@@ -11,10 +11,12 @@ class MuseumsService {
     try {
       const museum = new MuseumModel(museumData);
       await museum.save();
-      await UserModel.findByIdAndUpdate(museumData.owner, { museum: museum._id });
+      await UserModel.findByIdAndUpdate(museumData.owner, {
+        museum: museum._id,
+      });
       return museum;
     } catch (error) {
-      console.error('Error creating museum:', error);
+      console.error("Error creating museum:", error);
       throw error;
     }
   }
@@ -25,10 +27,14 @@ class MuseumsService {
    */
   async getMuseums() {
     try {
-      const museums = await MuseumModel.find().populate('plan').populate('owner').populate('exhibitions').populate('artworks');
+      const museums = await MuseumModel.find()
+        .populate("plan")
+        .populate("owner")
+        .populate("exhibitions")
+        .populate("artworks");
       return museums;
     } catch (error) {
-      console.error('Error fetching museums:', error);
+      console.error("Error fetching museums:", error);
       throw error;
     }
   }
@@ -40,10 +46,14 @@ class MuseumsService {
    */
   async getMuseumById(id) {
     try {
-      const museum = await MuseumModel.findById(id).populate('plan').populate('owner').populate('exhibitions').populate('artworks') ;
+      const museum = await MuseumModel.findById(id)
+        .populate("plan")
+        .populate("owner")
+        .populate("exhibitions")
+        .populate("artworks");
       return museum ? museum : null;
     } catch (error) {
-      console.error('Error fetching museum by ID:', error);
+      console.error("Error fetching museum by ID:", error);
       throw error;
     }
   }
@@ -56,10 +66,13 @@ class MuseumsService {
    */
   async updateMuseum(id, museumData) {
     try {
-      const museum = await MuseumModel.findByIdAndUpdate(id, museumData, { new: true, runValidators: true });
+      const museum = await MuseumModel.findByIdAndUpdate(id, museumData, {
+        new: true,
+        runValidators: true,
+      });
       return museum ? museum : null;
     } catch (error) {
-      console.error('Error updating museum:', error);
+      console.error("Error updating museum:", error);
       throw error;
     }
   }
@@ -74,14 +87,21 @@ class MuseumsService {
       const museum = await MuseumModel.findByIdAndDelete(id);
       return museum ? museum : null;
     } catch (error) {
-      console.error('Error deleting museum:', error);
+      console.error("Error deleting museum:", error);
       throw error;
     }
   }
 
   async getMuseumByOwnerId(ownerId) {
     try {
-      const museum = await MuseumModel.findOne({ owner: ownerId }).populate('plan').populate('owner').populate('exhibitions').populate('artworks');
+      const museum = await MuseumModel.findOne({ owner: ownerId })
+        .populate("plan")
+        .populate("owner")
+        .populate({
+          path: "exhibitions",
+          populate: { path: "curators", model: "users" },
+        })
+        .populate("artworks");
       return museum;
     } catch (error) {
       console.error(`Error getting museums with owner ID ${ownerId}:`, error);
@@ -94,7 +114,7 @@ class MuseumsService {
       const museum = await MuseumModel.findOne({ curators: curatorId });
       return museum;
     } catch (error) {
-      throw new Error('Error fetching museum by curator');
+      throw new Error("Error fetching museum by curator");
     }
   }
 }

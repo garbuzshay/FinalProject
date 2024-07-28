@@ -3,6 +3,7 @@ import ContentSection from "../components/intros/ContentSection";
 import pageData from "../data/introPageData";
 import { NavigationButtons } from "../components/common/NavigationButtons";
 import MobileStepper from '@mui/material/MobileStepper';
+import Footer from "../components/common/Footer";
 
 
 const IntroPage = () => {
@@ -31,6 +32,7 @@ const IntroPage = () => {
           </MobileStepper>
 
       <NavigationButtons currentPage={currentPage} goToNextPage={goToNextPage} goToPreviousPage={goToPreviousPage} nextButtonText={nextButtonText} />
+      <Footer/>
     </div>
   );
 };

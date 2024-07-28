@@ -1,13 +1,14 @@
 import React, { createContext, useContext } from 'react';
 import useUserExhibitions from '../hooks/useUserExhibitions';
 
+
 const ExhibitionsContext = createContext();
 
 export const ExhibitionsProvider = ({ children }) => {
-    const { exhibitions, isLoading, error } = useUserExhibitions();
+    const { exhibitions, isLoading, error , updateArtwork} = useUserExhibitions();
 
     return (
-        <ExhibitionsContext.Provider value={{ exhibitions, isLoading, error }}>
+        <ExhibitionsContext.Provider value={{ exhibitions, isLoading, error, updateArtwork }}>
             {children}
         </ExhibitionsContext.Provider>
     );

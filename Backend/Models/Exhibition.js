@@ -6,7 +6,11 @@ const exhibitionSchema = new mongoose.Schema({
   maxArtworks: { type: Number, required: true },
   curators: [{ type: mongoose.Schema.Types.ObjectId, ref: 'users' }],
   museum: { type: mongoose.Schema.Types.ObjectId, ref: 'museums', required: true },
-  artworks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'artworks' }]
+  artworks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'artworks' }],
+  imageUrl: {
+    type: String,
+    required: true,
+  },
 }, {
   timestamps: true,
 });

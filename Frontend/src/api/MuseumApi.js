@@ -2,43 +2,42 @@ import config from "../config.js";
 import BaseApi from "./BaseApi.js";
 const { apiBaseUrl } = config;
 
-class MuseumApi  extends BaseApi {
-    constructor() {
-      super(apiBaseUrl);
-    }
+class MuseumApi extends BaseApi {
+  constructor() {
+    super(apiBaseUrl);
+  }
 
-
-/**
+  /**
    * Creates a new museum.
    */
-async createMuseum(museumData) {
+  async createMuseum(museumData) {
     try {
-      const response = await this.api.post('/museums', museumData);
+      const response = await this.api.post("/museums", museumData);
       return response.data.data;
     } catch (error) {
-      console.error('Error creating museum:', error);
+      console.error("Error creating museum:", error);
       throw error;
     }
   }
   async getMuseumByOwnerId(ownerId) {
     try {
-        const response = await this.api.get(`/museums/owner/${ownerId}`);
-        return response.data.data;
+      const response = await this.api.get(`/museums/owner/${ownerId}`);
+      return response.data.data;
     } catch (error) {
-        console.error(`Error getting museum with owner ID ${ownerId}:`, error);
-        throw error;
+      console.error(`Error getting museum with owner ID ${ownerId}:`, error);
+      throw error;
     }
-}
+  }
 
   /**
    * Retrieves a list of museums.
    */
   async getMuseums() {
     try {
-      const response = await this.api.get('/museums');
+      const response = await this.api.get("/museums");
       return response.data.data;
     } catch (error) {
-      console.error('Error getting museums:', error);
+      console.error("Error getting museums:", error);
       throw error;
     }
   }
@@ -84,22 +83,31 @@ async createMuseum(museumData) {
 
   async getMuseumByOwner() {
     try {
-      const response = await this.api.get('/museums/owner');
+      const response = await this.api.get("/museums/owner");
       return response.data.data;
     } catch (error) {
-      console.error('Error getting museums for the owner:', error);
+      console.error("Error getting museums for the owner:", error);
       throw error;
     }
   }
   async getMuseumByCurator(curatorId) {
     try {
-        const response = await this.api.get(`/museums/curators/${curatorId}`);
-        return response.data.data;
+      const response = await this.api.get(`/museums/curators/${curatorId}`);
+      return response.data.data;
     } catch (error) {
-        console.error(`Error getting museum by curator ID ${curatorId}:`, error);
-        throw error;
+      console.error(`Error getting museum by curator ID ${curatorId}:`, error);
+      throw error;
     }
-}
+  }
+  async getUserMuseum() {
+    try {
+      const response = await this.api.get(`/museums/my`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error getting exhibitions for museum with ID :`, error);
+      throw error;
+    }
+  }
 }
 
 const museumApi = new MuseumApi();

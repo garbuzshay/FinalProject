@@ -5,15 +5,17 @@ import {
   getMuseumById,
   updateMuseum,
   deleteMuseum,
-  getMuseumByOwnerId, // Import the new controller function
-  getMuseumByCurator 
+  getMuseumByCurator ,
+  getUserMuseum
 } from '../Controllers/MuseumController.js';
 import authenticateUser from '../Middlewares/AuthenticateUser.js';
 
 
 const router = Router();
 router.get('/', getMuseums);
-router.get('/owner',authenticateUser,  getMuseumByOwnerId); // Add the new route
+// router.get('/owner',authenticateUser,  getMuseumByOwnerId); // Add the new route
+router.get('/my',authenticateUser, getUserMuseum); // Corrected route
+
 router.get('/:id', getMuseumById);
 //
 router.get('/curator/:curatorId', authenticateUser, getMuseumByCurator); // Corrected route

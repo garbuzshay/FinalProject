@@ -10,3 +10,5 @@ Use mongoose.model(name, schema)
 2024-07-27 20:59:15 [31merror[39m: Error creating artwork for exhibition with ID 66a14449f650a73c2fd8b6a1: artworks validation failed: artist: Cast to ObjectId failed for value "aaa" (type string) at path "artist" because of "BSONError"
 2024-07-27 21:21:20 [31merror[39m: Error creating artwork for exhibition with ID 66a50b3541ee98b8e81e42d7: ArtworkService is not defined
 2024-07-27 21:21:32 [31merror[39m: Error creating artwork for exhibition with ID 66a50b3541ee98b8e81e42d7: ArtworkService is not defined
+2024-07-28 15:40:58 [31merror[39m: Error creating exhibition: The phone number must be a non-empty E.164 standard compliant identifier string.
+2024-07-28 15:41:16 [31merror[39m: Error creating exhibition: The email address is improperly formatted.
