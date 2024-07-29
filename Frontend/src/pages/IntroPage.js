@@ -32,7 +32,6 @@ const IntroPage = () => {
           </MobileStepper>
 
       <NavigationButtons currentPage={currentPage} goToNextPage={goToNextPage} goToPreviousPage={goToPreviousPage} nextButtonText={nextButtonText} />
-      <Footer/>
     </div>
   );
 };
