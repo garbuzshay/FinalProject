@@ -14,7 +14,6 @@ const museumSchema = new mongoose.Schema({
   artworks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'artworks' }], // Adding artworks reference array
   imageUrl: {
     type: String,
-    required: true,
   },
 
 }, {
