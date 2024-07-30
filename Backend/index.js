@@ -87,7 +87,24 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
-app.use(cors());
+const allowedOrigins = ['http://localhost:3000']; // Add the URL of the frontend app to the allowed origins array
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Check if the origin is in the allowed origins array
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+};
+
+// Use the CORS middleware
+app.use(cors(corsOptions));
 app.use('/api', router);
 
 app.listen(PORT, () => {
