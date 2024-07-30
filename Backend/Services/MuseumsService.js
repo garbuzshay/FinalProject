@@ -1,4 +1,4 @@
-import MuseumModel from "../models/Museum.js";
+import MuseumModel from "../Models/Museum.js";
 import UserModel from "../Models/User.js";
 
 class MuseumsService {

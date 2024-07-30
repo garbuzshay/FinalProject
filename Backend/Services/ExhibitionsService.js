@@ -2,7 +2,7 @@ import ExhibitionModel from "../Models/Exhibition.js";
 import ArtworkModel from "../Models/Artwork.js";
 import MuseumsService from "./MuseumsService.js";
 import UsersService from "./UsersService.js";
-import MuseumModel from "../models/Museum.js";
+import MuseumModel from "../Models/Museum.js";
 import logger from "../Utils/logger.js";
 
 class ExhibitionsService {
