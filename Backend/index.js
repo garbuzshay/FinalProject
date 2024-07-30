@@ -87,7 +87,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
-const allowedOrigins = ['http://147.235.209.208:3000']; // Add the URL of the frontend app to the allowed origins array
+const allowedOrigins = ['http://localhost:3000']; // Add the URL of the frontend app to the allowed origins array
 
 const corsOptions = {
   origin: function (origin, callback) {
