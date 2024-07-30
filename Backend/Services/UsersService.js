@@ -97,7 +97,7 @@ class UsersService {
   async getUserByUid(uid) {
     try {
       let user = await UserModel.findOne({ uid }).populate('role');
-      if (user.museum) {
+      if (user?.museum) {
           user = user.populate('museum');
       }
       return user ? user : null;
