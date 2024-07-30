@@ -14,7 +14,7 @@ const getToken = async () => {
 export default class BaseApi {
     constructor(baseURL) {
       this.api = axios.create({
-        baseURL: baseURL,
+        baseURL: baseURL, withCredentials: true
       });
   
       // Add a request interceptor
