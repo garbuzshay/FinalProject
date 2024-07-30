@@ -1,4 +1,4 @@
-import ArtistService from '../services/ArtistService.js';
+import ArtistService from '../Services/ArtistService.js';
 
 export const createArtist = async (req, res) => {
   try {
