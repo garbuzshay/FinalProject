@@ -45,6 +45,30 @@ export const createArtworkInExhibition = async (req, res) => {
   }
 };
 
+
+export const deleteArtworkFromExhibition = async (req, res) => {
+  try {
+    const { id, artworkId } = req.params;
+    logger.info(`Deleting artwork with ID ${artworkId} from exhibition with ID ${id}`);
+    
+    await ExhibitionsService.delArtworkFromExhibition(id, artworkId);
+    await ArtworkService.deleteArtwork(artworkId);
+
+    res.status(200).json({
+      message: 'Artwork deleted successfully from exhibition',
+      success: true
+    });
+  } catch (error) {
+    logger.error(`Error deleting artwork with ID ${artworkId} from exhibition with ID ${id}: ${error.message}`);
+    res.status(400).json({
+      message: error.message,
+      success: false
+    });
+  }
+};
+
+
+
 export const getExhibitions = async (req, res) => {
   try {
     logger.info('Retrieving all exhibitions');

@@ -71,7 +71,7 @@ const MuseumOwnerDashboard = () => {
         labels: [`Current Artworks (${currentArtworks})`,`Free Artworks Space (${freeArtworksSpace})` ],
         datasets: [
           {
-            data: [freeArtworksSpace, currentArtworks],
+            data: [currentArtworks,freeArtworksSpace],
             backgroundColor: ['#FFCE56', '#FF6384'],
             hoverBackgroundColor: ['#FFCE56', '#FF6384'],
           },

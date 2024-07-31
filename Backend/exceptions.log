@@ -173,3 +173,46 @@ This file is being treated as an ES module because it has a '.js' file extension
     at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
     at async loadESM (node:internal/process/esm_loader:28:7)
     at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-07-31 17:22:59 [31merror[39m: TypeError: Cannot read properties of undefined (reading 'length')
+    at pathtoRegexp (C:\Users\Shay\Desktop\MuseumApp\Backend\node_modules\path-to-regexp\index.js:63:49)
+    at new Layer (C:\Users\Shay\Desktop\MuseumApp\Backend\node_modules\express\lib\router\layer.js:45:17)
+    at Function.route (C:\Users\Shay\Desktop\MuseumApp\Backend\node_modules\express\lib\router\index.js:505:15)
+    at proto.<computed> [as delete] (C:\Users\Shay\Desktop\MuseumApp\Backend\node_modules\express\lib\router\index.js:520:22)
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Routes/ExhibitionRouter.js:18:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-07-31 17:23:13 [31merror[39m: ReferenceError: deleteArtworkFromExhibition is not defined
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Routes/ExhibitionRouter.js:18:60
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-07-31 17:23:21 [31merror[39m: ReferenceError: deleteArtworkFromExhibition is not defined
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Routes/ExhibitionRouter.js:18:60
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-07-31 17:24:40 [31merror[39m: ReferenceError: deleteArtworkFromExhibition is not defined
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Routes/ExhibitionRouter.js:18:60
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-07-31 17:32:32 [31merror[39m: ReferenceError: artworkId is not defined
+    at deleteArtworkFromExhibition (file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Controllers/ExhibitionController.js:62:52)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-07-31 17:56:09 [31merror[39m: ReferenceError: artworkId is not defined
+    at deleteArtworkFromExhibition (file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Controllers/ExhibitionController.js:62:52)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-07-31 18:10:46 [31merror[39m: ReferenceError: artworkId is not defined
+    at deleteArtworkFromExhibition (file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Controllers/ExhibitionController.js:62:52)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-07-31 18:12:41 [31merror[39m: ReferenceError: artworkId is not defined
+    at deleteArtworkFromExhibition (file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Controllers/ExhibitionController.js:62:52)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-07-31 18:14:02 [31merror[39m: ReferenceError: artworkId is not defined
+    at deleteArtworkFromExhibition (file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Controllers/ExhibitionController.js:62:52)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)

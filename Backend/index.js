@@ -28,13 +28,17 @@
 //   console.log(`Server is running on ${PORT}`);
 // });
 
-//Tanya@gmail.com Generated Password: 227166a1
-//GrigoryGarbuz@gmail.com Generated Password: 85e1ef34
-//mirit@gmail.com Generated Password: 3c5e9b93
+
 //mensch.edutainment@gmail.com  Password: Mensch123
-//apple@gmail.com Generated Password: 29bd4db4
-// abcdef@gmail.com Generated Password: d8601e15
 //shay.garbuz Shay123
+//ofekaz24 ofek123
+//maycaspi May123
+
+//curator1@gmail.com Generated Password: e341aa75
+//curator2@gmail.com Generated Password: efa10f2d
+//curator3@gmail.com Generated Password: a8a9f1e1
+//curator4@gmail.com Generated Password: 0a0da8d0
+//curator5@gmail.com Generated Password: 89e07347
 // const adminData = {
 //   name: 'admin',
 //   lastName: 'admin',

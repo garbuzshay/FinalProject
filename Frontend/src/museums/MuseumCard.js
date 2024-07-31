@@ -4,7 +4,7 @@ const MuseumCard = ({ name, description, imageUrl, location, exhibitions, artwor
     return (
         <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">
             <div className="w-full h-48 overflow-hidden">
-                <img className="object-cover w-full h-full cursor-pointer" src={imageUrl} alt={`${name}`} />
+                <img className="object-fit w-full h-full cursor-pointer" src={imageUrl} alt={`${name}`} />
             </div>
             <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{name}</div>

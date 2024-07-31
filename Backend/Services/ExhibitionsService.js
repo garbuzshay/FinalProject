@@ -171,5 +171,29 @@ class ExhibitionsService {
       throw error;
     }
   }
+
+  async delArtworkFromExhibition(exhibitionId, artworkId) {
+    try {
+      const exhibition = await ExhibitionModel.findById(exhibitionId);
+      if (!exhibition) {
+        throw new Error('Exhibition not found');
+      }
+  
+      const artworkIndex = exhibition.artworks.indexOf(artworkId);
+      if (artworkIndex > -1) {
+        // Remove the artwork using splice
+        exhibition.artworks.splice(artworkIndex, 1);
+        await exhibition.save();
+      } else {
+        throw new Error('Artwork not found in exhibition');
+      }
+    } catch (error) {
+      console.error('Error deleting artwork from exhibition:', error);
+      throw error;
+    }
+  }
+
+  
+  
 }
 export default new ExhibitionsService();

@@ -23,7 +23,7 @@ const AdminMuseumList = () => {
           {museums.map((museum, index) => (
             <tr key={index}>
               <td className="border px-4 py-2">{museum.name}</td>
-              <td className="border px-4 py-2">{museum.address}</td>
+              <td className="border px-4 py-2">{museum.address + ", "+ museum.city + ", " +museum.state}</td>
               <td className="border px-4 py-2">
                 <button className="text-blue-500 hover:text-blue-700">View and Edit</button>
               </td>

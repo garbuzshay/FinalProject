@@ -1,5 +1,5 @@
 import express from 'express';
-import { createExhibition, getExhibitions, getExhibitionById, updateExhibition, deleteExhibition, getUserExhibitions, getExhibitionsWithDetails, createArtworkInExhibition } from '../Controllers/ExhibitionController.js';
+import { createExhibition, getExhibitions, getExhibitionById, updateExhibition, deleteExhibition, getUserExhibitions, getExhibitionsWithDetails, createArtworkInExhibition, deleteArtworkFromExhibition } from '../Controllers/ExhibitionController.js';
 import authenticateUser from '../Middlewares/AuthenticateUser.js';
 import authorizeUser from '../Middlewares/AuthorizeUser.js';
 const router = express.Router();
@@ -15,4 +15,6 @@ router.post('/:id/artworks',authenticateUser, createArtworkInExhibition);
 router.get('/details', authenticateUser, getExhibitionsWithDetails);
 
 // 
+router.delete('/:id/artworks/:artworkId',authenticateUser, deleteArtworkFromExhibition);
+
 export default router;

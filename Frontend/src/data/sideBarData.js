@@ -19,8 +19,8 @@ const sideBarData = {
 
     ],
     Curator: [
-      { name: "Curator Dashboard", path: "/curator/dashboard" },
-      { name: "Exhibitions Management", path: "/curator/exhibiton-list" },
+      { name: "Curator Dashboard", path: "/curator/exhibitons" },
+      { name: "Exhibitions Management", path: "/curator/exhibitons" },
       { name: "Contact us", path: "/curator/contact-us"},
     ],
   };

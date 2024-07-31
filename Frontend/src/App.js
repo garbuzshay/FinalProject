@@ -96,9 +96,9 @@ const App = () => {
             </PrivateRoute>
           }
         >
-          <Route path="exhibiton-list" element={<CuratorExhibitionsList />} />
-          <Route path="exhibiton-list/:id" element={<CuratorArtsList />} />
-          <Route path="exhibiton-list/:exhibitionId/:artworkId" element={<CuratorEditArtwork />} />
+          <Route path="exhibitons" element={<CuratorExhibitionsList />} />
+          <Route path="exhibitons/:id" element={<CuratorArtsList />} />
+          <Route path="exhibitons/:exhibitionId/:artworkId" element={<CuratorEditArtwork />} />
           <Route path="contact-us" element={<CuratorContactUs />} />
         </Route>
       </Routes>

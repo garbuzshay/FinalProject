@@ -5,10 +5,10 @@ import useUserExhibitions from '../hooks/useUserExhibitions';
 const ExhibitionsContext = createContext();
 
 export const ExhibitionsProvider = ({ children }) => {
-    const { exhibitions, isLoading, error , updateArtwork} = useUserExhibitions();
+    const { exhibitions, isLoading, error , updateArtwork , createArtwork , deleteArtwork } = useUserExhibitions();
 
     return (
-        <ExhibitionsContext.Provider value={{ exhibitions, isLoading, error, updateArtwork }}>
+        <ExhibitionsContext.Provider value={{ exhibitions, isLoading, error, updateArtwork , createArtwork, deleteArtwork}}>
             {children}
         </ExhibitionsContext.Provider>
     );

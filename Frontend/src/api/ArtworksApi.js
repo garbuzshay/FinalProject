@@ -27,7 +27,7 @@ class ArtworksApi extends BaseApi {
     try {
       console.log('artworkData:', artworkData);
       const response = await this.api.post(`/exhibitions/${exhibitionId}/artworks`, artworkData);
-      return response.data;
+      return response.data.data;
     } catch (error) {
       console.error('Error creating artwork:', error);
       throw error;
@@ -41,6 +41,17 @@ class ArtworksApi extends BaseApi {
       return response.data.data;
     } catch (error) {
       console.error(`Error updating artwork with ID ${artworkId}:`, error);
+      throw error;
+    }
+  }
+
+
+  async deleteArtwork(exhibitionId, artworkId) {
+    try {
+      const response = await this.api.delete(`/exhibitions/${exhibitionId}/artworks/${artworkId}`);
+      return response.data.data;
+    } catch (error) {
+      console.error(`Error deleting artwork with ID ${artworkId} from exhibition with ID ${exhibitionId}:`, error);
       throw error;
     }
   }
