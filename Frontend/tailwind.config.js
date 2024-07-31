@@ -5,16 +5,24 @@ module.exports = {
   darkMode: 'class', // Enable dark mode support
   theme: {
     extend: {
-      animation: {
-        'random-move': 'randomMove 10s infinite',
-      },
       keyframes: {
-        randomMove: {
-          '0%, 100%': { transform: 'translate(0, 0) scale(1)', opacity: '0.7' },
-          '50%': { transform: 'translate(50px, 50px) scale(1.5)', opacity: '0.4' },
+        typing: {
+          '0%': { width: '0%', visibility: 'hidden' },
+          '100%': { width: '100%', visibility: 'visible' },
         },
+        caret: {
+          '0%, 100%': { borderColor: 'transparent' },
+          '50%': { borderColor: 'white' },
+        },
+      },
+      animation: {
+        typing: 'typing 2s steps(20) 1 forwards',
+        caret: 'caret 1s step-end infinite',
       },
     },
   },
+  variants: {
+    extend: {},
+  },
   plugins: [],
-}
+};

@@ -5,7 +5,7 @@ export const NavigationButtons = ({ currentPage, goToPreviousPage, goToNextPage,
   const prevButtonVisible = currentPage > 0 || isPrevPageExist;
 
   return (
-    <div className="flex justify-between p-4 w-full fixed bottom-4">
+    <div className="flex justify-between p-4 w-full fixed bottom-4 ">
       {prevButtonVisible ? (
         <>
           <NavigationButton onClick={goToPreviousPage} text={prevButtonText} />
