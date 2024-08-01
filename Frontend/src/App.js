@@ -76,11 +76,11 @@ const App = () => {
           <Route path="" element={<MuseumOwnerDashboard />} />
           <Route path="open-exhibit" element={<MuseumOwnerOpenExhibit />} />
           <Route
-            path="exhibiton-list"
+            path="exhibitons"
             element={<MuseumOwnerExhibitionsList />}
           />
           <Route
-            path="exhibiton-list/:id"
+            path="exhibitons/:id"
             element={<MuseumOwnerEditExhibition />}
           />
           <Route path="contact-us" element={<MuseumOwnerContactUs />} />

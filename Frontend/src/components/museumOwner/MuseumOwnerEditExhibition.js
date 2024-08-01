@@ -1,6 +1,5 @@
-
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useMuseumContext } from "../../contexts/MuseumContext";
 import FormConfirmButton from "../common/FormConfirmButton";
 import { useFieldArray, useForm } from "react-hook-form";
@@ -9,7 +8,7 @@ import CuratorSelect from "./CuratorSelect";
 
 const MuseumOwnerEditExhibition = () => {
   const { id } = useParams();
-  const { museum, fetchMuseum, updateExhibition } = useMuseumContext();
+  const { museum, fetchMuseum, updateExhibition, closeExhibition } = useMuseumContext();
   const [loading, setLoading] = useState(false);
   const [showCuratorSelect, setShowCuratorSelect] = useState(false);
 
@@ -44,6 +43,17 @@ const MuseumOwnerEditExhibition = () => {
     control,
     name: "newCurators",
   });
+
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
+  const handleCloseExhibition = () => {
+    closeExhibition(id);
+    handleGoBack();
+  }
+  
 
   const fetchExhibition = () => {
     setLoading(true);
@@ -85,8 +95,7 @@ const MuseumOwnerEditExhibition = () => {
     };
     try {
       await updateExhibition(id, updatedData);
-      fetchMuseum();
-      fetchExhibition();
+      handleGoBack();
     } catch (error) {
       console.error("Error updating exhibition:", error);
     }
@@ -95,7 +104,8 @@ const MuseumOwnerEditExhibition = () => {
   const handleCuratorsSelect = (selectedCurators) => {
     selectedCurators.forEach((curator) => {
       if (!curators.find((field) => field.email === curator.email)) {
-        appendNewCurator({ ...curator, isEditable: false });}
+        appendNewCurator({ ...curator, isEditable: false });
+      }
     });
     setShowCuratorSelect(false);
   };
@@ -402,11 +412,19 @@ const MuseumOwnerEditExhibition = () => {
               ))}
             </tbody>
           </table>
-          <FormConfirmButton
-            onSubmit={handleSubmit(onSubmit)}
-            buttonText="Save Changes"
-            dialogMessage="Are you sure you want to save these changes?"
-          />
+          <div className="flex justify-between">
+            <FormConfirmButton
+              onSubmit={handleSubmit(onSubmit)}
+              buttonText="Save Changes"
+              dialogMessage="Are you sure you want to save these changes?"
+            />
+          </div>
+          <div className="mt-4"><FormConfirmButton
+              onSubmit={handleCloseExhibition}
+              buttonText="Would you like to close this exhibition?"
+              dialogMessage="Are you sure you want to close this exhibition?"
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            /></div>
         </form>
       )}
     </div>

@@ -15,3 +15,5 @@ Use mongoose.model(name, schema)
 2024-07-31 16:31:40 [31merror[39m: Error updating exhibition with ID 66aa3c8eb78f39e5987fee42: The phone number must be a non-empty E.164 standard compliant identifier string.
 2024-07-31 16:31:40 [31merror[39m: Error updating exhibition with ID 66aa3c8eb78f39e5987fee42: The phone number must be a non-empty E.164 standard compliant identifier string.
 2024-07-31 18:27:39 [31merror[39m: Error creating artwork for exhibition with ID 66aa3d458fbbe4ed52ffea60: artworks validation failed: imageUrl: Path `imageUrl` is required.
+2024-08-01 16:18:47 [31merror[39m: Error updating exhibition with ID 66aa64249f77c7c5340822c8: Cannot read properties of undefined (reading 'includes')
+2024-08-01 16:18:47 [31merror[39m: Error updating exhibition with ID 66aa64249f77c7c5340822c8: Cannot read properties of undefined (reading 'includes')

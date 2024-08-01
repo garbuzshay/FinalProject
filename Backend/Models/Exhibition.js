@@ -7,10 +7,10 @@ const exhibitionSchema = new mongoose.Schema({
   curators: [{ type: mongoose.Schema.Types.ObjectId, ref: 'users' }],
   museum: { type: mongoose.Schema.Types.ObjectId, ref: 'museums', required: true },
   artworks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'artworks' }],
-  imageUrl: {
-    type: String,
-    required: true,
-  },
+  imageUrl: { type: String, required: true },
+  status: { type: String, enum: ['open', 'closed'], default: 'closed' },
+  openedAt: { type: Date },
+  closedAt: { type: Date },
 }, {
   timestamps: true,
 });

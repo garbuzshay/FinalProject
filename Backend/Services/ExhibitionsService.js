@@ -31,6 +31,7 @@ class ExhibitionsService {
         ...otherData,
         curators: curatorIds,
         museum: museum._id,
+        status: "open",
       });
 
       const savedExhibition = await exhibition.save();
@@ -67,7 +68,7 @@ class ExhibitionsService {
   async updateExhibition(id, exhibitionData) {
     try {
       // Fetch the existing exhibition to get the current curators
-      const existingExhibition = await ExhibitionModel.findById(id).select('curators');
+      const existingExhibition = await ExhibitionModel.findById(id).select('curators status');
       if (!existingExhibition) {
         throw new Error('Exhibition not found');
       }
@@ -75,7 +76,7 @@ class ExhibitionsService {
       let existingCurators = existingExhibition.curators.map(curator => curator.toString());
   
       // Filter out the existing curators not present in exhibitionData.curators (i.e., curators to be removed)
-      let updatedCurators = existingCurators.filter(curatorId => exhibitionData.curators.includes(curatorId));
+      let updatedCurators = exhibitionData.curators ? existingCurators.filter(curatorId => exhibitionData.curators.includes(curatorId)) : existingCurators;
   
       // If there are new curators to be added
       if (exhibitionData.newCurators) {
@@ -98,6 +99,17 @@ class ExhibitionsService {
       // Assign the final list of curators to exhibitionData.curators
       exhibitionData.curators = updatedCurators;
   
+      // Check for status change and update openedAt and closedAt fields
+      if (exhibitionData.status && exhibitionData.status !== existingExhibition.status) {
+        if (exhibitionData.status === 'closed') {
+          exhibitionData.closedAt = new Date();
+          exhibitionData.openedAt = existingExhibition.openedAt || null; // Retain openedAt if already set
+        } else if (exhibitionData.status === 'open') {
+          exhibitionData.openedAt = new Date();
+          exhibitionData.closedAt = null; // Clear closedAt when reopening
+        }
+      }
+
       // Update the exhibition with the combined curators list
       logger.info(`Updating exhibition with ID: ${id} and data: ${JSON.stringify(exhibitionData)}`);
       const updatedExhibition = await ExhibitionModel.findByIdAndUpdate(id, exhibitionData, {
@@ -111,7 +123,6 @@ class ExhibitionsService {
       throw error;
     }
   }
-  
   
   async deleteExhibition(id) {
     return await ExhibitionModel.findByIdAndDelete(id);
@@ -191,9 +202,6 @@ class ExhibitionsService {
       console.error('Error deleting artwork from exhibition:', error);
       throw error;
     }
-  }
-
-  
-  
+  }  
 }
 export default new ExhibitionsService();

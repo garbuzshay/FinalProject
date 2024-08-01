@@ -205,3 +205,54 @@ export const getExhibitionsWithDetails = async (req, res) => {
     });
   }
 };
+
+export const closeExhibition = async (req, res) => {
+  try {
+    logger.info(`Closing exhibition with ID: ${req.params.id}`);
+    const exhibition = await ExhibitionsService.closeExhibition(req.params.id);
+    if (!exhibition) {
+      logger.warn(`Exhibition not found with ID: ${req.params.id}`);
+      return res.status(404).json({
+        message: 'Exhibition not found',
+        success: false
+      });
+    }
+    res.status(200).json({
+      message: 'Exhibition closed successfully',
+      success: true,
+      data: exhibition
+    });
+  } catch (error) {
+    logger.error(`Error closing exhibition with ID ${req.params.id}: ${error.message}`);
+    res.status(500).json({
+      message: error.message,
+      success: false
+    });
+  }
+};
+
+export const reopenExhibition = async (req, res) => {
+  try {
+    logger.info(`Reopening exhibition with ID: ${req.params.id}`);
+    const exhibition = await ExhibitionsService.reopenExhibition(req.params.id);
+    if (!exhibition) {
+      logger.warn(`Exhibition not found with ID: ${req.params.id}`);
+      return res.status(404).json({
+        message: 'Exhibition not found',
+        success: false
+      });
+    }
+    res.status(200).json({
+      message: 'Exhibition reopened successfully',
+      success: true,
+      data: exhibition
+    });
+  } catch (error) {
+    logger.error(`Error reopening exhibition with ID ${req.params.id}: ${error.message}`);
+    res.status(500).json({
+      message: error.message,
+      success: false
+    });
+  }
+};
+

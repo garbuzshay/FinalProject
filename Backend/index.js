@@ -38,6 +38,7 @@
 //curator2@gmail.com Generated Password: efa10f2d
 //curator3@gmail.com Generated Password: a8a9f1e1
 //curator4@gmail.com Generated Password: 0a0da8d0
+//curator6@gmail.com Generated Password: d8548a0b
 //curator5@gmail.com Generated Password: 89e07347
 // const adminData = {
 //   name: 'admin',

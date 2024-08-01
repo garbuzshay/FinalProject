@@ -23,6 +23,7 @@ const CuratorExhibitionsList = () => {
             imageUrl={exhibition.imageUrl || 'https://via.placeholder.com/150'}
             artworks={exhibition.artworks.map((artwork) => artwork.title).join(', ')} // Assuming artworks is an array of objects with a title field
             curators={exhibition.curators.map((curator) => curator.name).join(', ')}
+            status={exhibition.status}
           />
         ))}
       </div>

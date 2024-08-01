@@ -12,12 +12,12 @@ const usePlanDetails = (museum) => {
     if (museum) {
       const planData = museum.plan;
 
-      const exhibitionsUsed = museum.exhibitions?.length || 0;
-      const artworksUsed =
-        museum.exhibitions?.reduce(
-          (total, exhibition) => total + (exhibition.maxArtworks || 0),
-          0
-        ) || 0;
+      const openExhibitions = museum.exhibitions?.filter(exhibition => exhibition.status === 'open') || [];
+      const exhibitionsUsed = openExhibitions.length;
+      const artworksUsed = openExhibitions.reduce(
+        (total, exhibition) => total + (exhibition.maxArtworks || 0),
+        0
+      );
 
       setPlanDetails({
         maxExhibitions: planData.maxExhibitions,

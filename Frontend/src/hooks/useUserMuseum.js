@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import museumApi from "../api/MuseumApi";
-import exhibitionsApi from "../api/ExhibitionsApi"; 
+import exhibitionsApi from "../api/ExhibitionsApi";
 const useUserMuseum = () => {
   const [museum, setMuseum] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -26,11 +26,42 @@ const useUserMuseum = () => {
       setError(err.message);
     }
   };
+
+  const openExhibition = async (exhibitionId) => {
+    try {
+      await exhibitionsApi.updateExhibition(exhibitionId, {
+        status: "open",
+      });
+      await fetchMuseum(); // Refetch the museum data to reflect the updates
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const closeExhibition = async (exhibitionId) => {
+    try {
+      await exhibitionsApi.updateExhibition(exhibitionId, {
+        status: "closed",
+      });
+      await fetchMuseum(); // Refetch the museum data to reflect the updates
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   useEffect(() => {
     fetchMuseum();
   }, []);
 
-  return { museum, isLoading, error ,fetchMuseum, updateExhibition};
+  return {
+    museum,
+    isLoading,
+    error,
+    fetchMuseum,
+    updateExhibition,
+    openExhibition,
+    closeExhibition,
+  };
 };
 
 export default useUserMuseum;
