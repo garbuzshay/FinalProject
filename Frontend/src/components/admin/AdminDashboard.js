@@ -63,7 +63,7 @@ const getRandomExhibitions = (exhibitions, count) => {
 };
 
 const AdminDashboard = () => {
-  const { museumsData, exhibitionsData, requestsData } = useAdminContext();
+  const { museumsData, exhibitionsData } = useAdminContext();
   const { museums, isLoading: isLoadingMuseums, error: errorMuseums } = museumsData;
   const { exhibitions, isLoading: isLoadingExhibitions, error: errorExhibitions } = exhibitionsData;
 
@@ -110,6 +110,7 @@ const AdminDashboard = () => {
             location={exhibit.museum ? exhibit.museum.name : 'Unknown'}
             artworks={exhibit.artworks.length}
             curators={exhibit.curators.length}
+            status={exhibit.status}
           />
         ))}
       </div>

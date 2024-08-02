@@ -1,64 +1,3 @@
-// // const express = require('express');
-// import express from "express";
-// import { config } from "dotenv";
-// import bodyParser from "body-parser";
-// import cors from "cors";
-// import router from "./Routes/index.js";
-// import db from './Models/db.js';
-// import admin from 'firebase-admin';
-// import serviceAccount from './serviceAccountKey.json' assert { type: 'json' };
-// import createAdminUser from "./Utils/adminUtils.js";
-
-// config();
-
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount)
-// });
- 
-
-// const app = express();
-// const PORT = process.env.PORT || 8080;
-
-
-// app.use(bodyParser.json());
-// app.use(cors());
-// app.use('/api', router);
-
-// app.listen(PORT, () => {
-//   console.log(`Server is running on ${PORT}`);
-// });
-
-
-//mensch.edutainment@gmail.com  Password: Mensch123
-//shay.garbuz Shay123
-//ofekaz24 ofek123
-//maycaspi May123
-
-//curator1@gmail.com Generated Password: e341aa75
-//curator2@gmail.com Generated Password: efa10f2d
-//curator3@gmail.com Generated Password: a8a9f1e1
-//curator4@gmail.com Generated Password: 0a0da8d0
-//curator6@gmail.com Generated Password: d8548a0b
-//curator5@gmail.com Generated Password: 89e07347
-// const adminData = {
-//   name: 'admin',
-//   lastName: 'admin',
-//   email: 'admin@gmail.com',
-//   password: 'admin123',
-//   phoneNumber: '+972522835145',
-//   terms: true,
-//   role : {roleId : '1', roleName: 'Admin'}
-// };
-
-// createAdminUser(adminData)
-//   .then((adminUser) => {
-//     console.log('Admin user created:', adminUser);
-//   })
-//   .catch((error) => {
-//     console.error('Error creating admin user:', error);
-//   });
-
-
 import express from "express";
 import { config } from "dotenv";
 import bodyParser from "body-parser";
@@ -116,3 +55,34 @@ app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
 
+
+
+//mensch.edutainment@gmail.com  Password: Mensch123
+//shay.garbuz Shay123
+//ofekaz24 ofek123
+//maycaspi May123
+
+//curator1@gmail.com Generated Password: e341aa75
+//curator2@gmail.com Generated Password: efa10f2d
+//curator3@gmail.com Generated Password: a8a9f1e1
+//curator4@gmail.com Generated Password: 0a0da8d0
+//curator5@gmail.com Generated Password: 89e07347
+//curator6@gmail.com Generated Password: d8548a0b
+
+// const adminData = {
+//   name: 'admin',
+//   lastName: 'admin',
+//   email: 'admin@gmail.com',
+//   password: 'admin123',
+//   phoneNumber: '+972522835145',
+//   terms: true,
+//   role : {roleId : '1', roleName: 'Admin'}
+// };
+
+// createAdminUser(adminData)
+//   .then((adminUser) => {
+//     console.log('Admin user created:', adminUser);
+//   })
+//   .catch((error) => {
+//     console.error('Error creating admin user:', error);
+//   });
