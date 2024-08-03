@@ -49,8 +49,13 @@ class MuseumsService {
       const museum = await MuseumModel.findById(id)
         .populate("plan")
         .populate("owner")
-        .populate("exhibitions")
-        .populate("artworks");
+        .populate({
+          path: "exhibitions",
+          populate: [
+            { path: "curators", model: "users" },
+            { path: "artworks", model: "artworks" } 
+          ]
+        })
       return museum ? museum : null;
     } catch (error) {
       console.error("Error fetching museum by ID:", error);
@@ -99,9 +104,13 @@ class MuseumsService {
         .populate("owner")
         .populate({
           path: "exhibitions",
-          populate: { path: "curators", model: "users" },
+          populate: [
+            { path: "curators", model: "users" },
+            { path: "artworks", model: "artworks" } 
+          ]
         })
         .populate("artworks");
+        
       return museum;
     } catch (error) {
       console.error(`Error getting museums with owner ID ${ownerId}:`, error);

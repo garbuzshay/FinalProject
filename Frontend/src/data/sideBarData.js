@@ -10,16 +10,16 @@ const sideBarData = {
     ],
     MuseumOwner: [
       { name: "Owner Dashboard", path: "/owner/" },
-      { name: "Exhibitions Management", path: "/owner/exhibitons" },
-      { name: "Open New Exhibitons", path: "/owner/open-exhibit"},
+      { name: "Exhibitions Management", path: "/owner/exhibitions" },
+      { name: "Open New Exhibitions", path: "/owner/open-exhibit"},
       { name: "Our Curators", path: "/owner/my-curators"},
       { name: "Contact us", path: "/owner/contact-us"},
 
 
     ],
     Curator: [
-      { name: "Curator Dashboard", path: "/curator/exhibitons" },
-      { name: "Exhibitions Management", path: "/curator/exhibitons" },
+      { name: "Curator Dashboard", path: "/curator/exhibitions" },
+      { name: "Exhibitions Management", path: "/curator/exhibitions" },
       { name: "Contact us", path: "/curator/contact-us"},
     ],
   };

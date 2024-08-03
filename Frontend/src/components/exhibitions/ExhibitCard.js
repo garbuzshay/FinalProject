@@ -132,9 +132,9 @@ const ExhibitCard = ({
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{name}</div>
         <p className="text-gray-700 text-base mb-2 ">{description}</p>
-        {location && (
+        {location && user?.role?.roleName === "Curator" &&(
           <div className="flex mb-2">
-            <span className="font-semibold text-gray-700">Location:</span>
+            <span className="font-semibold text-gray-700">Museum:</span>
             <span className="text-gray-700 ml-1">{location}</span>
           </div>
         )}

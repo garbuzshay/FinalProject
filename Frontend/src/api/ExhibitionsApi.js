@@ -15,7 +15,7 @@ class ExhibitionsApi extends BaseApi {
       const response = await this.api.post('/exhibitions', exhibitionData);
       return response.data.data;
     } catch (error) {
-      console.error('Error creating exhibition:', error);
+      // console.error('Error creating exhibition:', error);
       throw error;
     }
   }
@@ -74,10 +74,12 @@ class ExhibitionsApi extends BaseApi {
     }
   }
 
-  async getUserExhibitions() {
+  async getUserExhibitions(status) {
     try {
-      const response = await this.api.get(`/exhibitions/my`);
-      return response.data.data;
+      const response = await this.api.get(`/exhibitions/my`, {
+        params: { status }
+    });
+    return response.data.data;
     } catch (error) {
       console.error(`Error getting exhibitions for museum with ID :`, error);
       throw error;

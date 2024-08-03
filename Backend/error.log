@@ -17,3 +17,40 @@ Use mongoose.model(name, schema)
 2024-07-31 18:27:39 [31merror[39m: Error creating artwork for exhibition with ID 66aa3d458fbbe4ed52ffea60: artworks validation failed: imageUrl: Path `imageUrl` is required.
 2024-08-01 16:18:47 [31merror[39m: Error updating exhibition with ID 66aa64249f77c7c5340822c8: Cannot read properties of undefined (reading 'includes')
 2024-08-01 16:18:47 [31merror[39m: Error updating exhibition with ID 66aa64249f77c7c5340822c8: Cannot read properties of undefined (reading 'includes')
+2024-08-03 16:05:16 [31merror[39m: Error creating exhibition: The user with the provided phone number already exists.
+2024-08-03 16:13:52 [31merror[39m: Error creating exhibition: The user with the provided phone number already exists.
+2024-08-03 16:24:05 [31merror[39m: Error creating exhibition: The user with the provided phone number already exists.
+2024-08-03 16:30:00 [31merror[39m: Error creating exhibition: The user with the provided phone number already exists.
+2024-08-03 16:32:08 [31merror[39m: Error creating exhibition: The user with the provided phone number already exists.
+2024-08-03 16:33:20 [31merror[39m: Error creating exhibition: The user with the provided phone number already exists.
+2024-08-03 16:35:54 [31merror[39m: Error creating exhibition: Phone number already exist.
+2024-08-03 16:37:02 [31merror[39m: Error creating exhibition: curator7@gmail.com: Phone number already exist.
+2024-08-03 16:38:50 [31merror[39m: Error creating exhibition: curator7@gmail.com: Phone number already exist.
+2024-08-03 16:42:55 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 16:42:55 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:04:07 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curtator8@gmail.com: Phone number already exist.
+2024-08-03 17:04:07 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curtator8@gmail.com: Phone number already exist.
+2024-08-03 17:06:46 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:06:46 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:08:59 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:08:59 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:10:56 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:10:56 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:11:20 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:11:20 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:11:43 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:11:43 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:12:33 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: The phone number must be a non-empty E.164 standard compliant identifier string.
+2024-08-03 17:12:33 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: The phone number must be a non-empty E.164 standard compliant identifier string.
+2024-08-03 17:12:47 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curators8@gmail.com: Phone number already exist.
+2024-08-03 17:12:47 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curators8@gmail.com: Phone number already exist.
+2024-08-03 17:12:58 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curators8@gmail.com: Phone number already exist.
+2024-08-03 17:12:58 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curators8@gmail.com: Phone number already exist.
+2024-08-03 17:18:10 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:18:10 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:19:09 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:19:09 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:31:01 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:31:01 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:31:10 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.
+2024-08-03 17:31:10 [31merror[39m: Error updating exhibition with ID 66ae3319b2c59dceecaffebd: curator8@gmail.com: Phone number already exist.

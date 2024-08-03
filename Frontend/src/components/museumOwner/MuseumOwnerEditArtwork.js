@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { useForm } from "react-hook-form";
-// import { useExhibitions } from "../../contexts/ExhibitionsContext";
-import { useMuseumContext } from "../../contexts/MuseumContext";
-import FormConfirmButton from "../common/FormConfirmButton";
+// Frontend\src\components\museumOwner\MuseumOwnerEditArtwork.js
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { useMuseumContext } from '../../contexts/MuseumContext';
+import FormConfirmButton from '../common/FormConfirmButton';
 
-const CuratorEditArtwork = () => {
-  const { exhibitionId, artworkId } = useParams();
+const MuseumOwnerEditArtwork = () => {
+  const { id, artworkId } = useParams();
   const { exhibitions, updateArtwork, deleteArtwork } = useMuseumContext();
   const {
     register,
@@ -23,50 +23,50 @@ const CuratorEditArtwork = () => {
     const fetchArtwork = async () => {
       try {
         const exhibition = exhibitions.find(
-          (exhibit) => exhibit._id === exhibitionId
+          (exhibit) => exhibit._id === id
         );
         if (exhibition) {
           const artwork = exhibition.artworks.find(
             (art) => art._id === artworkId
           );
           if (artwork) {
-            setValue("title", artwork.title);
-            setValue("description", artwork.description);
+            setValue('title', artwork.title);
+            setValue('description', artwork.description);
             setValue(
-              "createdDateByArtist",
-              artwork.createdDateByArtist.split("T")[0]
+              'createdDateByArtist',
+              artwork.createdDateByArtist.split('T')[0]
             );
-            setValue("artist", artwork.artist);
-            setValue("imageUrl", artwork.imageUrl);
+            setValue('artist', artwork.artist);
+            setValue('imageUrl', artwork.imageUrl);
             setLoading(false);
           }
         }
       } catch (error) {
-        console.error("There was an error fetching the artwork!", error);
+        console.error('There was an error fetching the artwork!', error);
         setLoading(false);
       }
     };
 
     fetchArtwork();
-  }, [exhibitionId, artworkId, exhibitions, setValue]);
+  }, [id, artworkId, exhibitions, setValue]);
 
   const onSubmit = async (data) => {
     try {
-      await updateArtwork(exhibitionId, artworkId, data);
-      alert("Artwork updated successfully");
+      await updateArtwork(id, artworkId, data);
+      alert('Artwork updated successfully');
       handleGoBack();
     } catch (error) {
-      console.error("There was an error updating the artwork!", error);
+      console.error('There was an error updating the artwork!', error);
     }
   };
 
   const handleDelete = async () => {
     try {
-      await deleteArtwork(exhibitionId, artworkId);
-      alert("Artwork deleted successfully");
+      await deleteArtwork(id, artworkId);
+      alert('Artwork deleted successfully');
       handleGoBack();
     } catch (error) {
-      console.error("There was an error deleting the artwork!", error);
+      console.error('There was an error deleting the artwork!', error);
     }
   };
 
@@ -93,11 +93,11 @@ const CuratorEditArtwork = () => {
               </label>
               <input
                 className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  errors.title ? "border-red-500" : ""
+                  errors.title ? 'border-red-500' : ''
                 }`}
                 id="title"
                 type="text"
-                {...register("title", { required: true })}
+                {...register('title', { required: true })}
               />
               {errors.title && (
                 <p className="text-red-500 text-xs italic">
@@ -115,10 +115,10 @@ const CuratorEditArtwork = () => {
               </label>
               <textarea
                 className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  errors.description ? "border-red-500" : ""
+                  errors.description ? 'border-red-500' : ''
                 }`}
                 id="description"
-                {...register("description", { required: true })}
+                {...register('description', { required: true })}
               ></textarea>
               {errors.description && (
                 <p className="text-red-500 text-xs italic">
@@ -136,11 +136,11 @@ const CuratorEditArtwork = () => {
               </label>
               <input
                 className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  errors.createdDateByArtist ? "border-red-500" : ""
+                  errors.createdDateByArtist ? 'border-red-500' : ''
                 }`}
                 id="createdDateByArtist"
                 type="date"
-                {...register("createdDateByArtist", { required: true })}
+                {...register('createdDateByArtist', { required: true })}
               />
               {errors.createdDateByArtist && (
                 <p className="text-red-500 text-xs italic">
@@ -158,11 +158,11 @@ const CuratorEditArtwork = () => {
               </label>
               <input
                 className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  errors.artist ? "border-red-500" : ""
+                  errors.artist ? 'border-red-500' : ''
                 }`}
                 id="artist"
                 type="text"
-                {...register("artist", { required: true })}
+                {...register('artist', { required: true })}
               />
               {errors.artist && (
                 <p className="text-red-500 text-xs italic">
@@ -180,11 +180,11 @@ const CuratorEditArtwork = () => {
               </label>
               <input
                 className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-                  errors.imageUrl ? "border-red-500" : ""
+                  errors.imageUrl ? 'border-red-500' : ''
                 }`}
                 id="imageUrl"
                 type="text"
-                {...register("imageUrl", { required: true })}
+                {...register('imageUrl', { required: true })}
               />
               {errors.imageUrl && (
                 <p className="text-red-500 text-xs italic">
@@ -205,7 +205,7 @@ const CuratorEditArtwork = () => {
                 buttonText="Delete Artwork"
                 dialogMessage="Would you like to delete this artwork?"
                 className={`bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-                  deleting ? "opacity-50 cursor-not-allowed" : ""
+                  deleting ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 disabled={deleting}
               />
@@ -213,14 +213,8 @@ const CuratorEditArtwork = () => {
           </form>
         )}
       </div>
-      <button
-        onClick={handleGoBack}
-        className="mt-4 bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white font-bold py-2 px-4 rounded-lg shadow-md  duration-300 ease-in-out transform  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-      >
-        Go Back
-      </button>
     </div>
   );
 };
 
-export default CuratorEditArtwork;
+export default MuseumOwnerEditArtwork;

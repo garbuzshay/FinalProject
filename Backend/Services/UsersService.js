@@ -22,10 +22,12 @@ class UsersService {
       if (existingUser) {
         return existingUser;
       }
-
+      const existingPhonenumber = await UserModel.findOne({ phoneNumber: formattedNumber });
+      if (existingPhonenumber) {
+        throw new Error(`${email}: Phone number already exist.`);
+      }
       if (!password) {
         password = generateRandomPassword();
-        console.log(email + ' Generated Password:', password);
       }
       
       // Fetch the role objectId from the database
@@ -46,6 +48,7 @@ class UsersService {
         displayName: `${name} ${lastName}`,
         phoneNumber: formattedNumber
       });
+      console.log(email + ' Generated Password:', password);
 
       // Set custom user claims (roles)
       let claims = {};
@@ -73,6 +76,7 @@ class UsersService {
       console.error('Error creating user:', error);
       throw error;
     }
+
   }
 
   async getUsers(currentUserId) {

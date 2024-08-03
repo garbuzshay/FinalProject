@@ -17,7 +17,8 @@ const Header = ({ buttonText, buttonPath }) => {
                 case 'MuseumOwner':
                     return `Hello ${user.name}, Welcome to ${user.museum? user.museum.name : "your museum "} CMS`;
                 case 'Curator':
-                    return `Hello ${user.name}, Welcome to the Curator's area in ${user.museum.name} CMS`;
+                    // return `Hello ${user.name}, Welcome to the Curator's area in ${user.museum.name} CMS`;
+                    return `Hello ${user.name}, Welcome to the Curator's area CMS`;
                 default:
                     return '';
             }

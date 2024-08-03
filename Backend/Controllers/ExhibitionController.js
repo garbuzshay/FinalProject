@@ -171,7 +171,7 @@ export const getUserExhibitions = async (req, res) => {
     if (req.user.role.roleName === 'MuseumOwner') {
       exhibitions = await ExhibitionsService.getMuseumExhibitions(req.user.museum._id);
     } else if (req.user.role.roleName === 'Curator') {
-      exhibitions = await ExhibitionsService.getCuratorExhibitions(req.user._id);
+      exhibitions = await ExhibitionsService.getCuratorExhibitions(req.user._id, req.query.status);
     }
 
     res.status(200).json({

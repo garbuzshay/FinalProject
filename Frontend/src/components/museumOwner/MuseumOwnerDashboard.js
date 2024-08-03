@@ -36,7 +36,7 @@ const getRandomColor = () => {
 };
 
 const MuseumOwnerDashboard = () => {
-  const { museum, isLoading, error } = useMuseumContext();
+  const { museum, exhibitions, isLoading, error } = useMuseumContext();
   const planDetails = usePlanContext();
   const [chartData, setChartData] = useState({
     pieData: null,
@@ -50,10 +50,10 @@ const MuseumOwnerDashboard = () => {
     if (!isLoading && museum && planDetails) {
       const totalMaxExhibitions = planDetails.maxExhibitions || 0;
       const totalMaxArtworks = planDetails.maxArtWorks || 0;
-      const openExhibitions = museum.exhibitions.filter(
+      const openExhibitions = exhibitions.filter(
         (exhibition) => exhibition.status === "open"
       );
-      const closedExhibitions = museum.exhibitions.filter(
+      const closedExhibitions = exhibitions.filter(
         (exhibition) => exhibition.status !== "open"
       );
       const closedExhibitionsCount = closedExhibitions.length;
@@ -81,16 +81,16 @@ const MuseumOwnerDashboard = () => {
         ],
       };
 
-      const barColors = museum.exhibitions.map(() => getRandomColor());
+      const barColors = exhibitions.map(() => getRandomColor());
 
       const barData = {
-        labels: museum.exhibitions.map(
+        labels: exhibitions.map(
           (exhibition) => `${exhibition.name} (${exhibition.artworks.length})`
         ),
         datasets: [
           {
             label: "Number of Artworks",
-            data: museum.exhibitions.map(
+            data: exhibitions.map(
               (exhibition) => exhibition.artworks.length
             ),
             backgroundColor: barColors,
@@ -113,7 +113,7 @@ const MuseumOwnerDashboard = () => {
         ],
       };
 
-      const creationTrend = museum.exhibitions.reduce((acc, exhibition) => {
+      const creationTrend = exhibitions.reduce((acc, exhibition) => {
         const date = new Date(exhibition.createdAt).toLocaleDateString();
         if (!acc[date]) {
           acc[date] = 0;

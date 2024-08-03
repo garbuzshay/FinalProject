@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const usePlanDetails = (museum) => {
+const usePlanDetails = (museum, exhibitions) => {
   const [planDetails, setPlanDetails] = useState({
     maxExhibitions: 0,
     maxArtWorks: 0,
@@ -12,7 +12,7 @@ const usePlanDetails = (museum) => {
     if (museum) {
       const planData = museum.plan;
 
-      const openExhibitions = museum.exhibitions?.filter(exhibition => exhibition.status === 'open') || [];
+      const openExhibitions = exhibitions?.filter(exhibition => exhibition.status === 'open') || [];
       const exhibitionsUsed = openExhibitions.length;
       const artworksUsed = openExhibitions.reduce(
         (total, exhibition) => total + (exhibition.maxArtworks || 0),

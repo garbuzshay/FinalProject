@@ -1,6 +1,7 @@
 import React from 'react';
 // import useUserExhibitions from '../../hooks/useUserExhibitions';
 import { useMuseumContext } from '../../contexts/MuseumContext';
+// import {useMuseum} from '../../hooks/useMuseum';
 
 const MuseumOwnerCuratorsList = () => {
   const { museum, loading } = useMuseumContext();

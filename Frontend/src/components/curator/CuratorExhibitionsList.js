@@ -1,10 +1,11 @@
 import React from 'react';
 import ExhibitCard from '../exhibitions/ExhibitCard'; // Adjust the path as needed
-import {useExhibitions} from '../../contexts/ExhibitionsContext'; // Adjust the path as needed
+// import {useExhibitions} from '../../contexts/ExhibitionsContext'; // Adjust the path as needed
+import {useMuseumContext} from '../../contexts/MuseumContext'; // Adjust the path as needed
 
 const CuratorExhibitionsList = () => {
-  const { exhibitions, loading } = useExhibitions();
-
+  // const { exhibitions, loading } = useExhibitions();
+  const { exhibitions, loading } = useMuseumContext(); // Adjust the hook as needed
   if (loading) {
     return <div>Loading...</div>;
   }

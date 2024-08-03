@@ -64,10 +64,10 @@ const useUserExhibitions = () => {
     };
 
     useEffect(() => {
-        const fetchExhibitions = async () => {
+        const fetchExhibitions = async (status) => {
             setIsLoading(true);
             try {
-                const data = await exhibitionsApi.getUserExhibitions();
+                const data = await exhibitionsApi.getUserExhibitions(status);
                 setExhibitions(data); // Make sure this matches the structure of your API response
                 setIsLoading(false);
             } catch (error) {
@@ -76,7 +76,7 @@ const useUserExhibitions = () => {
             }
         };
 
-        fetchExhibitions();
+        fetchExhibitions("open");
     }, []);
 
     return { exhibitions, isLoading, error, updateArtwork, createArtwork, deleteArtwork };

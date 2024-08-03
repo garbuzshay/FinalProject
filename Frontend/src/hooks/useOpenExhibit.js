@@ -117,7 +117,7 @@ const useOpenExhibit = () => {
         return true; // Indicate success
       } catch (error) {
         console.error('Error creating exhibition:', error);
-        alert('Failed to create exhibition');
+        alert(error.response?.data?.message || 'Failed to create exhibition');
         return false; // Indicate failure
       }
     } else {

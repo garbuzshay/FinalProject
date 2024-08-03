@@ -20,7 +20,7 @@ class UsersApi extends BaseApi {
       const response = await this.api.post('/users', userData);
       return response.data.data;
     } catch (error) {
-      console.error('Error creating user:', error);
+      // console.error('Error creating user:', error);
       throw error;
     }
   }

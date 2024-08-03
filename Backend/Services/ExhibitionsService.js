@@ -134,12 +134,28 @@ class ExhibitionsService {
       .populate("museum")
       .populate("artworks");
   }
-  async getCuratorExhibitions(curatorId) {
-    return await ExhibitionModel.find({ curators: { $in: [curatorId] } })
-    .populate("curators")
-    .populate("museum")
-    .populate("artworks");
+  async getCuratorExhibitions(curatorId, status) {
+    const query = {
+      curators: { $in: [curatorId] }
+    };
+  
+    if (status) {
+      query.status = status;
+    }
+  
+    try {
+      const exhibitions = await ExhibitionModel.find(query)
+        .populate("curators")
+        .populate("museum")
+        .populate("artworks");
+      
+      return exhibitions;
+    } catch (error) {
+      console.error(`Error fetching exhibitions for curator ${curatorId} with status ${status}:`, error);
+      throw error;
+    }
   }
+  
   //
   async getExhibitionsWithDetails() {
     try {

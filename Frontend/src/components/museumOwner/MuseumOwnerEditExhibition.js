@@ -1,3 +1,4 @@
+// Frontend\src\components\museumOwner\MuseumOwnerEditExhibition.js
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMuseumContext } from "../../contexts/MuseumContext";
@@ -8,9 +9,11 @@ import CuratorSelect from "./CuratorSelect";
 
 const MuseumOwnerEditExhibition = () => {
   const { id } = useParams();
-  const { museum, fetchMuseum, updateExhibition, closeExhibition } = useMuseumContext();
+  const navigate = useNavigate();
+  const { museum, exhibitions, fetchMuseum, updateExhibition, closeExhibition } = useMuseumContext();
   const [loading, setLoading] = useState(false);
   const [showCuratorSelect, setShowCuratorSelect] = useState(false);
+  const [error, setError] = useState(null);
 
   const {
     register,
@@ -44,20 +47,23 @@ const MuseumOwnerEditExhibition = () => {
     name: "newCurators",
   });
 
-  const navigate = useNavigate();
-  const handleGoBack = () => {
-    navigate(-1);
-  };
 
-  const handleCloseExhibition = () => {
-    closeExhibition(id);
-    handleGoBack();
-  }
-  
+
+  const handleCloseExhibition = async () => {
+    setLoading(true);
+    try {
+      await closeExhibition(id);
+      navigate(`/owner/exhibitions`);
+    } catch (err) {
+      console.error("Error closing exhibition:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const fetchExhibition = () => {
     setLoading(true);
-    const exhibition = museum.exhibitions.find((exhibit) => exhibit._id === id);
+    const exhibition = exhibitions.find((exhibit) => exhibit._id === id);
     if (exhibition) {
       reset({
         name: exhibition.name,
@@ -82,7 +88,9 @@ const MuseumOwnerEditExhibition = () => {
     if (museum) {
       fetchExhibition();
     }
-  }, [id, museum, reset]);
+
+    return () => setError(null);
+  }, [id, museum, reset, setError]);
 
   const onSubmit = async (data) => {
     const { curators, newCurators, ...rest } = data;
@@ -95,8 +103,9 @@ const MuseumOwnerEditExhibition = () => {
     };
     try {
       await updateExhibition(id, updatedData);
-      handleGoBack();
+      navigate(-1);
     } catch (error) {
+      setError(error);
       console.error("Error updating exhibition:", error);
     }
   };
@@ -419,12 +428,21 @@ const MuseumOwnerEditExhibition = () => {
               dialogMessage="Are you sure you want to save these changes?"
             />
           </div>
-          <div className="mt-4"><FormConfirmButton
+          <div>
+            {error && (
+              <p className="text-red-500 text-center">
+                {error.response?.data?.message || error.message}
+              </p>
+            )}
+          </div>
+          <div className="mt-4">
+            <FormConfirmButton
               onSubmit={handleCloseExhibition}
               buttonText="Would you like to close this exhibition?"
               dialogMessage="Are you sure you want to close this exhibition?"
               className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            /></div>
+            />
+          </div>
         </form>
       )}
     </div>

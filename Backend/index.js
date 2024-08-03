@@ -68,6 +68,8 @@ app.listen(PORT, () => {
 //curator4@gmail.com Generated Password: 0a0da8d0
 //curator5@gmail.com Generated Password: 89e07347
 //curator6@gmail.com Generated Password: d8548a0b
+//curator7@gmail.com Generated Password: 12441b16
+//curator8@gmail.com Generated Password: 2ffeccbb
 
 // const adminData = {
 //   name: 'admin',

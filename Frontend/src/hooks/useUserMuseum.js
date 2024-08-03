@@ -22,8 +22,9 @@ const useUserMuseum = () => {
     try {
       await exhibitionsApi.updateExhibition(exhibitionId, updatedData); // Adjust the API call as needed
       await fetchMuseum(); // Refetch the museum data to reflect the updates
-    } catch (err) {
-      setError(err.message);
+    } catch (error) {
+      setError(error);
+      throw error;
     }
   };
 
