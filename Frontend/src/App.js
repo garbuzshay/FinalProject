@@ -156,7 +156,7 @@ import CuratorEditArtwork from "./components/curator/CuratorEditArtwork.js";
 import MuseumOwnerWatchArtworks from "./components/museumOwner/MuseumOwnerWatchArtworks.js";
 import MuseumOwnerTabs from "./components/museumOwner/MuseumOwnerTabs.js";
 import MuseumOwnerEditArtwork from "./components/museumOwner/MuseumOwnerEditArtwork.js";
-
+import MuseumOwnerEditDetails from "./components/museumOwner/MuseumOwnerEditDetails.js";
 
 const App = () => {
   return (
@@ -205,6 +205,7 @@ const App = () => {
             path="exhibitions"
             element={<MuseumOwnerExhibitionsList />}
           />
+          <Route path="edit-details" element={<MuseumOwnerEditDetails />} />
           {/* <Route
             path="exhibitions/:id"
             element={<MuseumOwnerEditExhibition />}

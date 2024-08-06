@@ -13,7 +13,9 @@ const sideBarData = {
       { name: "Exhibitions Management", path: "/owner/exhibitions" },
       { name: "Open New Exhibitions", path: "/owner/open-exhibit"},
       { name: "Our Curators", path: "/owner/my-curators"},
+      {name : "Museum Details", path: "/owner/edit-details"},
       { name: "Contact us", path: "/owner/contact-us"},
+
 
 
     ],

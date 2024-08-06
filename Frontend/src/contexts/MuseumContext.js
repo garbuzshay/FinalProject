@@ -71,6 +71,7 @@ export const MuseumProvider = ({ children, role }) => {
     updateArtwork,
     createArtwork,
     deleteArtwork,
+    updateMuseumDetails
   } = useMuseum(role);
   const planDetails = usePlanDetails(museum, exhibitions);
 
@@ -88,6 +89,7 @@ export const MuseumProvider = ({ children, role }) => {
         updateArtwork,
         createArtwork,
         deleteArtwork,
+        updateMuseumDetails
       }}
     >
       <PlanContext.Provider value={planDetails}>

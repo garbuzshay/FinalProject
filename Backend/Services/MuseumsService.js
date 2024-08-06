@@ -130,19 +130,33 @@ class MuseumsService {
   }
 
   async verifyPassword(museumName, password) {
-    try {
-      const museum = await MuseumModel.findOne({ name: museumName });
-      if (!museum) throw new Error('Museum not found');
-      
-      const isPasswordValid = bcrypt.compare(password, museum.password);
-      if (!isPasswordValid) throw new Error('Invalid password');
-      
-      return museum;
-    } catch (error) {
-      throw error;
+      try {
+        const museum = await MuseumModel.findOne({ name: museumName });
+        if (!museum) throw new Error('Museum not found');
+        
+        const isPasswordValid = (password === museum.password);
+        if (!isPasswordValid) throw new Error('Invalid password');
+        
+        return museum;
+      } catch (error) {
+        throw error;
+      }
     }
-  }
-
+  
+  // async verifyPassword(museumName, password) {
+  //   try {
+  //     const museum = await MuseumModel.findOne({ name: museumName });
+  //     if (!museum) throw new Error('Museum not found');
+      
+  //     const isPasswordValid =  bcrypt.compare(password, museum.password);
+  //     if (!isPasswordValid) throw new Error('Invalid password');
+      
+  //     return museum;
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // }
+  
   async getMuseumDetails(museumName) {
     try {
       const museum = await MuseumModel.findOne({ name: museumName }).populate({

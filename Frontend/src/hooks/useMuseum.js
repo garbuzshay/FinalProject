@@ -114,6 +114,17 @@ const useMuseum = (role) => {
     }
   };
 
+
+  const updateMuseumDetails = async (details) => {
+    try {
+      await museumApi.updateMuseum(museum._id, details);
+      setMuseum(prevMuseum => ({ ...prevMuseum, ...details }));
+    } catch (err) {
+      setError(err);
+    }
+  };
+
+
   useEffect(() => {
     fetchMuseum();
   }, []);
@@ -130,6 +141,7 @@ const useMuseum = (role) => {
     updateArtwork,
     createArtwork,
     deleteArtwork,
+    updateMuseumDetails
   };
 };
 
