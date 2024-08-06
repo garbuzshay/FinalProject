@@ -104,7 +104,7 @@ class MuseumApi extends BaseApi {
       const response = await this.api.get(`/museums/my`);
       return response.data.data;
     } catch (error) {
-      console.error(`Error getting exhibitions for museum with ID :`, error);
+      // console.error(`Error getting exhibitions for museum with ID :`, error);
       throw error;
     }
   }

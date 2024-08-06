@@ -22,8 +22,8 @@ router.get('/:id', getMuseumById);
 //
 router.get('/curator/:curatorId', authenticateUser, getMuseumByCurator); // Corrected route
 //
-router.post('/', createMuseum);
-router.put('/:id', updateMuseum);
+router.post('/',authenticateUser, createMuseum);
+router.put('/:id',authenticateUser, updateMuseum);
 
 router.delete('/:id', deleteMuseum);
 

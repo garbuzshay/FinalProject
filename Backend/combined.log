@@ -1293,3 +1293,7 @@ Use mongoose.model(name, schema)
 2024-08-06 17:25:55 [32minfo[39m: Deleting artwork with ID 66b23261a17299599fdd9317 from exhibition with ID 66aa3dc06d749c63c9aa4ba7
 2024-08-06 17:27:08 [32minfo[39m: Creating artwork for exhibition with ID: 66aa3dc06d749c63c9aa4ba7
 2024-08-06 17:27:18 [32minfo[39m: Deleting artwork with ID 66b232bca17299599fdd932d from exhibition with ID 66aa3dc06d749c63c9aa4ba7
+2024-08-06 18:42:34 [32minfo[39m: Retrieving all exhibitions
+2024-08-06 18:46:48 [32minfo[39m: Retrieving all exhibitions
+2024-08-06 18:49:23 [32minfo[39m: Retrieving all exhibitions
+2024-08-06 18:59:40 [32minfo[39m: Retrieving all exhibitions
