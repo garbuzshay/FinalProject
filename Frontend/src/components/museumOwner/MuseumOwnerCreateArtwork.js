@@ -1,8 +1,10 @@
+// Frontend\src\components\museumOwner\MuseumOwnerCreateArtwork.js
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import {useMuseumContext} from '../../contexts/MuseumContext';
+import { useMuseumContext } from '../../contexts/MuseumContext';
+import FormConfirmButton from '../common/FormConfirmButton';
 
-const CuratorCreateArtwork = ({ exhibitionId }) => {
+const MuseumOwnerCreateArtwork = ({ exhibitionId }) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { createArtwork } = useMuseumContext();
 
@@ -65,12 +67,12 @@ const CuratorCreateArtwork = ({ exhibitionId }) => {
                         Artist Name
                     </label>
                     <input
-                        className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.artistId ? 'border-red-500' : ''}`}
+                        className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.artist ? 'border-red-500' : ''}`}
                         id="artist"
                         type="text"
                         {...register('artist', { required: true })}
                     />
-                    {errors.artist && <p className="text-red-500 text-xs italic">Please enter the artist ID.</p>}
+                    {errors.artist && <p className="text-red-500 text-xs italic">Please enter the artist name.</p>}
                 </div>
 
                 <div className="mb-4">
@@ -81,23 +83,30 @@ const CuratorCreateArtwork = ({ exhibitionId }) => {
                         className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.imageUrl ? 'border-red-500' : ''}`}
                         id="imageUrl"
                         type="text"
-                        {...register('imageUrl',{required:true})}
-
+                        {...register('imageUrl', { required: true })}
                     />
-                     {errors.imageUrl && <p className="text-red-500 text-xs italic">Please enter the image URL</p>}
+                    {errors.imageUrl && <p className="text-red-500 text-xs italic">Please enter the image URL</p>}
                 </div>
 
                 <div className="items-center">
-                    <button
+                    {/* <button
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         type="submit"
                     >
                         Create Artwork
-                    </button>
+                    </button> */}
+
+                    <FormConfirmButton
+                        onSubmit={handleSubmit(onSubmit)}
+                        type= "submit"
+                        buttonText="Create Artwork"
+                        dialogMessage="Would you like to create this artwork?"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    />
                 </div>
             </form>
         </div>
     );
 };
 
-export default CuratorCreateArtwork;
+export default MuseumOwnerCreateArtwork;

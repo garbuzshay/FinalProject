@@ -4,8 +4,7 @@ import ExhibitCard from "../exhibitions/ExhibitCard"; // Adjust the path as need
 import { useMuseumContext } from "../../contexts/MuseumContext";
 
 const MuseumOwnerExhibitionsList = () => {
-  const { museum, loading, openExhibition, closeExhibition } = useMuseumContext();
-  const exhibitions = museum?.exhibitions;
+  const { loading, openExhibition ,exhibitions } = useMuseumContext();
 
   const [filter, setFilter] = useState("all");
 

@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useMuseumContext } from '../../contexts/MuseumContext';
 import FormConfirmButton from '../common/FormConfirmButton';
 
+
 const MuseumOwnerEditArtwork = () => {
   const { id, artworkId } = useParams();
   const { exhibitions, updateArtwork, deleteArtwork } = useMuseumContext();
@@ -12,7 +13,6 @@ const MuseumOwnerEditArtwork = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
     setValue,
   } = useForm();
 
@@ -197,7 +197,7 @@ const MuseumOwnerEditArtwork = () => {
               <FormConfirmButton
                 onSubmit={handleSubmit(onSubmit)}
                 buttonText="Update Artwork"
-                dialogMessage="Would you like to update this message?"
+                dialogMessage="Would you like to update this artwork?"
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               />
               <FormConfirmButton

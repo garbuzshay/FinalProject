@@ -6,7 +6,9 @@ import {
   updateMuseum,
   deleteMuseum,
   getMuseumByCurator ,
-  getUserMuseum
+  getUserMuseum,
+  verifyMuseumPassword,
+  getMuseumDetails
 } from '../Controllers/MuseumController.js';
 import authenticateUser from '../Middlewares/AuthenticateUser.js';
 
@@ -24,4 +26,7 @@ router.post('/', createMuseum);
 router.put('/:id', updateMuseum);
 
 router.delete('/:id', deleteMuseum);
+
+router.post('/verify-password', verifyMuseumPassword); // New route for password verification
+router.get('/details/:museumName', getMuseumDetails); // New route for fetching museum details
 export default router;

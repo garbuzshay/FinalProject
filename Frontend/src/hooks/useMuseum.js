@@ -106,6 +106,7 @@ const useMuseum = (role) => {
           }
           return exhibition;
         });
+        fetchMuseum();
         return updatedExhibitions;
       });
     } catch (error) {

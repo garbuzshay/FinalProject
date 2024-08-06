@@ -1,5 +1,7 @@
 import MuseumModel from "../Models/Museum.js";
 import UserModel from "../Models/User.js";
+import Exhibition from '../Models/Exhibition.js';
+import bcrypt from 'bcrypt';
 
 class MuseumsService {
   /**
@@ -126,6 +128,36 @@ class MuseumsService {
       throw new Error("Error fetching museum by curator");
     }
   }
+
+  async verifyPassword(museumName, password) {
+    try {
+      const museum = await MuseumModel.findOne({ name: museumName });
+      if (!museum) throw new Error('Museum not found');
+      
+      const isPasswordValid = bcrypt.compare(password, museum.password);
+      if (!isPasswordValid) throw new Error('Invalid password');
+      
+      return museum;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getMuseumDetails(museumName) {
+    try {
+      const museum = await MuseumModel.findOne({ name: museumName }).populate({
+        path: 'exhibitions',
+        populate: { path: 'artworks'}
+      });
+      if (!museum) throw new Error('Museum not found');
+      
+      return { museum, exhibitions: museum.exhibitions };
+    } catch (error) {
+      throw error;
+    }
+  }
 }
+
+
 
 export default new MuseumsService();
