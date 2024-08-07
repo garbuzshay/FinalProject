@@ -4,7 +4,7 @@ import ExhibitCard from "../exhibitions/ExhibitCard"; // Adjust the path as need
 import { useMuseumContext } from "../../contexts/MuseumContext";
 
 const MuseumOwnerExhibitionsList = () => {
-  const { loading, openExhibition ,exhibitions } = useMuseumContext();
+  const { loading, openExhibition ,exhibitions, museum } = useMuseumContext();
 
   const [filter, setFilter] = useState("all");
 
@@ -33,6 +33,16 @@ const MuseumOwnerExhibitionsList = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-6">Exhibitions</h1>
+      <div className="mb-4">
+        <a
+          href={`https://mensch-visitors.vercel.app/${museum?.name}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 underline"
+        >
+          For visit your museum, click here
+        </a>
+      </div>
       <div className="flex justify-center mb-4">
         <button
           onClick={() => setFilter("all")}
