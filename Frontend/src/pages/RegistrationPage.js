@@ -2,7 +2,7 @@ import { useRegisterContext } from "../contexts/RegisterContext";
 import DisplayData from "../components/registration/DisplayData";
 import { Stepper, StepLabel, Step } from "@mui/material";
 import {NavigationButtons} from "../components/common/NavigationButtons";
-import Footer from "../components/common/Footer";
+
 
 // const RegistrationPage = () => {
 //   const { currentStep, steps, goToNextPage, goToPreviousPage } = useRegisterContext();
@@ -43,7 +43,7 @@ const RegistrationPage = () => {
   
   const src=logoSrc;
   return (
-    <div className="relative min-h-screen">
+    <div className ="container">
       {/* Logo at the upper left side */}
       <div className="absolute top-0 left-0">
         <Logo src={logoSrc} className="h-8 w-auto" />
@@ -67,14 +67,14 @@ const RegistrationPage = () => {
         <div className="w-full max-w-md">
           {steps[currentStep].component}
         </div>
-        <NavigationButtons 
+        <NavigationButtons  className=" bottom-0"
           currentPage={currentStep} 
           goToNextPage={goToNextPage} 
           goToPreviousPage={goToPreviousPage} 
           nextButtonText={currentStep === steps.length - 1 ? "Confirm & Pay" : "Next"} 
           isPrevPageExist={true}
         />
-        <Footer />
+
       </div>
     </div>
   );

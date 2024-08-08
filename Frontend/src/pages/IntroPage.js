@@ -17,7 +17,7 @@ const IntroPage = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <ContentSection
         logoSrc={logoSrc}
         explanation={explanation}

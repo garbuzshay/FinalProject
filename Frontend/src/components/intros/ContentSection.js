@@ -13,7 +13,7 @@ const ContentSection = ({ logoSrc, title, explanation, imageSrc }) => {
         <div className="text-center">
           <h1 className="text-2xl font-bold overflow-hidden whitespace-nowrap pr-5 animate-typing relative">
             {title}
-            <span className="border-r-2 border-white animate-caret absolute right-0"></span>
+            <span className="border-r-2 border-white animate-caret absolute "></span>
           </h1>
         </div>
         <div className="flex justify-center">

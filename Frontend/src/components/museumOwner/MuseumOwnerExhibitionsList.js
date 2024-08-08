@@ -40,7 +40,7 @@ const MuseumOwnerExhibitionsList = () => {
           rel="noopener noreferrer"
           className="text-blue-500 underline"
         >
-          For visit your museum, click here
+          Click here to visit your museum
         </a>
       </div>
       <div className="flex justify-center mb-4">
