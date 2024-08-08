@@ -15,7 +15,8 @@ const museumSchema = new mongoose.Schema({
   imageUrl: {
     type: String,
   },
-  password: { type: String}
+  password: { type: String},
+  status: { type: String, enum: ['open', 'closed'], default: 'open' },
 
 }, {
   timestamps: true,

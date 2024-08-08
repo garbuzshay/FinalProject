@@ -1298,3 +1298,86 @@ Use mongoose.model(name, schema)
 2024-08-06 18:49:23 [32minfo[39m: Retrieving all exhibitions
 2024-08-06 18:59:40 [32minfo[39m: Retrieving all exhibitions
 2024-08-06 19:06:55 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 15:37:22 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 15:37:28 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 15:38:10 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 15:41:39 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 15:41:50 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 15:41:58 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 15:54:18 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 15:54:21 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 15:54:27 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:03:42 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:04:25 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:04:45 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:04:48 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:05:24 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:10:24 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:16:10 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:22:38 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:32:41 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:34:25 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:35:04 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:35:22 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:35:53 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:36:10 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:36:21 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:39:07 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 16:40:13 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 17:05:31 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 17:19:56 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 17:27:37 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 17:33:01 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 17:33:26 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 17:34:40 [32minfo[39m: Updating exhibition with ID: 66ae3319b2c59dceecaffebd and data: {"name":"BBB","description":"BBB is a chain of hamburger restaurants, one of the largest in Israel! The first BBB restaurant was established in 2000, and since then the chain has expanded and currently owns dozens of restaurants all over the country.","maxArtworks":23,"imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiYxvK0-INqqGrK2R1EWljD_0_dpW3Se6Ccg&s","curators":["66ae3318b2c59dceecaffeb7","66ae3fa300d8dcc003c076cb"],"newCurators":[{"_id":"66aa3dbf6d749c63c9aa4ba1","uid":"mukEd9JIHNPh4PvTbXqdh55pssZ2","name":"curator4","lastName":"s4","email":"curator4@gmail.com","phoneNumber":"+972521111114","museum":"669fdcd3252883f23dc5c8a8","role":"669bca0a5d5c0e176bb1e683","createdAt":"2024-07-31T13:35:59.904Z","updatedAt":"2024-07-31T13:35:59.904Z","__v":0,"exhibitions":["Caspo"],"isEditable":false}],"museum":"66a91d1a68d75dc3173c64b4"}
+2024-08-08 17:34:40 [32minfo[39m: Updating exhibition with ID: 66ae3319b2c59dceecaffebd and data: {"name":"BBB","description":"BBB is a chain of hamburger restaurants, one of the largest in Israel! The first BBB restaurant was established in 2000, and since then the chain has expanded and currently owns dozens of restaurants all over the country.","maxArtworks":23,"imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiYxvK0-INqqGrK2R1EWljD_0_dpW3Se6Ccg&s","curators":["66ae3318b2c59dceecaffeb7","66ae3fa300d8dcc003c076cb","66aa3dbf6d749c63c9aa4ba1"],"museum":"66a91d1a68d75dc3173c64b4"}
+2024-08-08 17:34:52 [32minfo[39m: Updating exhibition with ID: 66ae21bc87824be863c86b26 and data: {"name":"Caspo","description":"The artworks of the Caspi family","maxArtworks":2,"imageUrl":"https://media.licdn.com/dms/image/C510BAQHakw5qw2jywA/company-logo_200_200/0/1631399617303/caspo_energy_logo?e=2147483647&v=beta&t=YNuZxHaUcsGgL72LwZI6effXe-ajuEmMIPdp1l86upA","curators":["66ae3318b2c59dceecaffeb7","66aa3dbf6d749c63c9aa4ba1"],"newCurators":[],"museum":"66a91d1a68d75dc3173c64b4"}
+2024-08-08 17:34:53 [32minfo[39m: Updating exhibition with ID: 66ae21bc87824be863c86b26 and data: {"name":"Caspo","description":"The artworks of the Caspi family","maxArtworks":2,"imageUrl":"https://media.licdn.com/dms/image/C510BAQHakw5qw2jywA/company-logo_200_200/0/1631399617303/caspo_energy_logo?e=2147483647&v=beta&t=YNuZxHaUcsGgL72LwZI6effXe-ajuEmMIPdp1l86upA","curators":["66ae3318b2c59dceecaffeb7","66aa3dbf6d749c63c9aa4ba1"],"museum":"66a91d1a68d75dc3173c64b4"}
+2024-08-08 17:35:08 [32minfo[39m: Updating exhibition with ID: 66ae3319b2c59dceecaffebd and data: {"status":"closed","museum":"66a91d1a68d75dc3173c64b4"}
+2024-08-08 17:35:08 [32minfo[39m: Updating exhibition with ID: 66ae3319b2c59dceecaffebd and data: {"status":"closed","museum":"66a91d1a68d75dc3173c64b4","curators":["66ae3318b2c59dceecaffeb7","66ae3fa300d8dcc003c076cb","66aa3dbf6d749c63c9aa4ba1"],"closedAt":"2024-08-08T14:35:08.712Z","openedAt":null}
+2024-08-08 17:35:15 [32minfo[39m: Updating exhibition with ID: 66ae3319b2c59dceecaffebd and data: {"status":"open","museum":"66a91d1a68d75dc3173c64b4"}
+2024-08-08 17:35:15 [32minfo[39m: Updating exhibition with ID: 66ae3319b2c59dceecaffebd and data: {"status":"open","museum":"66a91d1a68d75dc3173c64b4","curators":["66ae3318b2c59dceecaffeb7","66ae3fa300d8dcc003c076cb","66aa3dbf6d749c63c9aa4ba1"],"openedAt":"2024-08-08T14:35:15.571Z","closedAt":null}
+2024-08-08 17:39:35 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 17:59:31 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:11:53 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:12:39 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:14:37 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:15:50 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:15:54 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:15:55 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:16:05 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:16:09 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:16:11 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:16:33 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:17:37 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:20:35 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:21:29 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:21:48 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:22:50 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:24:08 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:24:11 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:31:11 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:31:13 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:31:23 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:31:33 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:38:27 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:43:51 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:43:58 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:43:59 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:44:15 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:44:49 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:44:52 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:44:55 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:45:01 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:45:20 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:45:24 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:45:44 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:45:50 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:46:03 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:46:04 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:46:08 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:46:17 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:46:30 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:48:16 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:48:26 [32minfo[39m: Retrieving all exhibitions
+2024-08-08 18:50:47 [32minfo[39m: Retrieving all exhibitions

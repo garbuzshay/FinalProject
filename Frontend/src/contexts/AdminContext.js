@@ -13,9 +13,18 @@ export const AdminProvider = ({ children }) => {
   const requestsData = useRequests();
   const usersData = useUser();
   const plansData = usePlans();
+
+  const fetchData = async () => {
+    museumsData.fetchMuseums();
+    exhibitionsData.fetchExhibitions();
+    requestsData.fetchRequests();
+    usersData.fetchUsers();
+    plansData.fetchPlans();
+  };
+
   return (
     <AdminContext.Provider
-      value={{ museumsData, exhibitionsData, requestsData, usersData, plansData }}
+      value={{ museumsData, exhibitionsData, requestsData, usersData, plansData, fetchData }}
     >
       {children}
     </AdminContext.Provider>

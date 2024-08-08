@@ -76,7 +76,7 @@ class MuseumsService {
       const museum = await MuseumModel.findByIdAndUpdate(id, museumData, {
         new: true,
         runValidators: true,
-      });
+      }).populate("owner").populate("plan");
       return museum ? museum : null;
     } catch (error) {
       console.error("Error updating museum:", error);
@@ -99,27 +99,52 @@ class MuseumsService {
     }
   }
 
+  // async getMuseumByOwnerId(ownerId) {
+  //   try {
+  //     let museum = await MuseumModel.findOne({ owner: ownerId })
+  //       .populate("plan")
+  //       .populate("owner")
+  //       .populate({
+  //         path: "exhibitions",
+  //         populate: [
+  //           { path: "curators", model: "users" },
+  //           { path: "artworks", model: "artworks" } 
+  //         ]
+  //       });
+    
+  //     return museum;
+  //   } catch (error) {
+  //     console.error(`Error getting museums with owner ID ${ownerId}:`, error);
+  //     throw error;
+  //   }
+  // }
+
   async getMuseumByOwnerId(ownerId) {
     try {
-      const museum = await MuseumModel.findOne({ owner: ownerId })
+      // Find the museum by owner ID and ensure the status is not "closed"
+      let museum = await MuseumModel.findOne({
+        owner: ownerId,
+      })
+      
+      if (museum && museum.status !== 'closed') {
+        museum = await MuseumModel.findOne({ owner: ownerId })
         .populate("plan")
         .populate("owner")
         .populate({
           path: "exhibitions",
           populate: [
             { path: "curators", model: "users" },
-            { path: "artworks", model: "artworks" } 
+            { path: "artworks", model: "artworks" }
           ]
-        })
-        .populate("artworks");
-        
+        });
+      }
       return museum;
     } catch (error) {
       console.error(`Error getting museums with owner ID ${ownerId}:`, error);
       throw error;
     }
   }
-
+  
   async getMuseumByCurator(curatorId) {
     try {
       const museum = await MuseumModel.findOne({ curators: curatorId });

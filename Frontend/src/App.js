@@ -157,6 +157,7 @@ import MuseumOwnerWatchArtworks from "./components/museumOwner/MuseumOwnerWatchA
 import MuseumOwnerTabs from "./components/museumOwner/MuseumOwnerTabs.js";
 import MuseumOwnerEditArtwork from "./components/museumOwner/MuseumOwnerEditArtwork.js";
 import MuseumOwnerEditDetails from "./components/museumOwner/MuseumOwnerEditDetails.js";
+import AdminEditMuseum from "./components/admin/AdminEditMuseum.js";
 
 const App = () => {
   return (
@@ -182,6 +183,7 @@ const App = () => {
           <Route path="museums" element={<AdminMuseumList />} />
           <Route path="exhibitions" element={<AdminExhibitList />} />
           <Route path="users" element={<AdminUserList />} />
+          <Route path="museums/edit/:id" element={<AdminEditMuseum />} />
           <Route
             path="terms-prices-packages"
             element={<AdminTermsPricesPackages />}

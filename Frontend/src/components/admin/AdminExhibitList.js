@@ -14,9 +14,9 @@ const AdminExhibitList = () => {
       <table className="min-w-full bg-white">
         <thead className="bg-gray-800 text-white">
           <tr>
-            <th className="w-1/3 py-2">Name</th>
+            <th className="w-1/3 py-2">Name of Exhibition</th>
             <th className="w-1/3 py-2">Museum</th>
-            <th className="w-1/3 py-2">Actions</th>
+            <th className="w-1/3 py-2">Curators</th>
           </tr>
         </thead>
         <tbody>
@@ -24,10 +24,11 @@ const AdminExhibitList = () => {
             <tr key={exhibit._id}>
               <td className="border px-4 py-2">{exhibit.name}</td>
               <td className="border px-4 py-2">{exhibit.museum.name}</td>
-              <td className="border px-4 py-2">
+              <td className="border px-4 py-2">{exhibit.curators.map((curator) => curator.name).join(', ')}</td>
+              {/* <td className="border px-4 py-2">
                 <button className="text-blue-500 hover:text-blue-700">Edit</button> | 
                 <button className="text-red-500 hover:text-red-700 ml-2">Delete</button>
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>

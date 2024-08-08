@@ -2,8 +2,11 @@ import React from 'react';
 import { useAdminContext } from '../../contexts/AdminContext';
 import FormConfirmButton from '../common/FormConfirmButton'; // Adjust the path as needed
 
+
 const AdminRequestsManagement = () => {
-  const { requestsData } = useAdminContext();
+  const { requestsData, fetchData} = useAdminContext();
+
+
   const { requests, isLoading, error, updateRequestStatus } = requestsData;
 
   if (isLoading) {
@@ -24,12 +27,13 @@ const AdminRequestsManagement = () => {
     (request) => request.status !== 'Pending'
   );
 
-  const handleApprove = (id) => {
-    updateRequestStatus(id, 'Approved');
+  const  handleApprove = async (id) => {
+    await updateRequestStatus(id, 'Approved');
+    await fetchData();
   };
 
-  const handleReject = (id) => {
-    updateRequestStatus(id, 'Rejected');
+  const handleReject = async (id) => {
+    await updateRequestStatus(id, 'Rejected');
   };
 
   const renderRequestRows = (request) => {

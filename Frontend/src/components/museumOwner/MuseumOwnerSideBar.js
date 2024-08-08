@@ -5,12 +5,12 @@ import sideBarData from "../../data/sideBarData"; // Adjust the path if necessar
 import Sidebar from "../common/Sidebar"; // Adjust the path if necessary
 import { useUserContext } from '../../contexts/UserContext'; // Import the UserContext
 
-const MuseumOwnerSideBar = ({isMuseumApproved}) => {
+const MuseumOwnerSideBar = ({isMuseumOpen}) => {
 
   const museumsLinks = sideBarData.MuseumOwner;
 
   return (
-    <Sidebar links={isMuseumApproved ? museumsLinks : [museumsLinks[0]]} /> // Render links only if museum is approved
+    <Sidebar links={isMuseumOpen ? museumsLinks : [museumsLinks[0]]} /> // Render links only if museum is approved
   );
 };
 
