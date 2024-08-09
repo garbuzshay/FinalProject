@@ -6,25 +6,23 @@ import Image from "./Image";
 const ContentSection = ({ logoSrc, title, explanation, imageSrc }) => {
   return (
     <div>
-      <div className="flex items-start justify-start w-full max-w-2xl">
-        <Logo src={logoSrc} />
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold overflow-hidden whitespace-nowrap pr-5 animate-typing relative">
+      <div >
+      <Logo src={logoSrc} />
+        <div className="flex flex-col text-center items-center">
+          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-2xl font-bold overflow-hidden whitespace-nowrap pr-5 animate-typing relative">
             {title}
-            <span className="border-r-2 border-white animate-caret absolute "></span>
+            <span className="border-r-2 border-white animate-caret "></span>
           </h1>
-        </div>
-        <div className="flex justify-center">
-          <Image src={imageSrc} className="w-1/3 md:w-1/4 lg:w-1/5 h-auto" />
-        </div>
-        <div className="text-center">
-          <Explanation text={explanation} className="text-lg " />
-        </div>
+
+
+          <Image src={imageSrc}  />
+    
+          <Explanation text={explanation} />
+          </div>
       </div>
     </div>
   );
 };
 
 export default ContentSection;
+

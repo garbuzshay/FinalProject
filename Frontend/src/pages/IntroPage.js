@@ -17,30 +17,22 @@ const IntroPage = () => {
   };
 
   return (
-    <div className="container">
-      <ContentSection
-        logoSrc={logoSrc}
-        explanation={explanation}
-        title={title}
-        imageSrc={imageSrc}
-      />
-      <MobileStepper
-        activeStep={currentPage}
-        variant="dots"
-        steps={pageData.length}
-        orientation="horizontal"
-        sx={{ justifyContent: "center" }}
-        position="static"
-      ></MobileStepper>
-      <div className="flex justify-center">
-        <div className="absolute text-center mt-2 z-20">
-          <button
-            onClick={handleLoginClick}
-            className="bg-transparent border-none text-blue-600 underline cursor-pointer py-2 px-4 text-lg"
-          >
-            Already a user? Click here
-          </button>
-        </div>
+    <div>
+      <div>
+        <ContentSection
+          logoSrc={logoSrc}
+          explanation={explanation}
+          title={title}
+          imageSrc={imageSrc}
+        />
+        <MobileStepper
+          activeStep={currentPage}
+          variant="dots"
+          steps={pageData.length}
+          orientation="horizontal"
+          sx={{ justifyContent: "center" }}
+          position="static"
+        ></MobileStepper>
       </div>
       <NavigationButtons
         currentPage={currentPage}
@@ -48,6 +40,13 @@ const IntroPage = () => {
         goToPreviousPage={goToPreviousPage}
         nextButtonText={nextButtonText}
       />
+
+      <button
+        onClick={handleLoginClick}
+        className="bg-transparent border-none text-blue-600 underline cursor-pointer px-4 text-base"
+      >
+        Already a user? Click here
+      </button>
     </div>
   );
 };

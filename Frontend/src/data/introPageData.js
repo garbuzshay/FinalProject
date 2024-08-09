@@ -20,7 +20,7 @@ const introPageData = [
   {
     logoSrc: LogoMusuem,
     title: "Are you ready?",
-    explanation: "This is the explanation for page 3.",
+    explanation:   "Get ready to embark on a journey! Prepare to create, upload, and manage content seamlessly as you bring your museum to life.",
     imageSrc: Symbols,
     nextButtonText: "Let's Start",
   },

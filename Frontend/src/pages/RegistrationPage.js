@@ -43,14 +43,14 @@ const RegistrationPage = () => {
   
   const src=logoSrc;
   return (
-    <div className ="container">
+    <div>
       {/* Logo at the upper left side */}
       <div className="absolute top-0 left-0">
         <Logo src={logoSrc} className="h-8 w-auto" />
       </div>
 
       {/* Centered content */}
-      <div className="flex flex-col items-center p-4 space-y-6 min-h-screen">
+      <div className="flex flex-col items-center p-4">
         <div className="w-full flex justify-center">
           <Stepper
             className="w-full max-w-md"
@@ -67,7 +67,9 @@ const RegistrationPage = () => {
         <div className="w-full max-w-md">
           {steps[currentStep].component}
         </div>
-        <NavigationButtons  className=" bottom-0"
+
+        </div>
+        <NavigationButtons
           currentPage={currentStep} 
           goToNextPage={goToNextPage} 
           goToPreviousPage={goToPreviousPage} 
@@ -75,7 +77,7 @@ const RegistrationPage = () => {
           isPrevPageExist={true}
         />
 
-      </div>
+      
     </div>
   );
 };
