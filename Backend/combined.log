@@ -1381,3 +1381,86 @@ Use mongoose.model(name, schema)
 2024-08-08 18:48:16 [32minfo[39m: Retrieving all exhibitions
 2024-08-08 18:48:26 [32minfo[39m: Retrieving all exhibitions
 2024-08-08 18:50:47 [32minfo[39m: Retrieving all exhibitions
+2024-08-10 17:02:43 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
+2024-08-10 17:06:37 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
+2024-08-10 17:07:16 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
+2024-08-10 17:33:27 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
+2024-08-10 17:41:53 [32minfo[39m: Creating artwork for exhibition with ID: 66aa3dc06d749c63c9aa4ba7
+2024-08-10 17:42:12 [32minfo[39m: Deleting artwork with ID 66b77c317636420eaf7095eb from exhibition with ID 66aa3dc06d749c63c9aa4ba7
+2024-08-10 17:42:13 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
+2024-08-10 17:44:49 [32minfo[39m: Creating artwork for exhibition with ID: 66aa3dc06d749c63c9aa4ba7
+2024-08-10 17:45:03 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
+2024-08-10 17:45:11 [32minfo[39m: Deleting artwork with ID 66b77ce17636420eaf7095ff from exhibition with ID 66aa3dc06d749c63c9aa4ba7
+2024-08-10 17:45:13 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
+2024-08-10 18:07:43 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
+2024-08-10 18:15:39 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
+2024-08-10 18:27:51 [32minfo[39m: Creating artwork for exhibition with ID: 66ae21bc87824be863c86b26
+2024-08-10 18:28:42 [32minfo[39m: Retrieving exhibitions for User with ID: 66ae3318b2c59dceecaffeb7
+2024-08-10 18:41:18 [32minfo[39m: Retrieving exhibitions for User with ID: 66ae3318b2c59dceecaffeb7
+2024-08-10 18:46:37 [32minfo[39m: Retrieving exhibitions for User with ID: 66ae3318b2c59dceecaffeb7
+2024-08-10 18:48:21 [32minfo[39m: Creating artwork for exhibition with ID: 66ae3319b2c59dceecaffebd
+2024-08-10 18:52:47 [32minfo[39m: Creating artwork for exhibition with ID: 66ae3319b2c59dceecaffebd
+2024-08-10 18:54:00 [32minfo[39m: Deleting artwork with ID 66b78ccf4babe9b5b64d709e from exhibition with ID 66ae3319b2c59dceecaffebd
+2024-08-10 18:54:03 [32minfo[39m: Retrieving exhibitions for User with ID: 66ae3318b2c59dceecaffeb7
+2024-08-10 18:54:19 [32minfo[39m: Retrieving exhibitions for User with ID: 66ae3318b2c59dceecaffeb7
+2024-08-10 18:54:55 [32minfo[39m: Deleting artwork with ID 66b78bc54babe9b5b64d7095 from exhibition with ID 66ae3319b2c59dceecaffebd
+2024-08-10 18:54:57 [32minfo[39m: Retrieving exhibitions for User with ID: 66ae3318b2c59dceecaffeb7
+2024-08-10 19:01:57 [32minfo[39m: Creating artwork for exhibition with ID: 66ab84af80661a4b7e8389e2
+2024-08-10 19:06:40 [32minfo[39m: Deleting artwork with ID 66b78ef54babe9b5b64d70f4 from exhibition with ID 66ab84af80661a4b7e8389e2
+2024-08-10 19:07:03 [32minfo[39m: Creating artwork for exhibition with ID: 66ab84af80661a4b7e8389e2
+2024-08-10 19:08:27 [32minfo[39m: Creating artwork for exhibition with ID: 66ab84af80661a4b7e8389e2
+2024-08-10 19:08:33 [32minfo[39m: Deleting artwork with ID 66b7907b4babe9b5b64d7112 from exhibition with ID 66ab84af80661a4b7e8389e2
+2024-08-10 19:09:04 [32minfo[39m: Deleting artwork with ID 66b790274babe9b5b64d710b from exhibition with ID 66ab84af80661a4b7e8389e2
+2024-08-10 19:09:28 [32minfo[39m: Creating artwork for exhibition with ID: 66ab84af80661a4b7e8389e2
+2024-08-10 19:09:45 [32minfo[39m: Deleting artwork with ID 66b790b84babe9b5b64d7139 from exhibition with ID 66ab84af80661a4b7e8389e2
+2024-08-10 19:12:53 [32minfo[39m: Creating artwork for exhibition with ID: 66ab84af80661a4b7e8389e2
+2024-08-10 19:13:27 [32minfo[39m: Deleting artwork with ID 66b791854babe9b5b64d7151 from exhibition with ID 66ab84af80661a4b7e8389e2
+2024-08-10 19:16:20 [32minfo[39m: Creating artwork for exhibition with ID: 66ab84af80661a4b7e8389e2
+2024-08-10 19:18:16 [32minfo[39m: Creating artwork for exhibition with ID: 66ab84af80661a4b7e8389e2
+2024-08-10 19:18:25 [32minfo[39m: Deleting artwork with ID 66b792c84babe9b5b64d7171 from exhibition with ID 66ab84af80661a4b7e8389e2
+2024-08-10 19:18:47 [32minfo[39m: Creating artwork for exhibition with ID: 66ab84af80661a4b7e8389e2
+2024-08-10 19:18:54 [32minfo[39m: Deleting artwork with ID 66b792e74babe9b5b64d7189 from exhibition with ID 66ab84af80661a4b7e8389e2
+2024-08-10 19:25:25 [32minfo[39m: Deleting artwork with ID 66b792544babe9b5b64d716a from exhibition with ID 66ab84af80661a4b7e8389e2
+2024-08-10 19:26:56 [32minfo[39m: Creating artwork for exhibition with ID: 66ab84af80661a4b7e8389e2
+2024-08-10 19:31:38 [32minfo[39m: Deleting artwork with ID 66b794d04babe9b5b64d71bd from exhibition with ID 66ab84af80661a4b7e8389e2
+2024-08-10 19:32:09 [32minfo[39m: Creating artwork for exhibition with ID: 66ab84af80661a4b7e8389e2
+2024-08-10 19:36:04 [32minfo[39m: Deleting artwork with ID 66b796094babe9b5b64d71d5 from exhibition with ID 66ab84af80661a4b7e8389e2
+2024-08-10 19:36:49 [32minfo[39m: Creating artwork for exhibition with ID: 66ab9e833012b65cf51d09c2
+2024-08-10 19:39:59 [32minfo[39m: Deleting artwork with ID 66b797214babe9b5b64d7214 from exhibition with ID 66ab9e833012b65cf51d09c2
+2024-08-10 19:40:32 [32minfo[39m: Creating artwork for exhibition with ID: 66ab9e833012b65cf51d09c2
+2024-08-10 19:40:37 [32minfo[39m: Deleting artwork with ID 66b798004babe9b5b64d7266 from exhibition with ID 66ab9e833012b65cf51d09c2
+2024-08-10 19:41:09 [32minfo[39m: Retrieving exhibitions for User with ID: 66ae3318b2c59dceecaffeb7
+2024-08-10 19:41:37 [32minfo[39m: Creating artwork for exhibition with ID: 66ae3319b2c59dceecaffebd
+2024-08-10 19:41:44 [32minfo[39m: Deleting artwork with ID 66b798414babe9b5b64d7280 from exhibition with ID 66ae3319b2c59dceecaffebd
+2024-08-10 19:42:12 [32minfo[39m: Creating artwork for exhibition with ID: 66ae3319b2c59dceecaffebd
+2024-08-10 19:42:20 [32minfo[39m: Deleting artwork with ID 66b798644babe9b5b64d728d from exhibition with ID 66ae3319b2c59dceecaffebd
+2024-08-10 19:55:11 [32minfo[39m: Creating artwork for exhibition with ID: 66ae3319b2c59dceecaffebd
+2024-08-10 19:55:18 [32minfo[39m: Deleting artwork with ID 66b79b6f4babe9b5b64d729c from exhibition with ID 66ae3319b2c59dceecaffebd
+2024-08-10 19:57:07 [32minfo[39m: Creating artwork for exhibition with ID: 66ab84af80661a4b7e8389e2
+2024-08-10 19:57:13 [32minfo[39m: Deleting artwork with ID 66b79be34babe9b5b64d72b9 from exhibition with ID 66ab84af80661a4b7e8389e2
+2024-08-10 19:57:51 [32minfo[39m: Creating artwork for exhibition with ID: 66ab84af80661a4b7e8389e2
+2024-08-10 19:58:30 [32minfo[39m: Creating artwork for exhibition with ID: 66ab84af80661a4b7e8389e2
+2024-08-10 19:58:46 [32minfo[39m: Deleting artwork with ID 66b79c364babe9b5b64d72cd from exhibition with ID 66ab84af80661a4b7e8389e2
+2024-08-10 19:59:06 [32minfo[39m: Updating exhibition with ID: 66ab9e833012b65cf51d09c2 and data: {"status":"closed","museum":"669fdcd3252883f23dc5c8a8"}
+2024-08-10 19:59:06 [32minfo[39m: Updating exhibition with ID: 66ab9e833012b65cf51d09c2 and data: {"status":"closed","museum":"669fdcd3252883f23dc5c8a8","curators":["66ab9e823012b65cf51d09bc"],"closedAt":"2024-08-10T16:59:06.343Z","openedAt":null}
+2024-08-10 20:01:32 [32minfo[39m: Updating exhibition with ID: 66ab9e833012b65cf51d09c2 and data: {"status":"open","museum":"669fdcd3252883f23dc5c8a8"}
+2024-08-10 20:01:32 [32minfo[39m: Updating exhibition with ID: 66ab9e833012b65cf51d09c2 and data: {"status":"open","museum":"669fdcd3252883f23dc5c8a8","curators":["66ab9e823012b65cf51d09bc"],"openedAt":"2024-08-10T17:01:32.273Z","closedAt":null}
+2024-08-10 20:06:18 [32minfo[39m: Updating exhibition with ID: 66ab9e833012b65cf51d09c2 and data: {"status":"closed","museum":"669fdcd3252883f23dc5c8a8"}
+2024-08-10 20:06:18 [32minfo[39m: Updating exhibition with ID: 66ab9e833012b65cf51d09c2 and data: {"status":"closed","museum":"669fdcd3252883f23dc5c8a8","curators":["66ab9e823012b65cf51d09bc"],"closedAt":"2024-08-10T17:06:18.803Z","openedAt":null}
+2024-08-10 20:07:51 [32minfo[39m: Deleting artwork with ID 66b79c0f4babe9b5b64d72c6 from exhibition with ID 66ab84af80661a4b7e8389e2
+2024-08-10 20:13:04 [32minfo[39m: Updating exhibition with ID: 66ab9e833012b65cf51d09c2 and data: {"status":"open","museum":"669fdcd3252883f23dc5c8a8"}
+2024-08-10 20:13:04 [32minfo[39m: Updating exhibition with ID: 66ab9e833012b65cf51d09c2 and data: {"status":"open","museum":"669fdcd3252883f23dc5c8a8","curators":["66ab9e823012b65cf51d09bc"],"openedAt":"2024-08-10T17:13:04.819Z","closedAt":null}
+2024-08-10 20:14:03 [32minfo[39m: Creating artwork for exhibition with ID: 66ab9e833012b65cf51d09c2
+2024-08-10 20:38:21 [32minfo[39m: Creating artwork for exhibition with ID: undefined
+2024-08-10 20:38:21 [31merror[39m: Error creating artwork for exhibition with ID undefined: artworks validation failed: exhibition: Cast to ObjectId failed for value "undefined" (type string) at path "exhibition" because of "BSONError"
+2024-08-10 20:38:47 [32minfo[39m: Creating artwork for exhibition with ID: undefined
+2024-08-10 20:38:47 [31merror[39m: Error creating artwork for exhibition with ID undefined: artworks validation failed: exhibition: Cast to ObjectId failed for value "undefined" (type string) at path "exhibition" because of "BSONError"
+2024-08-10 20:39:15 [32minfo[39m: Creating artwork for exhibition with ID: 66aa3dc06d749c63c9aa4ba7
+2024-08-10 20:39:20 [32minfo[39m: Deleting artwork with ID 66b7a5c34babe9b5b64d7366 from exhibition with ID 66aa3dc06d749c63c9aa4ba7
+2024-08-10 20:40:27 [32minfo[39m: Creating artwork for exhibition with ID: undefined
+2024-08-10 20:40:27 [31merror[39m: Error creating artwork for exhibition with ID undefined: artworks validation failed: exhibition: Cast to ObjectId failed for value "undefined" (type string) at path "exhibition" because of "BSONError"
+2024-08-10 20:41:00 [32minfo[39m: Creating artwork for exhibition with ID: undefined
+2024-08-10 20:41:00 [31merror[39m: Error creating artwork for exhibition with ID undefined: artworks validation failed: exhibition: Cast to ObjectId failed for value "undefined" (type string) at path "exhibition" because of "BSONError"
+2024-08-10 20:43:01 [32minfo[39m: Creating artwork for exhibition with ID: undefined
+2024-08-10 20:43:01 [31merror[39m: Error creating artwork for exhibition with ID undefined: artworks validation failed: exhibition: Cast to ObjectId failed for value "undefined" (type string) at path "exhibition" because of "BSONError"
+2024-08-10 20:44:12 [32minfo[39m: Creating artwork for exhibition with ID: 66aa3dc06d749c63c9aa4ba7

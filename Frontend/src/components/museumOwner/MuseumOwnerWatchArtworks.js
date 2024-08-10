@@ -1,9 +1,10 @@
 // Frontend\src\components\museumOwner\MuseumOwnerWatchArtworks.js
-import React ,{ useState }from 'react';
-import { useParams } from 'react-router-dom';
-import { useMuseumContext} from '../../contexts/MuseumContext';
-import ArtworkCard from '../curator/ArtworkCard';
-import MuseumOwnerCreateArtwork from './MuseumOwnerCreateArtwork';
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useMuseumContext } from "../../contexts/MuseumContext";
+import ArtworkCard from "../curator/ArtworkCard";
+import MuseumOwnerCreateArtwork from "./MuseumOwnerCreateArtwork";
+import GoBackButton from "../common/GoBackButton";
 
 const MuseumOwnerWatchArtworks = () => {
   const { id } = useParams();
@@ -40,18 +41,18 @@ const MuseumOwnerWatchArtworks = () => {
             description={artwork.description}
             createdDateByArtist={artwork.createdDateByArtist}
             artist={artwork.artist}
-            imageUrl={artwork.imageUrl || 'https://via.placeholder.com/150'}
+            imageUrl={artwork.imageUrl || "https://via.placeholder.com/150"}
           />
         ))}
-       </div>
-      {!isCreatingArtwork && (
-        <button 
+      </div>
+      {/* {!isCreatingArtwork && (
+        <button
           onClick={handleCreateArtwork}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-8"
         >
           Add New Artwork
         </button>
-      )}
+      )} */}
       {isCreatingArtwork && (
         <div className="mt-4">
           <MuseumOwnerCreateArtwork exhibitionId={exhibition._id} />
@@ -63,6 +64,9 @@ const MuseumOwnerWatchArtworks = () => {
           </button>
         </div>
       )}
+      <div>
+        <GoBackButton customPath={"/owner/exhibitions"} />
+      </div>
     </div>
   );
 };

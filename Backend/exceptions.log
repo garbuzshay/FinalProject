@@ -216,3 +216,87 @@ This file is being treated as an ES module because it has a '.js' file extension
 2024-07-31 18:14:02 [31merror[39m: ReferenceError: artworkId is not defined
     at deleteArtworkFromExhibition (file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Controllers/ExhibitionController.js:62:52)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-08-10 16:18:53 [31merror[39m: ReferenceError: Gemini is not defined
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Services/GeminiService.js:7:22
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-08-10 16:19:03 [31merror[39m: TypeError: GoogleGenerativeAI.Client is not a constructor
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Services/GeminiService.js:7:22
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-08-10 16:21:41 [31merror[39m: TypeError: GoogleGenerativeAI.Client is not a constructor
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Services/GeminiService.js:7:22
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-08-10 16:26:01 [31merror[39m: ReferenceError: app is not defined
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Routes/index.js:25:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-08-10 16:26:06 [31merror[39m: ReferenceError: app is not defined
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Routes/index.js:25:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-08-10 16:26:15 [31merror[39m: ReferenceError: app is not defined
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Routes/index.js:25:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-08-10 16:26:25 [31merror[39m: ReferenceError: app is not defined
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Routes/index.js:25:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-08-10 16:28:50 [31merror[39m: Error: listen EADDRINUSE: address already in use :::8000
+    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
+    at listenInCluster (node:net:1920:12)
+    at Server.listen (node:net:2008:7)
+    at Function.listen (C:\Users\Shay\Desktop\MuseumApp\Backend\node_modules\express\lib\application.js:635:24)
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/index.js:93:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-08-10 16:29:12 [31merror[39m: Error: listen EADDRINUSE: address already in use :::8000
+    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
+    at listenInCluster (node:net:1920:12)
+    at Server.listen (node:net:2008:7)
+    at Function.listen (C:\Users\Shay\Desktop\MuseumApp\Backend\node_modules\express\lib\application.js:635:24)
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/index.js:93:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-08-10 16:29:14 [31merror[39m: Error: listen EADDRINUSE: address already in use :::8000
+    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
+    at listenInCluster (node:net:1920:12)
+    at Server.listen (node:net:2008:7)
+    at Function.listen (C:\Users\Shay\Desktop\MuseumApp\Backend\node_modules\express\lib\application.js:635:24)
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/index.js:93:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-08-10 16:31:15 [31merror[39m: ReferenceError: config is not defined
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Services/GeminiService.js:6:38
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-08-10 16:31:21 [31merror[39m: ReferenceError: config is not defined
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Services/GeminiService.js:6:38
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)

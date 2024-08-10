@@ -6,6 +6,7 @@ import FormConfirmButton from "../common/FormConfirmButton";
 import { useFieldArray, useForm } from "react-hook-form";
 import { TiUserDelete } from "react-icons/ti";
 import CuratorSelect from "./CuratorSelect";
+import GoBackButton from "../common/GoBackButton";
 
 const MuseumOwnerEditExhibition = () => {
   const { id } = useParams();
@@ -445,6 +446,7 @@ const MuseumOwnerEditExhibition = () => {
           </div>
         </form>
       )}
+       <GoBackButton />
     </div>
   );
 };

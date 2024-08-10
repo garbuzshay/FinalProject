@@ -26,7 +26,7 @@ const usePlanDetails = (museum, exhibitions) => {
           ? planData.maxExhibitions - exhibitionsUsed
           : null,
         artworksLeft: planData.maxArtWorks
-          ? planData.maxArtWorks - artworksUsed
+          ? planData.maxArtWorks - artworksUsed 
           : null,
       });
     }

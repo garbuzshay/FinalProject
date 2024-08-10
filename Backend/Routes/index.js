@@ -9,6 +9,7 @@ import ContactUsRouter from './ContactUsRouter.js'; // Import the new ContactUsR
 import authenticateUser from '../Middlewares/AuthenticateUser.js';
 import ArtworkRouter from './ArtworkRouter.js';
 import ArtistRouter from './ArtistRouter.js';
+import geminiRoutes from './GeminiRoutes.js';
 
 const router = Router();
 
@@ -21,5 +22,6 @@ router.use('/exhibitions', ExhibitionRouter);
 router.use('/contact', ContactUsRouter); // Add the new ContactUsRouter
 router.use('/artworks', ArtworkRouter);
 router.use('/artists', ArtistRouter);
+router.use('/gemini', geminiRoutes);
 
 export default router;

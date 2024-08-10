@@ -158,6 +158,7 @@ import MuseumOwnerTabs from "./components/museumOwner/MuseumOwnerTabs.js";
 import MuseumOwnerEditArtwork from "./components/museumOwner/MuseumOwnerEditArtwork.js";
 import MuseumOwnerEditDetails from "./components/museumOwner/MuseumOwnerEditDetails.js";
 import AdminEditMuseum from "./components/admin/AdminEditMuseum.js";
+import MuseumOwnerCreateArtwork from "./components/museumOwner/MuseumOwnerCreateArtwork.js";
 
 const App = () => {
   return (
@@ -217,8 +218,12 @@ const App = () => {
             <Route index element={<Navigate to="artworks" replace />} />
             <Route path="edit" element={<MuseumOwnerEditExhibition />} />
             <Route path="artworks" element={<MuseumOwnerWatchArtworks />} />
+         
              <Route path="artworks/:artworkId" element={<MuseumOwnerEditArtwork/>} />
+             <Route path="add-artwork" element={<MuseumOwnerCreateArtwork/>}/>
+            
           </Route>
+          
           <Route path="contact-us" element={<MuseumOwnerContactUs />} />
           <Route path="my-curators" element={<MuseumOwnerCuratorsList />} />
 

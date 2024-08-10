@@ -1,9 +1,8 @@
 // const mongoose = import('mongoose');
 import mongoose from 'mongoose'
-import { config } from "dotenv";
-config()
+import appConfig from '../config.js';
 
-const mongo_url = process.env.MONGO_CONN;
+const mongo_url = appConfig.mongo.conn;
 
 const db = mongoose.connect(mongo_url)
 .then(()=>{

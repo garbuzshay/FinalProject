@@ -79,7 +79,7 @@ const MuseumOwnerOpenExhibit = () => {
       </h1>
       {museum && (
         <>
-          <p>
+          {/* <p>
             Exhibitions Left:{" "}
             {planDetails.exhibitionsLeft !== null
               ? planDetails.exhibitionsLeft
@@ -90,7 +90,24 @@ const MuseumOwnerOpenExhibit = () => {
             {planDetails.artworksLeft !== null
               ? planDetails.artworksLeft
               : "unlimited"}
+          </p> */}
+          <p>
+            Exhibitions Left:{" "}
+            {planDetails.exhibitionsLeft !== null
+              ? `${planDetails.exhibitionsLeft} / ${
+                  planDetails.maxExhibitions|| "unlimited"
+                }`
+              : "unlimited"}
           </p>
+          <p>
+            Artworks Left:{" "}
+            {planDetails.artworksLeft !== null
+              ? `${planDetails.artworksLeft} / ${
+                  planDetails.maxArtWorks || "unlimited"
+                }`
+              : "unlimited"}
+          </p>
+
           <form
             id="exhibitionForm"
             onSubmit={handleSubmit(onSubmit)}
@@ -176,7 +193,13 @@ const MuseumOwnerOpenExhibit = () => {
               <button
                 type="button"
                 onClick={() =>
-                  append({ name: "", lastName: "", email: "", phoneNumber: "", isEditable: true })
+                  append({
+                    name: "",
+                    lastName: "",
+                    email: "",
+                    phoneNumber: "",
+                    isEditable: true,
+                  })
                 }
                 className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               >
@@ -224,7 +247,9 @@ const MuseumOwnerOpenExhibit = () => {
                             required: "Curator name is required",
                           })}
                           className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
-                            errors.curators?.[index]?.name ? "border-red-500" : ""
+                            errors.curators?.[index]?.name
+                              ? "border-red-500"
+                              : ""
                           }`}
                         />
                       ) : (
@@ -244,7 +269,9 @@ const MuseumOwnerOpenExhibit = () => {
                             required: "Curator surname is required",
                           })}
                           className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
-                            errors.curators?.[index]?.lastName ? "border-red-500" : ""
+                            errors.curators?.[index]?.lastName
+                              ? "border-red-500"
+                              : ""
                           }`}
                         />
                       ) : (
@@ -268,11 +295,17 @@ const MuseumOwnerOpenExhibit = () => {
                             },
                           })}
                           className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
-                            errors.curators?.[index]?.email ? "border-red-500" : ""
+                            errors.curators?.[index]?.email
+                              ? "border-red-500"
+                              : ""
                           }`}
                         />
                       ) : (
-                        <span className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}>{field.email}</span>
+                        <span
+                          className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}
+                        >
+                          {field.email}
+                        </span>
                       )}
                       {errors.curators?.[index]?.email && (
                         <span className="text-red-500">
@@ -288,7 +321,9 @@ const MuseumOwnerOpenExhibit = () => {
                             required: "Curator phone number is required",
                           })}
                           className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
-                            errors.curators?.[index]?.phoneNumber ? "border-red-500" : ""
+                            errors.curators?.[index]?.phoneNumber
+                              ? "border-red-500"
+                              : ""
                           }`}
                         />
                       ) : (
