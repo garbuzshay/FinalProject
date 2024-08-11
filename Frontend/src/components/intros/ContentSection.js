@@ -5,7 +5,7 @@ import Image from "./Image";
 
 const ContentSection = ({ logoSrc, title, explanation, imageSrc }) => {
   return (
-    <div>
+
       <div >
       <Logo src={logoSrc} />
         <div className="flex flex-col text-center items-center">
@@ -20,7 +20,7 @@ const ContentSection = ({ logoSrc, title, explanation, imageSrc }) => {
           <Explanation text={explanation} />
           </div>
       </div>
-    </div>
+
   );
 };
 

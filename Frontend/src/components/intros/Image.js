@@ -2,8 +2,8 @@
 
   const Image = ({ src }) => {
     return (
-      <div className="flex justify-center items-center">
-        <img src={src} alt="Illustration" className="max-h-xs sm:max-w-sm md:max-w-md lg:max-w-sm xl:max-w-md" />
+      <div>
+        <img src={src} alt="Illustration" className="max-h-md sm:max-w-sm md:max-w-md lg:max-w-sm xl:max-w-md w-full h-auto" />
       </div>
     );
   };
