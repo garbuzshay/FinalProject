@@ -8,7 +8,6 @@ import Logo from "../components/intros/Logo";
 const RegistrationPage = () => {
   const { currentStep, steps, goToNextPage, goToPreviousPage } = useRegisterContext();
   
-  const src=logoSrc;
   return (
     <div>
       <div className="absolute top-0 left-0">

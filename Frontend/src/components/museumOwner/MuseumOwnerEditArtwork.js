@@ -264,7 +264,6 @@ const MuseumOwnerEditArtwork = () => {
 
   return (
     <div>
-      {/* <div className="max-w-md mx-auto mt-10 p-4  rounded-lg"> */}
       {loading ? (
         <p>Loading...</p>
       ) : (

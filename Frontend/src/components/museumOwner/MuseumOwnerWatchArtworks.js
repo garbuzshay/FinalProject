@@ -24,9 +24,9 @@ const MuseumOwnerWatchArtworks = () => {
     return <div>Exhibition not found</div>;
   }
 
-  const handleCreateArtwork = () => {
-    setIsCreatingArtwork(true);
-  };
+  // const handleCreateArtwork = () => {
+  //   setIsCreatingArtwork(true);
+  // };
 
   return (
     <div className="container mx-auto p-4">

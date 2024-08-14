@@ -9,6 +9,7 @@ import Footer from "../components/common/Footer";
 const AdminPage = () => {
   return (
     <div className="flex h-screen">
+
       <AdminSideBar/>
       <div className="flex-1 flex flex-col">
         <AdminHeader /> 

@@ -76,7 +76,7 @@ const MuseumOwnerPage = () => {
   const isMuseumOpen = museum?.status !== "closed";
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen"> 
       <MuseumOwnerSideBar isMuseumOpen={isMuseumOpen} />
       <div className="flex-1 flex flex-col">
         <MuseumOwnerHeader />

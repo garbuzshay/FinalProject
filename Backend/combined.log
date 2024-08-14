@@ -1464,3 +1464,6 @@ Use mongoose.model(name, schema)
 2024-08-10 20:43:01 [32minfo[39m: Creating artwork for exhibition with ID: undefined
 2024-08-10 20:43:01 [31merror[39m: Error creating artwork for exhibition with ID undefined: artworks validation failed: exhibition: Cast to ObjectId failed for value "undefined" (type string) at path "exhibition" because of "BSONError"
 2024-08-10 20:44:12 [32minfo[39m: Creating artwork for exhibition with ID: 66aa3dc06d749c63c9aa4ba7
+2024-08-13 19:52:04 [32minfo[39m: Updating exhibition with ID: 66ab9e833012b65cf51d09c2 and data: {"status":"closed","museum":"669fdcd3252883f23dc5c8a8"}
+2024-08-13 19:52:04 [32minfo[39m: Updating exhibition with ID: 66ab9e833012b65cf51d09c2 and data: {"status":"closed","museum":"669fdcd3252883f23dc5c8a8","curators":["66ab9e823012b65cf51d09bc"],"closedAt":"2024-08-13T16:52:04.294Z","openedAt":null}
+2024-08-13 20:09:29 [32minfo[39m: Retrieving all exhibitions

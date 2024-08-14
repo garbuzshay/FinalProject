@@ -56,7 +56,7 @@ import pageData from "../data/introPageData";
 import { NavigationButtons } from "../components/common/NavigationButtons";
 import MobileStepper from "@mui/material/MobileStepper";
 import { useNavigate } from "react-router-dom";
-import { useMediaQuery, Box } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import FloatingPicture from "../components/intros/FloatingPicture";
 
 const IntroPage = () => {

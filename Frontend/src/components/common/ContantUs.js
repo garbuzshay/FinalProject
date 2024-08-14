@@ -31,7 +31,7 @@ const ContactUs = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold text-gray-800 mb-6">Contact Us</h2>
+      <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label className="block text-gray-700 font-medium mb-2" htmlFor="name">

@@ -124,15 +124,15 @@ const MuseumOwnerEditExhibition = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-center my-4">Edit Exhibition</h1>
-
+      {/* <h1 className="text-2xl font-bold text-center my-4"></h1> */}
+      {/* <h1 className="text-3xl font-bold mb-6">Edit Exhibition</h1> */}
       {loading ? (
         <p className="text-center">Loading...</p>
       ) : (
         <form
           id="exhibitionForm"
           onSubmit={handleSubmit(onSubmit)}
-          className="max-w mx-auto shadow p-6"
+          className=" mx-auto shadow p-6"
         >
           <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2">
