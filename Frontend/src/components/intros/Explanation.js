@@ -3,7 +3,7 @@ import React from "react";
 const Explanation = ({ text }) => {
   return (
     <div className="explanation">
-      <p className="text-base">{text}</p>
+      <p className="text-lg font-bold">{text}</p>
     </div>
   );
 };

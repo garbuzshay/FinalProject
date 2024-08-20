@@ -12,17 +12,29 @@ export const NavigationButtons = ({
   const prevButtonVisible = currentPage > 0 || isPrevPageExist;
 
   return (
-    <div className="flex justify-between px-4 w-full">
+    <div className="flex justify-between w-full">
       {prevButtonVisible ? (
         <>
-          <NavigationButton onClick={goToPreviousPage} text={prevButtonText} />
-          <NavigationButton onClick={goToNextPage} text={nextButtonText} />
+          <NavigationButton 
+            className="rounded-l-none rounded-r-[20px]" 
+            onClick={goToPreviousPage} 
+            text={prevButtonText} 
+          />
+          <NavigationButton 
+            className="rounded-l-[20px] rounded-r-none" 
+            onClick={goToNextPage} 
+            text={nextButtonText} 
+          />
         </>
       ) : (
         <div className="flex justify-end w-full">
-          <NavigationButton onClick={goToNextPage} text={nextButtonText} />
+          <NavigationButton 
+            className="rounded-l-[20px] rounded-r-none" 
+            onClick={goToNextPage} 
+            text={nextButtonText} 
+          />
         </div>
       )}
     </div>
-  );
+  );  
 };
