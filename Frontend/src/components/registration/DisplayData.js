@@ -10,7 +10,11 @@ import {
 import { useRegisterContext } from "../../contexts/RegisterContext";
 
 export default function DisplayData() {
-  const { finalData } = useRegisterContext();
+  const { formData } = useRegisterContext();
+  const getPlanNameById = (planId) => {
+    const plan = plans.find((p) => p._id === planId);
+    return plan ? plan.name : "Unknown Plan";
+  };
   return (
     <div>
       <TableContainer component={Paper}>
@@ -31,7 +35,7 @@ export default function DisplayData() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {finalData.map((data, index) => (
+            {formData.map((data, index) => (
               <TableRow key={index}>
                 <TableCell>{data.name}</TableCell>
                 <TableCell>{data.lastName}</TableCell>

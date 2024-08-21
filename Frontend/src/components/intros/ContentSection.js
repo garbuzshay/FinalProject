@@ -8,7 +8,7 @@ const ContentSection = ({ logoSrc, title, explanation, imageSrc }) => {
 
       <div >
       <Logo src={logoSrc} />
-        <div className="flex flex-col text-center items-center">
+        <div className="flex flex-col text-center items-center container mx-auto">
           <Image src={imageSrc}  />
           <h1 className="mb-5 text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-4xl font-bold overflow-hidden whitespace-nowrap pr-5 animate-typing relative">
             {title}

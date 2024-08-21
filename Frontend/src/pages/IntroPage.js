@@ -20,41 +20,42 @@ const IntroPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between">
-  <div className="flex-grow">
-    <ContentSection
-      logoSrc={logoSrc}
-      title={title}
-      explanation={explanation}
-      imageSrc={imageSrc}
-    />
-    <MobileStepper
-      activeStep={currentPage}
-      variant="dots"
-      steps={pageData.length}
-      orientation="horizontal"
-      sx={{ justifyContent: "center" }}
-      position="static"
-    />
-  </div>
-  <div className="">
-    <NavigationButtons
-      currentPage={currentPage}
-      goToNextPage={goToNextPage}
-      goToPreviousPage={goToPreviousPage}
-      nextButtonText={nextButtonText}
-    />
-    <button
-      onClick={handleLoginClick}
-      className="bg-transparent border-none text-blue-600 underline cursor-pointer text-base"
-    >
-      Already a user? Click here
-    </button>
-  </div>
-  {/* {isLargeScreen && <FloatingPicture />} */}
-  </div>
-
+    <div className="min-h-screen flex flex-col justify-between ">
+      <div className="px-5">
+        <ContentSection
+          logoSrc={logoSrc}
+          title={title}
+          explanation={explanation}
+          imageSrc={imageSrc}
+        />
+        <MobileStepper
+          activeStep={currentPage}
+          variant="dots"
+          steps={pageData.length}
+          orientation="horizontal"
+          sx={{ justifyContent: "center" }}
+          position="static"
+        />
+      </div>
+      <div className="fixed bottom-0 left-0 right-0 pb-6">
+        <NavigationButtons
+          currentPage={currentPage}
+          goToNextPage={goToNextPage}
+          goToPreviousPage={goToPreviousPage}
+          nextButtonText={nextButtonText}
+        />
+        
+      </div>
+      <button
+          onClick={handleLoginClick}
+          className="bg-transparent border-none text-blue-600 underline cursor-pointer text-base"
+        >
+          Already a user? Click here
+        </button>
+      {/* {isLargeScreen && <FloatingPicture />} */}
+    </div>
   );
 };
 
 export default IntroPage;
+

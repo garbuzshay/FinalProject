@@ -29,18 +29,22 @@ export const RegisterProvider = ({ children }) => {
   const steps = [
     {
       component: <Registration />,
+      title:"Museum Owner Registration ",
       isValid: (data) => validateRegistration(data.userData),
     },
     {
       component: <MuseumRegistration />,
+      title:"Museum Registration ",
       isValid: (data) => validateMuseumRegistration(data.museumData),
     },
     {
       component: <ChoosePlan />,
+      title:"Choose your plan ",
       isValid: (data) => validateChoosePlan(data.userData),
     },
     {
       component: <PaymentStep />,
+      title:"Payment ",
       isValid: () => true,
     },
     {

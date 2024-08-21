@@ -12,7 +12,7 @@ export const NavigationButtons = ({
   const prevButtonVisible = currentPage > 0 || isPrevPageExist;
 
   return (
-    <div className="flex justify-between w-full">
+    <div className="flex justify-between ">
       {prevButtonVisible ? (
         <>
           <NavigationButton 
