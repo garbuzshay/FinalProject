@@ -12,7 +12,7 @@ module.exports = {
         },
         caret: {
           '0%, 100%': { borderColor: 'transparent' },
-          '50%': { borderColor: 'white' },
+          '50%': { borderColor: 'transparent' },
         },
       },
       animation: {
