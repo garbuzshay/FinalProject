@@ -82,7 +82,7 @@ const RegistrationPage = () => {
         </div>
       </div>
 
-      <div className="pb-6 fixed bottom-0 left-0 right-0 "> {/* Added background color */}
+      <div className="pb-12 fixed bottom-0 left-0 right-0 "> {/* Added background color */}
         <NavigationButtons
           currentPage={currentStep}
           goToNextPage={goToNextPage}
