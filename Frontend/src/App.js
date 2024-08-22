@@ -159,9 +159,11 @@ import MuseumOwnerEditArtwork from "./components/museumOwner/MuseumOwnerEditArtw
 import MuseumOwnerEditDetails from "./components/museumOwner/MuseumOwnerEditDetails.js";
 import AdminEditMuseum from "./components/admin/AdminEditMuseum.js";
 import MuseumOwnerCreateArtwork from "./components/museumOwner/MuseumOwnerCreateArtwork.js";
+import { DarkModeProvider } from "./contexts/DarkModeContext";
 
 const App = () => {
   return (
+    <DarkModeProvider> {/* Wrap the entire app in DarkModeProvider */}
     <div className="App">
       <Routes>
         <Route path="/" element={<IntroPage />} />
@@ -246,6 +248,7 @@ const App = () => {
         </Route>
       </Routes>
     </div>
+    </DarkModeProvider>
   );
 };
 

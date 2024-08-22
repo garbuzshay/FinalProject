@@ -21,40 +21,93 @@ const Login = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-200 via-purple-300 to-pink-300" >
-      <form className="bg-white p-8 rounded shadow-md w-96" onSubmit={handleSubmit}>
-        <h2 className="text-2xl font-semibold mb-5">Login</h2>
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2" htmlFor="email">Email</label>
-          <input
-            className="w-full px-3 py-2 border rounded"
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2" htmlFor="password">Password</label>
-          <input
-            className="w-full px-3 py-2 border rounded"
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        {error && <p className="text-red-500 mb-4">{error}</p>}
-        <button className="w-full bg-blue-500 text-white px-4 py-2 rounded" type="submit">Login</button>
-        <div className="mt-4 text-center">
-          <Link to="/reset-password" className="text-blue-500 hover:underline">Forgot password or First Login?</Link>
-        </div>
-      </form>
-    </div>
-  );
+//   return (
+//     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-200 via-purple-300 to-pink-300" >
+//       <form className="bg-white p-8 rounded shadow-md w-96" onSubmit={handleSubmit}>
+//         <h2 className="text-2xl font-semibold mb-5">Login</h2>
+//         <div className="mb-4">
+//           <label className="block text-gray-700 mb-2" htmlFor="email">Email</label>
+//           <input
+//             className="w-full px-3 py-2 border rounded"
+//             type="email"
+//             id="email"
+//             value={email}
+//             onChange={(e) => setEmail(e.target.value)}
+//             required
+//           />
+//         </div>
+//         <div className="mb-4">
+//           <label className="block text-gray-700 mb-2" htmlFor="password">Password</label>
+//           <input
+//             className="w-full px-3 py-2 border rounded"
+//             type="password"
+//             id="password"
+//             value={password}
+//             onChange={(e) => setPassword(e.target.value)}
+//             required
+//           />
+//         </div>
+//         {error && <p className="text-red-500 mb-4">{error}</p>}
+//         <button className="w-full bg-blue-500 text-white px-4 py-2 rounded" type="submit">Login</button>
+//         <div className="mt-4 text-center">
+//           <Link to="/reset-password" className="text-blue-500 hover:underline">Forgot password or First Login?</Link>
+//         </div>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default Login;
+return (
+  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 to-indigo-600 relative overflow-hidden">
+    {/* Background Circles */}
+    <div className="absolute top-0 left-0 w-80 h-80 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
+    <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
+
+    <form className="relative bg-white bg-opacity-30 backdrop-blur-lg p-10 rounded-xl shadow-lg w-full max-w-sm" onSubmit={handleSubmit}>
+      <h1 className="text-3xl font-semibold text-white text-center mb-5">Login to your Museum CMS</h1>
+      
+      {/* Email Input */}
+      <div className="mb-6">
+        <label className="block text-white text-opacity-80 " htmlFor="email">Email</label>
+        <input
+          className="w-full px-4 py-3 bg-white bg-opacity-50 text-white text-opacity-80 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-600"
+          type="email"
+          id="email"
+          placeholder="Plese enter your Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </div>
+      
+      {/* Password Input */}
+      <div className="mb-6">
+        <label className="block text-white text-opacity-80 " htmlFor="password">Password</label>
+        <input
+          className="w-full px-4 py-3 bg-white bg-opacity-50 text-white text-opacity-80 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-600"
+          type="password"
+          id="password"
+          placeholder="Please enter your Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
+      
+      {/* Error Message */}
+      {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+      
+      {/* Submit Button */}
+      <button className="w-full py-3  bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition duration-200" type="submit">Login</button>
+      
+      {/* Forgot Password Link */}
+      <div className="mt-4 text-center">
+        <Link to="/reset-password" className="text-white text-opacity-80 hover:underline">Forgot password or First Login?</Link>
+      </div>
+    </form>
+  </div>
+);
 };
 
 export default Login;
