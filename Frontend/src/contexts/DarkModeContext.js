@@ -5,7 +5,6 @@ const DarkModeContext = createContext();
 
 export const DarkModeProvider = ({ children }) => {
     const [isDarkMode, setIsDarkMode] = useState(() => {
-        // Get the current mode from localStorage if available
         return localStorage.getItem('dark-mode') === 'true';
     });
 
