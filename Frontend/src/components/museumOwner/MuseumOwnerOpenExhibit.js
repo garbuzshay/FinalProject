@@ -349,13 +349,13 @@
 // };
 
 // export default MuseumOwnerOpenExhibit;
-
 import React, { useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import { TiUserDelete } from "react-icons/ti";
 import useOpenExhibit from "../../hooks/useOpenExhibit";
 import FormConfirmButton from "../common/FormConfirmButton";
 import CuratorSelect from "./CuratorSelect";
+import geminiApi from "../../api/GeminiApi"; // Import the GeminiApi
 
 const MuseumOwnerOpenExhibit = () => {
   const {
@@ -373,6 +373,8 @@ const MuseumOwnerOpenExhibit = () => {
     formState: { errors },
     trigger,
     reset,
+    setValue,
+    watch,
   } = useForm({
     mode: "onSubmit",
     defaultValues: {
@@ -390,6 +392,26 @@ const MuseumOwnerOpenExhibit = () => {
   });
 
   const [showCuratorSelect, setShowCuratorSelect] = useState(false);
+  const name = watch("name");
+  const description = watch("description");
+
+  // Function to handle generating the exhibition description via API
+  const handleGenerateExhibitDescription = async () => {
+    if (name && description) {
+      try {
+        const generatedDescription = await geminiApi.generateExhibitDescription({
+          title: name,
+          description,
+        });
+        setValue("description", generatedDescription); // Fill in the Description field with the AI-generated text
+      } catch (error) {
+        console.error("Error generating AI description:", error);
+        alert("Failed to generate AI description.");
+      }
+    } else {
+      alert("Please enter the exhibition name and description before generating an AI description.");
+    }
+  };
 
   const onSubmit = async (data, event) => {
     const isValid = await trigger();
@@ -509,6 +531,18 @@ const MuseumOwnerOpenExhibit = () => {
                 )}
               </label>
             </div>
+
+            {/* New Button to Generate AI Description */}
+            <div className="mb-4">
+              <button
+                type="button"
+                onClick={handleGenerateExhibitDescription}
+                className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              >
+                Generate AI Description
+              </button>
+            </div>
+
             <div className="mb-4">
               <label className="block text-gray-700 font-bold mb-2">
                 Image URL:

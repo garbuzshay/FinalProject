@@ -17,24 +17,31 @@ export const generateText = async (prompt) => {
   }
 };
 
-// export const generateTextWithImage = async (prompt, imagePath, mimeType) => {
-//   try {
-//     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
-//     const imagePart = {
-//       inlineData: {
-//         data: Buffer.from(fs.readFileSync(imagePath)).toString('base64'),
-//         mimeType,
-//       },
-//     };
+// Backend/Services/GeminiService.js
 
-//     const result = await model.generateContent([prompt, imagePart]);
-//     return result.response.text();
-//   } catch (error) {
-//     console.error('Error generating text with image:', error);
-//     throw error;
-//   }
-// };
+// Backend/Services/GeminiService.js
+
+export const generateExhibitDescription = async ({ title, description }) => {
+  try {
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+
+    // Construct prompt dynamically based on the title and description
+    const prompt = `The exhibition titled "${title}" features the following description: "${description}". 
+
+Your task is to generate a concise, engaging 2-line description for this exhibition. Make sure the description is easy to understand and captures the essence of the exhibition for museum visitors. Avoid promotional or sales language and focus on conveying the exhibition's main theme or subject.`;
+
+    // Pass the prompt to the generative model
+    const result = await model.generateContent(prompt);
+    return await result.response.text(); // Return the generated description
+  } catch (error) {
+    console.error('Error generating exhibition description:', error);
+    throw error;
+  }
+};
+
+
+
 
 export const generateTextWithImage = async ({ title, artist, createdDateByArtist, imageUrl, description }) => {
   try {

@@ -1533,3 +1533,6 @@ Use mongoose.model(name, schema)
 2024-09-07 14:04:16 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
 2024-09-07 14:41:57 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
 2024-09-07 14:42:06 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
+2024-09-07 19:54:18 [32minfo[39m: Creating exhibition with data: {"name":"The chocolate exhibition","description":"Dive into the fascinating world of chocolate, tracing its journey from ancient origins to modern-day delights. Explore the science behind its captivating flavor and witness the artistry of chocolate-making. \n","maxArtworks":"10","imageUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Green_and_Black%27s_dark_chocolate_bar_2.jpg/1280px-Green_and_Black%27s_dark_chocolate_bar_2.jpg","curators":[]}
+2024-09-07 20:16:18 [32minfo[39m: Updating exhibition with ID: 66dc853b183b2f5a5cec37ab and data: {"status":"closed","museum":"669fdcd3252883f23dc5c8a8"}
+2024-09-07 20:16:18 [32minfo[39m: Updating exhibition with ID: 66dc853b183b2f5a5cec37ab and data: {"status":"closed","museum":"669fdcd3252883f23dc5c8a8","curators":[],"closedAt":"2024-09-07T17:16:18.234Z","openedAt":null}

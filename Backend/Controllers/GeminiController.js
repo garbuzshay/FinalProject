@@ -1,5 +1,5 @@
 // Backend/Controllers/geminiController.js
-import { generateText, generateTextWithImage } from '../Services/GeminiService.js';
+import { generateText, generateTextWithImage, generateExhibitDescription  } from '../Services/GeminiService.js';
 
 export const generateStory = async (req, res) => {
   try {
@@ -18,5 +18,15 @@ export const generateArtworkDescription = async (req, res) => {
     res.status(200).json({ text });
   } catch (error) {
     res.status(500).json({ error: 'Failed to generate text with image' });
+  }
+};
+
+export const generateExhibitDescriptionController = async (req, res) => {
+  try {
+    const { title, description } = req.body; // Expecting title and description to be sent in the body of the request
+    const text = await generateExhibitDescription({ title, description });
+    res.status(200).json({ text });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to generate exhibition description' });
   }
 };

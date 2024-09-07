@@ -1,4 +1,3 @@
-// // Frontend\src\components\museumOwner\MuseumOwnerEditExhibition.js
 // import React, { useEffect, useState } from "react";
 // import { useNavigate, useParams } from "react-router-dom";
 // import { useMuseumContext } from "../../contexts/MuseumContext";
@@ -29,6 +28,7 @@
 //     formState: { errors },
 //     reset,
 //     watch,
+//     setError: setFormError,
 //   } = useForm({
 //     defaultValues: {
 //       name: "",
@@ -106,6 +106,19 @@
 //         (curator) => curator.name && curator.email
 //       ),
 //     };
+
+//     const currentExhibition = exhibitions.find((exhibit) => exhibit._id === id);
+//     const currentArtworkCount = currentExhibition?.artworks.length || 0;
+
+//     // Validation: Check if the new maxArtworks is less than the current number of artworks
+//     if (updatedData.maxArtworks < currentArtworkCount) {
+//       setFormError("maxArtworks", {
+//         type: "manual",
+//         message: `The maximum number of artworks cannot be less than the current number of artworks (${currentArtworkCount}).`,
+//       });
+//       return;
+//     }
+
 //     try {
 //       await updateExhibition(id, updatedData);
 //       navigate(-1);
@@ -114,7 +127,6 @@
 //       console.error("Error updating exhibition:", error);
 //     }
 //   };
-
 //   const handleCuratorsSelect = (selectedCurators) => {
 //     selectedCurators.forEach((curator) => {
 //       if (!curators.find((field) => field.email === curator.email)) {
@@ -454,8 +466,6 @@
 // };
 
 // export default MuseumOwnerEditExhibition;
-
-// Frontend\src\components\museumOwner\MuseumOwnerEditExhibition.js
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMuseumContext } from "../../contexts/MuseumContext";
@@ -464,17 +474,13 @@ import { useFieldArray, useForm } from "react-hook-form";
 import { TiUserDelete } from "react-icons/ti";
 import CuratorSelect from "./CuratorSelect";
 import GoBackButton from "../common/GoBackButton";
+import geminiApi from "../../api/GeminiApi"; // Import geminiApi
 
 const MuseumOwnerEditExhibition = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const {
-    museum,
-    exhibitions,
-    fetchMuseum,
-    updateExhibition,
-    closeExhibition,
-  } = useMuseumContext();
+  const { museum, exhibitions, fetchMuseum, updateExhibition, closeExhibition } =
+    useMuseumContext();
   const [loading, setLoading] = useState(false);
   const [showCuratorSelect, setShowCuratorSelect] = useState(false);
   const [error, setError] = useState(null);
@@ -487,6 +493,7 @@ const MuseumOwnerEditExhibition = () => {
     reset,
     watch,
     setError: setFormError,
+    setValue, // Add this line
   } = useForm({
     defaultValues: {
       name: "",
@@ -568,7 +575,6 @@ const MuseumOwnerEditExhibition = () => {
     const currentExhibition = exhibitions.find((exhibit) => exhibit._id === id);
     const currentArtworkCount = currentExhibition?.artworks.length || 0;
 
-    // Validation: Check if the new maxArtworks is less than the current number of artworks
     if (updatedData.maxArtworks < currentArtworkCount) {
       setFormError("maxArtworks", {
         type: "manual",
@@ -585,6 +591,7 @@ const MuseumOwnerEditExhibition = () => {
       console.error("Error updating exhibition:", error);
     }
   };
+
   const handleCuratorsSelect = (selectedCurators) => {
     selectedCurators.forEach((curator) => {
       if (!curators.find((field) => field.email === curator.email)) {
@@ -596,6 +603,31 @@ const MuseumOwnerEditExhibition = () => {
 
   const imageUrl = watch("imageUrl");
 
+  // Function to generate AI-based exhibit description
+  const handleGenerateExhibitDescription = async () => {
+    const name = watch("name");
+    const maxArtworks = watch("maxArtworks");
+    const imageUrl = watch("imageUrl");
+
+    if (name && maxArtworks && imageUrl) {
+      try {
+        const generatedDescription = await geminiApi.generateExhibitDescription({
+          name,
+          maxArtworks,
+          imageUrl,
+        });
+        setValue("description", generatedDescription); // Fill in the Description field
+      } catch (error) {
+        console.error("Error generating exhibit description:", error);
+        alert("Failed to generate AI description.");
+      }
+    } else {
+      alert(
+        "Please enter the exhibition name, maximum artworks, and image URL before generating a description."
+      );
+    }
+  };
+
   return (
     <div>
       {loading ? (
@@ -604,7 +636,7 @@ const MuseumOwnerEditExhibition = () => {
         <form
           id="exhibitionForm"
           onSubmit={handleSubmit(onSubmit)}
-          className=" mx-auto shadow p-6"
+          className="mx-auto shadow p-6"
         >
           <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2">
@@ -623,6 +655,7 @@ const MuseumOwnerEditExhibition = () => {
               )}
             </label>
           </div>
+
           <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2">
               Description:
@@ -641,6 +674,17 @@ const MuseumOwnerEditExhibition = () => {
               )}
             </label>
           </div>
+
+          <div className="mb-4">
+            <button
+              type="button"
+              onClick={handleGenerateExhibitDescription}
+              className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Generate AI Exhibit Description
+            </button>
+          </div>
+
           <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2">
               Maximum Number of Artworks:
@@ -660,6 +704,7 @@ const MuseumOwnerEditExhibition = () => {
               )}
             </label>
           </div>
+
           <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2">
               Image URL:
@@ -736,9 +781,8 @@ const MuseumOwnerEditExhibition = () => {
               ))}
             </tbody>
           </table>
-          <h2 className="text-xl font-bold text-center my-4">
-            Add New Curators:
-          </h2>
+
+          <h2 className="text-xl font-bold text-center my-4">Add New Curators:</h2>
           <div className="flex justify-end mb-4 space-x-2">
             <button
               type="button"
@@ -763,9 +807,11 @@ const MuseumOwnerEditExhibition = () => {
               Select from Curator's list
             </button>
           </div>
+
           {showCuratorSelect && (
             <CuratorSelect onCuratorsSelect={handleCuratorsSelect} />
           )}
+
           <table className="min-w-full bg-white border">
             <thead>
               <tr>

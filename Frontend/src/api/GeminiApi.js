@@ -18,8 +18,15 @@ class GeminiApi extends BaseApi {
       throw error;
     }
   }
-
-  
+  async generateExhibitDescription(data) {
+    try {
+      const response = await this.api.post('/gemini/generate-exhibit-description', data);
+      return response.data.text;
+    } catch (error) {
+      console.error('Error generating exhibition description:', error);
+      throw error;
+    }
+  }
 }
 
 const geminiApi = new GeminiApi();
