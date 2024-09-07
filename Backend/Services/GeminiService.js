@@ -55,7 +55,13 @@ export const generateTextWithImage = async ({ title, artist, createdDateByArtist
         mimeType,
       },
     };
-    const prompt = `Generate a short, attractive description for an artwork titled "${title}" by "${artist}", created on ${createdDateByArtist}.In your description please don't use "##" or "**" for separation. u can use the user description "${description}" for better understaing what the user needs`;
+    const prompt = `You are generating a description for an artwork that will be displayed in a museum for visitors. The artwork is titled "${title}" and was created by the artist "${artist}" on ${createdDateByArtist} (please ensure the date is written in the exact format dd/mm/yy). 
+
+Your task is to create a concise, informative, and engaging description of this artwork. Use the user's description "${description}" to capture the essence of the piece, focusing on its key elements such as the artistic style, subject matter, and significance. 
+
+The description should be written with museum visitors in mind and should provide insight into the artwork, giving visitors a better understanding of it. Avoid any promotional or sales language, and focus solely on explaining and presenting the work in an impressive but factual manner. Make sure the description is easy to read and no longer than a few sentences while still capturing the most important aspects of the piece.`
+
+
     const result = await model.generateContent([prompt, imagePart]);
     return result.response.text();
   } catch (error) {

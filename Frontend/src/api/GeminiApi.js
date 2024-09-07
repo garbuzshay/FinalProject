@@ -9,9 +9,6 @@ class GeminiApi extends BaseApi {
     super(apiBaseUrl); // Initialize the base URL
   }
 
-  /**
-   * Generates an artwork description based on a prompt.
-   */
   async generateArtworkDescription(data) {
     try {
       const response = await this.api.post('/gemini/generate-artwork-description', data);
