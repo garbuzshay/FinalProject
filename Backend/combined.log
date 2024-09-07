@@ -1531,3 +1531,5 @@ Use mongoose.model(name, schema)
 2024-09-07 13:59:10 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
 2024-09-07 14:00:10 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
 2024-09-07 14:04:16 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
+2024-09-07 14:41:57 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
+2024-09-07 14:42:06 [32minfo[39m: Retrieving exhibitions for User with ID: 66aa3d458fbbe4ed52ffea5a
