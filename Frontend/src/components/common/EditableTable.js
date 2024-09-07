@@ -29,13 +29,15 @@ const EditableTable = ({ columns, data, actions }) => {
       <thead className="bg-gray-800 text-white">
         <tr>
           {columns.map((col) => (
-            <th className="py-2" key={col.field}>{col.label}</th>
+            <th className="py-2" key={col.field}>
+              {col.label}
+            </th>
           ))}
           <th className="py-2">Actions</th>
         </tr>
       </thead>
       <tbody>
-        {data.map((row, index) => (
+        {data.map((row, index) =>
           editingIndex === index ? (
             <tr key={index}>
               {columns.map((col) => (
@@ -49,21 +51,41 @@ const EditableTable = ({ columns, data, actions }) => {
                 </td>
               ))}
               <td className="border px-4 py-2 flex">
-                <button className="bg-green-500 text-white px-2 py-1 rounded mr-2" onClick={handleSave}>Save</button>
-                <button className="bg-red-500 text-white px-2 py-1 rounded mr-2" onClick={handleCancel}>Cancel</button>
+                <button
+                  className="bg-green-500 text-white px-2 py-1 rounded mr-2"
+                  onClick={handleSave}
+                >
+                  Save
+                </button>
+                <button
+                  className="bg-red-500 text-white px-2 py-1 rounded mr-2"
+                  onClick={handleCancel}
+                >
+                  Cancel
+                </button>
               </td>
             </tr>
           ) : (
             <tr key={index} onClick={() => handleEdit(index)}>
               {columns.map((col) => (
-                <td className="border px-4 py-2" key={col.field}>{row[col.field]}</td>
+                <td className="border px-4 py-2" key={col.field}>
+                  {row[col.field]}
+                </td>
               ))}
               <td className="border px-4 py-2">
-                <button className="bg-red-500 text-white px-2 py-1 rounded" onClick={(e) => { e.stopPropagation(); actions.onDelete(row._id); }}>Delete</button>
+                <button
+                  className="bg-red-500 text-white px-2 py-1 rounded"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    actions.onDelete(row._id);
+                  }}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           )
-        ))}
+        )}
       </tbody>
     </table>
   );
