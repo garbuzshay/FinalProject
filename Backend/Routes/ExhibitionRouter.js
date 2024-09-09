@@ -28,7 +28,7 @@ router.get("/:id", getExhibitionById);
 router.put(
   "/:id",
   authenticateUser,
-  authorizeUser("MuseumOwner"),
+  authorizeUser(["MuseumOwner","Curator"]),
   updateExhibition
 );
 router.delete("/:id", deleteExhibition);

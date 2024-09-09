@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import ExhibitCard from "../exhibitions/ExhibitCard"; // Adjust the path as needed
 import { useMuseumContext } from "../../contexts/MuseumContext";
-import QRCodeGenerator from "./QRCodeGenerator"; // Adjust the path as needed
+// import QRCodeGenerator from "./QRCodeGenerator"; // Adjust the path as needed
 const MuseumOwnerExhibitionsList = () => {
-  const { loading, openExhibition ,exhibitions, museum } = useMuseumContext();
+  const { loading, openExhibition ,exhibitions } = useMuseumContext();
 
   const [filter, setFilter] = useState("all");
 
@@ -29,24 +29,10 @@ const MuseumOwnerExhibitionsList = () => {
   };
 
   const filteredExhibitions = filterExhibitions();
-  const museumUrl = `https://mensch-visitors.vercel.app/${museum?.name}`;
+  // const museumUrl = `https://mensch-visitors.vercel.app/${museum?.name}`;
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-6">Exhibitions</h1>
-      <div className="mb-4">
-        <a
-          // href={`https://mensch-visitors.vercel.app/${museum?.name}`}
-          href={museumUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 underline"
-        >
-          Click here to visit your museum
-        </a>
-        <div className="ml-4">
-          <QRCodeGenerator url={museumUrl} fileName={museum?.name} />
-        </div>
-      </div>
       <div className="flex justify-center mb-4">
         <button
           onClick={() => setFilter("all")}
@@ -76,9 +62,9 @@ const MuseumOwnerExhibitionsList = () => {
       <div className="flex flex-wrap -m-4">
         {filter === "all" ? (
           <>
-            <h2 className="w-full text-2xl font-semibold mb-4">
+            {/* <h2 className="w-full text-2xl font-semibold mb-4">
               Opened Exhibitions
-            </h2>
+            </h2> */}
             {filteredExhibitions
               ?.filter((exhibition) => exhibition.status === "open")
               .map((exhibition) => (
@@ -98,9 +84,9 @@ const MuseumOwnerExhibitionsList = () => {
                   status={exhibition.status}
                 />
               ))}
-            <h2 className="w-full text-2xl font-semibold mt-6 mb-4">
+            {/* <h2 className="w-full text-2xl font-semibold mt-6 mb-4">
               Closed Exhibitions
-            </h2>
+            </h2> */}
             {filteredExhibitions
               ?.filter((exhibition) => exhibition.status === "closed")
               .map((exhibition) => (

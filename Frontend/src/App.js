@@ -160,6 +160,7 @@ import MuseumOwnerEditDetails from "./components/museumOwner/MuseumOwnerEditDeta
 import AdminEditMuseum from "./components/admin/AdminEditMuseum.js";
 import MuseumOwnerCreateArtwork from "./components/museumOwner/MuseumOwnerCreateArtwork.js";
 import { DarkModeProvider } from "./contexts/DarkModeContext";
+import CuratorEditExhibition from "./components/curator/CuratorEditExhibition.js";
 
 const App = () => {
   return (
@@ -243,6 +244,7 @@ const App = () => {
          <Route index element={<Navigate to="exhibitions" replace />} />
           <Route path="exhibitions" element={<CuratorExhibitionsList />} />
           <Route path="exhibitions/:id" element={<CuratorArtsList />} />
+          <Route path="exhibitions/edit/:id" element={<CuratorEditExhibition  />} />
           <Route path="exhibitions/:exhibitionId/:artworkId" element={<CuratorEditArtwork />} />
           <Route path="contact-us" element={<CuratorContactUs />} />
         </Route>

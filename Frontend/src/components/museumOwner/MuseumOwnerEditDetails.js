@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useMuseumContext } from '../../contexts/MuseumContext';
 import FormConfirmButton from '../common/FormConfirmButton';
 import { useNavigate } from 'react-router-dom';
+import QRCodeGenerator from './QRCodeGenerator';
 
 const MuseumOwnerEditDetails = () => {
   const { museum, updateMuseumDetails } = useMuseumContext();
@@ -28,11 +29,20 @@ const MuseumOwnerEditDetails = () => {
     setValue('password', randomPassword);
   };
 
+  const museumUrl = `https://mensch-visitors.vercel.app/${museum?.name}`;
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">Edit Museum Details</h1>
+      <h1 className="text-3xl font-bold mb-6">Museum Details</h1>
+      <a
+          href={museumUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 underline"
+        >
+          Click here to visit your museum
+        </a>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mb-4">
+        <div className="m-4">
           <label className="block text-gray-700">Name</label>
           <input
             type="text"
@@ -128,6 +138,12 @@ const MuseumOwnerEditDetails = () => {
           dialogMessage="Are you sure you want to save these changes?"
         />
       </form>
+
+      <div className="mb-4">
+        <div className="ml-4">
+          <QRCodeGenerator url={museumUrl} fileName={museum?.name} />
+        </div>
+      </div>
     </div>
   );
 };

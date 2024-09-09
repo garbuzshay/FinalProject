@@ -1,6 +1,5 @@
 import React from 'react';
 import ExhibitCard from '../exhibitions/ExhibitCard'; // Adjust the path as needed
-// import {useExhibitions} from '../../contexts/ExhibitionsContext'; // Adjust the path as needed
 import {useMuseumContext} from '../../contexts/MuseumContext'; // Adjust the path as needed
 
 const CuratorExhibitionsList = () => {
@@ -13,7 +12,7 @@ const CuratorExhibitionsList = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-6">My Exhibitions</h1>
-      <div className="flex flex-wrap -m-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 mr-6 gap-4">
         {exhibitions.map((exhibition) => (
           <ExhibitCard
             key={exhibition._id}
