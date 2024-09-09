@@ -77,6 +77,7 @@ app.use(bodyParser.json());
 const corsOptions = {
   origin: function (origin, callback) {
     if (appConfig.allowedOrigins.indexOf(origin) !== -1 || !origin) {
+ 
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));

@@ -2,6 +2,7 @@
 // import { useForm } from "react-hook-form";
 // import FormConfirmButton from "../common/FormConfirmButton";
 // import geminiApi from "../../api/GeminiApi"; // Ensure the correct path
+// import SpeechToText from "./SpeechToText"; // Import SpeechToText component
 
 // const ArtworkForm = ({
 //   onSubmit,
@@ -23,7 +24,10 @@
 //   const artist = watch("artist");
 //   const createdDateByArtist = watch("createdDateByArtist");
 //   const imageUrl = watch("imageUrl");
-//   const description = watch("description");
+//   const description = watch("description"); // Watch the description field
+
+//   // State to toggle SpeechToText visibility
+//   const [showSpeechToText, setShowSpeechToText] = useState(false);
 
 //   useEffect(() => {
 //     if (initialData) {
@@ -65,13 +69,15 @@
 //       console.error("There was an error submitting the form!", error);
 //     }
 //   };
+
 //   const handleDeleteArtwork = async () => {
 //     try {
 //       await onDelete();
 //     } catch (error) {
-//       console.error("There was an error submitting the form!", error);
+//       console.error("There was an error deleting the artwork!", error);
 //     }
 //   };
+
 //   return (
 //     <div className="max-w-md mx-auto mt-10 p-4 border rounded-lg shadow-md">
 //       <h2 className="text-2xl font-bold mb-4">
@@ -185,6 +191,27 @@
 //           )}
 //         </div>
 
+//         {/* Toggle Speech-to-Text */}
+//         <div className="mb-4">
+//           <button
+//             type="button"
+//             onClick={() => setShowSpeechToText(!showSpeechToText)} // Toggle visibility
+//             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+//           >
+//             {showSpeechToText ? "Hide Speech to Text" : "Use Speech to Text"}
+//           </button>
+//         </div>
+
+//         {/* Conditionally render SpeechToText */}
+//         {showSpeechToText && (
+//           <div className="mb-4">
+//             <SpeechToText
+//               finalTranscript={description}
+//               setFinalTranscript={(value) => setValue("description", value)}
+//             />
+//           </div>
+//         )}
+
 //         <div className="mb-4">
 //           <button
 //             type="button"
@@ -233,6 +260,7 @@ import { useForm } from "react-hook-form";
 import FormConfirmButton from "../common/FormConfirmButton";
 import geminiApi from "../../api/GeminiApi"; // Ensure the correct path
 import SpeechToText from "./SpeechToText"; // Import SpeechToText component
+import { uploadFile } from "./FileUpload";
 
 const ArtworkForm = ({
   onSubmit,
@@ -272,11 +300,20 @@ const ArtworkForm = ({
   }, [initialData, setValue]);
 
   const handleGenerateDescription = async () => {
+    if (!url) {
+      alert("Please upload the image before generating the description.");
+      return;
+    }
+  
     if (title && artist && createdDateByArtist) {
       try {
-        const generatedDescription = await geminiApi.generateArtworkDescription(
-          { title, artist, createdDateByArtist, imageUrl, description }
-        );
+        const generatedDescription = await geminiApi.generateArtworkDescription({
+          title,
+          artist,
+          createdDateByArtist,
+          imageUrl: url,  // Use `url` instead of `imageUrl` to ensure the uploaded URL is passed
+          description,
+        });
         setValue("description", generatedDescription); // Fill in the Description field
       } catch (error) {
         console.error("Error generating AI description:", error);
@@ -284,14 +321,14 @@ const ArtworkForm = ({
       }
     } else {
       alert(
-        "Please enter the title, artist, and created date before generating an AI description."
+        "Please enter the title, artist, created date, and upload an image before generating an AI description."
       );
     }
   };
 
   const handleFormSubmit = async (data) => {
     try {
-      await onSubmit(data);
+      await onSubmit({ ...data, imageUrl: url }); // Include image URL in submission data
       if (formType === "create") {
         reset(); // Reset the form after a successful creation
       }
@@ -308,6 +345,41 @@ const ArtworkForm = ({
     }
   };
 
+  // State for file upload
+  const [file, setFile] = useState(null);
+  const [url, setUrl] = useState("");
+  const [progress, setProgress] = useState(0);
+  const [uploading, setUploading] = useState(false);
+
+  // Handle file input change
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+    setUrl(""); // Reset the URL if a new file is selected
+  };
+
+  // Handle file upload when clicking the upload button
+  const handleUpload = () => {
+    if (!file) {
+      alert("Please select a file first");
+      return;
+    }
+
+    setUploading(true); // Start uploading
+    uploadFile(
+      file,
+      (progress) => setProgress(progress), // Update progress
+      (url) => {
+        setUrl(url); // Set the file URL on successful upload
+        setValue("imageUrl", url); // Set the value of imageUrl in the form
+        setUploading(false); // End the upload state
+      },
+      (error) => {
+        console.error("Upload failed: ", error); // Log the error
+        setUploading(false); // End the upload state
+      }
+    );
+  };
+
   return (
     <div className="max-w-md mx-auto mt-10 p-4 border rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-4">
@@ -315,7 +387,10 @@ const ArtworkForm = ({
       </h2>
       <form onSubmit={handleSubmit(handleFormSubmit)}>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="title"
+          >
             Title
           </label>
           <input
@@ -326,11 +401,16 @@ const ArtworkForm = ({
             type="text"
             {...register("title", { required: true })}
           />
-          {errors.title && <p className="text-red-500 text-xs italic">Please enter a title.</p>}
+          {errors.title && (
+            <p className="text-red-500 text-xs italic">Please enter a title.</p>
+          )}
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="artist">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="artist"
+          >
             Artist Name
           </label>
           <input
@@ -341,11 +421,18 @@ const ArtworkForm = ({
             type="text"
             {...register("artist", { required: true })}
           />
-          {errors.artist && <p className="text-red-500 text-xs italic">Please enter the artist name.</p>}
+          {errors.artist && (
+            <p className="text-red-500 text-xs italic">
+              Please enter the artist name.
+            </p>
+          )}
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="createdDateByArtist">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="createdDateByArtist"
+          >
             Created Date by Artist
           </label>
           <input
@@ -356,26 +443,47 @@ const ArtworkForm = ({
             type="date"
             {...register("createdDateByArtist", { required: true })}
           />
-          {errors.createdDateByArtist && <p className="text-red-500 text-xs italic">Please enter the created date by the artist.</p>}
+          {errors.createdDateByArtist && (
+            <p className="text-red-500 text-xs italic">
+              Please enter the created date by the artist.
+            </p>
+          )}
         </div>
 
+        {/* Image Upload Section */}
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="imageUrl">
-            Image URL
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="imageUrl"
+          >
+            Image Upload
           </label>
-          <input
-            className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-              errors.imageUrl ? "border-red-500" : ""
-            }`}
-            id="imageUrl"
-            type="text"
-            {...register("imageUrl", { required: true })}
-          />
-          {errors.imageUrl && <p className="text-red-500 text-xs italic">Please enter the image URL.</p>}
+          <input type="file" onChange={handleFileChange} />
+          <button
+            onClick={handleUpload}
+            type="button"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            disabled={uploading || !file}
+          >
+            {uploading ? "Uploading..." : "Upload"}
+          </button>
+          {uploading && <p>Progress: {progress}%</p>}
+          {url && (
+            <div className="mt-2">
+              <p>Uploaded Image:</p>
+              <img src={url} alt="Uploaded" className="w-20 h-20 object-cover" />
+              <a href={url} target="_blank" rel="noreferrer" className="text-blue-500">
+                View Image
+              </a>
+            </div>
+          )}
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="description"
+          >
             Description
           </label>
           <textarea
@@ -386,7 +494,9 @@ const ArtworkForm = ({
             {...register("description", { required: true })}
           ></textarea>
           {errors.description && (
-            <p className="text-red-500 text-xs italic">Please enter a description.</p>
+            <p className="text-red-500 text-xs italic">
+              Please enter a description.
+            </p>
           )}
         </div>
 
@@ -394,7 +504,7 @@ const ArtworkForm = ({
         <div className="mb-4">
           <button
             type="button"
-            onClick={() => setShowSpeechToText(!showSpeechToText)}  // Toggle visibility
+            onClick={() => setShowSpeechToText(!showSpeechToText)} // Toggle visibility
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             {showSpeechToText ? "Hide Speech to Text" : "Use Speech to Text"}
@@ -430,7 +540,9 @@ const ArtworkForm = ({
         >
           <FormConfirmButton
             onSubmit={handleSubmit(handleFormSubmit)}
-            buttonText={formType === "edit" ? "Update Artwork" : "Create Artwork"}
+            buttonText={
+              formType === "edit" ? "Update Artwork" : "Create Artwork"
+            }
             dialogMessage={`Are you sure you want to ${
               formType === "edit" ? "update" : "create"
             } this artwork?`}
