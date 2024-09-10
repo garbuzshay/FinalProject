@@ -32,7 +32,8 @@ const MuseumOwnerExhibitionsList = () => {
   // const museumUrl = `https://mensch-visitors.vercel.app/${museum?.name}`;
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">Exhibitions</h1>
+      <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center">Your Exhibitions</h1>
+      <p className="text-md mb-6">To view or edit an exhibition, simply click on the tab and start exploring.</p>
       <div className="flex justify-center mb-4">
         <button
           onClick={() => setFilter("all")}

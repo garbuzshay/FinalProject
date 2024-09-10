@@ -123,12 +123,15 @@ import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../contexts/UserContext';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { useDarkMode } from '../../contexts/DarkModeContext';
+import {useMuseumContext} from '../../contexts/MuseumContext';
 
 const Header = ({ buttonText, buttonPath }) => {
     const navigate = useNavigate();
     const [title, setTitle] = useState('');
     const { user } = useUserContext();
     const { isDarkMode, toggleDarkMode } = useDarkMode();
+    const {museum} = useMuseumContext();
+    console.log(museum)
 
     useEffect(() => {
         const getTitle = () => {
@@ -138,7 +141,7 @@ const Header = ({ buttonText, buttonPath }) => {
                 case 'Admin':
                     return 'Admin Dashboard';
                 case 'MuseumOwner':
-                    return `Hello ${user.name}, Welcome to ${user.museum ? user.museum.name : "your museum"} CMS`;
+                    return `Hello ${user.name}, Welcome to ${museum ? museum.name  : "your museum"} CMS`;
                 case 'Curator':
                     return `Hello ${user.name}, Welcome to the Curator's area CMS`;
                 default:

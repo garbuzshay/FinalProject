@@ -279,16 +279,15 @@ const CuratorEditExhibition = () => {
   if (!exhibition) {
     return <p>Loading...</p>; // Show a loading message while exhibition is fetched
   }
-
   return (
-    <div className="container mx-auto grid grid-cols gap-3">
+    <div className="mt-10 border rounded-lg shadow-md p-4 lg:p-8">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols gap-4  shadow p-6 sm:p-8 lg:p-12 "
+        className="grid grid-cols-1 gap-4 shadow p-6 sm:p-8 lg:p-12 w-full"
       >
         {/* Exhibition Name */}
         <div className="mb-4">
-          <h>Edit Exhibition</h>
+          <h2 className="text-lg font-bold mb-4">Edit Exhibition</h2>
           <label className="block text-gray-700 font-bold mb-2">
             Exhibition Name:
           </label>
@@ -303,7 +302,7 @@ const CuratorEditExhibition = () => {
             <span className="text-red-500">{errors.name.message}</span>
           )}
         </div>
-
+  
         {/* Description */}
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">
@@ -321,22 +320,24 @@ const CuratorEditExhibition = () => {
             <span className="text-red-500">{errors.description.message}</span>
           )}
         </div>
+  
         {/* Generate AI Description Button */}
         <div className="mb-4">
           <button
             type="button"
             onClick={handleGenerateExhibitDescription}
-            className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded w-full sm:w-auto"
           >
             Generate AI Exhibit Description
           </button>
         </div>
+  
         {/* Image Upload */}
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">
             Upload Exhibition Image:
           </label>
-          <input type="file" onChange={handleFileChange} />
+          <input type="file" onChange={handleFileChange} className="w-full" />
           {uploading && <p>Progress: {progress}%</p>}
           {uploadedImageUrl && (
             <div className="mt-2 text-center">
@@ -357,20 +358,112 @@ const CuratorEditExhibition = () => {
             </div>
           )}
         </div>
-
+  
         {/* Save Changes Button */}
         <FormConfirmButton
           onSubmit={handleSubmit(onSubmit)}
           buttonText="Save Changes"
           dialogMessage="Are you sure you want to save these changes?"
         />
-
-
       </form>
-      <GoBackButton />
+  
+      <div className="mt-4">
+        <GoBackButton />
+      </div>
     </div>
-    
   );
+  
+  // return (
+  //   <div className="container mx-auto grid grid-cols gap-3">
+  //     <form
+  //       onSubmit={handleSubmit(onSubmit)}
+  //       className="grid grid-cols gap-4  shadow p-6 sm:p-8 lg:p-12 "
+  //     >
+  //       {/* Exhibition Name */}
+  //       <div className="mb-4">
+  //         <h>Edit Exhibition</h>
+  //         <label className="block text-gray-700 font-bold mb-2">
+  //           Exhibition Name:
+  //         </label>
+  //         <input
+  //           type="text"
+  //           {...register("name", { required: "Exhibition name is required" })}
+  //           className={`mt-1 block w-full rounded-md ${
+  //             errors.name ? "border-red-500" : "border-gray-300"
+  //           } shadow-sm focus:border-indigo-500`}
+  //         />
+  //         {errors.name && (
+  //           <span className="text-red-500">{errors.name.message}</span>
+  //         )}
+  //       </div>
+
+  //       {/* Description */}
+  //       <div className="mb-4">
+  //         <label className="block text-gray-700 font-bold mb-2">
+  //           Description:
+  //         </label>
+  //         <textarea
+  //           {...register("description", {
+  //             required: "Description is required",
+  //           })}
+  //           className={`mt-1 block w-full rounded-md ${
+  //             errors.description ? "border-red-500" : "border-gray-300"
+  //           } shadow-sm focus:border-indigo-500`}
+  //         />
+  //         {errors.description && (
+  //           <span className="text-red-500">{errors.description.message}</span>
+  //         )}
+  //       </div>
+  //       {/* Generate AI Description Button */}
+  //       <div className="mb-4">
+  //         <button
+  //           type="button"
+  //           onClick={handleGenerateExhibitDescription}
+  //           className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+  //         >
+  //           Generate AI Exhibit Description
+  //         </button>
+  //       </div>
+  //       {/* Image Upload */}
+  //       <div className="mb-4">
+  //         <label className="block text-gray-700 font-bold mb-2">
+  //           Upload Exhibition Image:
+  //         </label>
+  //         <input type="file" onChange={handleFileChange} />
+  //         {uploading && <p>Progress: {progress}%</p>}
+  //         {uploadedImageUrl && (
+  //           <div className="mt-2 text-center">
+  //             <p>Uploaded Image:</p>
+  //             <img
+  //               src={uploadedImageUrl}
+  //               alt="Uploaded"
+  //               className="w-48 h-48 mx-auto rounded-lg"
+  //             />
+  //             <a
+  //               href={uploadedImageUrl}
+  //               target="_blank"
+  //               rel="noreferrer"
+  //               className="text-blue-500"
+  //             >
+  //               View Image
+  //             </a>
+  //           </div>
+  //         )}
+  //       </div>
+
+  //       {/* Save Changes Button */}
+  //       <FormConfirmButton
+  //         onSubmit={handleSubmit(onSubmit)}
+  //         buttonText="Save Changes"
+  //         dialogMessage="Are you sure you want to save these changes?"
+  //       />
+
+
+  //     </form>
+  //     <GoBackButton />
+  //   </div>
+    
+  // );
 };
 
 export default CuratorEditExhibition;

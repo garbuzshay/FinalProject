@@ -447,8 +447,8 @@ const MuseumOwnerOpenExhibit = () => {
   }
 
   return (
-    <div className="container mx-auto p-4 sm:p-6 md:p-8 lg:p-10">
-      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center my-4">
+    <div className="container mx-auto p-4">
+      <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center">
         Open New Exhibition
       </h1>
       {museum && (

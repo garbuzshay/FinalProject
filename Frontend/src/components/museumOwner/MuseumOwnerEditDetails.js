@@ -192,10 +192,14 @@ const MuseumOwnerEditDetails = () => {
         href={museumUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-600 hover:text-blue-800 underline block text-center mb-6"
+        className="text-blue-600 hover:text-blue-800 underline block text-center"
       >
         Visit your museum
       </a>
+              {/* QR Code */}
+              
+          <QRCodeGenerator url={museumUrl} fileName={museum?.name} />
+
 
       <form onSubmit={handleSubmit(onSubmit)} className="p-6 rounded-lg shadow-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -315,10 +319,6 @@ const MuseumOwnerEditDetails = () => {
           dialogMessage="Are you sure you want to save these changes?"
         />
 
-        {/* QR Code */}
-        <div className="mt-8">
-          <QRCodeGenerator url={museumUrl} fileName={museum?.name} />
-        </div>
       </form>
     </div>
   );

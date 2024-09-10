@@ -147,7 +147,7 @@ const ContactUs = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
+      <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center">Contact Us</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label className="block text-gray-700 font-medium mb-2" htmlFor="name">

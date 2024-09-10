@@ -264,54 +264,6 @@ const MuseumOwnerEditExhibition = () => {
           </div>
 
           <h2 className="text-xl font-bold text-center my-4">Curators:</h2>
-          {/* <table className="min-w-full bg-white border mb-4">
-            <thead>
-              <tr>
-                <th className="px-6 py-3 border-b-2 border-gray-300 bg-gray-200 text-left text-xs leading-4 text-gray-700 uppercase tracking-wider">
-                  Name
-                </th>
-                <th className="px-6 py-3 border-b-2 border-gray-300 bg-gray-200 text-left text-xs leading-4 text-gray-700 uppercase tracking-wider">
-                  Surname
-                </th>
-                <th className="px-6 py-3 border-b-2 border-gray-300 bg-gray-200 text-left text-xs leading-4 text-gray-700 uppercase tracking-wider">
-                  Email
-                </th>
-                <th className="px-6 py-3 border-b-2 border-gray-300 bg-gray-200 text-left text-xs leading-4 text-gray-700 uppercase tracking-wider">
-                  Phone
-                </th>
-                <th className="px-6 py-3 border-b-2 border-gray-300 bg-gray-200 text-left text-xs leading-4 text-gray-700 uppercase tracking-wider">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {curators.map((curator, index) => (
-                <tr key={curator.id} className="even:bg-gray-100">
-                  <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                    <span>{curator.name}</span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                    <span>{curator.lastName}</span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                    <span>{curator.email}</span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                    <span>{curator.phoneNumber}</span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200 flex justify-center items-center space-x-2">
-                    <button
-                      type="button"
-                      onClick={() => removeCurator(index)}
-                      className=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
-                    >
-                      <TiUserDelete />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table> */}
 
           <div className="space-y-4">
             {curators.map((curator, index) => (
