@@ -687,12 +687,195 @@ const ArtworkForm = ({
   };
 
   return (
-    <div className="mt-10 p-4 border rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4">
+    // <div className="mt-10  border rounded-lg shadow-md p-4">
+    //   <h2 className="text-2xl font-bold mb-4 ">
+    //     {formType === "edit" ? "Edit Artwork" : "Create New Artwork"}
+    //   </h2>
+    //   <form onSubmit={handleSubmit(handleFormSubmit)}>
+    //     <div className="mb-4">
+    //       <label
+    //         className="block text-gray-700 text-sm font-bold mb-2 "
+    //         htmlFor="title"
+    //       >
+    //         Title
+    //       </label>
+    //       <input
+    //         className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+    //           errors.title ? "border-red-500" : ""
+    //         }`}
+    //         id="title"
+    //         type="text"
+    //         {...register("title", { required: true })}
+    //       />
+    //       {errors.title && (
+    //         <p className="text-red-500 text-xs italic">Please enter a title.</p>
+    //       )}
+    //     </div>
+
+    //     <div className="mb-4">
+    //       <label
+    //         className="block text-gray-700 text-sm font-bold mb-2"
+    //         htmlFor="artist"
+    //       >
+    //         Artist Name
+    //       </label>
+    //       <input
+    //         className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+    //           errors.artist ? "border-red-500" : ""
+    //         }`}
+    //         id="artist"
+    //         type="text"
+    //         {...register("artist", { required: true })}
+    //       />
+    //       {errors.artist && (
+    //         <p className="text-red-500 text-xs italic">
+    //           Please enter the artist name.
+    //         </p>
+    //       )}
+    //     </div>
+
+    //     <div className="mb-4">
+    //       <label
+    //         className="block text-gray-700 text-sm font-bold mb-2"
+    //         htmlFor="createdDateByArtist"
+    //       >
+    //         Created Date by Artist
+    //       </label>
+    //       <input
+    //         className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+    //           errors.createdDateByArtist ? "border-red-500" : ""
+    //         }`}
+    //         id="createdDateByArtist"
+    //         type="date"
+    //         {...register("createdDateByArtist", { required: true })}
+    //       />
+    //       {errors.createdDateByArtist && (
+    //         <p className="text-red-500 text-xs italic">
+    //           Please enter the created date by the artist.
+    //         </p>
+    //       )}
+    //     </div>
+
+    //     {/* Image Upload Section */}
+    //     <div className="mb-4">
+    //       <label
+    //         className="block text-gray-700 text-sm font-bold mb-2"
+    //         htmlFor="imageUrl"
+    //       >
+    //         Image Upload
+    //       </label>
+    //       <input type="file" onChange={handleFileChange} />
+    //       {uploading && <p>Progress: {progress}%</p>}
+    //       {url && (
+    //         <div className="mt-2 text-center">
+    //           <p>
+    //             {formType === "edit" && !file
+    //               ? "Existing Image:"
+    //               : "Uploaded Image:"}
+    //           </p>
+    //           <img
+    //             src={url}
+    //             alt="Uploaded"
+    //             className="w-48 h-48 mx-auto rounded-lg" // Bigger size, centered, and rounded
+    //           />
+    //           <a
+    //             href={url}
+    //             target="_blank"
+    //             rel="noreferrer"
+    //             className="text-blue-500"
+    //           >
+    //             View Image
+    //           </a>
+    //         </div>
+    //       )}
+    //     </div>
+
+    //     <div className="mb-4">
+    //       <label
+    //         className="block text-gray-700 text-sm font-bold mb-2"
+    //         htmlFor="description"
+    //       >
+    //         Description
+    //       </label>
+    //       <textarea
+    //         className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+    //           errors.description ? "border-red-500" : ""
+    //         }`}
+    //         id="description"
+    //         {...register("description", { required: true })}
+    //       ></textarea>
+    //       {errors.description && (
+    //         <p className="text-red-500 text-xs italic">
+    //           Please enter a description.
+    //         </p>
+    //       )}
+    //     </div>
+
+    //     {/* Toggle Speech-to-Text */}
+    //     <div className="mb-4">
+    //       <button
+    //         type="button"
+    //         onClick={() => setShowSpeechToText(!showSpeechToText)} // Toggle visibility
+    //         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    //       >
+    //         {showSpeechToText ? "Hide Speech to Text" : "Use Speech to Text"}
+    //       </button>
+    //     </div>
+
+    //     {/* Conditionally render SpeechToText */}
+    //     {showSpeechToText && (
+    //       <div className="mb-4">
+    //         <SpeechToText
+    //           finalTranscript={description}
+    //           setFinalTranscript={(value) => setValue("description", value)}
+    //         />
+    //       </div>
+    //     )}
+
+    //     <div className="mb-4">
+    //       <button
+    //         type="button"
+    //         onClick={handleGenerateDescription}
+    //         className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    //       >
+    //         Generate AI Description
+    //       </button>
+    //     </div>
+
+    //     <div
+    //       className={`flex ${
+    //         formType === "edit"
+    //           ? "items-center justify-between"
+    //           : "justify-center"
+    //       }`}
+    //     >
+    //       <FormConfirmButton
+    //         onSubmit={handleSubmit(handleFormSubmit)}
+    //         buttonText={
+    //           formType === "edit" ? "Update Artwork" : "Create Artwork"
+    //         }
+    //         dialogMessage={`Are you sure you want to ${
+    //           formType === "edit" ? "update" : "create"
+    //         } this artwork?`}
+    //         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    //       />
+    //       {formType === "edit" && (
+    //         <FormConfirmButton
+    //           onSubmit={handleSubmit(handleDeleteArtwork)}
+    //           buttonText="Delete Artwork"
+    //           dialogMessage="Are you sure you want to delete this artwork?"
+    //           className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    //         />
+    //       )}
+    //     </div>
+    //   </form>
+    // </div>
+    <div className="mt-10 border rounded-lg shadow-md p-4 lg:p-8">
+      <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-center">
         {formType === "edit" ? "Edit Artwork" : "Create New Artwork"}
       </h2>
-      <form onSubmit={handleSubmit(handleFormSubmit)}>
-        <div className="mb-4">
+      <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-4">
+        <div className="w-full">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="title"
@@ -712,7 +895,7 @@ const ArtworkForm = ({
           )}
         </div>
 
-        <div className="mb-4">
+        <div className="w-full">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="artist"
@@ -734,7 +917,7 @@ const ArtworkForm = ({
           )}
         </div>
 
-        <div className="mb-4">
+        <div className="w-full">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="createdDateByArtist"
@@ -757,17 +940,21 @@ const ArtworkForm = ({
         </div>
 
         {/* Image Upload Section */}
-        <div className="mb-4">
+        <div className="w-full">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="imageUrl"
           >
             Image Upload
           </label>
-          <input type="file" onChange={handleFileChange} />
-          {uploading && <p>Progress: {progress}%</p>}
+          <input
+            type="file"
+            onChange={handleFileChange}
+            className="block w-full"
+          />
+          {uploading && <p className="mt-2">Progress: {progress}%</p>}
           {url && (
-            <div className="mt-2 text-center">
+            <div className="mt-4 flex flex-col items-center">
               <p>
                 {formType === "edit" && !file
                   ? "Existing Image:"
@@ -776,13 +963,13 @@ const ArtworkForm = ({
               <img
                 src={url}
                 alt="Uploaded"
-                className="w-48 h-48 mx-auto rounded-lg" // Bigger size, centered, and rounded
+                className="w-48 h-48 mt-2 rounded-lg object-cover"
               />
               <a
                 href={url}
                 target="_blank"
                 rel="noreferrer"
-                className="text-blue-500"
+                className="text-blue-500 mt-2"
               >
                 View Image
               </a>
@@ -790,7 +977,7 @@ const ArtworkForm = ({
           )}
         </div>
 
-        <div className="mb-4">
+        <div className="w-full">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="description"
@@ -812,11 +999,11 @@ const ArtworkForm = ({
         </div>
 
         {/* Toggle Speech-to-Text */}
-        <div className="mb-4">
+        <div className="w-full">
           <button
             type="button"
-            onClick={() => setShowSpeechToText(!showSpeechToText)} // Toggle visibility
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            onClick={() => setShowSpeechToText(!showSpeechToText)}
+            className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             {showSpeechToText ? "Hide Speech to Text" : "Use Speech to Text"}
           </button>
@@ -824,7 +1011,7 @@ const ArtworkForm = ({
 
         {/* Conditionally render SpeechToText */}
         {showSpeechToText && (
-          <div className="mb-4">
+          <div className="w-full">
             <SpeechToText
               finalTranscript={description}
               setFinalTranscript={(value) => setValue("description", value)}
@@ -832,23 +1019,17 @@ const ArtworkForm = ({
           </div>
         )}
 
-        <div className="mb-4">
+        <div className="w-full">
           <button
             type="button"
             onClick={handleGenerateDescription}
-            className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="w-full bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Generate AI Description
           </button>
         </div>
 
-        <div
-          className={`flex ${
-            formType === "edit"
-              ? "items-center justify-between"
-              : "justify-center"
-          }`}
-        >
+        <div className="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
           <FormConfirmButton
             onSubmit={handleSubmit(handleFormSubmit)}
             buttonText={
