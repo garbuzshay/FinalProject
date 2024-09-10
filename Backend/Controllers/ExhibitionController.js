@@ -115,7 +115,8 @@ export const getExhibitionById = async (req, res) => {
 export const updateExhibition = async (req, res) => {
   try {
     const exhibitionData = req.body;
-    exhibitionData.museum = req.user.museum._id;
+    // console.log(exhibitionData)
+    // exhibitionData.museum = req.user.museum._id;
     logger.info(`Updating exhibition with ID: ${req.params.id} and data: ${JSON.stringify(exhibitionData)}`);
     const exhibition = await ExhibitionsService.updateExhibition(req.params.id, exhibitionData);
     if (!exhibition) {

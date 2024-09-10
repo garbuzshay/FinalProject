@@ -164,7 +164,6 @@
 // };
 
 // export default CuratorEditExhibition;
-
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMuseumContext } from "../../contexts/MuseumContext";
@@ -282,102 +281,14 @@ const CuratorEditExhibition = () => {
   }
 
   return (
-    // <div className="container mx-auto grid grid-cols gap-3">
-    //   <form
-    //     onSubmit={handleSubmit(onSubmit)}
-    //     className="grid grid-cols gap-4  shadow p-6 sm:p-8 lg:p-12 space-y-6"
-    //   >
-    //     {/* Exhibition Name */}
-    //     <div className="mb-4">
-    //       <h>Edit Exhibition</h>
-    //       <label className="block text-gray-700 font-bold mb-2">
-    //         Exhibition Name:
-    //       </label>
-    //       <input
-    //         type="text"
-    //         {...register("name", { required: "Exhibition name is required" })}
-    //         className={`mt-1 block w-full rounded-md ${
-    //           errors.name ? "border-red-500" : "border-gray-300"
-    //         } shadow-sm focus:border-indigo-500`}
-    //       />
-    //       {errors.name && (
-    //         <span className="text-red-500">{errors.name.message}</span>
-    //       )}
-    //     </div>
-
-    //     {/* Description */}
-    //     <div className="mb-4">
-    //       <label className="block text-gray-700 font-bold mb-2">
-    //         Description:
-    //       </label>
-    //       <textarea
-    //         {...register("description", {
-    //           required: "Description is required",
-    //         })}
-    //         className={`mt-1 block w-full rounded-md ${
-    //           errors.description ? "border-red-500" : "border-gray-300"
-    //         } shadow-sm focus:border-indigo-500`}
-    //       />
-    //       {errors.description && (
-    //         <span className="text-red-500">{errors.description.message}</span>
-    //       )}
-    //     </div>
-    //     {/* Generate AI Description Button */}
-    //     <div className="mb-4">
-    //       <button
-    //         type="button"
-    //         onClick={handleGenerateExhibitDescription}
-    //         className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
-    //       >
-    //         Generate AI Exhibit Description
-    //       </button>
-    //     </div>
-    //     {/* Image Upload */}
-    //     <div className="mb-4">
-    //       <label className="block text-gray-700 font-bold mb-2">
-    //         Upload Exhibition Image:
-    //       </label>
-    //       <input type="file" onChange={handleFileChange} />
-    //       {uploading && <p>Progress: {progress}%</p>}
-    //       {uploadedImageUrl && (
-    //         <div className="mt-2 text-center">
-    //           <p>Uploaded Image:</p>
-    //           <img
-    //             src={uploadedImageUrl}
-    //             alt="Uploaded"
-    //             className="w-48 h-48 mx-auto rounded-lg"
-    //           />
-    //           <a
-    //             href={uploadedImageUrl}
-    //             target="_blank"
-    //             rel="noreferrer"
-    //             className="text-blue-500"
-    //           >
-    //             View Image
-    //           </a>
-    //         </div>
-    //       )}
-    //     </div>
-
-    //     {/* Save Changes Button */}
-    //     <FormConfirmButton
-    //       onSubmit={handleSubmit(onSubmit)}
-    //       buttonText="Save Changes"
-    //       dialogMessage="Are you sure you want to save these changes?"
-    //     />
-
-    //     <GoBackButton />
-    //   </form>
-
-    // </div>
     <div className="container mx-auto grid grid-cols gap-3">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols gap-4 shadow p-6 sm:p-8 lg:p-12 space-y-6"
+        className="grid grid-cols gap-4  shadow p-6 sm:p-8 lg:p-12 "
       >
         {/* Exhibition Name */}
         <div className="mb-4">
-          <h1 className="text-xl font-bold">Edit Exhibition</h1>
+          <h>Edit Exhibition</h>
           <label className="block text-gray-700 font-bold mb-2">
             Exhibition Name:
           </label>
@@ -410,7 +321,6 @@ const CuratorEditExhibition = () => {
             <span className="text-red-500">{errors.description.message}</span>
           )}
         </div>
-
         {/* Generate AI Description Button */}
         <div className="mb-4">
           <button
@@ -421,27 +331,26 @@ const CuratorEditExhibition = () => {
             Generate AI Exhibit Description
           </button>
         </div>
-
         {/* Image Upload */}
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">
             Upload Exhibition Image:
           </label>
-          <input type="file" onChange={handleFileChange} className="mb-2" />
+          <input type="file" onChange={handleFileChange} />
           {uploading && <p>Progress: {progress}%</p>}
           {uploadedImageUrl && (
-            <div className="mt-2 flex flex-col items-center">
+            <div className="mt-2 text-center">
               <p>Uploaded Image:</p>
               <img
                 src={uploadedImageUrl}
                 alt="Uploaded"
-                className="w-48 h-48 mx-auto rounded-lg object-cover"
+                className="w-48 h-48 mx-auto rounded-lg"
               />
               <a
                 href={uploadedImageUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="text-blue-500 mt-2"
+                className="text-blue-500"
               >
                 View Image
               </a>
@@ -450,18 +359,17 @@ const CuratorEditExhibition = () => {
         </div>
 
         {/* Save Changes Button */}
-        <div className="flex justify-center space-x-4">
-          <FormConfirmButton
-            onSubmit={handleSubmit(onSubmit)}
-            buttonText="Save Changes"
-            dialogMessage="Are you sure you want to save these changes?"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          />
-        </div>
-        {/* GoBackButton */}
-        <GoBackButton className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
+        <FormConfirmButton
+          onSubmit={handleSubmit(onSubmit)}
+          buttonText="Save Changes"
+          dialogMessage="Are you sure you want to save these changes?"
+        />
+
+
       </form>
+      <GoBackButton />
     </div>
+    
   );
 };
 

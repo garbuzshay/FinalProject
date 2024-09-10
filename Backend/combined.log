@@ -1702,3 +1702,140 @@ Use mongoose.model(name, schema)
 2024-09-10 15:08:17 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
 2024-09-10 15:09:24 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
 2024-09-10 15:18:53 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 15:36:38 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 15:40:30 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 15:40:36 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:40:39 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:40:42 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:40:50 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 15:42:17 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:49:37 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 15:49:44 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:49:53 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:50:38 [31merror[39m: Error updating exhibition with ID 66dffa50dcca2722b3d3f5d8: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:51:12 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 15:51:16 [31merror[39m: Error updating exhibition with ID 66dffa50dcca2722b3d3f5d8: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:51:21 [31merror[39m: Error updating exhibition with ID 66dffa50dcca2722b3d3f5d8: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:51:44 [32minfo[39m: Creating artwork for exhibition with ID: 66dffa50dcca2722b3d3f5d8
+2024-09-10 15:51:44 [31merror[39m: Error creating artwork for exhibition with ID 66dffa50dcca2722b3d3f5d8: artworks validation failed: imageUrl: Path `imageUrl` is required.
+2024-09-10 15:52:12 [32minfo[39m: Creating artwork for exhibition with ID: 66dffa50dcca2722b3d3f5d8
+2024-09-10 15:52:20 [32minfo[39m: Deleting artwork with ID 66e040fcaa7ad4b57efa8f5e from exhibition with ID 66dffa50dcca2722b3d3f5d8
+2024-09-10 15:52:26 [31merror[39m: Error updating exhibition with ID 66dffa50dcca2722b3d3f5d8: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:53:09 [31merror[39m: Error updating exhibition with ID 66dffa50dcca2722b3d3f5d8: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:54:37 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 15:54:44 [31merror[39m: Error updating exhibition with ID 66dffa50dcca2722b3d3f5d8: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:55:58 [31merror[39m: Error updating exhibition with ID undefined: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:56:04 [31merror[39m: Error updating exhibition with ID 66dffa50dcca2722b3d3f5d8: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:57:34 [31merror[39m: Error updating exhibition with ID 66dffa50dcca2722b3d3f5d8: Cannot read properties of undefined (reading '_id')
+2024-09-10 15:58:10 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 15:58:44 [32minfo[39m: Creating artwork for exhibition with ID: 66e007a7dcca2722b3d3f7bd
+2024-09-10 15:58:54 [32minfo[39m: Deleting artwork with ID 66e0428475146e810702bac5 from exhibition with ID 66e007a7dcca2722b3d3f7bd
+2024-09-10 15:59:04 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:00:16 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:00:21 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:00:37 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:02:59 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:03:12 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:03:35 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:03:49 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:03:59 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:04:01 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:05:29 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:05:39 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:08:40 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:09:58 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:10:21 [31merror[39m: Error updating exhibition with ID undefined: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:10:31 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:11:30 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:12:32 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:13:04 [31merror[39m: Error updating exhibition with ID undefined: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:13:15 [31merror[39m: Error updating exhibition with ID undefined: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:13:24 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:13:37 [31merror[39m: Error updating exhibition with ID [object Object]: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:13:53 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:15:41 [31merror[39m: Error updating exhibition with ID [object Object]: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:15:55 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:16:53 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:17:03 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:19:38 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:23:05 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:24:05 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:25:22 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:25:24 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:26:06 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:30:13 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:30:17 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:31:17 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:31:34 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:34:36 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:35:04 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:35:06 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:39:23 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:40:24 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:40:28 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:40:35 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:44:09 [31merror[39m: Error updating exhibition with ID id: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:44:51 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:45:00 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:46:11 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:46:25 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:46:45 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:46:56 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:47:52 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:48:25 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading 'id')
+2024-09-10 16:48:57 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:49:27 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:49:42 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:49:57 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:50:20 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:50:33 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:50:42 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:50:56 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:51:24 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:53:53 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:53:57 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:54:00 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:54:11 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:54:12 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:54:13 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:54:16 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:54:28 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 16:56:35 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:56:36 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 16:57:35 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 17:01:28 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 17:01:28 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 17:01:28 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-10 17:05:19 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
+2024-09-10 17:05:19 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fc","66dff8a7ed28d360b1ac13fe"]}
+2024-09-10 17:05:20 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 17:05:46 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!!!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
+2024-09-10 17:05:47 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!!!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fc","66dff8a7ed28d360b1ac13fe"]}
+2024-09-10 17:05:47 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 17:05:53 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
+2024-09-10 17:05:53 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fc","66dff8a7ed28d360b1ac13fe"]}
+2024-09-10 17:05:54 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 17:06:16 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 17:12:49 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 17:12:59 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
+2024-09-10 17:12:59 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fc","66dff8a7ed28d360b1ac13fe"]}
+2024-09-10 17:13:00 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 17:13:05 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
+2024-09-10 17:13:05 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fc","66dff8a7ed28d360b1ac13fe"]}
+2024-09-10 17:13:05 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 17:13:14 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
+2024-09-10 17:13:14 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fc","66dff8a7ed28d360b1ac13fe"]}
+2024-09-10 17:13:15 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 17:13:52 [32minfo[39m: Updating exhibition with ID: 66e007a7dcca2722b3d3f7bd and data: {"name":"ofek ","description":"\"ofek\" explores the enigmatic figure of \"ofekey the angel,\" delving into its symbolism and significance in art and culture. Discover the ethereal presence of this celestial being and its impact on human imagination. \n","imageUrl":"https://ca-times.brightspotcdn.com/dims4/default/660289e/2147483647/strip/false/crop/1800x1012+0+0/resize/1486x835!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F2f%2F53%2F2e01fbe210957146cdbe5334376b%2Fla-1498759883-3ql9q1mzgu-snap-image"}
+2024-09-10 17:13:52 [32minfo[39m: Updating exhibition with ID: 66e007a7dcca2722b3d3f7bd and data: {"name":"ofek ","description":"\"ofek\" explores the enigmatic figure of \"ofekey the angel,\" delving into its symbolism and significance in art and culture. Discover the ethereal presence of this celestial being and its impact on human imagination. \n","imageUrl":"https://ca-times.brightspotcdn.com/dims4/default/660289e/2147483647/strip/false/crop/1800x1012+0+0/resize/1486x835!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F2f%2F53%2F2e01fbe210957146cdbe5334376b%2Fla-1498759883-3ql9q1mzgu-snap-image","curators":["66dff8a7ed28d360b1ac13fc","66dff8a7ed28d360b1ac13fe"]}
+2024-09-10 17:13:52 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 17:14:05 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
+2024-09-10 17:14:05 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fc","66dff8a7ed28d360b1ac13fe"]}
+2024-09-10 17:14:06 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 17:14:41 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
+2024-09-10 17:14:41 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fc","66dff8a7ed28d360b1ac13fe"]}
+2024-09-10 17:14:42 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 17:16:05 [32minfo[39m: Updating exhibition with ID: 66dffa50dcca2722b3d3f5d8 and data: {"name":"Apple Gallery","description":"Trace the history of innovation at the \"Apple Gallery,\" showcasing the evolution of iconic devices that have revolutionized the way we connect and create. From the first iPhone to the latest iPad, witness the remarkable journey of Apple products that shaped our digital world. \n","imageUrl":"https://scontent.ftlv20-2.fna.fbcdn.net/v/t39.30808-6/300965493_577545987496083_2545518394482992874_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=fGY9PoBeRSgQ7kNvgEhIvWJ&_nc_ht=scontent.ftlv20-2.fna&oh=00_AYBGg5sRL8AwZjsyrkMAHadq-tDirwIxsbUiFcnhNyGDAA&oe=66E5B238"}
+2024-09-10 17:16:05 [32minfo[39m: Updating exhibition with ID: 66dffa50dcca2722b3d3f5d8 and data: {"name":"Apple Gallery","description":"Trace the history of innovation at the \"Apple Gallery,\" showcasing the evolution of iconic devices that have revolutionized the way we connect and create. From the first iPhone to the latest iPad, witness the remarkable journey of Apple products that shaped our digital world. \n","imageUrl":"https://scontent.ftlv20-2.fna.fbcdn.net/v/t39.30808-6/300965493_577545987496083_2545518394482992874_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=fGY9PoBeRSgQ7kNvgEhIvWJ&_nc_ht=scontent.ftlv20-2.fna&oh=00_AYBGg5sRL8AwZjsyrkMAHadq-tDirwIxsbUiFcnhNyGDAA&oe=66E5B238","curators":["66dff8a7ed28d360b1ac13fc"]}
+2024-09-10 17:16:06 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 17:16:33 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc

@@ -53,6 +53,7 @@ class ExhibitionsApi extends BaseApi {
    */
   async updateExhibition(id, exhibitionData) {
     try {
+      console.log(id,exhibitionData)
       const response = await this.api.put(`/exhibitions/${id}`, exhibitionData);
       return response.data.data;
     } catch (error) {

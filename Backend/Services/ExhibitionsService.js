@@ -85,7 +85,6 @@ class ExhibitionsService {
           UsersService.createUser({
             ...curatorData,
             role: "Curator",
-            museum: exhibitionData.museum,
           })
         );
         const createdCurators = await Promise.all(curatorPromises);

@@ -326,3 +326,53 @@ This file is being treated as an ES module because it has a '.js' file extension
     at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
     at async loadESM (node:internal/process/esm_loader:28:7)
     at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-09-10 17:02:34 [31merror[39m: Error: listen EADDRINUSE: address already in use :::8000
+    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
+    at listenInCluster (node:net:1920:12)
+    at Server.listen (node:net:2008:7)
+    at Function.listen (C:\Users\Shay\Desktop\MuseumApp\Backend\node_modules\express\lib\application.js:635:24)
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/index.js:95:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-09-10 17:05:16 [31merror[39m: Error: listen EADDRINUSE: address already in use :::8000
+    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
+    at listenInCluster (node:net:1920:12)
+    at Server.listen (node:net:2008:7)
+    at Function.listen (C:\Users\Shay\Desktop\MuseumApp\Backend\node_modules\express\lib\application.js:635:24)
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/index.js:95:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-09-10 17:10:14 [31merror[39m: Error: listen EADDRINUSE: address already in use :::8000
+    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
+    at listenInCluster (node:net:1920:12)
+    at Server.listen (node:net:2008:7)
+    at Function.listen (C:\Users\Shay\Desktop\MuseumApp\Backend\node_modules\express\lib\application.js:635:24)
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/index.js:95:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-09-10 17:10:43 [31merror[39m: Error: listen EADDRINUSE: address already in use :::8000
+    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
+    at listenInCluster (node:net:1920:12)
+    at Server.listen (node:net:2008:7)
+    at Function.listen (C:\Users\Shay\Desktop\MuseumApp\Backend\node_modules\express\lib\application.js:635:24)
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/index.js:95:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-09-10 17:10:44 [31merror[39m: Error: listen EADDRINUSE: address already in use :::8000
+    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
+    at listenInCluster (node:net:1920:12)
+    at Server.listen (node:net:2008:7)
+    at Function.listen (C:\Users\Shay\Desktop\MuseumApp\Backend\node_modules\express\lib\application.js:635:24)
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/index.js:95:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
