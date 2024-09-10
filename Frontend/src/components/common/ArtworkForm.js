@@ -687,7 +687,7 @@ const ArtworkForm = ({
   };
 
   return (
-    <div className=" mx-auto px-4 mt-10 border rounded-lg shadow-md">
+    <div className=" mx-auto  mt-10 border rounded-lg shadow-md">
       <h2 className="text-2xl font-bold m-4">
         {formType === "edit" ? "Edit Artwork" : "Create New Artwork"}
       </h2>
