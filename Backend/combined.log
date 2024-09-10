@@ -1701,3 +1701,4 @@ Use mongoose.model(name, schema)
 2024-09-10 14:05:22 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!","description":"Explore the evolution of music through time, from ancient melodies to modern harmonies. \"Harmonic Journeys\" traces the captivating journey of sound across cultures and eras. \n","maxArtworks":10,"imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fc","66dff8a7ed28d360b1ac13fe"],"museum":"669fdcd3252883f23dc5c8a8"}
 2024-09-10 15:08:17 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
 2024-09-10 15:09:24 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-10 15:18:53 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc

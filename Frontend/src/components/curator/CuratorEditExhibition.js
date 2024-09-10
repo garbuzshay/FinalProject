@@ -277,7 +277,7 @@ const CuratorEditExhibition = () => {
   }
 
   return (
-    <div className="container mx-auto p-4 sm:p-6 md:p-8 lg:p-10 grid grid-cols gap-4">
+    <div className="container mx-auto grid grid-cols gap-4">
       <form onSubmit={handleSubmit(onSubmit)}  className="grid grid-cols gap-4  shadow p-6 sm:p-8 lg:p-12 space-y-6">
         {/* Exhibition Name */}
         <div className="mb-4">
