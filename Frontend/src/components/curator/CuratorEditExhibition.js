@@ -149,8 +149,6 @@
 //           </div>
 //         </div>
 
-
-
 //         {/* Save Changes Button */}
 //         <FormConfirmButton
 //           onSubmit={handleSubmit(onSubmit)}
@@ -221,7 +219,10 @@ const CuratorEditExhibition = () => {
   const onSubmit = async (data) => {
     try {
       // Include the uploaded image URL in the form data
-      const finalData = { ...data, imageUrl: uploadedImageUrl || data.imageUrl };
+      const finalData = {
+        ...data,
+        imageUrl: uploadedImageUrl || data.imageUrl,
+      };
       await updateExhibition(id, finalData);
       alert("Exhibition updated successfully");
       navigate(-1); // Navigate back after updating
@@ -236,17 +237,21 @@ const CuratorEditExhibition = () => {
 
     if (title) {
       try {
-        const generatedDescription = await geminiApi.generateExhibitDescription({
-          title,
-          description,
-        });
+        const generatedDescription = await geminiApi.generateExhibitDescription(
+          {
+            title,
+            description,
+          }
+        );
         setValue("description", generatedDescription);
       } catch (error) {
         console.error("Error generating description:", error);
         alert("Failed to generate AI description.");
       }
     } else {
-      alert("Please enter the exhibition name before generating a description.");
+      alert(
+        "Please enter the exhibition name before generating a description."
+      );
     }
   };
 
@@ -270,17 +275,109 @@ const CuratorEditExhibition = () => {
     }
   };
 
-  const imageUrl = watch('imageUrl'); // Watch the current value of the image URL
+  const imageUrl = watch("imageUrl"); // Watch the current value of the image URL
 
   if (!exhibition) {
     return <p>Loading...</p>; // Show a loading message while exhibition is fetched
   }
 
   return (
-    <div className="container mx-auto grid grid-cols gap-4">
-      <form onSubmit={handleSubmit(onSubmit)}  className="grid grid-cols gap-4  shadow p-6 sm:p-8 lg:p-12 space-y-6">
+    // <div className="container mx-auto grid grid-cols gap-3">
+    //   <form
+    //     onSubmit={handleSubmit(onSubmit)}
+    //     className="grid grid-cols gap-4  shadow p-6 sm:p-8 lg:p-12 space-y-6"
+    //   >
+    //     {/* Exhibition Name */}
+    //     <div className="mb-4">
+    //       <h>Edit Exhibition</h>
+    //       <label className="block text-gray-700 font-bold mb-2">
+    //         Exhibition Name:
+    //       </label>
+    //       <input
+    //         type="text"
+    //         {...register("name", { required: "Exhibition name is required" })}
+    //         className={`mt-1 block w-full rounded-md ${
+    //           errors.name ? "border-red-500" : "border-gray-300"
+    //         } shadow-sm focus:border-indigo-500`}
+    //       />
+    //       {errors.name && (
+    //         <span className="text-red-500">{errors.name.message}</span>
+    //       )}
+    //     </div>
+
+    //     {/* Description */}
+    //     <div className="mb-4">
+    //       <label className="block text-gray-700 font-bold mb-2">
+    //         Description:
+    //       </label>
+    //       <textarea
+    //         {...register("description", {
+    //           required: "Description is required",
+    //         })}
+    //         className={`mt-1 block w-full rounded-md ${
+    //           errors.description ? "border-red-500" : "border-gray-300"
+    //         } shadow-sm focus:border-indigo-500`}
+    //       />
+    //       {errors.description && (
+    //         <span className="text-red-500">{errors.description.message}</span>
+    //       )}
+    //     </div>
+    //     {/* Generate AI Description Button */}
+    //     <div className="mb-4">
+    //       <button
+    //         type="button"
+    //         onClick={handleGenerateExhibitDescription}
+    //         className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+    //       >
+    //         Generate AI Exhibit Description
+    //       </button>
+    //     </div>
+    //     {/* Image Upload */}
+    //     <div className="mb-4">
+    //       <label className="block text-gray-700 font-bold mb-2">
+    //         Upload Exhibition Image:
+    //       </label>
+    //       <input type="file" onChange={handleFileChange} />
+    //       {uploading && <p>Progress: {progress}%</p>}
+    //       {uploadedImageUrl && (
+    //         <div className="mt-2 text-center">
+    //           <p>Uploaded Image:</p>
+    //           <img
+    //             src={uploadedImageUrl}
+    //             alt="Uploaded"
+    //             className="w-48 h-48 mx-auto rounded-lg"
+    //           />
+    //           <a
+    //             href={uploadedImageUrl}
+    //             target="_blank"
+    //             rel="noreferrer"
+    //             className="text-blue-500"
+    //           >
+    //             View Image
+    //           </a>
+    //         </div>
+    //       )}
+    //     </div>
+
+    //     {/* Save Changes Button */}
+    //     <FormConfirmButton
+    //       onSubmit={handleSubmit(onSubmit)}
+    //       buttonText="Save Changes"
+    //       dialogMessage="Are you sure you want to save these changes?"
+    //     />
+
+    //     <GoBackButton />
+    //   </form>
+
+    // </div>
+    <div className="container mx-auto grid grid-cols gap-3">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="grid grid-cols gap-4 shadow p-6 sm:p-8 lg:p-12 space-y-6"
+      >
         {/* Exhibition Name */}
         <div className="mb-4">
+          <h1 className="text-xl font-bold">Edit Exhibition</h1>
           <label className="block text-gray-700 font-bold mb-2">
             Exhibition Name:
           </label>
@@ -313,6 +410,7 @@ const CuratorEditExhibition = () => {
             <span className="text-red-500">{errors.description.message}</span>
           )}
         </div>
+
         {/* Generate AI Description Button */}
         <div className="mb-4">
           <button
@@ -323,26 +421,27 @@ const CuratorEditExhibition = () => {
             Generate AI Exhibit Description
           </button>
         </div>
+
         {/* Image Upload */}
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2">
             Upload Exhibition Image:
           </label>
-          <input type="file" onChange={handleFileChange} />
+          <input type="file" onChange={handleFileChange} className="mb-2" />
           {uploading && <p>Progress: {progress}%</p>}
           {uploadedImageUrl && (
-            <div className="mt-2 text-center">
+            <div className="mt-2 flex flex-col items-center">
               <p>Uploaded Image:</p>
               <img
                 src={uploadedImageUrl}
                 alt="Uploaded"
-                className="w-48 h-48 mx-auto rounded-lg"
+                className="w-48 h-48 mx-auto rounded-lg object-cover"
               />
               <a
                 href={uploadedImageUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="text-blue-500"
+                className="text-blue-500 mt-2"
               >
                 View Image
               </a>
@@ -350,18 +449,18 @@ const CuratorEditExhibition = () => {
           )}
         </div>
 
-
-
         {/* Save Changes Button */}
-        <FormConfirmButton
-          onSubmit={handleSubmit(onSubmit)}
-          buttonText="Save Changes"
-          dialogMessage="Are you sure you want to save these changes?"
-        />
+        <div className="flex justify-center space-x-4">
+          <FormConfirmButton
+            onSubmit={handleSubmit(onSubmit)}
+            buttonText="Save Changes"
+            dialogMessage="Are you sure you want to save these changes?"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        {/* GoBackButton */}
+        <GoBackButton className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
       </form>
-
-      {/* Go Back Button */}
-      <GoBackButton />
     </div>
   );
 };

@@ -13,7 +13,7 @@ const CuartorPage = () => {
       <CuratorSideBar />
       <div className="flex-1 flex flex-col">
         <CuratorHeader />
-        <main className="flex-1 p-4 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto">
           <Outlet />
         </main>
         <Footer />
