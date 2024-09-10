@@ -6,12 +6,13 @@
 // import ArtworkCard from "./ArtworkCard"; // Adjust the path as needed
 
 // const CuratorArtsList = () => {
-//   const { id } = useParams();
+//   const { id } = useParams(); // Gets the exhibition ID from the URL
 //   const navigate = useNavigate();
-//   const { exhibitions, isLoading } = useMuseumContext();
+//   const { museum, exhibitions, isLoading } = useMuseumContext();
 //   const [error, setError] = useState("");
 //   const [isCreatingArtwork, setIsCreatingArtwork] = useState(false);
 //   const formRef = useRef(null);
+  
 
 //   if (isLoading) {
 //     return <div>Loading...</div>;
@@ -25,6 +26,7 @@
 
 //   const remainingArtworks = exhibition.maxArtworks - exhibition.artworks.length;
 //   const exhibitArtworks = exhibition.maxArtworks;
+
 //   const handleCreateArtwork = () => {
 //     if (remainingArtworks <= 0) {
 //       setError("No more artworks can be added to this exhibition.");
@@ -41,12 +43,36 @@
 //     navigate(-1);
 //   };
 
+//   const handleExhibitionDetails = () => {
+//     navigate(`/curator/exhibitions/edit/${id}`); // Navigate to CuratorEditExhibition
+//   };
+//   const museumUrl = `https://mensch-visitors.vercel.app/${exhibition.museum.name}`;
+
 //   return (
-//     <div className="container mx-auo p-4">
-//       <h1 className="text-3xl font-bold mb-6">{exhibition.name} Artworks</h1>
+//     <div className="container mx-auto p-4">
+//       <h1 className="text-3xl font-bold mb-6">{exhibition.name}</h1>
+//       <a
+//           href={museumUrl}
+//           target="_blank"
+//           rel="noopener noreferrer"
+//           className="text-blue-500 underline"
+//         >
+//           Click here to visit the museum
+//         </a>
 //       <p className="text-xl mb-4">
 //         Remaining Artworks: {remainingArtworks}/{exhibitArtworks}
 //       </p>
+
+//       {/* Exhibition Details Button */}
+//       <div className="mt-6">
+//         <button
+//           onClick={handleExhibitionDetails}
+//           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 mb-4 px-4 rounded"
+//         >
+//           Exhibition Details
+//         </button>
+//       </div>
+
 //       {remainingArtworks > 0 && (
 //         <div className="mt-6">
 //           {!isCreatingArtwork && (
@@ -102,6 +128,7 @@
 // };
 
 // export default CuratorArtsList;
+
 import React, { useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useMuseumContext } from "../../contexts/MuseumContext";
@@ -112,7 +139,7 @@ import ArtworkCard from "./ArtworkCard"; // Adjust the path as needed
 const CuratorArtsList = () => {
   const { id } = useParams(); // Gets the exhibition ID from the URL
   const navigate = useNavigate();
-  const { exhibitions, isLoading } = useMuseumContext();
+  const { museum, exhibitions, isLoading } = useMuseumContext();
   const [error, setError] = useState("");
   const [isCreatingArtwork, setIsCreatingArtwork] = useState(false);
   const formRef = useRef(null);
@@ -150,9 +177,19 @@ const CuratorArtsList = () => {
     navigate(`/curator/exhibitions/edit/${id}`); // Navigate to CuratorEditExhibition
   };
 
+  const museumUrl = `https://mensch-visitors.vercel.app/${exhibition?.museum.name}`;
+
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">{exhibition.name} Artworks</h1>
+      <h1 className="text-3xl font-bold mb-6">{exhibition.name}</h1>
+      <a
+        href={museumUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 underline"
+      >
+        Click here to visit the museum
+      </a>
       <p className="text-xl mb-4">
         Remaining Artworks: {remainingArtworks}/{exhibitArtworks}
       </p>
@@ -181,10 +218,10 @@ const CuratorArtsList = () => {
             <div ref={formRef} className="mt-4">
               <CuratorCreateArtwork
                 exhibitionId={id}
-                onCreate={() => setIsCreatingArtwork(false)}
+                onCreate={() => setIsCreatingArtwork(false)} // Reset isCreatingArtwork when form is done
               />
               <button
-                onClick={() => setIsCreatingArtwork(false)}
+                onClick={() => setIsCreatingArtwork(false)} // Close the form manually
                 className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-2"
               >
                 Close

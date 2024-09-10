@@ -61,3 +61,4 @@ Use mongoose.model(name, schema)
 2024-08-10 20:40:27 [31merror[39m: Error creating artwork for exhibition with ID undefined: artworks validation failed: exhibition: Cast to ObjectId failed for value "undefined" (type string) at path "exhibition" because of "BSONError"
 2024-08-10 20:41:00 [31merror[39m: Error creating artwork for exhibition with ID undefined: artworks validation failed: exhibition: Cast to ObjectId failed for value "undefined" (type string) at path "exhibition" because of "BSONError"
 2024-08-10 20:43:01 [31merror[39m: Error creating artwork for exhibition with ID undefined: artworks validation failed: exhibition: Cast to ObjectId failed for value "undefined" (type string) at path "exhibition" because of "BSONError"
+2024-09-10 10:42:00 [31merror[39m: Error creating exhibition: The email address is already in use by another account.

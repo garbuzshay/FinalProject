@@ -409,7 +409,7 @@ const MuseumOwnerOpenExhibit = () => {
         alert("Failed to generate AI description.");
       }
     } else {
-      alert("Please enter the exhibition name and description before generating an AI description.");
+      alert("Please enter the exhibition name and few words on the description before generating an AI description.");
     }
   };
 
@@ -484,9 +484,7 @@ const MuseumOwnerOpenExhibit = () => {
                     {...register("name", {
                       required: "Exhibition name is required",
                     })}
-                    className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
-                      errors.name ? "border-red-500" : ""
-                    }`}
+                    className={`mt-2 w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm`}
                   />
                   {errors.name && (
                     <span className="text-red-500">{errors.name.message}</span>
@@ -501,9 +499,7 @@ const MuseumOwnerOpenExhibit = () => {
                     {...register("maxArtworks", {
                       required: "Maximum number of artworks is required",
                     })}
-                    className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
-                      errors.maxArtworks ? "border-red-500" : ""
-                    }`}
+                    className={`mt-2 w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm`}
                   />
                   {errors.maxArtworks && (
                     <span className="text-red-500">
@@ -520,9 +516,7 @@ const MuseumOwnerOpenExhibit = () => {
                   {...register("description", {
                     required: "Description is required",
                   })}
-                  className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
-                    errors.description ? "border-red-500" : ""
-                  }`}
+                  className={`mt-2 w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm`}
                 />
                 {errors.description && (
                   <span className="text-red-500">
@@ -551,9 +545,7 @@ const MuseumOwnerOpenExhibit = () => {
                   {...register("imageUrl", {
                     required: "Image URL is required",
                   })}
-                  className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 ${
-                    errors.imageUrl ? "border-red-500" : ""
-                  }`}
+                  className={`mt-2 w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm`}
                 />
                 {errors.imageUrl && (
                   <span className="text-red-500">

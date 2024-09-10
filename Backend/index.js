@@ -98,20 +98,14 @@ app.listen(PORT, () => {
 
 
 
-//mensch.edutainment@gmail.com  Password: Mensch123
+//mensch.edutainment@gmail.com  Mensch123
 //shay.garbuz Shay123
+//{ curator2@gmail.com 8670a6e3
+// curator1@gmail.com e007279c}
 //ofekaz24 ofek123
 //maycaspi May123
 
-//curator1@gmail.com Generated Password: e341aa75
-//curator2@gmail.com Generated Password: efa10f2d
-//curator3@gmail.com Generated Password: a8a9f1e1
-//curator4@gmail.com Generated Password: 0a0da8d0
-//curator5@gmail.com Generated Password: 89e07347
-//curator6@gmail.com Generated Password: d8548a0b
-//curator7@gmail.com Generated Password: 12441b16
-//curator8@gmail.com Generated Password: 2ffeccbb
-//test@gmail.com Generated Password: test1234
+
 
 // const adminData = {
 //   name: 'admin',

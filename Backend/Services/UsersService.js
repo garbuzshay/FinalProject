@@ -66,7 +66,7 @@ class UsersService {
         phoneNumber: formattedNumber,
         terms,
         role: roleId,
-        museum : userData.museum,
+        // museum : userData.museum,
       });
 
       await newUser.save();

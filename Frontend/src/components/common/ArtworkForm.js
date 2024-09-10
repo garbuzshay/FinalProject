@@ -687,8 +687,8 @@ const ArtworkForm = ({
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-4 border rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4">
+    <div className=" mx-auto px-4 mt-10 border rounded-lg shadow-md">
+      <h2 className="text-2xl font-bold m-4">
         {formType === "edit" ? "Edit Artwork" : "Create New Artwork"}
       </h2>
       <form onSubmit={handleSubmit(handleFormSubmit)}>
