@@ -127,7 +127,7 @@ const Sidebar = ({ links }) => {
       ) : (
         <button
           onClick={toggleSidebar}
-          className="absolute top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-4 py-2 rounded-r-lg shadow-lg hover:bg-gray-800 transition-colors duration-300"
+          className="absolute z-50 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-4 py-2 rounded-r-lg shadow-lg hover:bg-gray-800 transition-colors duration-300"
           style={{ left: 0 }}
         >
           ☰

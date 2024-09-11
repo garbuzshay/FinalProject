@@ -1,10 +1,9 @@
-
 import React, { useState } from "react";
 import ExhibitCard from "../exhibitions/ExhibitCard"; // Adjust the path as needed
 import { useMuseumContext } from "../../contexts/MuseumContext";
 // import QRCodeGenerator from "./QRCodeGenerator"; // Adjust the path as needed
 const MuseumOwnerExhibitionsList = () => {
-  const { loading, openExhibition ,exhibitions } = useMuseumContext();
+  const { loading, openExhibition, exhibitions } = useMuseumContext();
 
   const [filter, setFilter] = useState("all");
 
@@ -32,8 +31,13 @@ const MuseumOwnerExhibitionsList = () => {
   // const museumUrl = `https://mensch-visitors.vercel.app/${museum?.name}`;
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center">Your Exhibitions</h1>
-      <p className="text-md mb-6">To view or edit an exhibition, simply click on the tab and start exploring.</p>
+      <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center">
+        Your Exhibitions
+      </h1>
+      <p className="text-md mb-6">
+        To view or edit an exhibition, simply click on the tab and start
+        exploring.
+      </p>
       <div className="flex justify-center mb-4">
         <button
           onClick={() => setFilter("all")}
@@ -136,7 +140,6 @@ const MuseumOwnerExhibitionsList = () => {
 
 export default MuseumOwnerExhibitionsList;
 
-
 // import React, { useState } from "react";
 // import ExhibitCard from "../exhibitions/ExhibitCard"; // Adjust the path as needed
 // import { useMuseumContext } from "../../contexts/MuseumContext";
@@ -183,7 +186,7 @@ export default MuseumOwnerExhibitionsList;
 //         >
 //           Click here to visit your museum
 //         </a>
-        
+
 //       </div>
 //       <div className="flex justify-center mb-4">
 //         <button

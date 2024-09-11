@@ -64,7 +64,7 @@ const MuseumOwnerWatchArtworks = () => {
           </button>
         </div>
       )}
-      <div>
+      <div className="mt-6">
         <GoBackButton customPath={"/owner/exhibitions"} />
       </div>
     </div>
