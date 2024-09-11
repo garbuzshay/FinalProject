@@ -820,7 +820,7 @@ const ArtworkForm = ({
           <button
             type="button"
             onClick={() => setShowSpeechToText(!showSpeechToText)}
-            className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className=" bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             {showSpeechToText ? "Hide Speech to Text" : "Use Speech to Text"}
           </button>
@@ -840,13 +840,13 @@ const ArtworkForm = ({
           <button
             type="button"
             onClick={handleGenerateDescription}
-            className="w-full bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className=" bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Generate AI Description
           </button>
         </div>
 
-        <div className="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+        {/* <div className="lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-2">
           <FormConfirmButton
             onSubmit={handleSubmit(handleFormSubmit)}
             buttonText={
@@ -864,6 +864,31 @@ const ArtworkForm = ({
               dialogMessage="Are you sure you want to delete this artwork?"
               className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             />
+          )}
+        </div> */}
+        <div className="w-full flex flex-col items-center space-y-4">
+          <div className="flex justify-center">
+            <FormConfirmButton
+              onSubmit={handleSubmit(handleFormSubmit)}
+              buttonText={
+                formType === "edit" ? "Update Artwork" : "Create Artwork"
+              }
+              dialogMessage={`Are you sure you want to ${
+                formType === "edit" ? "update" : "create"
+              } this artwork?`}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            />
+          </div>
+
+          {formType === "edit" && (
+            <div className="flex justify-center">
+              <FormConfirmButton
+                onSubmit={handleSubmit(handleDeleteArtwork)}
+                buttonText="Delete Artwork"
+                dialogMessage="Are you sure you want to delete this artwork?"
+                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              />
+            </div>
           )}
         </div>
       </form>

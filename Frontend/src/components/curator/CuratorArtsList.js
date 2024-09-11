@@ -135,6 +135,7 @@ import { useMuseumContext } from "../../contexts/MuseumContext";
 
 import CuratorCreateArtwork from "./CuratorCreateArtwork";
 import ArtworkCard from "./ArtworkCard"; // Adjust the path as needed
+import GoBackButton from "../common/GoBackButton";
 
 const CuratorArtsList = () => {
   const { id } = useParams(); // Gets the exhibition ID from the URL
@@ -200,7 +201,7 @@ const CuratorArtsList = () => {
           onClick={handleExhibitionDetails}
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 mb-4 px-4 rounded"
         >
-          Exhibition Details
+          {exhibition.name} Details - View & Edit 
         </button>
       </div>
 
@@ -246,13 +247,8 @@ const CuratorArtsList = () => {
         ))}
       </div>
 
-      <div className="mt-6">
-        <button
-          onClick={handleGoBack}
-          className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Go Back
-        </button>
+      <div className="mt-4">
+        <GoBackButton />
       </div>
     </div>
   );

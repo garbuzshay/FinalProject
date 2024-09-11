@@ -137,3 +137,5 @@ Use mongoose.model(name, schema)
 2024-09-10 17:01:28 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
 2024-09-10 17:01:28 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
 2024-09-10 17:01:28 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
+2024-09-11 19:34:33 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: exhibitionData.curators.includes is not a function
+2024-09-11 19:34:33 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: exhibitionData.curators.includes is not a function

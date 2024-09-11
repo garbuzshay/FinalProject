@@ -32,6 +32,7 @@
 import { useMuseumContext, usePlanContext } from '../../contexts/MuseumContext';
 import ArtworkForm from '../common/ArtworkForm';
 import { useParams } from 'react-router-dom';
+import GoBackButton from '../common/GoBackButton';
 
 const MuseumOwnerCreateArtwork = () => {
   const { id } = useParams();
@@ -64,6 +65,9 @@ const MuseumOwnerCreateArtwork = () => {
         onSubmit={handleCreateArtwork}
         formType="create"
       />
+            <div className="mt-6">
+        <GoBackButton />
+      </div>
     </div>
   );
 };

@@ -30,8 +30,10 @@ const MuseumOwnerWatchArtworks = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">{exhibition.name} Artworks</h1>
-
+      <div className=" mb-6">
+        <h1 className="text-3xl font-bold">{exhibition.name} Artworks</h1>
+        <a>In order to edit artwork, please click on the image</a>
+      </div>
       <div className="flex flex-wrap -m-4">
         {exhibition.artworks.map((artwork) => (
           <ArtworkCard
