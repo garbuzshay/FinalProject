@@ -2095,3 +2095,69 @@ Use mongoose.model(name, schema)
 2024-09-12 16:59:18 [32minfo[39m: Updating exhibition with ID: 66e2f385033e580ca8a5c637 and data: {"curators":["66dff8a7ed28d360b1ac13fc"]}
 2024-09-12 16:59:19 [32minfo[39m: Updating exhibition with ID: 66e2f3a8033e580ca8a5c662 and data: {"curators":["66dff8a7ed28d360b1ac13fc"]}
 2024-09-12 16:59:19 [32minfo[39m: Updating exhibition with ID: 66e2f385033e580ca8a5c637 and data: {"curators":["66dff8a7ed28d360b1ac13fc"]}
+2024-09-12 17:16:01 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-12 17:24:58 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 17:25:03 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 17:34:23 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 17:37:32 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 17:37:41 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:00:22 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:00:31 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:06:09 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:06:17 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:06:50 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:07:12 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:07:39 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:11:01 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:11:07 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:14:02 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:14:09 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:14:47 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:15:18 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:15:19 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:16:23 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:16:29 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:17:58 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:17:59 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:18:46 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:18:47 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:18:53 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:18:54 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:19:16 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:19:17 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:19:29 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:19:30 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:20:45 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:20:59 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:21:22 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:22:06 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:22:35 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:23:14 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"status":"closed"}
+2024-09-12 18:23:14 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"status":"closed","curators":[],"closedAt":"2024-09-12T15:23:14.280Z","openedAt":null}
+2024-09-12 18:23:44 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"status":"open"}
+2024-09-12 18:23:44 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"status":"open","curators":[],"openedAt":"2024-09-12T15:23:44.577Z","closedAt":null}
+2024-09-12 18:24:38 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:24:44 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:25:55 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:27:02 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:31:28 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:31:31 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:31:35 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:33:13 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fc
+2024-09-12 18:33:51 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:34:25 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:34:30 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:34:52 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:38:43 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:43:08 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:43:17 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:49:18 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:53:26 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:53:29 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 18:59:48 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 19:00:09 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 19:00:30 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 19:00:37 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 19:00:39 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 19:01:35 [32minfo[39m: Retrieving all exhibitions
+2024-09-12 19:02:15 [32minfo[39m: Retrieving all exhibitions

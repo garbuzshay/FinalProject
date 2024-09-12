@@ -193,7 +193,6 @@ const App = () => {
             element={<AdminTermsPricesPackages />}
           />
           <Route path="requests" element={<AdminRequestsManagement />} />
-          {/* <Route path="" element={<AdminLogin />} /> */}
         </Route>
         <Route
           path="/owner"

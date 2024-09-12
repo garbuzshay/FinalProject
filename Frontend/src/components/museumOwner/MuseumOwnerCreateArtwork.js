@@ -1,34 +1,3 @@
-// import React from 'react';
-// import { useMuseumContext } from '../../contexts/MuseumContext';
-// import ArtworkForm from '../common/ArtworkForm';
-// import { useParams } from 'react-router-dom';
-
-// const MuseumOwnerCreateArtwork = () => {
-//   const {id} = useParams();
-//   const { createArtwork } = useMuseumContext();
-
-//   const handleCreateArtwork = async (data) => {
-//     try {
-//       const response = await createArtwork(id, data);
-//       if (response) {
-//         alert('Artwork created successfully');
-//       }
-//     } catch (error) {
-//       console.error('There was an error creating the artwork!', error);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <ArtworkForm
-//         onSubmit={handleCreateArtwork}
-//         formType="create"
-//       />
-//      </div>
-//   );
-// };
-
-// export default MuseumOwnerCreateArtwork;import React from 'react';
 import { useMuseumContext, usePlanContext } from '../../contexts/MuseumContext';
 import ArtworkForm from '../common/ArtworkForm';
 import { useParams } from 'react-router-dom';

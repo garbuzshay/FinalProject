@@ -83,7 +83,6 @@ class UsersService {
     try {
       // Find users excluding the current user
       const users = await UserModel.find({ _id: { $ne: currentUserId } })
-        .populate('museum') // Populate the museum field with the museum name
         .populate('role', 'roleName'); // Populate the role field with the role name
         return users;
       } catch (error) {
