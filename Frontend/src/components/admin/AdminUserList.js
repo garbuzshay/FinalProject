@@ -118,7 +118,6 @@ const AdminUserList = () => {
 
   return (
     <div>
-      <p> dont touch the block user ! for now its delete user....</p>
       <MuseumOwnerList users={museumOwners} updateUser={updateUser} deleteUser={deleteUser} />
       <CuratorList users={curators} updateUser={updateUser} deleteUser={deleteUser} />
     </div>
