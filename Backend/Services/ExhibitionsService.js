@@ -217,6 +217,22 @@ class ExhibitionsService {
       console.error('Error deleting artwork from exhibition:', error);
       throw error;
     }
-  }  
+  }
+  
+  
+
+  async removeCuratorFromExhibitions(curatorId) {
+    try {
+      await ExhibitionModel.updateMany(
+        { curators: curatorId },
+        { $pull: { curators: curatorId } }
+      );
+      console.log(`Curator ${curatorId} removed from all exhibitions`);
+    } catch (error) {
+      console.error(`Error removing curator ${curatorId} from exhibitions:`, error);
+      throw error;
+    }
+  }
+  
 }
 export default new ExhibitionsService();

@@ -152,3 +152,5 @@ Use mongoose.model(name, schema)
 2024-09-12 10:39:21 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')
 2024-09-12 10:41:46 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')
 2024-09-12 10:48:44 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')
+2024-09-12 23:01:48 [31merror[39m: Error creating exhibition: The email address is already in use by another account.
+2024-09-12 23:04:40 [31merror[39m: Error creating exhibition: The email address is already in use by another account.
