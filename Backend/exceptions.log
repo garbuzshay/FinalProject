@@ -376,3 +376,9 @@ This file is being treated as an ES module because it has a '.js' file extension
     at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
     at async loadESM (node:internal/process/esm_loader:28:7)
     at async handleMainPromise (node:internal/modules/run_main:113:12)
+2024-09-12 16:15:17 [31merror[39m: ReferenceError: s is not defined
+    at file:///C:/Users/Shay/Desktop/MuseumApp/Backend/Controllers/ExhibitionController.js:260:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)

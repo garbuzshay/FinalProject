@@ -67,9 +67,7 @@ const MuseumOwnerExhibitionsList = () => {
       <div className="flex flex-wrap -m-4">
         {filter === "all" ? (
           <>
-            {/* <h2 className="w-full text-2xl font-semibold mb-4">
-              Opened Exhibitions
-            </h2> */}
+
             {filteredExhibitions
               ?.filter((exhibition) => exhibition.status === "open")
               .map((exhibition) => (

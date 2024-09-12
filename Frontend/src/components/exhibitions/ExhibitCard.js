@@ -89,6 +89,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import FormConfirmButton from "../common/FormConfirmButton"; // Adjust the path as needed
 import { useUserContext } from "../../contexts/UserContext";
+import { usePlanContext } from "../../contexts/MuseumContext";
 
 const ExhibitCard = ({
   id,
@@ -103,15 +104,22 @@ const ExhibitCard = ({
 }) => {
   const navigate = useNavigate();
   const { user } = useUserContext();
-
+  const { exhibitionsLeft } = usePlanContext();
   const handleCardClick = () => {
     if (status === "open") {
       navigate(`${id}`);
     }
   };
 
+  // const handleOpenExhibition = () => {
+  //   openExhibition(id);
+  // };
   const handleOpenExhibition = () => {
-    openExhibition(id);
+    if (exhibitionsLeft > 0) {
+      openExhibition(id);
+    } else {
+      alert("The museum cannot be opened because there is not enough space.");
+    }
   };
 
   return (

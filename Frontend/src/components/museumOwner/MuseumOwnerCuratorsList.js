@@ -31,25 +31,53 @@ const MuseumOwnerCuratorsList = () => {
   const curators = Array.from(curatorsMap.values());
 
 
+  // const disableCurator = async (curatorId) => {
+  //   try {
+  //     for (const exhibition of exhibitions) {
+  //       // Check if the curator exists in the current exhibition
+  //       if (exhibition.curators.some(c => c._id === curatorId)) {
+  //         const updatedCurators = exhibition.curators
+  //           .filter(c => c._id !== curatorId)
+  //           .map(c => c._id); // Extract just the curator IDs
+
+  //         // Send the updated curators list to the backend for the exhibition
+  //         await updateExhibition(exhibition._id, { curators: updatedCurators });
+  //       }
+  //     }
+  //   } catch (error) {
+  //     console.error("Error disabling curator:", error);
+  //   }
+
+  //   setShowDialog(false); // Hide the dialog after disabling the curator
+  // };
   const disableCurator = async (curatorId) => {
     try {
-      for (const exhibition of exhibitions) {
-        // Check if the curator exists in the current exhibition
-        if (exhibition.curators.some(c => c._id === curatorId)) {
-          const updatedCurators = exhibition.curators
-            .filter(c => c._id !== curatorId)
-            .map(c => c._id); // Extract just the curator IDs
-
-          // Send the updated curators list to the backend for the exhibition
-          await updateExhibition(exhibition._id, { curators: updatedCurators });
-        }
-      }
+      // Filter exhibitions where the curator exists
+      const exhibitionsToUpdate = exhibitions.filter(exhibition =>
+        exhibition.curators.some(c => c._id === curatorId)
+      );
+  
+      // Prepare a list of promises for updating exhibitions in parallel
+      const updatePromises = exhibitionsToUpdate.map(async (exhibition) => {
+        const updatedCurators = exhibition.curators
+          .filter(c => c._id !== curatorId)
+          .map(c => c._id); // Extract only the curator IDs
+  
+        // Return the promise for updating the exhibition
+        return updateExhibition(exhibition._id, { curators: updatedCurators });
+      });
+  
+      // Execute all update promises in parallel
+      await Promise.all(updatePromises);
+  
+      console.log("Curator disabled in all exhibitions.");
     } catch (error) {
       console.error("Error disabling curator:", error);
     }
-
+  
     setShowDialog(false); // Hide the dialog after disabling the curator
   };
+  
 
   // Function to handle opening the confirmation dialog
   const handleDisableClick = (curator) => {
