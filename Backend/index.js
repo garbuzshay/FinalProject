@@ -100,8 +100,10 @@ app.listen(PORT, () => {
 
 //mensch.edutainment@gmail.com  Mensch123
 //shay.garbuz Shay123
-//{ curator2@gmail.com 8670a6e3
-// curator1@gmail.com e007279c}
+// curator1@gmail.com e007279c
+// curator2@gmail.com 8670a6e3
+// curator3@gmail.com  e576872e
+// curator4@gmail.com  15234592
 //ofekaz24 ofek123
 //maycaspi May123
 

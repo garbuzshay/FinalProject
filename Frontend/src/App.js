@@ -23,7 +23,7 @@
 // import MuseumOwnerContactUs from "./components/museumOwner/MuseumOwnerConatctUs";
 // import CuratorContactUs from "./components/curator/CuratorContactUs";
 // import CuratorExhibitionsList from "./components/curator/CuratorExhibitionsList";
-// import CuratorArtsList from "./components/curator/CuratorArtsList";
+// import CuratorManageExhibit from "./components/curator/CuratorManageExhibit";
 // import MuseumOwnerCuratorsList from "./components/museumOwner/MuseumOwnerCuratorsList.js";
 // import { ExhibitionsProvider } from "./contexts/ExhibitionsContext";
 // import { MuseumProvider } from "./contexts/MuseumContext"; // Import the MuseumProvider
@@ -109,7 +109,7 @@
 //         >
 //          <Route index element={<Navigate to="exhibitions" replace />} />
 //           <Route path="exhibitions" element={<CuratorExhibitionsList />} />
-//           <Route path="exhibitions/:id" element={<CuratorArtsList />} />
+//           <Route path="exhibitions/:id" element={<CuratorManageExhibit />} />
 //           <Route path="exhibitions/:exhibitionId/:artworkId" element={<CuratorEditArtwork />} />
 //           <Route path="contact-us" element={<CuratorContactUs />} />
 //         </Route>
@@ -146,7 +146,7 @@ import MuseumOwnerEditExhibition from "./components/museumOwner/MuseumOwnerEditE
 import MuseumOwnerContactUs from "./components/museumOwner/MuseumOwnerConatctUs";
 import CuratorContactUs from "./components/curator/CuratorContactUs";
 import CuratorExhibitionsList from "./components/curator/CuratorExhibitionsList";
-import CuratorArtsList from "./components/curator/CuratorArtsList";
+import CuratorManageExhibit from "./components/curator/CuratorManageExhibit";
 import MuseumOwnerCuratorsList from "./components/museumOwner/MuseumOwnerCuratorsList.js";
 import { ExhibitionsProvider } from "./contexts/ExhibitionsContext";
 import { MuseumProvider } from "./contexts/MuseumContext"; // Import the MuseumProvider
@@ -243,7 +243,7 @@ const App = () => {
         >
          <Route index element={<Navigate to="exhibitions" replace />} />
           <Route path="exhibitions" element={<CuratorExhibitionsList />} />
-          <Route path="exhibitions/:id" element={<CuratorArtsList />} />
+          <Route path="exhibitions/:id" element={<CuratorManageExhibit />} />
           <Route path="exhibitions/edit/:id" element={<CuratorEditExhibition  />} />
           <Route path="exhibitions/:exhibitionId/:artworkId" element={<CuratorEditArtwork />} />
           <Route path="contact-us" element={<CuratorContactUs />} />

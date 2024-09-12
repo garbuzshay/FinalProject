@@ -139,3 +139,16 @@ Use mongoose.model(name, schema)
 2024-09-10 17:01:28 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: Cannot read properties of undefined (reading '_id')
 2024-09-11 19:34:33 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: exhibitionData.curators.includes is not a function
 2024-09-11 19:34:33 [31merror[39m: Error updating exhibition with ID 66dff8a7ed28d360b1ac1404: exhibitionData.curators.includes is not a function
+2024-09-12 10:25:44 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')
+2024-09-12 10:25:53 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')
+2024-09-12 10:26:01 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')
+2024-09-12 10:27:25 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')
+2024-09-12 10:31:05 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')
+2024-09-12 10:32:29 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')
+2024-09-12 10:34:28 [31merror[39m: Error creating exhibition: Museum not found
+2024-09-12 10:37:55 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')
+2024-09-12 10:39:02 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')
+2024-09-12 10:39:11 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')
+2024-09-12 10:39:21 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')
+2024-09-12 10:41:46 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')
+2024-09-12 10:48:44 [31merror[39m: Error creating exhibition: Cannot read properties of undefined (reading '_id')

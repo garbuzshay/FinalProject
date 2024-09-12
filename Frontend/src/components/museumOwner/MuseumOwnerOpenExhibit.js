@@ -473,7 +473,7 @@ const MuseumOwnerOpenExhibit = () => {
           <form
             id="exhibitionForm"
             onSubmit={handleSubmit(onSubmit)}
-            className="mx-auto shadow p-6 sm:p-8 lg:p-12 space-y-6"
+            className="mx-auto shadow p-6 sm:p-8 lg:p-12 "
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="mb-4">

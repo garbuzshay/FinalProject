@@ -160,6 +160,15 @@ const ExhibitCard = ({
           </div>
         )}
 
+        {user?.role?.roleName === "Curator" && status === "closed" && (
+          <div className="flex mb-2">
+            <span className="font-semibold text-gray-900 text-xl">Status:</span>
+            <span className="text-red-600 font-bold text-lg ml-1 capitalize">
+              {status}
+            </span>
+          </div>
+        )}
+
         {user?.role?.roleName === "Admin" && (
           <div className="flex mb-2">
             <span className="font-semibold text-gray-700">Status:</span>

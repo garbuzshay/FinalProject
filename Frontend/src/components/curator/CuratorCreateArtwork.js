@@ -11,8 +11,7 @@
 //       if (response) {
 //         alert("Artwork created successfully");
 //       }
-      
-    
+
 //     } catch (error) {
 //       console.error("There was an error creating the artwork!", error);
 //     }
@@ -37,10 +36,10 @@ const CuratorCreateArtwork = ({ exhibitionId, onCreate }) => {
         alert("Artwork created successfully");
 
         // Hide the form after 2 seconds and invoke the onCreate callback
-        setTimeout(() => {
-          setFormVisible(false);
-          if (onCreate) onCreate(); // Notify parent that form submission is done
-        }, 2000);
+        // setTimeout(() => {
+        setFormVisible(false);
+        if (onCreate) onCreate(); // Notify parent that form submission is done
+        // }, 2000);
       }
     } catch (error) {
       console.error("There was an error creating the artwork!", error);
@@ -49,7 +48,7 @@ const CuratorCreateArtwork = ({ exhibitionId, onCreate }) => {
 
   useEffect(() => {
     // Optionally reset the form visibility when component mounts/unmounts
-    return () => setFormVisible(true); 
+    return () => setFormVisible(true);
   }, []);
 
   return isFormVisible ? (
@@ -58,4 +57,3 @@ const CuratorCreateArtwork = ({ exhibitionId, onCreate }) => {
 };
 
 export default CuratorCreateArtwork;
-

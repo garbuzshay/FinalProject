@@ -131,7 +131,6 @@ const Header = ({ buttonText, buttonPath }) => {
     const { user } = useUserContext();
     const { isDarkMode, toggleDarkMode } = useDarkMode();
     const {museum} = useMuseumContext();
-    console.log(museum)
 
     useEffect(() => {
         const getTitle = () => {

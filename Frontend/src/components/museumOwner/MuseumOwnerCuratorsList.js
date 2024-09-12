@@ -119,7 +119,7 @@ const MuseumOwnerCuratorsList = () => {
       </div>
       {showDialog && (
         <ConfirmationDialog
-          message={`Are you sure you want to disable ${selectedCurator?.name} ${selectedCurator?.lastName}?`}
+          message={`Are you sure you want to remove ${selectedCurator?.name} ${selectedCurator?.lastName} from your museum?`}
           onConfirm={() => disableCurator(selectedCurator._id)} // Disable curator if confirmed
           onCancel={() => setShowDialog(false)} // Hide dialog if canceled
         />

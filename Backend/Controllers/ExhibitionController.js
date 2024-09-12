@@ -1,12 +1,24 @@
 import ExhibitionsService from '../Services/ExhibitionsService.js';
 import ArtworkService from '../Services/ArtworkService.js';
 import logger from '../Utils/logger.js'; // Assuming you have a logger utility
+import MuseumsService from '../Services/MuseumsService.js';
 
 export const createExhibition = async (req, res) => {
   try {
     const data = req.body;
     logger.info(`Creating exhibition with data: ${JSON.stringify(data)}`);
-    const exhibition = await ExhibitionsService.createExhibition({...data, museum: req.user.museum._id});
+    const museum= await MuseumsService.getMuseumByOwnerId(req.user._id);
+    if(!museum){
+      return res.status(404).json({
+        message: 'Museum not found for the current user',
+        success: false
+      });
+    }
+    const exhibition = await ExhibitionsService.createExhibition({
+      ...data,
+      museum: museum._id // use the museum's _id retrieved from the database
+    });
+
     res.status(201).json({
       message: 'Exhibition created successfully',
       success: true,
@@ -20,6 +32,20 @@ export const createExhibition = async (req, res) => {
     });
   }
 };
+//     const exhibition = await ExhibitionsService.createExhibition({...data, museum: req.user.museum._id});
+//     res.status(201).json({
+//       message: 'Exhibition created successfully',
+//       success: true,
+//       data: exhibition
+//     });
+//   } catch (error) {
+//     logger.error(`Error creating exhibition: ${error.message}`);
+//     res.status(400).json({
+//       message: error.message,
+//       success: false
+//     });
+//   }
+// };
 
 export const createArtworkInExhibition = async (req, res) => {
   try {

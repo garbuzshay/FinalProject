@@ -89,7 +89,6 @@
 // };
 
 // export default useOpenExhibit;
-import { useContext } from 'react';
 import { useMuseumContext, usePlanContext } from '../contexts/MuseumContext';
 import exhibitionsApi from '../api/ExhibitionsApi';
 
@@ -98,6 +97,7 @@ const useOpenExhibit = () => {
   const planDetails = usePlanContext();
 
   const handleSubmit = async (data) => {
+    console.log(museum.name);
     if (
       (planDetails.exhibitionsLeft !== null &&
         planDetails.exhibitionsLeft > 0 &&
@@ -111,6 +111,7 @@ const useOpenExhibit = () => {
           curators: data.curators,
           museum: museum.id,
         };
+       
         await exhibitionsApi.createExhibition(exhibitionData);
         alert('Exhibition created successfully');
         fetchMuseum(); // Refresh museum data
