@@ -52,7 +52,7 @@ class ExhibitionsService {
 
   async getExhibitions() {
     return await ExhibitionModel.find()
-      .populate("curators", "name")
+      .populate("curators", "name lastName")
       .populate("museum", "name")
       .populate("artworks");
   }

@@ -4,22 +4,13 @@ import { useAdminContext } from "../../contexts/AdminContext";
 import ConfirmationDialog from "../common/ConfirmationDialog";
 
 const MuseumOwnerList = ({ users, updateUser, deleteUser }) => {
-  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null);
+  const { museumsData } = useAdminContext();
+  const {museums} = museumsData;
 
-  const handleDeleteUser = (userId) => {
-    setSelectedUser(userId);
-    setShowConfirmDialog(true);
-  };
+  const getMuseumNameByOwnerId = (ownerId) => {
 
-  const handleConfirmDelete = () => {
-    deleteUser(selectedUser);
-    setShowConfirmDialog(false);
-  };
-
-  const handleCancelDelete = () => {
-    setShowConfirmDialog(false);
-    setSelectedUser(null);
+    const museum = museums.find((museum) => museum.owner._id === ownerId);
+    return museum ? museum.name : "N/A";
   };
 
   return (
@@ -32,7 +23,6 @@ const MuseumOwnerList = ({ users, updateUser, deleteUser }) => {
             <th className="w-1/5 py-2">Museum Name</th>
             <th className="w-1/5 py-2">Email</th>
             <th className="w-1/5 py-2">Phone Number</th>
-            <th className="w-1/5 py-2">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -41,28 +31,15 @@ const MuseumOwnerList = ({ users, updateUser, deleteUser }) => {
               <td className="border px-4 py-2">
                 {user.name} {user.lastName}
               </td>
-              <td className="border px-4 py-2">{user.museum?.name || "N/A"}</td>
+              <td className="border px-4 py-2">{getMuseumNameByOwnerId(user._id)}</td>
+              {/* <td className="border px-4 py-2">{user.museum?.name || "N/A"}</td> */}
               <td className="border px-4 py-2">{user.email}</td>
               <td className="border px-4 py-2">{user.phoneNumber}</td>
-              <td className="border px-4 py-2">
-                <button
-                  className="bg-red-500 text-white px-2 py-1 rounded"
-                  onClick={() => handleDeleteUser(user._id)}
-                >
-                  Block User
-                </button>
-              </td>
+             
             </tr>
           ))}
         </tbody>
       </table>
-      {showConfirmDialog && (
-        <ConfirmationDialog
-          message="Are you sure you want to block this user?"
-          onConfirm={handleConfirmDelete}
-          onCancel={handleCancelDelete}
-        />
-      )}
     </div>
   );
 };
@@ -108,10 +85,10 @@ const CuratorList = ({ users, updateUser, deleteUser }) => {
               <td className="border px-4 py-2">{user.phoneNumber}</td>
               <td className="border px-4 py-2">
                 <button
-                  className="bg-red-500 text-white px-2 py-1 rounded"
+                  className="bg-red-900 text-white px-2 py-1 rounded"
                   onClick={() => handleDeleteUser(user._id)}
                 >
-                  Block User
+                  Remove
                 </button>
               </td>
             </tr>
@@ -120,7 +97,7 @@ const CuratorList = ({ users, updateUser, deleteUser }) => {
       </table>
       {showConfirmDialog && (
         <ConfirmationDialog
-          message="Are you sure you want to block this user?"
+          message="Are you sure you want to delete this user from the system permanently?"
           onConfirm={handleConfirmDelete}
           onCancel={handleCancelDelete}
         />

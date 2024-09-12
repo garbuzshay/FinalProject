@@ -32,20 +32,6 @@ export const createExhibition = async (req, res) => {
     });
   }
 };
-//     const exhibition = await ExhibitionsService.createExhibition({...data, museum: req.user.museum._id});
-//     res.status(201).json({
-//       message: 'Exhibition created successfully',
-//       success: true,
-//       data: exhibition
-//     });
-//   } catch (error) {
-//     logger.error(`Error creating exhibition: ${error.message}`);
-//     res.status(400).json({
-//       message: error.message,
-//       success: false
-//     });
-//   }
-// };
 
 export const createArtworkInExhibition = async (req, res) => {
   try {

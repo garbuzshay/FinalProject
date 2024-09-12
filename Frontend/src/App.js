@@ -129,7 +129,6 @@ import AdminPage from "./pages/AdminPage";
 import AdminDashboard from "./components/admin/AdminDashboard";
 import AdminExhibitList from "./components/admin/AdminExhibitList";
 import AdminUserList from "./components/admin/AdminUserList";
-import AdminLogin from "./components/admin/AdminLogin";
 import AdminMuseumList from "./components/admin/AdminMuseumList";
 import AdminTermsPricesPackages from "./components/admin/AdminTermsPricesPackages";
 import AdminRequestsManagement from "./components/admin/AdminRequestsManagement ";
@@ -148,7 +147,6 @@ import CuratorContactUs from "./components/curator/CuratorContactUs";
 import CuratorExhibitionsList from "./components/curator/CuratorExhibitionsList";
 import CuratorManageExhibit from "./components/curator/CuratorManageExhibit";
 import MuseumOwnerCuratorsList from "./components/museumOwner/MuseumOwnerCuratorsList.js";
-import { ExhibitionsProvider } from "./contexts/ExhibitionsContext";
 import { MuseumProvider } from "./contexts/MuseumContext"; // Import the MuseumProvider
 import MuseumOwnerDashboard from "./components/museumOwner/MuseumOwnerDashboard.js";
 import { AdminProvider } from "./contexts/AdminContext.js";
@@ -161,6 +159,7 @@ import AdminEditMuseum from "./components/admin/AdminEditMuseum.js";
 import MuseumOwnerCreateArtwork from "./components/museumOwner/MuseumOwnerCreateArtwork.js";
 import { DarkModeProvider } from "./contexts/DarkModeContext";
 import CuratorEditExhibition from "./components/curator/CuratorEditExhibition.js";
+import AdminEditExhibit from "./components/admin/AdminEditExhibit.js";
 
 const App = () => {
   return (
@@ -187,7 +186,8 @@ const App = () => {
           <Route path="museums" element={<AdminMuseumList />} />
           <Route path="exhibitions" element={<AdminExhibitList />} />
           <Route path="users" element={<AdminUserList />} />
-          <Route path="museums/edit/:id" element={<AdminEditMuseum />} />
+          <Route path="museums/edit-museum/:id" element={<AdminEditMuseum />} />
+          <Route path="exhibitions/edit-exhibit/:id" element={<AdminEditExhibit />} />
           <Route
             path="terms-prices-packages"
             element={<AdminTermsPricesPackages />}
