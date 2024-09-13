@@ -1,79 +1,24 @@
 
-// import React, { useEffect, useState } from 'react';
-// import { useParams, Outlet, Link, useNavigate } from 'react-router-dom';
-// import { useMuseumApi } from '../hooks/useMuseumApi';
-// import { useMuseum } from '../contexts/MuseumContext';
-
-// const MuseumPage = () => {
-//   const { museumName } = useParams();
-//   const navigate = useNavigate();
-//   const { fetchMuseumDetails } = useMuseumApi();
-//   const { museum, exhibitions, setMuseum, setExhibitions } = useMuseum();
-//   const [selectedExhibitionId, setSelectedExhibitionId] = useState(null);
-
-//   useEffect(() => {
-//     const fetchDetails = async () => {
-//       const data = await fetchMuseumDetails(museumName);
-//       setMuseum(data.museum);
-//       setExhibitions(data.exhibitions);
-//     };
-//     fetchDetails();
-//   }, [museumName, setMuseum, setExhibitions]);
-
-//   if (!museum) return <p>Loading...</p>;
-
-//   const handleExhibitionClick = (exhibitionId) => {
-//     if (selectedExhibitionId === exhibitionId) {
-//       setSelectedExhibitionId(null);
-//       navigate(`/${museumName}`);
-//     } else {
-//       setSelectedExhibitionId(exhibitionId);
-//       navigate(`/${museumName}/exhibitions/${exhibitionId}`);
-//     }
-//   };
-
-//   return (
-//     <div className="min-h-screen bg-gray-100 p-8">
-//       <h1 className="text-4xl font-bold mb-4">{museum.name}</h1>
-//       <h2 className="text-2xl font-semibold mb-2">Exhibitions</h2>
-//       <ul className="space-y-2">
-//         {exhibitions.map((exhibition) => (
-//           <li
-//             key={exhibition._id}
-//             className={`bg-white p-4 rounded-lg shadow cursor-pointer ${selectedExhibitionId === exhibition._id ? 'bg-blue-100' : ''}`}
-//             onClick={() => handleExhibitionClick(exhibition._id)}
-//           >
-//             <span>{exhibition.name}</span>
-          
-//           </li>
-//         ))}
-//       </ul>
-//       <Outlet />
-//     </div>
-//   );
-// };
-
-// export default MuseumPage;
-
-// src/pages/MuseumPage.js
 import React, { useEffect, useState } from 'react';
-import { useParams, Outlet, Link, useNavigate } from 'react-router-dom';
+import { useParams, Outlet, useNavigate } from 'react-router-dom';
 import { useMuseumApi } from '../hooks/useMuseumApi';
 import { useMuseum } from '../contexts/MuseumContext';
-import LogoutButton from '../components/LogoutButton'; // Import the LogoutButton component
+import LogoutButton from '../components/LogoutButton';
 
 const MuseumPage = () => {
   const { museumName } = useParams();
   const navigate = useNavigate();
   const { fetchMuseumDetails } = useMuseumApi();
   const { museum, exhibitions, setMuseum, setExhibitions } = useMuseum();
-  const [selectedExhibitionId, setSelectedExhibitionId] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredExhibitions, setFilteredExhibitions] = useState([]);
 
   useEffect(() => {
     const fetchDetails = async () => {
       const data = await fetchMuseumDetails(museumName);
       setMuseum(data.museum);
       setExhibitions(data.exhibitions);
+      setFilteredExhibitions(data.exhibitions); // Initial set
     };
     fetchDetails();
   }, [museumName, setMuseum, setExhibitions]);
@@ -81,33 +26,72 @@ const MuseumPage = () => {
   if (!museum) return <p>Loading...</p>;
 
   const handleExhibitionClick = (exhibitionId) => {
-    if (selectedExhibitionId === exhibitionId) {
-      setSelectedExhibitionId(null);
-      navigate(`/${museumName}`);
-    } else {
-      setSelectedExhibitionId(exhibitionId);
-      navigate(`/${museumName}/exhibitions/${exhibitionId}`);
-    }
+    navigate(`/${museumName}/exhibitions/${exhibitionId}`);
+  };
+
+  const handleSearch = (e) => {
+    const query = e.target.value.toLowerCase();
+    setSearchQuery(query);
+    setFilteredExhibitions(
+      exhibitions.filter(exhibition =>
+        exhibition.name.toLowerCase().includes(query)
+      )
+    );
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-4xl font-bold">{museum.name}</h1>
-        <LogoutButton /> {/* Add the LogoutButton here */}
+    <div className="min-h-screen bg-gray-100">
+      {/* Header with Museum name and address */}
+      <div className="flex justify-between items-center p-4 bg-white shadow-lg">
+        <div>
+          <h1 className="text-3xl font-bold">{museum.name}</h1>
+          <p className="text-lg text-gray-600">{museum.address}, {museum.state}</p>
+        </div>
+        <LogoutButton /> {/* Logout button */}
       </div>
-      <h2 className="text-2xl font-semibold mb-2">Exhibitions</h2>
-      <ul className="space-y-2">
-        {exhibitions.map((exhibition) => (
-          <li
-            key={exhibition._id}
-            className={`bg-white p-4 rounded-lg shadow cursor-pointer w-full ${selectedExhibitionId === exhibition._id ? 'bg-blue-100' : ''}`}
-            onClick={() => handleExhibitionClick(exhibition._id)}
-          >
-            <span className="block w-full">{exhibition.name}</span>
-          </li>
-        ))}
-      </ul>
+
+      {/* Museum Image with Search bar at the bottom */}
+      <div
+        className="relative bg-cover bg-center h-72 flex items-end justify-center"
+        style={{ backgroundImage: `url(${museum.imageUrl})` }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="relative z-10 w-11/12 max-w-xl mb-4">
+          <h2 className="text-white font-cool text-3xl mb-1">Which Exhibit Are You Looking For?</h2>
+          <div className="flex items-center bg-white rounded-full p-2 shadow-lg">
+            <input
+              type="text"
+              placeholder="Search Exhibit"
+              value={searchQuery}
+              onChange={handleSearch}
+              className="flex-grow p-2 rounded-l-full focus:outline-none"
+            />
+            <button className="p-2 bg-blue-500 text-white rounded-full">
+              🔍
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Popular Exhibitions */}
+      <div className="p-4">
+        <h3 className="text-2xl font-semibold mb-6">Popular Exhibitions</h3>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+          {filteredExhibitions.slice(0, 3).map((exhibition) => (
+            <div key={exhibition._id} className="cursor-pointer" onClick={() => handleExhibitionClick(exhibition._id)}>
+              <div
+                className="relative bg-cover bg-center h-40 rounded-lg shadow-md"
+                style={{ backgroundImage: `url(${exhibition.imageUrl})` }}
+              >
+                <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
+              </div>
+              {/* Exhibition Name Below */}
+              <span className="block text-center mt-2 text-lg font-semibold text-gray-800">{exhibition.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <Outlet />
     </div>
   );

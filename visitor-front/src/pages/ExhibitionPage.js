@@ -1,46 +1,13 @@
-// // src/pages/ExhibitionPage.js
-// import React from 'react';
-// import { useParams } from 'react-router-dom';
-// import { useMuseum } from '../contexts/MuseumContext';
-
-// const ExhibitionPage = () => {
-//   const { exhibitionId } = useParams();
-//   const { exhibitions } = useMuseum();
-
-//   const exhibition = exhibitions.find((exhibition) => exhibition._id === exhibitionId);
-
-//   if (!exhibition) return <p>Loading...</p>;
-
-//   return (
-//     <div className="min-h-screen bg-gradient-to-r from-gray-100 to-gray-300 p-8">
-//       <h1 className="text-5xl font-extrabold mb-6 text-gray-900">{exhibition.name}</h1>
-//       <h2 className="text-3xl font-bold mb-4 text-gray-800">Artworks</h2>
-//       <ul className="space-y-6">
-//         {exhibition.artworks.map((artwork) => (
-//           <li key={artwork._id} className="bg-white p-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:shadow-xl">
-//             <img src={artwork.imageUrl} alt={artwork.title} className="w-full h-auto mb-4 rounded-lg shadow-sm" />
-//             <h3 className="text-2xl font-semibold mb-2">{artwork.title}</h3>
-//             <p className="mb-2"><strong>Artist:</strong> {artwork.artist}</p>
-//             <p className="mb-2"><strong>Description:</strong> {artwork.description}</p>
-//             <p className="mb-2"><strong>Created Date:</strong> {new Date(artwork.createdDateByArtist).toLocaleDateString()}</p>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default ExhibitionPage;
-
-// src/pages/ExhibitionPage.js
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useMuseum } from "../contexts/MuseumContext";
 import CardArtwork from "../components/CardArtwork";
+import GoBackButton from "../components/GoBackButton"; // Import the GoBackButton
 
 const ExhibitionPage = () => {
   const { exhibitionId } = useParams();
   const { exhibitions } = useMuseum();
+  const [selectedArtworkId, setSelectedArtworkId] = useState(null);
 
   const exhibition = exhibitions.find(
     (exhibition) => exhibition._id === exhibitionId
@@ -48,23 +15,48 @@ const ExhibitionPage = () => {
 
   if (!exhibition) return <p>Loading...</p>;
 
+  const handleArtworkClick = (artworkId) => {
+    setSelectedArtworkId((prevId) => (prevId === artworkId ? null : artworkId));
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-r from-gray-100 to-gray-300 p-8">
-      <h1 className="text-5xl font-extrabold mb-6 text-gray-900">
-        {exhibition.name}
-      </h1>
-      <h2 className="text-3xl font-bold mb-4 text-gray-800">Artworks</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {exhibition.artworks.map((artwork) => (
-          <CardArtwork
-            key={artwork._id}
-            imageUrl={artwork.imageUrl}
-            title={artwork.title}
-            artist={artwork.artist}
-            description={artwork.description}
-            createdDate={artwork.createdDateByArtist}
-          />
-        ))}
+    <div className="min-h-screen bg-gradient-to-r from-gray-100 to-gray-300">
+      <div
+        className="relative overflow-hidden bg-cover bg-center h-64 sm:h-80 md:h-96 w-full rounded-lg shadow-lg"
+        style={{ backgroundImage: `url(${exhibition.imageUrl})` }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center p-4">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold">
+            {exhibition.name}
+          </h1>
+        </div>
+      </div>
+
+      <div className="p-8">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-8 mb-4 text-gray-800">
+          Artworks
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {exhibition.artworks.map((artwork) => (
+            <CardArtwork
+              key={artwork._id}
+              imageUrl={artwork.imageUrl}
+              title={artwork.title}
+              artist={artwork.artist}
+              description={artwork.description}
+              createdDate={artwork.createdDateByArtist}
+              isOpen={selectedArtworkId === artwork._id}
+              onClick={() => handleArtworkClick(artwork._id)}
+            />
+          ))}
+        </div>
+
+        {/* Center the GoBackButton */}
+        <div className="text-center mt-6">
+          <GoBackButton />
+        </div>
       </div>
     </div>
   );
