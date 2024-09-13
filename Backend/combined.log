@@ -2236,3 +2236,8 @@ Use mongoose.model(name, schema)
 2024-09-12 23:21:58 [32minfo[39m: Updating exhibition with ID: 66e34b01db4a5633d2fdee05 and data: {"name":"test","description":"test","imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiYxvK0-INqqGrK2R1EWljD_0_dpW3Se6Ccg&s","curators":["66e34ab5db4a5633d2fdedbe","66e2a6c283c04454e71e8711","66e34ca12f528f4c5488bdca","66e34d2a40180eb1f956c2c2"]}
 2024-09-12 23:21:59 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
 2024-09-12 23:22:12 [32minfo[39m: Retrieving all exhibitions
+2024-09-13 10:22:13 [32minfo[39m: Updating exhibition with ID: 66e34ab6db4a5633d2fdedc5 and data: {"status":"open"}
+2024-09-13 10:22:14 [32minfo[39m: Updating exhibition with ID: 66e34ab6db4a5633d2fdedc5 and data: {"status":"open","curators":["66e34ab5db4a5633d2fdedbe","66dff8a7ed28d360b1ac13fe"],"openedAt":"2024-09-13T07:22:14.145Z","closedAt":null}
+2024-09-13 10:22:19 [32minfo[39m: Updating exhibition with ID: 66e34ab6db4a5633d2fdedc5 and data: {"status":"closed"}
+2024-09-13 10:22:19 [32minfo[39m: Updating exhibition with ID: 66e34ab6db4a5633d2fdedc5 and data: {"status":"closed","curators":["66e34ab5db4a5633d2fdedbe","66dff8a7ed28d360b1ac13fe"],"closedAt":"2024-09-13T07:22:19.910Z","openedAt":null}
+2024-09-13 10:22:33 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fe

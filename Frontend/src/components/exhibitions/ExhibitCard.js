@@ -177,7 +177,7 @@ const EmployeeExhibitCard = ({
 }) => {
   const navigate = useNavigate();
   const { exhibitionsLeft } = usePlanContext();
-
+  const { user } = useUserContext();
   const handleCardClick = () => {
     if (status === "open") {
       navigate(`${id}`);
@@ -227,7 +227,7 @@ const EmployeeExhibitCard = ({
           <span className="text-gray-700 ml-1 truncate">{curators}</span>
         </div>
 
-        {status === "closed" && (
+        {status === "closed"&& user?.role?.roleName === "MuseumOwner" && (
           <div className="mt-3 text-gray-500 flex justify-end">
             <FormConfirmButton
               onSubmit={handleOpenExhibition}
