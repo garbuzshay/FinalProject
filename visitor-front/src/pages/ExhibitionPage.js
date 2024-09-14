@@ -3,10 +3,11 @@ import { useParams } from "react-router-dom";
 import { useMuseum } from "../contexts/MuseumContext";
 import CardArtwork from "../components/CardArtwork";
 import GoBackButton from "../components/GoBackButton"; // Import the GoBackButton
+import LogoutButton from "../components/LogoutButton";
 
 const ExhibitionPage = () => {
   const { exhibitionId } = useParams();
-  const { exhibitions } = useMuseum();
+  const { exhibitions, museum } = useMuseum();
   const [selectedArtworkId, setSelectedArtworkId] = useState(null);
 
   const exhibition = exhibitions.find(
@@ -21,6 +22,13 @@ const ExhibitionPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-100 to-gray-300">
+      <div className="flex justify-between items-center p-4 bg-white shadow-lg">
+        <div>
+          <h1 className="text-3xl font-bold">{museum.name}</h1>
+          <p className="text-lg text-gray-600">{museum.address}, {museum.state}</p>
+        </div>
+        <LogoutButton /> {/* Logout button */}
+      </div>
       <div
         className="relative overflow-hidden bg-cover bg-center h-64 sm:h-80 md:h-96 w-full rounded-lg shadow-lg"
         style={{ backgroundImage: `url(${exhibition.imageUrl})` }}
