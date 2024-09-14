@@ -1,7 +1,7 @@
 const sideBarData = {
     Admin: [
-      { name: "Admin Dashboard", path: "/admin/" },
-      { name: "Dashboard", path: "/admin/" },
+      { name: "Admin Dashboard", path: "/admin/statistics" },
+      { name: "Watch all ", path: "/admin/" },
       { name: "Museums", path: "/admin/museums" },
       { name: "Exhibitions", path: "/admin/exhibitions" },
       { name: "Customers", path: "/admin/users" },

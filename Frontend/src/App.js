@@ -160,6 +160,7 @@ import MuseumOwnerCreateArtwork from "./components/museumOwner/MuseumOwnerCreate
 import { DarkModeProvider } from "./contexts/DarkModeContext";
 import CuratorEditExhibition from "./components/curator/CuratorEditExhibition.js";
 import AdminEditExhibit from "./components/admin/AdminEditExhibit.js";
+import AdminStatistics from "./components/admin/AdminStatistics.js";
 
 const App = () => {
   return (
@@ -193,6 +194,7 @@ const App = () => {
             element={<AdminTermsPricesPackages />}
           />
           <Route path="requests" element={<AdminRequestsManagement />} />
+          <Route path="statistics" element={<AdminStatistics />} />
         </Route>
         <Route
           path="/owner"

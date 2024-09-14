@@ -31,8 +31,6 @@ const AdminDashboard = () => {
 
   return (
     <div className="p-4 ">
-      <h2 className="text-2xl font-semibold mb-5">Dashboard</h2>
-
       <p className="mt-5">The most visited museums</p>
       <div className="flex flex-wrap justify-center ">
         {openMuseums.map((museum) => (
