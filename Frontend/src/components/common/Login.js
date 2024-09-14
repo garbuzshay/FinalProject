@@ -94,7 +94,7 @@ const Login = () => {
     try {
       await login(email, password);
     } catch (error) {
-      setError(error.message);
+      setError("Invalid email or password. Please try again.");
     }
   };
 

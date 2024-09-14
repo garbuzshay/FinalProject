@@ -17,11 +17,21 @@ const MuseumPage = () => {
     const fetchDetails = async () => {
       const data = await fetchMuseumDetails(museumName);
       setMuseum(data.museum);
-      setExhibitions(data.exhibitions);
-      setFilteredExhibitions(data.exhibitions); // Initial set
+  
+      // Filter exhibitions to include only open exhibitions with at least one artwork
+      const openExhibitionsWithArtworks = data.exhibitions.filter(
+        (exhibition) =>
+          exhibition.status === 'open' &&
+          exhibition.artworks &&
+          exhibition.artworks.length > 0
+      );
+
+      setExhibitions(openExhibitionsWithArtworks);
+      setFilteredExhibitions(openExhibitionsWithArtworks); // Initial set
     };
     fetchDetails();
-  }, [museumName, setMuseum, setExhibitions]);
+  }, [museumName,fetchMuseumDetails, setMuseum, setExhibitions]);
+  
 
   if (!museum) return <p>Loading...</p>;
 
