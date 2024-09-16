@@ -2,6 +2,7 @@ import RequestModel from "../Models/Request.js";
 import UsersService from "./UsersService.js";
 import MuseumsService from "./MuseumsService.js";
 import { sendEmail } from "../Controllers/ContactUsController.js";
+import UserModel from "../Models/User.js";
 
 class RequestActions {
   static async createMuseum(request) {
@@ -124,18 +125,27 @@ class RequestsService {
         return null;
       }
 
-      // Determine if a special action needs to be taken based on the type and new status
-      const typeActions = this.actionHandlers[request.type];
-      if (
-        typeActions &&
-        requestData.status &&
-        typeActions[requestData.status] &&
-        request.status !== requestData.status
-      ) {
-        await typeActions[requestData.status](request);
+      // Check if the request status has changed to "Approved"
+      if (requestData.status === "Approved" && request.status !== "Approved") {
+        // Execute any actions related to this status change
+        const typeActions = this.actionHandlers[request.type];
+        if (typeActions && typeActions.Approved) {
+          await typeActions.Approved(request);
+        }
+
+        // Retrieve the owner's email from the museum data
+        const owner = await UserModel.findById(request.user);
+
+        if (owner && owner.email) {
+          const ownerEmail = owner.email;
+          const emailSubject = "Your Request Has Been Approved";
+          const emailMessage = `Dear ${owner.name},\n\nYour request for ${request.museumName} has been approved.\nYou can now log into the system and enjoy managing your museum through the CMS.\n\nThank you,\nThe Museum Team`;
+
+          // Send email to the museum owner
+          await sendEmail(ownerEmail, emailSubject, emailMessage);
+        }
       }
 
-      
       // Update the request in the database
       const updatedRequest = await RequestModel.findByIdAndUpdate(
         id,
