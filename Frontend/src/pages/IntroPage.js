@@ -22,7 +22,7 @@ const IntroPage = () => {
   return (
     // <div className="min-h-screen flex flex-col justify-between bg-gradient-to-br from-blue-200 via-purple-300 to-pink-300">
     <div className="min-h-screen flex flex-col justify-between">
-      <div className="px-5">
+      <div className="px-4">
         <ContentSection
           logoSrc={logoSrc}
           title={title}

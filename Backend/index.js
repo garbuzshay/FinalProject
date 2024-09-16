@@ -104,10 +104,11 @@ app.listen(PORT, () => {
 // curator2@gmail.com 8670a6e3
 // curator3@gmail.com  e576872e
 // curator4@gmail.com  15234592
-// curator5@gmail.com  6af94e61
+// curator5@gmail.com  6af94e61F
 // curator6@gmail.com feca2141
 //ofekaz24 ofek123
 //maycaspi May123
+// test@gmail.com Generated Password: test123
 
 
 

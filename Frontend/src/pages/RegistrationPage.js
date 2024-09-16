@@ -1,4 +1,3 @@
-
 // import { useRegisterContext } from "../contexts/RegisterContext";
 // import { Stepper, StepLabel, Step } from "@mui/material";
 // import { NavigationButtons } from "../components/common/NavigationButtons";
@@ -14,26 +13,26 @@
 //         <Logo src={logoSrc} className="h-8 " />
 //       </div>
 
-//       <div className="flex flex-col items-center ">
+//       <div className="flex flex-col pt-4 items-center">
 //         <Stepper
-//           className="w-full md:max-w-xl"
+//           className="w-full md:max-w-2xl"
 //           activeStep={currentStep}
 //           orientation="horizontal"
 //         >
-//           {steps.map((step, index) => (
+//           {steps.map(( _, index) => (
 //             <Step key={index}>
 //               <StepLabel />
 //             </Step>
 //           ))}
 //         </Stepper>
 
-//         <div className="max-w-md p-2 text-center">
+//         <div className=" p-2 text-center mb-20 w-full px-8 ">
 //           <h2 className="text-lg font-semibold mb-2">{steps[currentStep].title}</h2>
 //           <div>{steps[currentStep].component}</div>
 //         </div>
 //       </div>
 
-//       <div className=" pb-6 fixed bottom-0 left-0 right-0">
+//       <div className="pb-12 fixed bottom-0 left-0 right-0 "> {/* Added background color */}
 //         <NavigationButtons
 //           currentPage={currentStep}
 //           goToNextPage={goToNextPage}
@@ -59,30 +58,39 @@ const RegistrationPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="mx-5">
-        <Logo src={logoSrc} className="h-8 " />
+      {/* Fixed logo in top left corner */}
+      <div className="absolute top-0 left-0 px-4">
+        <Logo src={logoSrc} />
       </div>
 
-      <div className="flex flex-col pt-4 items-center">
-        <Stepper
-          className="w-full md:max-w-2xl"
-          activeStep={currentStep}
-          orientation="horizontal"
-        >
-          {steps.map(( _, index) => (
-            <Step key={index}>
-              <StepLabel />
-            </Step>
-          ))}
-        </Stepper>
+      {/* Flexbox container for the stepper */}
+      <div className="flex flex-col md:flex-row items-center justify-center w-full mt-16">
+        {/* Stepper stays centered on larger screens, and moves below logo on mobile */}
+        <div className="w-full flex justify-center md:justify-center mt-4 md:mt-0 md:ml-auto">
+          <Stepper
+            className="w-full md:max-w-2xl mx-auto mt-4 md:mt-0" // Added mt-4 for small screens to give space between the logo and stepper
+            activeStep={currentStep}
+            orientation="horizontal"
+          >
+            {steps.map((_, index) => (
+              <Step key={index}>
+                <StepLabel />
+              </Step>
+            ))}
+          </Stepper>
+        </div>
+      </div>
 
-        <div className=" p-2 text-center mb-20 w-full px-8 ">
+      {/* Content Section */}
+      <div className="flex flex-col pt-4 items-center">
+        <div className="p-2 text-center mb-20 w-full px-8">
           <h2 className="text-lg font-semibold mb-2">{steps[currentStep].title}</h2>
           <div>{steps[currentStep].component}</div>
         </div>
       </div>
 
-      <div className="pb-12 fixed bottom-0 left-0 right-0 "> {/* Added background color */}
+      {/* Navigation buttons at the bottom */}
+      <div className="pb-12 fixed bottom-0 left-0 right-0">
         <NavigationButtons
           currentPage={currentStep}
           goToNextPage={goToNextPage}

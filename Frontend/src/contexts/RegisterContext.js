@@ -29,7 +29,7 @@ export const RegisterProvider = ({ children }) => {
   const steps = [
     {
       component: <Registration />,
-      title:"Museum Owner Registration ",
+      title:"Museum Owner Sign Up ",
       isValid: (data) => validateRegistration(data.userData),
     },
     {
