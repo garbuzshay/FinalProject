@@ -1,6 +1,8 @@
-import RequestModel from '../Models/Request.js';
-import UsersService from './UsersService.js';
-import MuseumsService from './MuseumsService.js';
+import RequestModel from "../Models/Request.js";
+import UsersService from "./UsersService.js";
+import MuseumsService from "./MuseumsService.js";
+import { sendEmail } from "../Controllers/ContactUsController.js";
+
 class RequestActions {
   static async createMuseum(request) {
     const museumData = {
@@ -23,8 +25,8 @@ class RequestsService {
   constructor() {
     // Maps request type and status to a specific handler function
     this.actionHandlers = {
-      'Museum-Opening': {
-        'Approved': RequestActions.createMuseum,
+      "Museum-Opening": {
+        Approved: RequestActions.createMuseum,
       },
       // Additional mappings can be added for other types and statuses
     };
@@ -34,7 +36,7 @@ class RequestsService {
    * @param {Object} requestData - The request data.
    * @returns {Object} The created request.
    */
-  
+
   async createRequest(requestData) {
     try {
       const { userData, museumData, type } = requestData;
@@ -42,17 +44,25 @@ class RequestsService {
 
       let newUser;
       if (type === "Museum-Opening") {
-        userData.role = 'MuseumOwner';
+        userData.role = "MuseumOwner";
         newUser = await UsersService.createUser(userData);
         if (!newUser) {
-          throw new Error('Error creating user');
+          throw new Error("Error creating user");
         }
+        const adminEmail = process.env.EMAIL_USER;
+        const emailSubject = `New User Registration: ${userData.name}`;
+        const emailMessage = `A new user has registered with the following details:\n
+        Name: ${userData.name} ${userData.lastName}\n
+        Email: ${userData.email}\n
+        Please review and approve the request.
+        In order to get more information, please log in to the admin system to access the list of requests`;
+        await sendEmail(adminEmail, emailSubject, emailMessage);
       }
 
       const newRequest = new RequestModel({
         user: newUser ? newUser._id : null,
         type,
-        status: 'Pending',
+        status: "Pending",
         plan: userData.plan,
         paymentMethodId: paymentMethodId,
         museumName: museumData?.name,
@@ -64,11 +74,10 @@ class RequestsService {
         museumEmail: museumData?.email,
       });
 
-
       await newRequest.save();
       return newRequest;
     } catch (error) {
-      console.error('Error creating request:', error);
+      console.error("Error creating request:", error);
       throw error;
     }
   }
@@ -79,10 +88,10 @@ class RequestsService {
    */
   async getRequests() {
     try {
-      const requests = await RequestModel.find().populate('user');
+      const requests = await RequestModel.find().populate("user");
       return requests;
     } catch (error) {
-      console.error('Error fetching requests:', error);
+      console.error("Error fetching requests:", error);
       throw error;
     }
   }
@@ -94,10 +103,10 @@ class RequestsService {
    */
   async getRequestById(id) {
     try {
-      const request = await RequestModel.findById(id).populate('user');
+      const request = await RequestModel.findById(id).populate("user");
       return request ? request : null;
     } catch (error) {
-      console.error('Error fetching request by ID:', error);
+      console.error("Error fetching request by ID:", error);
       throw error;
     }
   }
@@ -117,19 +126,28 @@ class RequestsService {
 
       // Determine if a special action needs to be taken based on the type and new status
       const typeActions = this.actionHandlers[request.type];
-      if (typeActions && requestData.status && typeActions[requestData.status] && request.status !== requestData.status) {
+      if (
+        typeActions &&
+        requestData.status &&
+        typeActions[requestData.status] &&
+        request.status !== requestData.status
+      ) {
         await typeActions[requestData.status](request);
       }
 
+      
       // Update the request in the database
-      const updatedRequest = await RequestModel.findByIdAndUpdate(id, requestData, { new: true }).populate('user');
+      const updatedRequest = await RequestModel.findByIdAndUpdate(
+        id,
+        requestData,
+        { new: true }
+      ).populate("user");
       return updatedRequest;
     } catch (error) {
-      console.error('Error updating request:', error);
+      console.error("Error updating request:", error);
       throw error;
     }
   }
-
 
   /**
    * Deletes a request by ID.
@@ -141,7 +159,7 @@ class RequestsService {
       const deletedRequest = await RequestModel.findByIdAndDelete(id);
       return deletedRequest ? deletedRequest : null;
     } catch (error) {
-      console.error('Error deleting request:', error);
+      console.error("Error deleting request:", error);
       throw error;
     }
   }
