@@ -194,14 +194,14 @@ const Sidebar = ({ links }) => {
                     </li>
                   ))}
                   {/* Close Sidebar Link for mobile */}
-                  <li className="sm:block lg:hidden mt-8">
+                  {/* <li className="sm:block lg:hidden mt-8">
                     <button
                       onClick={toggleSidebar}
                       className="block w-full text-lg font-semibold bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors duration-300"
                     >
                       Close Sidebar
                     </button>
-                  </li>
+                  </li> */}
                 </ul>
               </nav>
     

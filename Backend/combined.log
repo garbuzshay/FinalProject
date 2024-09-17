@@ -2426,3 +2426,4 @@ Use mongoose.model(name, schema)
 2024-09-17 16:31:34 [32minfo[39m: Retrieving all exhibitions
 2024-09-17 16:36:13 [32minfo[39m: Retrieving all exhibitions
 2024-09-17 16:37:30 [32minfo[39m: Retrieving all exhibitions
+2024-09-17 17:01:33 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
