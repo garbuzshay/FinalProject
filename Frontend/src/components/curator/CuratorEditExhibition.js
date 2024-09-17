@@ -456,7 +456,7 @@ const CuratorEditExhibition = () => {
         </div>
 
         {/* Save Changes Button */}
-        <div className="flex justify-between">
+        <div>
           <FormConfirmButton
             onSubmit={handleSubmit(onSubmit)}
             buttonText="Save Changes"
@@ -476,17 +476,7 @@ const CuratorEditExhibition = () => {
           </div>
         )}
 
-        {/* Close Exhibition Button */}
-        <div className="mt-4">
-          <FormConfirmButton
-           onSubmit={handleSubmit(onSubmit)}
-            buttonText="Close Exhibition"
-            dialogMessage="Are you sure you want to close this exhibition?"
-            className={`w-full md:w-auto bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-              isDarkMode ? "bg-red-600 hover:bg-red-800" : ""
-            } transition-colors duration-300`}
-          />
-        </div>
+        
       </form>
 
       {/* Go Back Button */}
