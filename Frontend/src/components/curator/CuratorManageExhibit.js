@@ -66,7 +66,7 @@ const CuratorManageExhibit = () => {
           onClick={handleExhibitionDetails}
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 mb-4 px-4 rounded"
         >
-          {exhibition.name} Details - View & Edit 
+          {exhibition.name}  - View & Edit 
         </button>
       </div>
 
@@ -98,7 +98,7 @@ const CuratorManageExhibit = () => {
       )}
 
       {error && <p className="text-red-500 mb-4">{error}</p>}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mr-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mx-5">
         {exhibition.artworks.map((artwork) => (
           <ArtworkCard
             key={artwork._id}

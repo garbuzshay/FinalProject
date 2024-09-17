@@ -2380,3 +2380,26 @@ Use mongoose.model(name, schema)
 2024-09-17 14:57:35 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!","description":"Journey through the history of music, from ancient rhythms to contemporary sounds.  \"Harmonic Journeys!\" explores the evolution of music across cultures and time. \n","maxArtworks":10,"imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fe","66e34ab5db4a5633d2fdedbe","66e2a6c283c04454e71e8711"]}
 2024-09-17 15:17:56 [32minfo[39m: Updating exhibition with ID: 66e55e8c6f4830008aff656e and data: {"status":"closed"}
 2024-09-17 15:17:56 [32minfo[39m: Updating exhibition with ID: 66e55e8c6f4830008aff656e and data: {"status":"closed","curators":["66dff8a7ed28d360b1ac13fe"],"closedAt":"2024-09-17T12:17:56.422Z","openedAt":null}
+2024-09-17 15:26:56 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 15:29:31 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 15:31:22 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 15:34:42 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 15:37:09 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 15:37:38 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 15:38:41 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 15:55:32 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 15:55:42 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 15:57:38 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 16:03:08 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 16:05:24 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 16:06:13 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 16:06:37 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!","description":"Journey through the history of music, from ancient rhythms to contemporary sounds.  \"Harmonic Journeys!\" explores the evolution of music across cultures and time. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
+2024-09-17 16:06:37 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!","description":"Journey through the history of music, from ancient rhythms to contemporary sounds.  \"Harmonic Journeys!\" explores the evolution of music across cultures and time. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fe","66e34ab5db4a5633d2fdedbe","66e2a6c283c04454e71e8711"]}
+2024-09-17 16:06:38 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 16:06:48 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys! +","description":"Journey through the history of music, from ancient rhythms to contemporary sounds.  \"Harmonic Journeys!\" explores the evolution of music across cultures and time. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
+2024-09-17 16:06:49 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys! +","description":"Journey through the history of music, from ancient rhythms to contemporary sounds.  \"Harmonic Journeys!\" explores the evolution of music across cultures and time. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fe","66e34ab5db4a5633d2fdedbe","66e2a6c283c04454e71e8711"]}
+2024-09-17 16:06:49 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 16:06:57 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-17 16:07:04 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys! ","description":"Journey through the history of music, from ancient rhythms to contemporary sounds.  \"Harmonic Journeys!\" explores the evolution of music across cultures and time. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
+2024-09-17 16:07:05 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys! ","description":"Journey through the history of music, from ancient rhythms to contemporary sounds.  \"Harmonic Journeys!\" explores the evolution of music across cultures and time. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fe","66e34ab5db4a5633d2fdedbe","66e2a6c283c04454e71e8711"]}
+2024-09-17 16:07:05 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711

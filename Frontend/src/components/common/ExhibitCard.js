@@ -269,23 +269,23 @@ const EmployeeExhibitCard = ({
       </div>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{name}</div>
-        <p className={`text-base mb-2 ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}>{description}</p>
+        <p className={`text-base mb-2 ${isDarkMode ? "text-white-200" : "text-gray-700"}`}>{description}</p>
 
         {location && (
           <div className="flex mb-2">
             <span className="font-semibold">Museum:</span>
-            <span className={`ml-1 ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}>{location}</span>
+            <span className={`ml-1 ${isDarkMode ? "text-white-200" : "text-gray-700"}`}>{location}</span>
           </div>
         )}
 
         <div className="flex mb-2">
           <span className="font-semibold">Artworks:</span>
-          <span className={`ml-1 ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}>{artworks}</span>
+          <span className={`ml-1 ${isDarkMode ? "text-white-200" : "text-gray-700"}`}>{artworks}</span>
         </div>
 
         <div className="flex mb-2">
           <span className="font-semibold">Curators:</span>
-          <span className={`ml-1 truncate ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}>{curators}</span>
+          <span className={`ml-1 truncate ${isDarkMode ? "text-white-200" : "text-gray-700"}`}>{curators}</span>
         </div>
 
         {status === "closed" && user?.role?.roleName === "MuseumOwner" && (

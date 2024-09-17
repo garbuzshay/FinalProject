@@ -65,7 +65,7 @@ const ArtworkCard = ({
 
   return (
     <div
-      className={`max-w-sm w-full rounded overflow-hidden shadow-lg m-4 cursor-pointer transform transition duration-500 hover:scale-105 ${
+      className={`max-w-sm  rounded overflow-hidden shadow-lg m-4 cursor-pointer transform transition duration-500 hover:scale-105 ${
         isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"
       }`}
       onClick={handleCardClick}

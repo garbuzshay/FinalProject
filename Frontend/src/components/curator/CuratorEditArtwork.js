@@ -270,7 +270,7 @@
 // CuratorEditArtwork.js
 import React from "react";
 import ArtworkForm from "../common/ArtworkForm";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useMuseumContext } from "../../contexts/MuseumContext";
 import GoBackButton from "../common/GoBackButton";
 import useNavigation from "../../hooks/useNavigation";
@@ -308,6 +308,7 @@ const CuratorEditArtwork = () => {
   };
 
   return (
+    <div className="mx-10">
     <>
       <ArtworkForm
         onSubmit={handleEditArtwork}
@@ -317,6 +318,7 @@ const CuratorEditArtwork = () => {
       />
       <GoBackButton />
     </>
+    </div>
   );
 };
 

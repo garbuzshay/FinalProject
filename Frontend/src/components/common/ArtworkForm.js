@@ -456,7 +456,7 @@ const ArtworkForm = ({
       </h2>
       <form
         onSubmit={handleSubmit(handleFormSubmit)}
-        className={`space-y-4 ${
+        className={`space-y-4  mx-8 ${
           isDarkMode ? "text-gray-300" : "text-gray-900"
         }`}
       >
