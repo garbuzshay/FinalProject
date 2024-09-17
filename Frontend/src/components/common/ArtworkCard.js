@@ -79,12 +79,12 @@ const ArtworkCard = ({
       </div>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{title}</div>
-        <p className={`text-base mb-2 ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}>{description}</p>
-        <p className={`text-base mb-2 ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}>
+        <p className={`text-base mb-2 ${isDarkMode ? "text-white-200" : "text-gray-700"}`}>{description}</p>
+        <p className={`text-base mb-2 ${isDarkMode ? "text-white-200" : "text-gray-700"}`}>
           <strong>Created Date:</strong>{" "}
           {new Date(createdDateByArtist).toLocaleDateString()}
         </p>
-        <p className={`text-base ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}>
+        <p className={`text-base ${isDarkMode ? "text-white-200" : "text-gray-700"}`}>
           <strong>Artist:</strong> {artist}
         </p>
       </div>

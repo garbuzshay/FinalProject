@@ -1,14 +1,26 @@
+// src/components/MuseumOwnerExhibitionsList.js
+
 import React, { useState } from "react";
+import { useThemeMode } from '../../contexts/DarkModeContext'; // Import Theme Context
 import ExhibitCard from "../common/ExhibitCard"; // Adjust the path as needed
 import { useMuseumContext } from "../../contexts/MuseumContext";
-// import QRCodeGenerator from "./QRCodeGenerator"; // Adjust the path as needed
+
 const MuseumOwnerExhibitionsList = () => {
   const { loading, openExhibition, exhibitions } = useMuseumContext();
+  const { isDarkMode } = useThemeMode(); // Destructure isDarkMode
 
   const [filter, setFilter] = useState("all");
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div
+        className={`flex justify-center items-center h-screen ${
+          isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
+        }`}
+      >
+        <p className="text-2xl font-semibold">Loading...</p>
+      </div>
+    );
   }
 
   const filterExhibitions = () => {
@@ -28,38 +40,65 @@ const MuseumOwnerExhibitionsList = () => {
   };
 
   const filteredExhibitions = filterExhibitions();
-  // const museumUrl = `https://mensch-visitors.vercel.app/${museum?.name}`;
+
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center">
+    <div
+      className={`container mx-auto p-4   transition-colors duration-300`}
+    >
+      <h1
+        className={`text-4xl font-extrabold mb-8 text-center ${
+          isDarkMode ? "text-white" : "text-gray-900"
+        }`}
+      >
         Your Exhibitions
       </h1>
-      <p className="text-md mb-6">
-        To view or edit an exhibition, simply click on the tab and start
-        exploring.
+      <p
+        className={`text-md mb-6 ${
+          isDarkMode ? "text-gray-400" : "text-gray-700"
+        }`}
+      >
+        To view or edit an exhibition, simply click on the tab and start exploring.
       </p>
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-center mb-4 space-x-2">
         <button
           onClick={() => setFilter("all")}
-          className={`px-4 py-2 ${
-            filter === "all" ? "bg-blue-500 text-white" : "bg-gray-200"
-          }`}
+          className={`px-4 py-2 rounded ${
+            filter === "all"
+              ? isDarkMode
+                ? "bg-blue-600 text-white"
+                : "bg-blue-500 text-white"
+              : isDarkMode
+              ? "bg-gray-700 text-gray-300 hover:bg-gray-600"
+              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+          } transition-colors duration-300`}
         >
           Show All
         </button>
         <button
           onClick={() => setFilter("open")}
-          className={`px-4 py-2 mx-2 ${
-            filter === "open" ? "bg-blue-500 text-white" : "bg-gray-200"
-          }`}
+          className={`px-4 py-2 rounded ${
+            filter === "open"
+              ? isDarkMode
+                ? "bg-blue-600 text-white"
+                : "bg-blue-500 text-white"
+              : isDarkMode
+              ? "bg-gray-700 text-gray-300 hover:bg-gray-600"
+              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+          } transition-colors duration-300`}
         >
           Show Opened Exhibitions
         </button>
         <button
           onClick={() => setFilter("closed")}
-          className={`px-4 py-2 ${
-            filter === "closed" ? "bg-blue-500 text-white" : "bg-gray-200"
-          }`}
+          className={`px-4 py-2 rounded ${
+            filter === "closed"
+              ? isDarkMode
+                ? "bg-blue-600 text-white"
+                : "bg-blue-500 text-white"
+              : isDarkMode
+              ? "bg-gray-700 text-gray-300 hover:bg-gray-600"
+              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+          } transition-colors duration-300`}
         >
           Show Closed Exhibitions
         </button>
@@ -67,7 +106,6 @@ const MuseumOwnerExhibitionsList = () => {
       <div className="flex flex-wrap -m-4">
         {filter === "all" ? (
           <>
-
             {filteredExhibitions
               ?.filter((exhibition) => exhibition.status === "open")
               .map((exhibition) => (
@@ -85,11 +123,9 @@ const MuseumOwnerExhibitionsList = () => {
                     .map((curator) => curator.name)
                     .join(", ")}
                   status={exhibition.status}
+                  isDarkMode={isDarkMode} // Pass isDarkMode as a prop if needed
                 />
               ))}
-            {/* <h2 className="w-full text-2xl font-semibold mt-6 mb-4">
-              Closed Exhibitions
-            </h2> */}
             {filteredExhibitions
               ?.filter((exhibition) => exhibition.status === "closed")
               .map((exhibition) => (
@@ -108,6 +144,7 @@ const MuseumOwnerExhibitionsList = () => {
                     .join(", ")}
                   status={exhibition.status}
                   openExhibition={openExhibition}
+                  isDarkMode={isDarkMode} // Pass isDarkMode as a prop if needed
                 />
               ))}
           </>
@@ -128,6 +165,7 @@ const MuseumOwnerExhibitionsList = () => {
                 .join(", ")}
               status={exhibition.status}
               openExhibition={openExhibition}
+              isDarkMode={isDarkMode} // Pass isDarkMode as a prop if needed
             />
           ))
         )}
@@ -137,153 +175,3 @@ const MuseumOwnerExhibitionsList = () => {
 };
 
 export default MuseumOwnerExhibitionsList;
-
-// import React, { useState } from "react";
-// import ExhibitCard from "../exhibitions/ExhibitCard"; // Adjust the path as needed
-// import { useMuseumContext } from "../../contexts/MuseumContext";
-// import QRCodeGenerator from "./QRCodeGenerator"; // Adjust the path as needed
-
-// const MuseumOwnerExhibitionsList = () => {
-//   const { loading, openExhibition, exhibitions, museum } = useMuseumContext();
-//   const [filter, setFilter] = useState("all");
-
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
-
-//   const filterExhibitions = () => {
-//     switch (filter) {
-//       case "open":
-//         return exhibitions?.filter(
-//           (exhibition) => exhibition.status === "open"
-//         );
-//       case "closed":
-//         return exhibitions?.filter(
-//           (exhibition) => exhibition.status === "closed"
-//         );
-//       case "all":
-//       default:
-//         return exhibitions;
-//     }
-//   };
-
-//   const filteredExhibitions = filterExhibitions();
-//   const museumUrl = `https://mensch-visitors.vercel.app/${museum?.name}`;
-
-//   return (
-//     <div className="container mx-auto p-4">
-//       <h1 className="text-3xl font-bold mb-6 flex items-center">
-//         Exhibitions
-//       </h1>
-//       <div className="mb-4">
-//         <a
-//           href={museumUrl}
-//           target="_blank"
-//           rel="noopener noreferrer"
-//           className="text-blue-500 underline"
-//         >
-//           Click here to visit your museum
-//         </a>
-
-//       </div>
-//       <div className="flex justify-center mb-4">
-//         <button
-//           onClick={() => setFilter("all")}
-//           className={`px-4 py-2 ${
-//             filter === "all" ? "bg-blue-500 text-white" : "bg-gray-200"
-//           }`}
-//         >
-//           Show All
-//         </button>
-//         <button
-//           onClick={() => setFilter("open")}
-//           className={`px-4 py-2 mx-2 ${
-//             filter === "open" ? "bg-blue-500 text-white" : "bg-gray-200"
-//           }`}
-//         >
-//           Show Opened Exhibitions
-//         </button>
-//         <button
-//           onClick={() => setFilter("closed")}
-//           className={`px-4 py-2 ${
-//             filter === "closed" ? "bg-blue-500 text-white" : "bg-gray-200"
-//           }`}
-//         >
-//           Show Closed Exhibitions
-//         </button>
-//       </div>
-//       <div className="flex flex-wrap -m-4">
-//         {filter === "all" ? (
-//           <>
-//             <h2 className="w-full text-2xl font-semibold mb-4">
-//               Opened Exhibitions
-//             </h2>
-//             {filteredExhibitions
-//               ?.filter((exhibition) => exhibition.status === "open")
-//               .map((exhibition) => (
-//                 <ExhibitCard
-//                   key={exhibition._id}
-//                   id={exhibition._id}
-//                   name={exhibition.name}
-//                   description={exhibition.description}
-//                   imageUrl={
-//                     exhibition.imageUrl || "https://via.placeholder.com/150"
-//                   }
-//                   location={exhibition.location}
-//                   artworks={exhibition.artworks?.length}
-//                   curators={exhibition.curators
-//                     .map((curator) => curator.name)
-//                     .join(", ")}
-//                   status={exhibition.status}
-//                 />
-//               ))}
-//             <h2 className="w-full text-2xl font-semibold mt-6 mb-4">
-//               Closed Exhibitions
-//             </h2>
-//             {filteredExhibitions
-//               ?.filter((exhibition) => exhibition.status === "closed")
-//               .map((exhibition) => (
-//                 <ExhibitCard
-//                   key={exhibition._id}
-//                   id={exhibition._id}
-//                   name={exhibition.name}
-//                   description={exhibition.description}
-//                   imageUrl={
-//                     exhibition.imageUrl || "https://via.placeholder.com/150"
-//                   }
-//                   location={exhibition.location}
-//                   artworks={exhibition.artworks?.length}
-//                   curators={exhibition.curators
-//                     .map((curator) => curator.name)
-//                     .join(", ")}
-//                   status={exhibition.status}
-//                   openExhibition={openExhibition}
-//                 />
-//               ))}
-//           </>
-//         ) : (
-//           filteredExhibitions?.map((exhibition) => (
-//             <ExhibitCard
-//               key={exhibition._id}
-//               id={exhibition._id}
-//               name={exhibition.name}
-//               description={exhibition.description}
-//               imageUrl={
-//                 exhibition.imageUrl || "https://via.placeholder.com/150"
-//               }
-//               location={exhibition.location}
-//               artworks={exhibition.artworks?.length}
-//               curators={exhibition.curators
-//                 .map((curator) => curator.name)
-//                 .join(", ")}
-//               status={exhibition.status}
-//               openExhibition={openExhibition}
-//             />
-//           ))
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MuseumOwnerExhibitionsList;
