@@ -4,11 +4,11 @@ import { Outlet } from "react-router-dom";
 import MuseumOwnerHeader from "../components/museumOwner/MuseumOwnerHeader";
 import Footer from "../components/common/Footer";
 import { useMuseumContext } from "../contexts/MuseumContext";
-import { useDarkMode } from "../contexts/DarkModeContext";
+import { useThemeMode } from "../contexts/DarkModeContext";
 
 const MuseumOwnerPage = () => {
   const { museum, isLoading, error } = useMuseumContext();
-  const { isDarkMode } = useDarkMode();
+  const { isDarkMode } = useThemeMode();
 
   if (isLoading) {
     return (

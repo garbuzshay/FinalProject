@@ -157,14 +157,14 @@ import MuseumOwnerEditArtwork from "./components/museumOwner/MuseumOwnerEditArtw
 import MuseumOwnerEditDetails from "./components/museumOwner/MuseumOwnerEditDetails.js";
 import AdminEditMuseum from "./components/admin/AdminEditMuseum.js";
 import MuseumOwnerCreateArtwork from "./components/museumOwner/MuseumOwnerCreateArtwork.js";
-import { DarkModeProvider } from "./contexts/DarkModeContext";
+import { ThemeProvider } from "./contexts/DarkModeContext";
 import CuratorEditExhibition from "./components/curator/CuratorEditExhibition.js";
 import AdminEditExhibit from "./components/admin/AdminEditExhibit.js";
 import AdminStatistics from "./components/admin/AdminStatistics.js";
 
 const App = () => {
   return (
-    <DarkModeProvider> {/* Wrap the entire app in DarkModeProvider */}
+    <ThemeProvider> {/* Wrap the entire app in ThemeProvider */}
     <div className="App">
       <Routes>
         <Route path="/" element={<IntroPage />} />
@@ -251,7 +251,7 @@ const App = () => {
         </Route>
       </Routes>
     </div>
-    </DarkModeProvider>
+    </ThemeProvider>
   );
 };
 

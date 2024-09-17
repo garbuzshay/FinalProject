@@ -1,23 +1,59 @@
 // import React, { useState } from "react";
 // import { Link } from "react-router-dom";
-
+// import { useThemeMode } from "../../contexts/DarkModeContext";
 // const Sidebar = ({ links }) => {
 //   const [isOpen, setIsOpen] = useState(true);
+//   const [touchStartX, setTouchStartX] = useState(0); // Track where the touch started
+//   const [dragDistance, setDragDistance] = useState(0); // Track how far the user has dragged
+//   const { isDarkMode, toggleDarkMode } = useThemeMode(); // Get dark mode state
 
 //   const toggleSidebar = () => {
 //     setIsOpen(!isOpen);
+//     setDragDistance(0); // Reset drag distance when toggling
+//   };
+
+//   // Touch event handlers for dragging to close
+//   const handleTouchStart = (e) => {
+//     setTouchStartX(e.touches[0].clientX); // Record the starting X position
+//   };
+
+//   const handleTouchMove = (e) => {
+//     const touchCurrentX = e.touches[0].clientX;
+//     const dragDelta = touchCurrentX - touchStartX; // Calculate how far the user has dragged
+
+//     // Only update the drag distance if dragging left
+//     if (dragDelta < 0) {
+//       setDragDistance(dragDelta);
+//     }
+//   };
+
+//   const handleTouchEnd = () => {
+//     // Close the sidebar if the drag distance exceeds -100px (i.e., dragged far enough to the left)
+//     if (dragDistance < -100) {
+//       setIsOpen(false);
+//     }
+
+//     // Reset drag distance
+//     setDragDistance(0);
 //   };
 
 //   return (
 //     <>
 //       {isOpen ? (
 //         <div
+//           onTouchStart={handleTouchStart}
+//           onTouchMove={handleTouchMove}
+//           onTouchEnd={handleTouchEnd}
 //           className={`bg-gray-900 text-white p-6 shadow-xl transition-all duration-300 ease-in-out
 //           ${isOpen ? "w-64 md:w-64 sm:w-48" : "w-0"} 
 //           ${isOpen ? "fixed md:relative" : "fixed"} 
 //          h-screen z-50 transform md:translate-x-0 
 //           ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
 //           sm:max-w-full rounded-r-lg`}
+//           style={{
+//             transform: `translateX(${dragDistance}px)`, // Apply the drag distance to the transform
+//             transition: dragDistance ? 'none' : 'transform 0.3s ease', // Disable transition while dragging, enable it after release
+//           }}
 //         >
 //           <button
 //             onClick={toggleSidebar}
@@ -75,11 +111,13 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useThemeMode } from "../../contexts/DarkModeContext"; // Import Dark Mode context
 
 const Sidebar = ({ links }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [touchStartX, setTouchStartX] = useState(0); // Track where the touch started
   const [dragDistance, setDragDistance] = useState(0); // Track how far the user has dragged
+  const { isDarkMode, toggleDarkMode } = useThemeMode(); // Get dark mode state
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -118,12 +156,13 @@ const Sidebar = ({ links }) => {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          className={`bg-gray-900 text-white p-6 shadow-xl transition-all duration-300 ease-in-out
+          className={`p-6 shadow-xl transition-all duration-300 ease-in-out
           ${isOpen ? "w-64 md:w-64 sm:w-48" : "w-0"} 
           ${isOpen ? "fixed md:relative" : "fixed"} 
-         h-screen z-50 transform md:translate-x-0 
+          h-screen z-50 transform md:translate-x-0 
           ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
-          sm:max-w-full rounded-r-lg`}
+          sm:max-w-full rounded-r-lg
+          ${isDarkMode ? "bg-gray-900 text-white" : "bg-gray-300 text-black"}`} // Apply dark mode styles
           style={{
             transform: `translateX(${dragDistance}px)`, // Apply the drag distance to the transform
             transition: dragDistance ? 'none' : 'transform 0.3s ease', // Disable transition while dragging, enable it after release
@@ -165,6 +204,7 @@ const Sidebar = ({ links }) => {
                   </li>
                 </ul>
               </nav>
+    
             </>
           )}
         </div>

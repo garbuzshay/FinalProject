@@ -1,9 +1,8 @@
-
-
 import React, { useEffect, useState } from 'react';
-import MuseumCard from '../../museums/MuseumCard';
-import ExhibitCard from '../exhibitions/ExhibitCard';
+import MuseumCard from '../common/MuseumCard';
+import ExhibitCard from '../common/ExhibitCard';
 import { useAdminContext } from '../../contexts/AdminContext';
+import { useThemeMode } from '../../contexts/DarkModeContext';
 
 const getRandomExhibitions = (exhibitions, count) => {
   const shuffled = [...exhibitions].sort(() => 0.5 - Math.random());
@@ -11,6 +10,7 @@ const getRandomExhibitions = (exhibitions, count) => {
 };
 
 const AdminDashboard = () => {
+  const { isDarkMode } = useThemeMode();
   const { museumsData, exhibitionsData } = useAdminContext();
   const { museums, isLoading: isLoadingMuseums, error: errorMuseums } = museumsData;
   const { exhibitions, isLoading: isLoadingExhibitions, error: errorExhibitions } = exhibitionsData;
@@ -30,23 +30,27 @@ const AdminDashboard = () => {
   if (errorExhibitions) return <div style={{ color: 'red' }}>{errorExhibitions}</div>;
 
   return (
-    <div className="p-4 ">
-      <p className="mt-5">The most visited museums</p>
-      <div className="flex flex-wrap justify-center ">
+    <div className="p-4">
+      <p className={`mt-5 ${isDarkMode ? 'text-gray-300' : 'text-gray-900'}`}>
+        The most visited museums
+      </p>
+      <div className="flex flex-wrap justify-center">
         {openMuseums.map((museum) => (
           <MuseumCard
             key={museum._id}
             name={museum.name}
             description={museum.description}
             imageUrl={museum.imageUrl}
-            location={museum.address + ", "+ museum.city + ", " +museum.state}
+            location={museum.address + ", " + museum.city + ", " + museum.state}
             exhibitions={museum.exhibitions.length}
             artworks={museum.artworks.length}
           />
         ))}
       </div>
 
-      <p className="mt-5">The most visited exhibitions</p>
+      <p className={`mt-5 ${isDarkMode ? 'text-gray-300' : 'text-gray-900'}`}>
+        The most visited exhibitions
+      </p>
       <div className="flex flex-wrap justify-center">
         {randomExhibitions.map((exhibit) => (
           <ExhibitCard

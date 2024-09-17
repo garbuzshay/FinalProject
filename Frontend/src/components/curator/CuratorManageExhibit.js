@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useMuseumContext } from "../../contexts/MuseumContext";
 
 import CuratorCreateArtwork from "./CuratorCreateArtwork";
-import ArtworkCard from "./ArtworkCard"; // Adjust the path as needed
+import ArtworkCard from "../common/ArtworkCard"; // Adjust the path as needed
 import GoBackButton from "../common/GoBackButton";
 
 const CuratorManageExhibit = () => {

@@ -3,10 +3,10 @@ import CuratorSideBar from "../components/curator/CuratorSideBar";
 import { Outlet } from "react-router-dom";
 import CuratorHeader from "../components/curator/CuratorHeader";
 import Footer from "../components/common/Footer";
-import { useDarkMode } from "../contexts/DarkModeContext";
+import { useThemeMode } from "../contexts/DarkModeContext";
 
 const CuartorPage = () => {
-  const { isDarkMode } = useDarkMode();
+  const { isDarkMode } = useThemeMode();
 
   return (
     <div className={`flex h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>

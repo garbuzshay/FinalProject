@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useMuseumContext } from "../../contexts/MuseumContext";
-import ArtworkCard from "../curator/ArtworkCard";
+import ArtworkCard from "../common/ArtworkCard";
 import MuseumOwnerCreateArtwork from "./MuseumOwnerCreateArtwork";
 import GoBackButton from "../common/GoBackButton";
 

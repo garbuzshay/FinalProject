@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ExhibitCard from "../exhibitions/ExhibitCard"; // Adjust the path as needed
+import ExhibitCard from "../common/ExhibitCard"; // Adjust the path as needed
 import { useMuseumContext } from "../../contexts/MuseumContext";
 // import QRCodeGenerator from "./QRCodeGenerator"; // Adjust the path as needed
 const MuseumOwnerExhibitionsList = () => {
