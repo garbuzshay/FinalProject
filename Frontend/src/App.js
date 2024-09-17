@@ -161,6 +161,7 @@ import { ThemeProvider } from "./contexts/DarkModeContext";
 import CuratorEditExhibition from "./components/curator/CuratorEditExhibition.js";
 import AdminEditExhibit from "./components/admin/AdminEditExhibit.js";
 import AdminStatistics from "./components/admin/AdminStatistics.js";
+import AdminViewExhibition from "./components/admin/AdminViewExhibition.js";
 
 const App = () => {
   return (
@@ -189,6 +190,7 @@ const App = () => {
           <Route path="users" element={<AdminUserList />} />
           <Route path="museums/edit-museum/:id" element={<AdminEditMuseum />} />
           <Route path="exhibitions/edit-exhibit/:id" element={<AdminEditExhibit />} />
+          <Route path="exhibitions/:id" element={<AdminViewExhibition />} />
           <Route
             path="terms-prices-packages"
             element={<AdminTermsPricesPackages />}

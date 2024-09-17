@@ -184,7 +184,7 @@ const AdminExhibitCard = ({
 
   const handleCardClick = () => {
     if (status === "open") {
-      navigate(`${id}`);
+      navigate(`/admin/exhibitions/edit-exhibit/${id}`);
     }
   };
 

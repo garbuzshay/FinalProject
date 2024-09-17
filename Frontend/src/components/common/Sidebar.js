@@ -117,8 +117,9 @@ const Sidebar = ({ links }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [touchStartX, setTouchStartX] = useState(0); // Track where the touch started
   const [dragDistance, setDragDistance] = useState(0); // Track how far the user has dragged
-  const { isDarkMode, toggleDarkMode } = useThemeMode(); // Get dark mode state
-
+  // const { isDarkMode, toggleDarkMode } = useThemeMode(); // Get dark mode state
+  const { isDarkMode } = useThemeMode(); // Get dark mode state
+  
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
     setDragDistance(0); // Reset drag distance when toggling
