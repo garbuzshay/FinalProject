@@ -245,7 +245,7 @@ const MuseumOwnerEditDetails = () => {
         <form
           onSubmit={handleSubmit(onSubmit)}
           className={`p-6 rounded-lg shadow-lg ${
-            isDarkMode ? "bg-gray-800" : "bg-white"
+            isDarkMode ? "bg-gray-800" : "bg-gray-200"
           }`}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

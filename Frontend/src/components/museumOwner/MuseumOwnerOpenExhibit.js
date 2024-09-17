@@ -538,7 +538,7 @@ const MuseumOwnerOpenExhibit = () => {
             <form
               id="exhibitionForm"
               onSubmit={handleSubmit(onSubmit)}
-              className={`mx-auto shadow p-6 sm:p-8 lg:p-12 ${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg transition-colors duration-300`}
+              className={`mx-auto shadow p-6 sm:p-8 lg:p-12 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'} rounded-lg transition-colors duration-300`}
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="mb-4">
@@ -680,7 +680,7 @@ const MuseumOwnerOpenExhibit = () => {
                 {fields.map((field, index) => (
                   <div
                     key={field.id}
-                    className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 border p-4 rounded-md shadow-sm ${isDarkMode ? "bg-gray-800 border-gray-700" : "bg-gray-50 border-gray-200"} transition-colors duration-300`}
+                    className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 border p-4 rounded-md shadow-sm ${isDarkMode ? "bg-gray-800 border-gray-700" : "bg-gray-250 border-gray-200"} transition-colors duration-300`}
                   >
                     <div>
                       <label className={`block text-sm font-bold mb-1 ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}>

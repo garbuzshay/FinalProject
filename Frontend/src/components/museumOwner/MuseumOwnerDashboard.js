@@ -616,7 +616,7 @@ const MuseumOwnerDashboard = () => {
     return (
       <div
         className={`flex justify-center items-center h-screen ${
-          isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+          isDarkMode ? "bg-gray-900 text-white" : "bg-gray-200 text-gray-900"
         }`}
       >
         <h1 className="text-2xl font-semibold">Loading...</h1>
@@ -628,7 +628,7 @@ const MuseumOwnerDashboard = () => {
     return (
       <div
         className={`flex justify-center items-center h-screen ${
-          isDarkMode ? "bg-gray-900 text-red-500" : "bg-white text-red-500"
+          isDarkMode ? "bg-gray-900 text-red-500" : "bg-gray-200 text-red-500"
         }`}
       >
         <h1 className="text-2xl font-semibold">Error: {error.message}</h1>
@@ -638,10 +638,7 @@ const MuseumOwnerDashboard = () => {
 
   return (
     <div
-      className={`container mx-auto p-4 ${
-        isDarkMode ? "bg-gray-900 text-gray-300" : "bg-white text-gray-900"
-      } transition-colors duration-300`}
-    >
+     >
       <h1
         className={`text-3xl font-bold mb-6 text-center ${
           isDarkMode ? "text-gray-200" : "text-gray-900"
@@ -653,7 +650,7 @@ const MuseumOwnerDashboard = () => {
         {chartData.pieData && (
           <div
             className={`p-4 rounded-lg shadow-md ${
-              isDarkMode ? "bg-gray-800" : "bg-white"
+              isDarkMode ? "bg-gray-800" : "bg-gray-200"
             }`}
           >
             <h2
@@ -682,12 +679,12 @@ const MuseumOwnerDashboard = () => {
         {chartData.barData && (
           <div
             className={`p-4 rounded-lg shadow-md ${
-              isDarkMode ? "bg-gray-800" : "bg-white"
+              isDarkMode ? "bg-gray-800" : "bg-gray-200"
             }`}
           >
             <h2
               className={`text-lg font-bold mb-2 text-center ${
-                isDarkMode ? "text-gray-200" : "text-gray-900"
+                isDarkMode ? "text-gray-200" : "text-gray-900 "
               }`}
             >
               Number of Artworks per Exhibition
@@ -700,7 +697,7 @@ const MuseumOwnerDashboard = () => {
         {chartData.doughnutData && (
           <div
             className={`p-4 rounded-lg shadow-md ${
-              isDarkMode ? "bg-gray-800" : "bg-white"
+              isDarkMode ? "bg-gray-800" : "bg-gray-200"
             }`}
           >
             <h2
@@ -721,7 +718,7 @@ const MuseumOwnerDashboard = () => {
         {chartData.lineData && (
           <div
             className={`p-4 rounded-lg shadow-md ${
-              isDarkMode ? "bg-gray-800" : "bg-white"
+              isDarkMode ? "bg-gray-800" : "bg-gray-200"
             }`}
           >
             <h2

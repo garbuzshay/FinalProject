@@ -12,7 +12,7 @@ const MuseumOwnerPage = () => {
 
   if (isLoading) {
     return (
-      <div className={`flex justify-center items-center h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+      <div className={`flex justify-center items-center h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-900'}`}>
         <h1 className="text-2xl font-semibold">Loading...</h1>
       </div>
     );
@@ -22,7 +22,7 @@ const MuseumOwnerPage = () => {
 
   if (isMuseumWaitingApproval) {
     return (
-      <div className={`flex justify-center items-center h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+      <div className={`flex justify-center items-center h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-900'}`}>
         <h1 className="text-2xl font-semibold">
           Waiting for admin to approve request
         </h1>
@@ -33,7 +33,7 @@ const MuseumOwnerPage = () => {
   const isMuseumOpen = museum?.status !== "closed";
 
   return (
-    <div className={`flex h-screen ${isDarkMode ? 'bg-gray-900 text-black' : 'bg-white text-gray-900'}`}> 
+    <div className={`flex h-screen ${isDarkMode ? 'bg-gray-900 text-black' : 'bg-gray-200 text-gray-900'}`}> 
       <MuseumOwnerSideBar isMuseumOpen={isMuseumOpen} />
       <div className="flex-1 flex flex-col">
         <MuseumOwnerHeader />

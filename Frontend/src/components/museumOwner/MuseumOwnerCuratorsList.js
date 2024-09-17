@@ -218,7 +218,7 @@ const MuseumOwnerCuratorsList = () => {
   return (
     <div
       className={`mx-auto p-4 overflow-y-auto ${
-        isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-white text-gray-900'
+        isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-200 text-gray-900'
       } min-h-screen transition-colors duration-300`}
     >
       <h1
@@ -231,7 +231,7 @@ const MuseumOwnerCuratorsList = () => {
       <div className="hidden md:block">
         <table
           className={`min-w-full ${
-            isDarkMode ? 'bg-gray-800' : 'bg-white'
+            isDarkMode ? 'bg-gray-800' : 'bg-gray-200'
           } rounded-lg overflow-hidden shadow-lg`}
         >
           <thead>

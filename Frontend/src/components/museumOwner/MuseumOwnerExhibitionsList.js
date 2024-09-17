@@ -43,7 +43,7 @@ const MuseumOwnerExhibitionsList = () => {
 
   return (
     <div
-      className={`container mx-auto p-4   transition-colors duration-300`}
+      className={`container mx-auto p-4  transition-colors duration-300`}
     >
       <h1
         className={`text-4xl font-extrabold mb-8 text-center ${

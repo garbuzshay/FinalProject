@@ -9,7 +9,7 @@ const CuartorPage = () => {
   const { isDarkMode } = useThemeMode();
 
   return (
-    <div className={`flex h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+    <div className={`flex h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-900'}`}>
       <CuratorSideBar />
       <div className="flex-1 flex flex-col">
         <CuratorHeader />

@@ -651,14 +651,14 @@ const MuseumOwnerEditExhibition = () => {
   };
 
   return (
-    <div className={`container mx-auto p-4 sm:p-6 md:p-8 lg:p-10 ${isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-white text-gray-900'} min-h-screen transition-colors duration-300`}>
+    <div className={`container mx-auto p-4 sm:p-6 md:p-8 lg:p-10 ${isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-200 text-gray-900'} min-h-screen transition-colors duration-300`}>
       {loading ? (
         <p className={`text-center text-2xl font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Loading...</p>
       ) : (
         <form
           id="exhibitionForm"
           onSubmit={handleSubmit(onSubmit)}
-          className={`grid grid-cols-1 gap-4 shadow p-6 sm:p-8 lg:p-12 space-y-6 rounded-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'} transition-colors duration-300`}
+          className={`grid grid-cols-1 gap-4 shadow p-6 sm:p-8 lg:p-12 space-y-6 rounded-lg ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'} transition-colors duration-300`}
         >
           {/* Exhibition Name */}
           <div className="mb-4">

@@ -331,7 +331,7 @@ const CuratorEditExhibition = () => {
     return (
       <div
         className={`flex justify-center items-center h-screen ${
-          isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+          isDarkMode ? "bg-gray-900 text-white" : "bg-gray-200 text-gray-900"
         } transition-colors duration-300`}
       >
         <p className="text-2xl font-semibold">Loading...</p>
@@ -344,7 +344,7 @@ const CuratorEditExhibition = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={`grid grid-cols-1 gap-4 shadow p-6 sm:p-8 lg:p-12 space-y-6 rounded-lg ${
-          isDarkMode ? "bg-gray-800" : "bg-white"
+          isDarkMode ? "bg-gray-800" : "bg-gray-200"
         } transition-colors duration-300`}
       >
         {/* Exhibition Name */}
