@@ -2527,3 +2527,16 @@ Use mongoose.model(name, schema)
 2024-09-22 11:42:03 [32minfo[39m: Retrieving all exhibitions
 2024-09-22 11:47:53 [32minfo[39m: Retrieving all exhibitions
 2024-09-22 11:51:11 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:54:20 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:55:44 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:58:58 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"status":"closed"}
+2024-09-22 11:58:58 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"status":"closed","curators":["66dff8a7ed28d360b1ac13fe","66e34ab5db4a5633d2fdedbe","66e2a6c283c04454e71e8711"],"closedAt":"2024-09-22T08:58:58.178Z","openedAt":null}
+2024-09-22 11:58:58 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:59:07 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"status":"open"}
+2024-09-22 11:59:07 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"status":"open","curators":["66dff8a7ed28d360b1ac13fe","66e34ab5db4a5633d2fdedbe","66e2a6c283c04454e71e8711"],"openedAt":"2024-09-22T08:59:07.980Z","closedAt":null}
+2024-09-22 11:59:08 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 12:00:15 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 12:03:38 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 12:03:42 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 12:04:27 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 12:06:11 [32minfo[39m: Retrieving all exhibitions
