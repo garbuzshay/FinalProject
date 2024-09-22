@@ -268,7 +268,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div>
+    <div className="mx-4">
       <div>
         <h1
           className={`text-4xl font-extrabold mb-8 text-center ${

@@ -31,7 +31,7 @@ const sideBarData = {
       { name: "Contact us", path: "/owner/contact-us" },
     ],
     he: [
-      { name: "לוח מחוונים של הבעלים", path: "/owner/" },
+      { name: "לוח מחוונים ", path: "/owner/" },
       { name: "ניהול תערוכות", path: "/owner/exhibitions" },
       { name: "פתח תערוכה חדשה", path: "/owner/open-exhibit" },
       { name: "האוצרים שלנו", path: "/owner/my-curators" },

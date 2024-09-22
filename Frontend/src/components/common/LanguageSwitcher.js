@@ -41,7 +41,7 @@ const LanguageSwitcher = () => {
     };
 
     return (
-        <div className="flex items-center">
+        <div className="flex items-center px-2">
             {/* <label htmlFor="language-select" className="mr-2 text-gray-800 dark:text-gray-200">
                 Language:
             </label> */}

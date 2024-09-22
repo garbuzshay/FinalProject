@@ -591,7 +591,7 @@ const MuseumOwnerOpenExhibit = () => {
 
   return (
     <div
-      className={`container mx-auto p-4 min-h-screen transition-colors duration-300 ${
+      className={`container mx-auto p-8 min-h-screen transition-colors duration-300 ${
         isHebrew ? "text-right" : ""
       }`}
     >

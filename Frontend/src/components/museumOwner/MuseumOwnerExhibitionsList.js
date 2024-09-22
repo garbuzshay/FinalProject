@@ -265,7 +265,7 @@ const MuseumOwnerExhibitionsList = () => {
         {/* Adjust button order based on language */}
         <button
           onClick={() => setFilter("all")}
-          className={`px-4 py-2 rounded ${
+          className={`px-4 py-2 rounded ml-2  ${
             filter === "all"
               ? isDarkMode
                 ? "bg-blue-600 text-white"
@@ -273,7 +273,7 @@ const MuseumOwnerExhibitionsList = () => {
               : isDarkMode
               ? "bg-gray-700 text-gray-300 hover:bg-gray-600"
               : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-          } transition-colors duration-300`}
+          } transition-colors duration-300`   }
         >
           {t.showAll}
         </button>

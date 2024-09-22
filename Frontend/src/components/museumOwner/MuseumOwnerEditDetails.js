@@ -441,7 +441,7 @@ const MuseumOwnerEditDetails = () => {
   const museumUrl = `https://mensch-visitors.vercel.app/${encodeURIComponent(museum?.name)}`;
 
   return (
-    <div>
+    <div className='mx-8'>
       <div>
         <h1 className={`text-4xl font-extrabold mb-8 text-center ${isDarkMode ? "text-white" : "text-gray-900"}`}>
           {t.editDetailsTitle}

@@ -294,7 +294,7 @@ const EmployeeExhibitCard = ({
     <div
       className={`max-w-sm w-full rounded overflow-hidden shadow-lg m-4 transform transition duration-500 ${
         status === "open" ? "cursor-pointer hover:scale-105" : "cursor-default"
-      } ${isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"} ${
+      } ${isDarkMode ? "bg-gray-800 text-gray-300" : "bg-gray-50 text-gray-900"} ${
         isHebrew ? "text-right" : "text-left"
       }`} // Set text alignment
       dir={isHebrew ? "rtl" : "ltr"} // Set RTL direction for Hebrew

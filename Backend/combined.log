@@ -2557,3 +2557,13 @@ Use mongoose.model(name, schema)
 2024-09-22 17:09:25 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!","description":"Embark on a musical odyssey, tracing the threads of sound across civilizations and centuries. \"Harmonic Journeys!\" unveils the captivating evolution of music from ancient beginnings to modern masterpieces. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
 2024-09-22 17:09:25 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!","description":"Embark on a musical odyssey, tracing the threads of sound across civilizations and centuries. \"Harmonic Journeys!\" unveils the captivating evolution of music from ancient beginnings to modern masterpieces. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fe","66e34ab5db4a5633d2fdedbe","66e2a6c283c04454e71e8711"]}
 2024-09-22 17:09:26 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-22 18:33:17 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-22 18:38:42 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 18:40:02 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 18:40:04 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 18:41:12 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 18:41:37 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 18:47:08 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 18:47:57 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 18:48:00 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 18:56:01 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
