@@ -2490,3 +2490,40 @@ Use mongoose.model(name, schema)
 2024-09-17 19:55:27 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!","description":"Embark on a musical odyssey, tracing the threads of sound across civilizations and centuries. \"Harmonic Journeys!\" unveils the captivating evolution of music from ancient beginnings to modern masterpieces. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
 2024-09-17 19:55:27 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!","description":"Embark on a musical odyssey, tracing the threads of sound across civilizations and centuries. \"Harmonic Journeys!\" unveils the captivating evolution of music from ancient beginnings to modern masterpieces. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fe","66e34ab5db4a5633d2fdedbe","66e2a6c283c04454e71e8711"]}
 2024-09-17 19:55:27 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-09-22 09:56:48 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:16:50 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:16:59 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:18:51 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:21:05 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:22:13 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:23:52 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:24:02 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:24:08 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:25:12 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:27:23 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:27:28 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:27:39 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:27:50 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:29:01 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:29:16 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:29:20 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:35:47 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:35:52 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:47:31 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:50:41 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 10:51:33 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:02:00 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:07:48 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:09:37 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:13:27 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:13:55 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:15:10 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:18:43 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:22:08 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:26:00 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:34:18 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:37:03 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:37:20 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:42:03 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:47:53 [32minfo[39m: Retrieving all exhibitions
+2024-09-22 11:51:11 [32minfo[39m: Retrieving all exhibitions

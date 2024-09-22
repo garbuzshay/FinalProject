@@ -1,12 +1,14 @@
 // import React, { useState } from "react";
 // import { Link } from "react-router-dom";
-// import { useThemeMode } from "../../contexts/DarkModeContext";
+// import { useThemeMode } from "../../contexts/DarkModeContext"; // Import Dark Mode context
+
 // const Sidebar = ({ links }) => {
 //   const [isOpen, setIsOpen] = useState(true);
 //   const [touchStartX, setTouchStartX] = useState(0); // Track where the touch started
 //   const [dragDistance, setDragDistance] = useState(0); // Track how far the user has dragged
-//   const { isDarkMode, toggleDarkMode } = useThemeMode(); // Get dark mode state
-
+//   // const { isDarkMode, toggleDarkMode } = useThemeMode(); // Get dark mode state
+//   const { isDarkMode } = useThemeMode(); // Get dark mode state
+  
 //   const toggleSidebar = () => {
 //     setIsOpen(!isOpen);
 //     setDragDistance(0); // Reset drag distance when toggling
@@ -44,12 +46,13 @@
 //           onTouchStart={handleTouchStart}
 //           onTouchMove={handleTouchMove}
 //           onTouchEnd={handleTouchEnd}
-//           className={`bg-gray-900 text-white p-6 shadow-xl transition-all duration-300 ease-in-out
+//           className={`p-6 shadow-xl transition-all duration-300 ease-in-out
 //           ${isOpen ? "w-64 md:w-64 sm:w-48" : "w-0"} 
 //           ${isOpen ? "fixed md:relative" : "fixed"} 
-//          h-screen z-50 transform md:translate-x-0 
+//           h-screen z-50 transform md:translate-x-0 
 //           ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
-//           sm:max-w-full rounded-r-lg`}
+//           sm:max-w-full rounded-r-lg
+//           ${isDarkMode ? "bg-gray-900 text-white" : "bg-gray-300 text-black"}`} // Apply dark mode styles
 //           style={{
 //             transform: `translateX(${dragDistance}px)`, // Apply the drag distance to the transform
 //             transition: dragDistance ? 'none' : 'transform 0.3s ease', // Disable transition while dragging, enable it after release
@@ -81,16 +84,17 @@
 //                     </li>
 //                   ))}
 //                   {/* Close Sidebar Link for mobile */}
-//                   <li className="sm:block lg:hidden mt-8">
+//                   {/* <li className="sm:block lg:hidden mt-8">
 //                     <button
 //                       onClick={toggleSidebar}
 //                       className="block w-full text-lg font-semibold bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors duration-300"
 //                     >
 //                       Close Sidebar
 //                     </button>
-//                   </li>
+//                   </li> */}
 //                 </ul>
 //               </nav>
+    
 //             </>
 //           )}
 //         </div>
@@ -109,17 +113,23 @@
 
 // export default Sidebar;
 
+
+
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useThemeMode } from "../../contexts/DarkModeContext"; // Import Dark Mode context
+import { useLang } from "../../contexts/LangContext"; // Import Language context
 
 const Sidebar = ({ links }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [touchStartX, setTouchStartX] = useState(0); // Track where the touch started
   const [dragDistance, setDragDistance] = useState(0); // Track how far the user has dragged
-  // const { isDarkMode, toggleDarkMode } = useThemeMode(); // Get dark mode state
   const { isDarkMode } = useThemeMode(); // Get dark mode state
-  
+  const { language } = useLang(); // Get current language
+
+  const isHebrew = language === "he"; // Check if the current language is Hebrew
+
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
     setDragDistance(0); // Reset drag distance when toggling
@@ -132,16 +142,16 @@ const Sidebar = ({ links }) => {
 
   const handleTouchMove = (e) => {
     const touchCurrentX = e.touches[0].clientX;
-    const dragDelta = touchCurrentX - touchStartX; // Calculate how far the user has dragged
+    const dragDelta = isHebrew ? touchStartX - touchCurrentX : touchCurrentX - touchStartX; // Drag left or right based on language
 
-    // Only update the drag distance if dragging left
+    // Only update the drag distance if dragging in the correct direction (left for English, right for Hebrew)
     if (dragDelta < 0) {
       setDragDistance(dragDelta);
     }
   };
 
   const handleTouchEnd = () => {
-    // Close the sidebar if the drag distance exceeds -100px (i.e., dragged far enough to the left)
+    // Close the sidebar if the drag distance exceeds -100px (i.e., dragged far enough to close)
     if (dragDistance < -100) {
       setIsOpen(false);
     }
@@ -161,17 +171,19 @@ const Sidebar = ({ links }) => {
           ${isOpen ? "w-64 md:w-64 sm:w-48" : "w-0"} 
           ${isOpen ? "fixed md:relative" : "fixed"} 
           h-screen z-50 transform md:translate-x-0 
-          ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
-          sm:max-w-full rounded-r-lg
-          ${isDarkMode ? "bg-gray-900 text-white" : "bg-gray-300 text-black"}`} // Apply dark mode styles
+          ${isOpen ? "translate-x-0" : `${isHebrew ? "translate-x-full" : "-translate-x-full"} md:translate-x-0`}
+          sm:max-w-full ${isHebrew ? "rounded-l-lg right-0" : "rounded-r-lg left-0"}
+          ${isDarkMode ? "bg-gray-900 text-white" : "bg-gray-300 text-black"}`}
           style={{
             transform: `translateX(${dragDistance}px)`, // Apply the drag distance to the transform
-            transition: dragDistance ? 'none' : 'transform 0.3s ease', // Disable transition while dragging, enable it after release
+            transition: dragDistance ? "none" : "transform 0.3s ease", // Disable transition while dragging, enable it after release
+            [isHebrew ? "right" : "left"]: 0, // Position the sidebar based on the language
           }}
         >
+          {/* Close Button */}
           <button
             onClick={toggleSidebar}
-            className="text-white absolute top-4 left-4 hover:text-red-500 transition-colors duration-300 hidden sm:block"
+            className={`text-white absolute top-4 ${isHebrew ? "right-4" : "left-4"} hover:text-red-500 transition-colors duration-300 hidden sm:block`}
           >
             ✕
           </button>
@@ -179,11 +191,11 @@ const Sidebar = ({ links }) => {
           {/* Sidebar Links */}
           {links && links.length > 0 && (
             <>
-              <h2 className="text-2xl font-semibold mb-8 sm:text-xl border-b border-gray-700 pb-4">
+              <h2 className={`text-2xl font-semibold mb-8 sm:text-xl border-b border-gray-700 pb-4 ${isHebrew ? "text-right" : "text-left"}`}>
                 <Link to={links[0].path}>{links[0].name}</Link>
               </h2>
               <nav>
-                <ul className="space-y-6">
+                <ul className={`space-y-6 ${isHebrew ? "text-right" : "text-left"}`}>
                   {links.slice(1).map((link, index) => (
                     <li key={index}>
                       <Link
@@ -194,26 +206,15 @@ const Sidebar = ({ links }) => {
                       </Link>
                     </li>
                   ))}
-                  {/* Close Sidebar Link for mobile */}
-                  {/* <li className="sm:block lg:hidden mt-8">
-                    <button
-                      onClick={toggleSidebar}
-                      className="block w-full text-lg font-semibold bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors duration-300"
-                    >
-                      Close Sidebar
-                    </button>
-                  </li> */}
                 </ul>
               </nav>
-    
             </>
           )}
         </div>
       ) : (
         <button
           onClick={toggleSidebar}
-          className="absolute z-50 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-4 py-2 rounded-r-lg shadow-lg hover:bg-gray-800 transition-colors duration-300"
-          style={{ left: 0 }}
+          className={`absolute z-50 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-4 py-2 ${isHebrew ? "rounded-l-lg right-0" : "rounded-r-lg left-0"} shadow-lg hover:bg-gray-800 transition-colors duration-300`}
         >
           ☰
         </button>

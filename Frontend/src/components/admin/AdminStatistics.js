@@ -1,3 +1,4 @@
+
 // import React, { useEffect, useState } from "react";
 // import { Bar, Line } from "react-chartjs-2";
 // import {
@@ -12,6 +13,7 @@
 //   Legend,
 // } from "chart.js";
 // import { useAdminContext } from "../../contexts/AdminContext";
+// import { useThemeMode } from "../../contexts/DarkModeContext"; // Import the dark mode context
 
 // // Register chart components
 // ChartJS.register(
@@ -26,26 +28,29 @@
 // );
 
 // const AdminStatistics = () => {
+//   const { isDarkMode } = useThemeMode(); // Get dark mode state
 //   const { museumsData, exhibitionsData, usersData, plansData } = useAdminContext();
-//   const { museums = [] } = museumsData || {}; // Fallback to empty array
-//   const { exhibitions = [] } = exhibitionsData || {}; // Fallback to empty array
-//   const { users = [] } = usersData || {}; // Fallback to empty array
-//   const { plans = [] } = plansData || {}; // Fallback to empty array
+//   const { museums = [] } = museumsData || {};
+//   const { exhibitions = [] } = exhibitionsData || {};
+//   const { users = [] } = usersData || {};
+//   const { plans = [] } = plansData || {};
 
 //   const [exhibitionsByMuseumStatus, setExhibitionsByMuseumStatus] = useState(null);
 //   const [userGrowth, setUserGrowth] = useState(null);
-//   const [exhibitionGrowth, setExhibitionGrowth] = useState(null); // New state for exhibitions over time
+//   const [exhibitionGrowth, setExhibitionGrowth] = useState(null);
 
 //   useEffect(() => {
 //     if (museums.length && exhibitions.length && users.length && plans.length) {
-//       // Prepare Exhibitions by Museum Status
+//       // Prepare data for charts
 //       const exhibitionsByMuseum = museums.map((museum) => {
 //         const openExhibitions = exhibitions.filter(
-//           (exhibition) => exhibition.museum._id === museum._id && exhibition.status === "open"
+//           (exhibition) =>
+//             exhibition.museum._id === museum._id && exhibition.status === "open"
 //         ).length;
 
 //         const closedExhibitions = exhibitions.filter(
-//           (exhibition) => exhibition.museum._id === museum._id && exhibition.status === "closed"
+//           (exhibition) =>
+//             exhibition.museum._id === museum._id && exhibition.status === "closed"
 //         ).length;
 
 //         return {
@@ -77,13 +82,13 @@
 //         ],
 //       });
 
-//       // Prepare User Growth Data
+//       // Prepare user growth data
 //       const userRegistrations = users.reduce((acc, user) => {
 //         const createdAt = new Date(user.createdAt).toLocaleDateString();
 //         if (!acc[createdAt]) {
 //           acc[createdAt] = [];
 //         }
-//         acc[createdAt].push(user); // Store user details on the date
+//         acc[createdAt].push(user);
 //         return acc;
 //       }, {});
 
@@ -96,15 +101,17 @@
 //         datasets: [
 //           {
 //             label: "User Registrations Over Time",
-//             data: sortedUserRegistrationDates.map(date => userRegistrations[date].length),
+//             data: sortedUserRegistrationDates.map(
+//               (date) => userRegistrations[date].length
+//             ),
 //             fill: false,
 //             borderColor: "#4BC0C0",
 //           },
 //         ],
-//         usersByDate: userRegistrations, // Store user information for tooltips
+//         usersByDate: userRegistrations,
 //       });
 
-//       // Prepare Exhibitions Growth Data
+//       // Prepare exhibition growth data
 //       const exhibitionOpenings = exhibitions.reduce((acc, exhibition) => {
 //         const openedAt = exhibition.openedAt
 //           ? new Date(exhibition.openedAt).toLocaleDateString()
@@ -114,7 +121,7 @@
 //           if (!acc[openedAt]) {
 //             acc[openedAt] = [];
 //           }
-//           acc[openedAt].push(exhibition); // Store exhibition details on the openedAt date
+//           acc[openedAt].push(exhibition);
 //         }
 //         return acc;
 //       }, {});
@@ -129,22 +136,21 @@
 //           {
 //             label: "Exhibitions Over Time",
 //             data: sortedExhibitionOpeningDates.map(
-//               date => exhibitionOpenings[date].length
+//               (date) => exhibitionOpenings[date].length
 //             ),
 //             fill: false,
 //             borderColor: "#FF6384",
 //           },
 //         ],
-//         exhibitionsByDate: exhibitionOpenings, // Store exhibition information for tooltips
+//         exhibitionsByDate: exhibitionOpenings,
 //       });
 //     }
 //   }, [museums, exhibitions, users, plans]);
 
 //   if (!exhibitionsByMuseumStatus || !userGrowth || !exhibitionGrowth) {
-//     return <div>Loading statistics...</div>; // Show loading state
+//     return <div>Loading statistics...</div>;
 //   }
 
-//   // Tooltip Options for Exhibitions by Museum Status (default tooltips)
 //   const defaultTooltipOptions = {
 //     responsive: true,
 //     maintainAspectRatio: false,
@@ -157,23 +163,22 @@
 //       y: {
 //         ticks: {
 //           beginAtZero: true,
-//           stepSize: 1, // Y-axis will increment by whole numbers
+//           stepSize: 1,
 //         },
 //       },
 //       x: {
 //         ticks: {
-//           maxRotation: 45, // Rotation to handle long labels
-//           minRotation: 0,  // Min rotation for larger screens
-//           autoSkip: false, // Prevents skipping labels
+//           maxRotation: 45,
+//           minRotation: 0,
+//           autoSkip: false,
 //           font: {
-//             size: 10, // Adjust label font size for responsiveness
+//             size: 10,
 //           },
 //         },
 //       },
 //     },
 //   };
 
-//   // Custom Tooltip Options for User Registrations (to show name and role)
 //   const userGrowthTooltipOptions = {
 //     responsive: true,
 //     maintainAspectRatio: false,
@@ -183,14 +188,11 @@
 //       },
 //       tooltip: {
 //         callbacks: {
-//           // Customize the tooltip for User Registrations
 //           label: function (tooltipItem) {
-//             const date = tooltipItem.label; // Date being hovered
-//             const usersOnDate = userGrowth.usersByDate[date]; // Get users on the hovered date
-
-//             // Show each user’s name and role in the tooltip
+//             const date = tooltipItem.label;
+//             const usersOnDate = userGrowth.usersByDate[date];
 //             return usersOnDate
-//               .map(user => `${user.name} (${user.role?.roleName || "No Role"})`)
+//               .map((user) => `${user.name} (${user.role?.roleName || "No Role"})`)
 //               .join("\n");
 //           },
 //         },
@@ -200,13 +202,12 @@
 //       y: {
 //         ticks: {
 //           beginAtZero: true,
-//           stepSize: 1, // Y-axis will increment by whole numbers
+//           stepSize: 1,
 //         },
 //       },
 //     },
 //   };
 
-//   // Custom Tooltip Options for Exhibitions Over Time (to show exhibition and museum)
 //   const exhibitionGrowthTooltipOptions = {
 //     responsive: true,
 //     maintainAspectRatio: false,
@@ -216,16 +217,16 @@
 //       },
 //       tooltip: {
 //         callbacks: {
-//           // Customize the tooltip for Exhibitions Over Time
 //           label: function (tooltipItem) {
-//             const date = tooltipItem.label; // Date being hovered
-//             const exhibitionsOnDate = exhibitionGrowth.exhibitionsByDate[date]; // Get exhibitions on the hovered date
-
-//             // Show each exhibition’s name and associated museum in the tooltip
+//             const date = tooltipItem.label;
+//             const exhibitionsOnDate =
+//               exhibitionGrowth.exhibitionsByDate[date];
 //             return exhibitionsOnDate
 //               .map(
-//                 exhibition =>
-//                   `${exhibition.name} (Museum: ${exhibition.museum?.name || "No Museum"})`
+//                 (exhibition) =>
+//                   `${exhibition.name} (Museum: ${
+//                     exhibition.museum?.name || "No Museum"
+//                   })`
 //               )
 //               .join("\n");
 //           },
@@ -236,19 +237,27 @@
 //       y: {
 //         ticks: {
 //           beginAtZero: true,
-//           stepSize: 1, // Y-axis will increment by whole numbers
+//           stepSize: 1,
 //         },
 //       },
 //     },
 //   };
 
 //   return (
-//     <div className="p-4">
+//     <div
+//       className={`p-4 min-h-screen ${
+//         isDarkMode ? "bg-gray-900 text-gray-300" : " text-gray-900"
+//       } transition-colors duration-300`}
+//     >
 //       <h2 className="text-2xl font-semibold mb-6">Admin Statistics Dashboard</h2>
 
 //       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 //         {/* Exhibitions by Museum Status */}
-//         <div className="bg-white p-4 rounded-lg shadow-md col-span-1 md:col-span-2">
+//         <div
+//           className={`${
+//             isDarkMode ? "bg-gray-800 text-gray-300" : " text-gray-900"
+//           } p-4 rounded-lg shadow-md col-span-1 md:col-span-2`}
+//         >
 //           <h3 className="text-lg font-bold mb-4">Exhibitions by Museum Status</h3>
 //           <div className="h-64">
 //             <Bar data={exhibitionsByMuseumStatus} options={defaultTooltipOptions} />
@@ -256,7 +265,11 @@
 //         </div>
 
 //         {/* User Registrations Over Time */}
-//         <div className="bg-white p-4 rounded-lg shadow-md col-span-1 md:col-span-2">
+//         <div
+//           className={`${
+//             isDarkMode ? "bg-gray-800 text-gray-300" : " text-gray-900"
+//           } p-4 rounded-lg shadow-md col-span-1 md:col-span-2`}
+//         >
 //           <h3 className="text-lg font-bold mb-4">User Registrations Over Time</h3>
 //           <div className="h-64">
 //             <Line data={userGrowth} options={userGrowthTooltipOptions} />
@@ -264,7 +277,11 @@
 //         </div>
 
 //         {/* Exhibitions Over Time */}
-//         <div className="bg-white p-4 rounded-lg shadow-md col-span-1 md:col-span-2">
+//         <div
+//           className={`${
+//             isDarkMode ? "bg-gray-800 text-gray-300" : " text-gray-900"
+//           } p-4 rounded-lg shadow-md col-span-1 md:col-span-2`}
+//         >
 //           <h3 className="text-lg font-bold mb-4">Exhibitions Over Time</h3>
 //           <div className="h-64">
 //             <Line data={exhibitionGrowth} options={exhibitionGrowthTooltipOptions} />
@@ -293,6 +310,7 @@ import {
 } from "chart.js";
 import { useAdminContext } from "../../contexts/AdminContext";
 import { useThemeMode } from "../../contexts/DarkModeContext"; // Import the dark mode context
+import { useLang } from "../../contexts/LangContext"; // Import the language context
 
 // Register chart components
 ChartJS.register(
@@ -308,6 +326,8 @@ ChartJS.register(
 
 const AdminStatistics = () => {
   const { isDarkMode } = useThemeMode(); // Get dark mode state
+  const { language } = useLang(); // Get language state
+  const isHebrew = language === "he"; // Check if the language is Hebrew
   const { museumsData, exhibitionsData, usersData, plansData } = useAdminContext();
   const { museums = [] } = museumsData || {};
   const { exhibitions = [] } = exhibitionsData || {};
@@ -333,7 +353,7 @@ const AdminStatistics = () => {
         ).length;
 
         return {
-          museum: `${museum.name} (Max Exhibitions:${museum.plan.maxExhibitions})`,
+          museum: `${museum.name} (${isHebrew ? "מקסימום תערוכות" : "Max Exhibitions"}: ${museum.plan.maxExhibitions})`,
           openExhibitions,
           closedExhibitions,
         };
@@ -347,13 +367,13 @@ const AdminStatistics = () => {
         labels,
         datasets: [
           {
-            label: "Open Exhibitions",
+            label: isHebrew ? "תערוכות פתוחות" : "Open Exhibitions",
             data: openData,
             backgroundColor: "#36A2EB",
             hoverBackgroundColor: "#36A2EB",
           },
           {
-            label: "Closed Exhibitions",
+            label: isHebrew ? "תערוכות סגורות" : "Closed Exhibitions",
             data: closedData,
             backgroundColor: "#FF6384",
             hoverBackgroundColor: "#FF6384",
@@ -379,7 +399,7 @@ const AdminStatistics = () => {
         labels: sortedUserRegistrationDates,
         datasets: [
           {
-            label: "User Registrations Over Time",
+            label: isHebrew ? "ההרשמות משתמש לאורך זמן" : "User Registrations Over Time",
             data: sortedUserRegistrationDates.map(
               (date) => userRegistrations[date].length
             ),
@@ -413,7 +433,7 @@ const AdminStatistics = () => {
         labels: sortedExhibitionOpeningDates,
         datasets: [
           {
-            label: "Exhibitions Over Time",
+            label: isHebrew ? "תערוכות לאורך זמן" : "Exhibitions Over Time",
             data: sortedExhibitionOpeningDates.map(
               (date) => exhibitionOpenings[date].length
             ),
@@ -424,10 +444,10 @@ const AdminStatistics = () => {
         exhibitionsByDate: exhibitionOpenings,
       });
     }
-  }, [museums, exhibitions, users, plans]);
+  }, [museums, exhibitions, users, plans, isHebrew]);
 
   if (!exhibitionsByMuseumStatus || !userGrowth || !exhibitionGrowth) {
-    return <div>Loading statistics...</div>;
+    return <div>{isHebrew ? "טוען סטטיסטיקות..." : "Loading statistics..."}</div>;
   }
 
   const defaultTooltipOptions = {
@@ -471,7 +491,7 @@ const AdminStatistics = () => {
             const date = tooltipItem.label;
             const usersOnDate = userGrowth.usersByDate[date];
             return usersOnDate
-              .map((user) => `${user.name} (${user.role?.roleName || "No Role"})`)
+              .map((user) => `${user.name} (${user.role?.roleName || (isHebrew ? "ללא תפקיד" : "No Role")})`)
               .join("\n");
           },
         },
@@ -498,13 +518,12 @@ const AdminStatistics = () => {
         callbacks: {
           label: function (tooltipItem) {
             const date = tooltipItem.label;
-            const exhibitionsOnDate =
-              exhibitionGrowth.exhibitionsByDate[date];
+            const exhibitionsOnDate = exhibitionGrowth.exhibitionsByDate[date];
             return exhibitionsOnDate
               .map(
                 (exhibition) =>
-                  `${exhibition.name} (Museum: ${
-                    exhibition.museum?.name || "No Museum"
+                  `${exhibition.name} ( ${isHebrew ? "מוזיאון" : "Museum"}: ${
+                    exhibition.museum?.name || (isHebrew ? "אין מוזיאון" : "No Museum")
                   })`
               )
               .join("\n");
@@ -528,7 +547,9 @@ const AdminStatistics = () => {
         isDarkMode ? "bg-gray-900 text-gray-300" : " text-gray-900"
       } transition-colors duration-300`}
     >
-      <h2 className="text-2xl font-semibold mb-6">Admin Statistics Dashboard</h2>
+      <h2 className="text-2xl font-semibold mb-6">
+        {isHebrew ? "לוח ניהול סטטיסטיקות" : "Admin Statistics Dashboard"}
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Exhibitions by Museum Status */}
@@ -537,7 +558,9 @@ const AdminStatistics = () => {
             isDarkMode ? "bg-gray-800 text-gray-300" : " text-gray-900"
           } p-4 rounded-lg shadow-md col-span-1 md:col-span-2`}
         >
-          <h3 className="text-lg font-bold mb-4">Exhibitions by Museum Status</h3>
+          <h3 className="text-lg font-bold mb-4">
+            {isHebrew ? "תערוכות לפי סטטוס מוזיאון" : "Exhibitions by Museum Status"}
+          </h3>
           <div className="h-64">
             <Bar data={exhibitionsByMuseumStatus} options={defaultTooltipOptions} />
           </div>
@@ -549,7 +572,9 @@ const AdminStatistics = () => {
             isDarkMode ? "bg-gray-800 text-gray-300" : " text-gray-900"
           } p-4 rounded-lg shadow-md col-span-1 md:col-span-2`}
         >
-          <h3 className="text-lg font-bold mb-4">User Registrations Over Time</h3>
+          <h3 className="text-lg font-bold mb-4">
+            {isHebrew ? "הרשמות משתמשים לאורך זמן" : "User Registrations Over Time"}
+          </h3>
           <div className="h-64">
             <Line data={userGrowth} options={userGrowthTooltipOptions} />
           </div>
@@ -561,7 +586,9 @@ const AdminStatistics = () => {
             isDarkMode ? "bg-gray-800 text-gray-300" : " text-gray-900"
           } p-4 rounded-lg shadow-md col-span-1 md:col-span-2`}
         >
-          <h3 className="text-lg font-bold mb-4">Exhibitions Over Time</h3>
+          <h3 className="text-lg font-bold mb-4">
+            {isHebrew ? "תערוכות לאורך זמן" : "Exhibitions Over Time"}
+          </h3>
           <div className="h-64">
             <Line data={exhibitionGrowth} options={exhibitionGrowthTooltipOptions} />
           </div>
