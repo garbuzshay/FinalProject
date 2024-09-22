@@ -1,8 +1,25 @@
+// Frontend\src\components\QRCodeGenerator.js
 import React, { useRef } from "react";
 import { QRCodeCanvas } from "qrcode.react";
+import { useLang } from "../../contexts/LangContext"; // Import Language Context
 
 const QRCodeGenerator = ({ url, fileName }) => {
   const qrCodeRef = useRef(null);
+  const { language } = useLang(); // Get the current language from LangContext
+  const isHebrew = language === "he"; // Check if the language is Hebrew
+
+  // Translations for the button text
+  const translations = {
+    en: {
+      getQRCode: "Get QR code",
+    },
+    he: {
+      getQRCode: "קבל קוד QR",
+    },
+  };
+
+  // Get the correct translation based on the current language
+  const t = translations[language];
 
   const downloadQRCode = () => {
     const canvas = qrCodeRef.current.querySelector("canvas");
@@ -18,7 +35,10 @@ const QRCodeGenerator = ({ url, fileName }) => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div
+      className={`flex flex-col items-center ${isHebrew ? "text-right" : "text-left"}`} // Set text alignment based on language
+      dir={isHebrew ? "rtl" : "ltr"} // Set the direction to RTL for Hebrew
+    >
       <div ref={qrCodeRef} className="hidden">
         <QRCodeCanvas
           id="qrCode"
@@ -35,7 +55,7 @@ const QRCodeGenerator = ({ url, fileName }) => {
         onClick={downloadQRCode}
         className="mt-4 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow hover:bg-blue-600 transition duration-200"
       >
-        Get QR code
+        {t.getQRCode} {/* Display translated "Get QR code" */}
       </button>
     </div>
   );

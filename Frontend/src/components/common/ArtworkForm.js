@@ -1,9 +1,11 @@
+
 // import React, { useEffect, useState } from "react";
 // import { useForm } from "react-hook-form";
 // import FormConfirmButton from "../common/FormConfirmButton";
 // import geminiApi from "../../api/GeminiApi"; // Ensure the correct path
 // import SpeechToText from "./SpeechToText"; // Import SpeechToText component
 // import { uploadFile } from "./FileUpload";
+// import { useThemeMode } from '../../contexts/DarkModeContext'; // Import Theme Context
 
 // const ArtworkForm = ({
 //   onSubmit,
@@ -34,6 +36,8 @@
 //   const [url, setUrl] = useState(initialData.imageUrl || ""); // Use initialData imageUrl if in edit mode
 //   const [progress, setProgress] = useState(0);
 //   const [uploading, setUploading] = useState(false);
+
+//   const { isDarkMode } = useThemeMode(); // Destructure isDarkMode
 
 //   useEffect(() => {
 //     if (initialData) {
@@ -82,8 +86,12 @@
 //       if (formType === "create") {
 //         reset(); // Reset the form after a successful creation
 //       }
+//       if (onSuccess) {
+//         onSuccess(); // Call onSuccess callback if provided
+//       }
 //     } catch (error) {
 //       console.error("There was an error submitting the form!", error);
+//       alert("Failed to submit the form. Please try again.");
 //     }
 //   };
 
@@ -92,6 +100,7 @@
 //       await onDelete();
 //     } catch (error) {
 //       console.error("There was an error deleting the artwork!", error);
+//       alert("Failed to delete the artwork. Please try again.");
 //     }
 //   };
 
@@ -115,27 +124,44 @@
 //         (error) => {
 //           console.error("Upload failed: ", error); // Log the error
 //           setUploading(false); // End the upload state
+//           alert("Failed to upload the image. Please try again.");
 //         }
 //       );
 //     }
 //   };
 
 //   return (
-//     <div className="mt-10 border rounded-lg shadow-md p-4 lg:p-8">
-//       <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-center">
+//     <div>
+//       <h2
+//         className={`text-2xl lg:text-3xl font-bold mb-4 text-center ${
+//           isDarkMode ? "text-white" : "text-gray-900"
+//         }`}
+//       >
 //         {formType === "edit" ? "Edit Artwork" : "Create New Artwork"}
 //       </h2>
-//       <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-4">
+//       <form
+//         onSubmit={handleSubmit(handleFormSubmit)}
+//         className={`space-y-4  mx-8 ${
+//           isDarkMode ? "text-gray-300" : "text-gray-900"
+//         }`}
+//       >
+//         {/* Title */}
 //         <div className="w-full">
 //           <label
-//             className="block text-gray-700 text-sm font-bold mb-2"
+//             className={`block text-sm font-bold mb-2 ${
+//               isDarkMode ? "text-gray-300" : "text-gray-700"
+//             }`}
 //             htmlFor="title"
 //           >
 //             Title
 //           </label>
 //           <input
-//             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-//               errors.title ? "border-red-500" : ""
+//             className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
+//               errors.title
+//                 ? "border-red-500"
+//                 : isDarkMode
+//                 ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
+//                 : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
 //             }`}
 //             id="title"
 //             type="text"
@@ -146,16 +172,23 @@
 //           )}
 //         </div>
 
+//         {/* Artist Name */}
 //         <div className="w-full">
 //           <label
-//             className="block text-gray-700 text-sm font-bold mb-2"
+//             className={`block text-sm font-bold mb-2 ${
+//               isDarkMode ? "text-gray-300" : "text-gray-700"
+//             }`}
 //             htmlFor="artist"
 //           >
 //             Artist Name
 //           </label>
 //           <input
-//             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-//               errors.artist ? "border-red-500" : ""
+//             className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
+//               errors.artist
+//                 ? "border-red-500"
+//                 : isDarkMode
+//                 ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
+//                 : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
 //             }`}
 //             id="artist"
 //             type="text"
@@ -168,16 +201,23 @@
 //           )}
 //         </div>
 
+//         {/* Created Date by Artist */}
 //         <div className="w-full">
 //           <label
-//             className="block text-gray-700 text-sm font-bold mb-2"
+//             className={`block text-sm font-bold mb-2 ${
+//               isDarkMode ? "text-gray-300" : "text-gray-700"
+//             }`}
 //             htmlFor="createdDateByArtist"
 //           >
 //             Created Date by Artist
 //           </label>
 //           <input
-//             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-//               errors.createdDateByArtist ? "border-red-500" : ""
+//             className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
+//               errors.createdDateByArtist
+//                 ? "border-red-500"
+//                 : isDarkMode
+//                 ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
+//                 : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
 //             }`}
 //             id="createdDateByArtist"
 //             type="date"
@@ -193,7 +233,9 @@
 //         {/* Image Upload Section */}
 //         <div className="w-full">
 //           <label
-//             className="block text-gray-700 text-sm font-bold mb-2"
+//             className={`block text-sm font-bold mb-2 ${
+//               isDarkMode ? "text-gray-300" : "text-gray-700"
+//             }`}
 //             htmlFor="imageUrl"
 //           >
 //             Image Upload
@@ -203,10 +245,18 @@
 //             onChange={handleFileChange}
 //             className="block w-full"
 //           />
-//           {uploading && <p className="mt-2">Progress: {progress}%</p>}
+//           {uploading && (
+//             <p className={`mt-2 ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
+//               Progress: {progress}%
+//             </p>
+//           )}
 //           {url && (
 //             <div className="mt-4 flex flex-col items-center">
-//               <p>
+//               <p
+//                 className={`${
+//                   isDarkMode ? "text-gray-300" : "text-gray-700"
+//                 }`}
+//               >
 //                 {formType === "edit" && !file
 //                   ? "Existing Image:"
 //                   : "Uploaded Image:"}
@@ -228,16 +278,23 @@
 //           )}
 //         </div>
 
+//         {/* Description */}
 //         <div className="w-full">
 //           <label
-//             className="block text-gray-700 text-sm font-bold mb-2"
+//             className={`block text-sm font-bold mb-2 ${
+//               isDarkMode ? "text-gray-300" : "text-gray-700"
+//             }`}
 //             htmlFor="description"
 //           >
 //             Description
 //           </label>
 //           <textarea
-//             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-//               errors.description ? "border-red-500" : ""
+//             className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
+//               errors.description
+//                 ? "border-red-500"
+//                 : isDarkMode
+//                 ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
+//                 : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
 //             }`}
 //             id="description"
 //             {...register("description", { required: true })}
@@ -254,7 +311,9 @@
 //           <button
 //             type="button"
 //             onClick={() => setShowSpeechToText(!showSpeechToText)}
-//             className=" bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+//             className={`bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+//               isDarkMode ? "bg-gray-700 hover:bg-blue-800" : ""
+//             } transition-colors duration-300`}
 //           >
 //             {showSpeechToText ? "Hide Speech to Text" : "Use Speech to Text"}
 //           </button>
@@ -270,18 +329,22 @@
 //           </div>
 //         )}
 
+//         {/* Generate AI Description Button */}
 //         <div className="w-full">
 //           <button
 //             type="button"
 //             onClick={handleGenerateDescription}
-//             className=" bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+//             className={`bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+//               isDarkMode ? "bg-purple-600 hover:bg-purple-800" : ""
+//             } transition-colors duration-300`}
 //           >
 //             Generate AI Description
 //           </button>
 //         </div>
 
-      
+//         {/* Submit and Delete Buttons */}
 //         <div className="w-full flex flex-col items-center space-y-4">
+//           {/* Save/Update Button */}
 //           <div className="flex justify-center">
 //             <FormConfirmButton
 //               onSubmit={handleSubmit(handleFormSubmit)}
@@ -291,17 +354,22 @@
 //               dialogMessage={`Are you sure you want to ${
 //                 formType === "edit" ? "update" : "create"
 //               } this artwork?`}
-//               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+//               className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+//                 isDarkMode ? "bg-blue-600 hover:bg-blue-800" : ""
+//               } transition-colors duration-300`}
 //             />
 //           </div>
 
+//           {/* Delete Button (only in edit mode) */}
 //           {formType === "edit" && (
 //             <div className="flex justify-center">
 //               <FormConfirmButton
 //                 onSubmit={handleSubmit(handleDeleteArtwork)}
 //                 buttonText="Delete Artwork"
 //                 dialogMessage="Are you sure you want to delete this artwork?"
-//                 className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+//                 className={`bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+//                   isDarkMode ? "bg-red-600 hover:bg-red-800" : ""
+//                 } transition-colors duration-300`}
 //               />
 //             </div>
 //           )}
@@ -312,15 +380,17 @@
 // };
 
 // export default ArtworkForm;
-// src/components/common/ArtworkForm.js
+
+
 
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import FormConfirmButton from "../common/FormConfirmButton";
-import geminiApi from "../../api/GeminiApi"; // Ensure the correct path
-import SpeechToText from "./SpeechToText"; // Import SpeechToText component
+import geminiApi from "../../api/GeminiApi";
+import SpeechToText from "./SpeechToText";
 import { uploadFile } from "./FileUpload";
-import { useThemeMode } from '../../contexts/DarkModeContext'; // Import Theme Context
+import { useThemeMode } from '../../contexts/DarkModeContext';
+import { useLang } from "../../contexts/LangContext"; // Import useLang
 
 const ArtworkForm = ({
   onSubmit,
@@ -329,14 +399,71 @@ const ArtworkForm = ({
   formType,
   onSuccess,
 }) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    setValue,
-    watch,
-  } = useForm({ defaultValues: initialData });
+  const { register, handleSubmit, formState: { errors }, reset, setValue, watch } = useForm({ defaultValues: initialData });
+  const { isDarkMode } = useThemeMode(); // Destructure isDarkMode
+  const { language } = useLang(); // Destructure language from LangContext
+  
+  // Translation object
+  const translations = {
+    en: {
+      title: "Title",
+      artistName: "Artist Name",
+      createdDate: "Created Date by Artist",
+      imageUpload: "Image Upload",
+      description: "Description",
+      useSpeechToText: "Use Speech to Text",
+      hideSpeechToText: "Hide Speech to Text",
+      generateAIDescription: "Generate AI Description",
+      createArtwork: "Create Artwork",
+      updateArtwork: "Update Artwork",
+      deleteArtwork: "Delete Artwork",
+      createButton: "Create Artwork",
+      updateButton: "Update Artwork",
+      deleteButton: "Delete Artwork",
+      dialogCreate: "Are you sure you want to create this artwork?",
+      dialogUpdate: "Are you sure you want to update this artwork?",
+      dialogDelete: "Are you sure you want to delete this artwork?",
+      pleaseEnterTitle: "Please enter a title.",
+      pleaseEnterArtistName: "Please enter the artist name.",
+      pleaseEnterCreatedDate: "Please enter the created date by the artist.",
+      pleaseEnterDescription: "Please enter a description.",
+      pleaseUploadImage: "Please upload the image before generating the description.",
+      progress: "Progress",
+      existingImage: "Existing Image:",
+      uploadedImage: "Uploaded Image:",
+      viewImage: "View Image",
+    },
+    he: {
+      title: "כותרת",
+      artistName: "שם האמן",
+      createdDate: "תאריך יצירה על ידי האמן",
+      imageUpload: "העלאת תמונה",
+      description: "תיאור",
+      useSpeechToText: "השתמש בדיבור לטקסט",
+      hideSpeechToText: "הסתר דיבור לטקסט",
+      generateAIDescription: "צור תיאור באמצעות AI",
+      createArtwork: "צור יצירה",
+      updateArtwork: "עדכן יצירה",
+      deleteArtwork: "מחק יצירה",
+      createButton: "צור יצירה",
+      updateButton: "עדכן יצירה",
+      deleteButton: "מחק יצירה",
+      dialogCreate: "האם אתה בטוח שברצונך ליצור יצירה זו?",
+      dialogUpdate: "האם אתה בטוח שברצונך לעדכן יצירה זו?",
+      dialogDelete: "האם אתה בטוח שברצונך למחוק יצירה זו?",
+      pleaseEnterTitle: "אנא הכנס כותרת.",
+      pleaseEnterArtistName: "אנא הכנס את שם האמן.",
+      pleaseEnterCreatedDate: "אנא הכנס תאריך יצירה.",
+      pleaseEnterDescription: "אנא הכנס תיאור.",
+      pleaseUploadImage: "אנא העלה את התמונה לפני יצירת התיאור.",
+      progress: "התקדמות",
+      existingImage: "תמונה קיימת:",
+      uploadedImage: "תמונה שהועלתה:",
+      viewImage: "הצג תמונה",
+    }
+  };
+
+  const t = translations[language]; // Get the current translations based on selected language
 
   const title = watch("title");
   const artist = watch("artist");
@@ -352,8 +479,6 @@ const ArtworkForm = ({
   const [progress, setProgress] = useState(0);
   const [uploading, setUploading] = useState(false);
 
-  const { isDarkMode } = useThemeMode(); // Destructure isDarkMode
-
   useEffect(() => {
     if (initialData) {
       Object.keys(initialData).forEach((key) => {
@@ -368,21 +493,19 @@ const ArtworkForm = ({
 
   const handleGenerateDescription = async () => {
     if (!url) {
-      alert("Please upload the image before generating the description.");
+      alert(t.pleaseUploadImage);
       return;
     }
 
     if (title && artist && createdDateByArtist) {
       try {
-        const generatedDescription = await geminiApi.generateArtworkDescription(
-          {
-            title,
-            artist,
-            createdDateByArtist,
-            imageUrl: url, // Use `url` instead of `imageUrl` to ensure the uploaded URL is passed
-            description,
-          }
-        );
+        const generatedDescription = await geminiApi.generateArtworkDescription({
+          title,
+          artist,
+          createdDateByArtist,
+          imageUrl: url, // Use `url` instead of `imageUrl` to ensure the uploaded URL is passed
+          description,
+        });
         setValue("description", generatedDescription); // Fill in the Description field
       } catch (error) {
         console.error("Error generating AI description:", error);
@@ -390,7 +513,7 @@ const ArtworkForm = ({
       }
     } else {
       alert(
-        "Please enter the title, artist, created date, and upload an image before generating an AI description."
+        t.pleaseEnterTitle + ", " + t.pleaseEnterArtistName + ", " + t.pleaseEnterCreatedDate
       );
     }
   };
@@ -452,7 +575,7 @@ const ArtworkForm = ({
           isDarkMode ? "text-white" : "text-gray-900"
         }`}
       >
-        {formType === "edit" ? "Edit Artwork" : "Create New Artwork"}
+        {formType === "edit" ? t.updateArtwork : t.createArtwork}
       </h2>
       <form
         onSubmit={handleSubmit(handleFormSubmit)}
@@ -468,7 +591,7 @@ const ArtworkForm = ({
             }`}
             htmlFor="title"
           >
-            Title
+            {t.title}
           </label>
           <input
             className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
@@ -483,7 +606,7 @@ const ArtworkForm = ({
             {...register("title", { required: true })}
           />
           {errors.title && (
-            <p className="text-red-500 text-xs italic">Please enter a title.</p>
+            <p className="text-red-500 text-xs italic">{t.pleaseEnterTitle}</p>
           )}
         </div>
 
@@ -495,7 +618,7 @@ const ArtworkForm = ({
             }`}
             htmlFor="artist"
           >
-            Artist Name
+            {t.artistName}
           </label>
           <input
             className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
@@ -511,7 +634,7 @@ const ArtworkForm = ({
           />
           {errors.artist && (
             <p className="text-red-500 text-xs italic">
-              Please enter the artist name.
+              {t.pleaseEnterArtistName}
             </p>
           )}
         </div>
@@ -524,7 +647,7 @@ const ArtworkForm = ({
             }`}
             htmlFor="createdDateByArtist"
           >
-            Created Date by Artist
+            {t.createdDate}
           </label>
           <input
             className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
@@ -540,7 +663,7 @@ const ArtworkForm = ({
           />
           {errors.createdDateByArtist && (
             <p className="text-red-500 text-xs italic">
-              Please enter the created date by the artist.
+              {t.pleaseEnterCreatedDate}
             </p>
           )}
         </div>
@@ -553,7 +676,7 @@ const ArtworkForm = ({
             }`}
             htmlFor="imageUrl"
           >
-            Image Upload
+            {t.imageUpload}
           </label>
           <input
             type="file"
@@ -562,7 +685,7 @@ const ArtworkForm = ({
           />
           {uploading && (
             <p className={`mt-2 ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
-              Progress: {progress}%
+              {t.progress}: {progress}%
             </p>
           )}
           {url && (
@@ -572,9 +695,7 @@ const ArtworkForm = ({
                   isDarkMode ? "text-gray-300" : "text-gray-700"
                 }`}
               >
-                {formType === "edit" && !file
-                  ? "Existing Image:"
-                  : "Uploaded Image:"}
+                {formType === "edit" && !file ? t.existingImage : t.uploadedImage}
               </p>
               <img
                 src={url}
@@ -587,7 +708,7 @@ const ArtworkForm = ({
                 rel="noreferrer"
                 className="text-blue-500 mt-2"
               >
-                View Image
+                {t.viewImage}
               </a>
             </div>
           )}
@@ -601,7 +722,7 @@ const ArtworkForm = ({
             }`}
             htmlFor="description"
           >
-            Description
+            {t.description}
           </label>
           <textarea
             className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
@@ -616,7 +737,7 @@ const ArtworkForm = ({
           ></textarea>
           {errors.description && (
             <p className="text-red-500 text-xs italic">
-              Please enter a description.
+              {t.pleaseEnterDescription}
             </p>
           )}
         </div>
@@ -630,7 +751,7 @@ const ArtworkForm = ({
               isDarkMode ? "bg-gray-700 hover:bg-blue-800" : ""
             } transition-colors duration-300`}
           >
-            {showSpeechToText ? "Hide Speech to Text" : "Use Speech to Text"}
+            {showSpeechToText ? t.hideSpeechToText : t.useSpeechToText}
           </button>
         </div>
 
@@ -653,7 +774,7 @@ const ArtworkForm = ({
               isDarkMode ? "bg-purple-600 hover:bg-purple-800" : ""
             } transition-colors duration-300`}
           >
-            Generate AI Description
+            {t.generateAIDescription}
           </button>
         </div>
 
@@ -663,12 +784,8 @@ const ArtworkForm = ({
           <div className="flex justify-center">
             <FormConfirmButton
               onSubmit={handleSubmit(handleFormSubmit)}
-              buttonText={
-                formType === "edit" ? "Update Artwork" : "Create Artwork"
-              }
-              dialogMessage={`Are you sure you want to ${
-                formType === "edit" ? "update" : "create"
-              } this artwork?`}
+              buttonText={formType === "edit" ? t.updateButton : t.createButton}
+              dialogMessage={formType === "edit" ? t.dialogUpdate : t.dialogCreate}
               className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
                 isDarkMode ? "bg-blue-600 hover:bg-blue-800" : ""
               } transition-colors duration-300`}
@@ -680,8 +797,8 @@ const ArtworkForm = ({
             <div className="flex justify-center">
               <FormConfirmButton
                 onSubmit={handleSubmit(handleDeleteArtwork)}
-                buttonText="Delete Artwork"
-                dialogMessage="Are you sure you want to delete this artwork?"
+                buttonText={t.deleteButton}
+                dialogMessage={t.dialogDelete}
                 className={`bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
                   isDarkMode ? "bg-red-600 hover:bg-red-800" : ""
                 } transition-colors duration-300`}
@@ -695,4 +812,3 @@ const ArtworkForm = ({
 };
 
 export default ArtworkForm;
-
