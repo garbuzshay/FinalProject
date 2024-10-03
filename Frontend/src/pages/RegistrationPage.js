@@ -71,6 +71,7 @@ const RegistrationPage = () => {
             className="w-full md:max-w-2xl mx-auto mt-4 md:mt-0" // Added mt-4 for small screens to give space between the logo and stepper
             activeStep={currentStep}
             orientation="horizontal"
+            
           >
             {steps.map((_, index) => (
               <Step key={index}>

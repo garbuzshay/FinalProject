@@ -90,7 +90,7 @@
 //           color="secondary"
 //         />
 //       </div>
-//       <div>
+//       <di
 //         <FormControlLabel
 //           control={
 //             <Checkbox
@@ -225,7 +225,7 @@ export default function Registration() {
               <a
                 href="#"
                 onClick={handleOpen} // Handle opening the modal
-                style={{ color: "#1976d2", textDecoration: "underline", cursor: "pointer" }}
+                style={{ color: "#3a4c98", textDecoration: "underline", cursor: "pointer" }}
               >
                 terms and conditions
               </a>
