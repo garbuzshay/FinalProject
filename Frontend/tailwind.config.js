@@ -5,6 +5,9 @@ module.exports = {
   darkMode: 'class', // Enable dark mode support
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'], // Add Poppins font here
+      },
       keyframes: {
         typing: {
           '0%': { width: '0%', visibility: 'hidden' },

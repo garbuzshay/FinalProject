@@ -21,7 +21,7 @@ const IntroPage = () => {
 
   return (
     // <div className="min-h-screen flex flex-col justify-between bg-gradient-to-br from-blue-200 via-purple-300 to-pink-300">
-    <div className="min-h-screen flex flex-col justify-between">
+    <div className="flex flex-col justify-between">
       <div className="px-4">
         <ContentSection
           logoSrc={logoSrc}
@@ -35,7 +35,16 @@ const IntroPage = () => {
             variant="dots"
             steps={pageData.length}
             orientation="horizontal"
-            sx={{ justifyContent: "center", backgroundColor: "transparent" }}
+            sx={{
+              justifyContent: "center",
+              backgroundColor: "transparent", // Keep the background transparent
+              '& .MuiMobileStepper-dot': {
+                backgroundColor: 'lightgray', // Inactive dot color
+              },
+              '& .MuiMobileStepper-dotActive': {
+                backgroundColor: '#3a4c98', // Active dot color
+              },
+            }}
             position="static"
           />
         </div>
@@ -49,7 +58,8 @@ const IntroPage = () => {
         />
         <button
           onClick={handleLoginClick}
-          className="bg-transparent border-none text-blue-600 underline cursor-pointer text-base"
+          className="bg-transparent border-none underline cursor-pointer text-base text-sm"
+          style={{ color: '#3a4c98' }}
         >
           Already a user? Click here
         </button>

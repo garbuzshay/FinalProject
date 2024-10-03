@@ -1,12 +1,15 @@
-  import React from "react";
+import React from "react";
 
-  const Image = ({ src }) => {
-    return (
-      <div className="size-3/5 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm">
-        <img src={src}  className="sm:min-h-12" />
-      </div>
-    );
-  };
+const Image = ({ src }) => {
+  return (
+    <div className="w-full flex justify-center">
+      <img
+        src={src}
+        alt=""
+        className="max-w-full h-auto object-contain sm:max-h-48 md:max-h-64 lg:max-h-72 xl:max-h-80"
+      />
+    </div>
+  );
+};
 
-  export default Image;
-
+export default Image;
