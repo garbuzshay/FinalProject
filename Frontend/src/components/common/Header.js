@@ -29,7 +29,7 @@ const AdminHeader = ({ buttonText, buttonPath }) => {
       className={`shadow p-4 flex ${isHebrew ? "flex-row-reverse" : "flex-row"} justify-between items-center bg-gray-200 dark:bg-gray-800 transition-colors duration-300`}
     >
       {/* Title */}
-      <h1 className={`text-xl font-semibold sm:text-lg text-gray-800 dark:text-gray-200 ${isHebrew ? "ml-auto" : "mr-auto"}`}>
+      <h1 className={`font-poppins text-xl sm:text-lg text-gray-800 dark:text-gray-200 ${isHebrew ? "ml-auto" : "mr-auto"}`}>
         {title}
       </h1>
 
@@ -126,7 +126,7 @@ const EmployeeHeader = ({ buttonText, buttonPath }) => {
       className={`shadow p-4 flex ${isHebrew ? "flex-row-reverse" : "flex-row"} justify-between items-center bg-gray-200 dark:bg-gray-800 transition-colors duration-300`}
     >
       {/* Title */}
-      <h1 className={`text-l font-semibold sm:text-lg text-gray-800 dark:text-gray-200 ${isHebrew ? "ml-auto" : "mr-auto"}`}>
+      <h1 className={`font-poppins text-l font-semibold sm:text-lg text-gray-800 dark:text-gray-200 ${isHebrew ? "ml-auto" : "mr-auto"}`}>
         {title}
       </h1>
 
@@ -137,7 +137,7 @@ const EmployeeHeader = ({ buttonText, buttonPath }) => {
           <>
             {/* Logout Button */}
             <button
-              className="bg-blue-500 text-white px-4 py-2 rounded sm:px-3 sm:py-1 hover:bg-blue-600 transition duration-200 w-auto"
+              className="bg-grey-500 font-poppins text-white px-4 py-2 rounded sm:px-3 sm:py-1 hover:bg-blue-600 transition duration-200 w-auto"
               onClick={handleButtonClick}
             >
               {buttonText}
@@ -148,7 +148,7 @@ const EmployeeHeader = ({ buttonText, buttonPath }) => {
 
             {/* Theme Toggle */}
             <button
-              className="flex items-center bg-gray-200 text-gray-800 px-2 py-2 rounded sm:px-3 sm:py-1 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-200"
+              className="flex items-center font-poppins bg-gray-200 text-gray-800 px-2 py-2 rounded sm:px-3 sm:py-1 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-200"
               onClick={toggleDarkMode}
             >
               {isDarkMode ? <FaSun /> : <FaMoon />}
@@ -158,7 +158,7 @@ const EmployeeHeader = ({ buttonText, buttonPath }) => {
           <>
             {/* Theme Toggle */}
             <button
-              className="flex items-center bg-gray-200 text-gray-800 px-2 py-2 rounded sm:px-3 sm:py-1 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-200"
+              className="flex items-center font-poppins bg-gray-200 text-gray-800 px-2 py-2 rounded sm:px-3 sm:py-1 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-200"
               onClick={toggleDarkMode}
             >
               {isDarkMode ? <FaSun /> : <FaMoon />}
@@ -169,7 +169,7 @@ const EmployeeHeader = ({ buttonText, buttonPath }) => {
 
             {/* Logout Button */}
             <button
-              className="bg-blue-500 text-white px-4 py-2 rounded sm:px-3 sm:py-1 hover:bg-blue-600 transition duration-200 w-auto"
+              className="bg-black text-white font-poppins px-4 py-2 rounded sm:px-3 sm:py-1 hover:bg-red-600 transition duration-200 w-auto"
               onClick={handleButtonClick}
             >
               {buttonText}

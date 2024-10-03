@@ -172,18 +172,18 @@ const Sidebar = ({ links }) => {
           ${isOpen ? "fixed md:relative" : "fixed"} 
           h-screen z-50 transform md:translate-x-0 
           ${isOpen ? "translate-x-0" : `${isHebrew ? "translate-x-full" : "-translate-x-full"} md:translate-x-0`}
-          sm:max-w-full ${isHebrew ? "rounded-l-lg right-0" : "rounded-r-lg left-0"}
+          sm:max-w-full
           ${isDarkMode ? "bg-gray-900 text-white" : "bg-gray-300 text-black"}`}
           style={{
             transform: `translateX(${dragDistance}px)`, // Apply the drag distance to the transform
             transition: dragDistance ? "none" : "transform 0.3s ease", // Disable transition while dragging, enable it after release
             [isHebrew ? "right" : "left"]: 0, // Position the sidebar based on the language
           }}
-        >
+        > 
           {/* Close Button */}
           <button
             onClick={toggleSidebar}
-            className={`text-white absolute top-4 ${isHebrew ? "right-4" : "left-4"} hover:text-red-500 transition-colors duration-300 hidden sm:block`}
+            className={`text-black absolute top-4 ${isHebrew ? "left-4" : "right-4"} hover:text-black transition-colors duration-300 hidden sm:block`}
           >
             ✕
           </button>
@@ -191,7 +191,7 @@ const Sidebar = ({ links }) => {
           {/* Sidebar Links */}
           {links && links.length > 0 && (
             <>
-              <h2 className={`text-2xl font-semibold mb-8 sm:text-xl border-b border-gray-700 pb-4 ${isHebrew ? "text-right" : "text-left"}`}>
+              <h2 className={`text-2xl font-poppins font-bold mb-8 sm:text-xl border-b border-gray-700 pb-4 ${isHebrew ? "text-right" : "text-left"}`}>
                 <Link to={links[0].path}>{links[0].name}</Link>
               </h2>
               <nav>
@@ -200,7 +200,7 @@ const Sidebar = ({ links }) => {
                     <li key={index}>
                       <Link
                         to={link.path}
-                        className="block text-lg font-medium hover:bg-gray-700 hover:text-gray-200 px-4 py-2 rounded-lg transition-colors duration-300"
+                        className="block text-lg font-medium font-poppins hover:bg-gray-700 hover:text-gray-200 px-4 py-2 rounded-lg transition-colors duration-300"
                       >
                         {link.name}
                       </Link>
@@ -214,7 +214,7 @@ const Sidebar = ({ links }) => {
       ) : (
         <button
           onClick={toggleSidebar}
-          className={`absolute z-50 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-4 py-2 ${isHebrew ? "rounded-l-lg right-0" : "rounded-r-lg left-0"} shadow-lg hover:bg-gray-800 transition-colors duration-300`}
+          className={`absolute z-50 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-4 py-2 shadow-lg hover:bg-gray-800 transition-colors duration-300`}
         >
           ☰
         </button>
