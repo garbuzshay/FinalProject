@@ -248,7 +248,7 @@ const MuseumOwnerExhibitionsList = () => {
   return (
     <div className={`container mx-auto p-4 transition-colors duration-300`}>
       <h1
-        className={`text-4xl font-extrabold mb-8 text-center ${
+        className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center ${
           isDarkMode ? "text-white" : "text-gray-900"
         }`}
       >
@@ -262,50 +262,51 @@ const MuseumOwnerExhibitionsList = () => {
         {t.description}
       </p>
       <div className={`flex justify-center mb-4 space-x-2 ${isHebrew ? 'flex-row-reverse' : 'flex-row'}`}>
-        {/* Adjust button order based on language */}
-        <button
-          onClick={() => setFilter("all")}
-          className={`px-4 py-2 rounded ml-2  ${
-            filter === "all"
-              ? isDarkMode
-                ? "bg-blue-600 text-white"
-                : "bg-blue-500 text-white"
-              : isDarkMode
-              ? "bg-gray-700 text-gray-300 hover:bg-gray-600"
-              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-          } transition-colors duration-300`   }
-        >
-          {t.showAll}
-        </button>
-        <button
-          onClick={() => setFilter("open")}
-          className={`px-4 py-2 rounded ${
-            filter === "open"
-              ? isDarkMode
-                ? "bg-blue-600 text-white"
-                : "bg-blue-500 text-white"
-              : isDarkMode
-              ? "bg-gray-700 text-gray-300 hover:bg-gray-600"
-              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-          } transition-colors duration-300`}
-        >
-          {t.showOpen}
-        </button>
-        <button
-          onClick={() => setFilter("closed")}
-          className={`px-4 py-2 rounded ${
-            filter === "closed"
-              ? isDarkMode
-                ? "bg-blue-600 text-white"
-                : "bg-blue-500 text-white"
-              : isDarkMode
-              ? "bg-gray-700 text-gray-300 hover:bg-gray-600"
-              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-          } transition-colors duration-300`}
-        >
-          {t.showClosed}
-        </button>
-      </div>
+  {/* Adjust button order based on language */}
+  <button
+    onClick={() => setFilter("all")}
+    className={`px-4 py-2 font-poppins ${
+      filter === "all"
+        ? isDarkMode
+          ? "border-b-2 border-blue-400 text-white font-bold"
+          : "border-b-2 border-black text-gray-900 font-bold"
+        : isDarkMode
+        ? "text-gray-400 hover:text-gray-200"
+        : "text-gray-600 hover:text-gray-900"
+    } transition-colors duration-300`}
+  >
+    {t.showAll}
+  </button>
+  <button
+    onClick={() => setFilter("open")}
+    className={`px-4 py-2 font-poppins ${
+      filter === "open"
+        ? isDarkMode
+          ? "border-b-2 border-blue-400 text-white font-bold"
+          : "border-b-2 border-black text-gray-900 font-bold"
+        : isDarkMode
+        ? "text-gray-400 hover:text-gray-200"
+        : "text-gray-600 hover:text-gray-900"
+    } transition-colors duration-300`}
+  >
+    {t.showOpen}
+  </button>
+  <button
+    onClick={() => setFilter("closed")}
+    className={`px-4 py-2 font-poppins ${
+      filter === "closed"
+        ? isDarkMode
+          ? "border-b-2 border-blue-400 text-white font-bold"
+          : "border-b-2 border-black text-gray-900 font-bold"
+        : isDarkMode
+        ? "text-gray-400 hover:text-gray-200"
+        : "text-gray-600 hover:text-gray-900"
+    } transition-colors duration-300`}
+  >
+    {t.showClosed}
+  </button>
+</div>
+
 
       {/* Responsive grid layout for exhibition cards */}
       <div className="grid mr-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

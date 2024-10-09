@@ -34,7 +34,7 @@ const MuseumOwnerHeader = () => {
             {/* Pass the title and language-based button text to the Header component */}
             <Header 
                 title={title} 
-                buttonText={isHebrew ? 'התנתק' : 'Logout'} 
+                buttonText={isHebrew ? 'התנתק' : 'LOGOUT'} 
                 buttonPath="/logout"
             />
         </div>

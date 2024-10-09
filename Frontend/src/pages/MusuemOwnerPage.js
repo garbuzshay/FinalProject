@@ -107,7 +107,7 @@ const MuseumOwnerPage = () => {
   return (
     <div
       className={`flex h-screen ${
-        isDarkMode ? "bg-gray-900 text-black" : "bg-gray-200 text-gray-900"
+        isDarkMode ? "bg-gray-900 text-black" : "bg-gray-100 text-gray-900"
       }`}
     >
       {/* Dynamically position the sidebar on the right for Hebrew and left for English */}

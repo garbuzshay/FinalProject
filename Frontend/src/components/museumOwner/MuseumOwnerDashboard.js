@@ -868,105 +868,111 @@ const MuseumOwnerDashboard = () => {
   return (
     <div
       className={`p-4 min-h-screen ${
-        isDarkMode ? "bg-gray-900 text-gray-300" : "bg-gray-200 text-gray-900"
+        isDarkMode ? "bg-gray-900 text-gray-300" : "bg-grey-100 text-gray-900"
       } transition-colors duration-300`}
     >
       <h1
-        className={`text-3xl font-bold mb-6 text-center ${
-          isDarkMode ? "text-gray-200" : "text-gray-900"
+        className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center ${
+          isDarkMode ? "text-gray-100" : "text-gray-800"
         }`}
       >
         {translations[language].dashboardTitle}
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {chartData.pieData && (
-          <div
-            className={`p-4 rounded-lg shadow-md ${
-              isDarkMode ? "bg-gray-800" : "bg-gray-200"
-            }`}
-          >
-            <h2
-              className={`text-lg md:text-xl font-bold mb-2 text-center ${
-                isDarkMode ? "text-gray-200" : "text-gray-900"
-              }`}
-            >
-              {translations[language].currentVsMaxExhibitions}
-            </h2>
-            <div className="relative h-64 w-full flex justify-center items-center">
-              <div className="relative h-full w-full md:w-3/4 lg:w-2/3">
-                <Pie data={chartData.pieData} options={pieChartOptions} />
-              </div>
-            </div>
-            <div
-              className={`text-center mt-2 ${
-                isDarkMode ? "text-gray-200" : "text-gray-900"
-              }`}
-            >
-              <span className="font-bold">
-                {translations[language].closedExhibitions} (
-                {chartData.closedExhibitionsCount})
-              </span>
-            </div>
-          </div>
-        )}
-        {chartData.barData && (
-          <div
-            className={`p-4 rounded-lg shadow-md ${
-              isDarkMode ? "bg-gray-800" : "bg-gray-200"
-            }`}
-          >
-            <h2
-              className={`text-lg font-bold mb-2 text-center ${
-                isDarkMode ? "text-gray-200" : "text-gray-900 "
-              }`}
-            >
-              {translations[language].numberOfArtworks}
-            </h2>
-            <div className="h-64">
-              <Bar data={chartData.barData} options={barChartOptions} />
-            </div>
-          </div>
-        )}
-        {chartData.doughnutData && (
-          <div
-            className={`p-4 rounded-lg shadow-md ${
-              isDarkMode ? "bg-gray-800" : "bg-gray-200"
-            }`}
-          >
-            <h2
-              className={`text-lg font-bold mb-2 text-center ${
-                isDarkMode ? "text-gray-200" : "text-gray-900"
-              }`}
-            >
-              {translations[language].freeVsExistingArtworksSpace}
-            </h2>
-            <div className="h-64">
-              <Doughnut
-                data={chartData.doughnutData}
-                options={doughnutChartOptions}
-              />
-            </div>
-          </div>
-        )}
-        {chartData.lineData && (
-          <div
-            className={`p-4 rounded-lg shadow-md ${
-              isDarkMode ? "bg-gray-800" : "bg-gray-200"
-            }`}
-          >
-            <h2
-              className={`text-lg font-bold mb-2 text-center ${
-                isDarkMode ? "text-gray-200" : "text-gray-900"
-              }`}
-            >
-              {translations[language].exhibitionsCreationTrend}
-            </h2>
-            <div className="h-64">
-              <Line data={chartData.lineData} options={lineChartOptions} />
-            </div>
-          </div>
-        )}
+  {chartData.pieData && (
+    <div
+      className={`p-4 rounded-2xl border-2 shadow-2xl transform transition-transform duration-300 hover:scale-105 ${
+        isDarkMode
+          ? "bg-gradient-to-r from-gray-700 to-gray-800"
+          : "bg-gradient-to-r from-gray-100 to-gray-100"
+      }`}
+    >
+      <h2
+        className={`text-lg md:text-xl font-bold mb-2 text-center ${
+          isDarkMode ? "text-gray-200" : "text-gray-800"
+        }`}
+      >
+        {translations[language].currentVsMaxExhibitions}
+      </h2>
+      <div className="relative h-64 w-full flex justify-center items-center">
+        <div className="relative h-full w-full md:w-3/4 lg:w-2/3">
+          <Pie data={chartData.pieData} options={pieChartOptions} />
+        </div>
       </div>
+      <div
+        className={`text-center mt-2 ${
+          isDarkMode ? "text-gray-300" : "text-gray-600"
+        }`}
+      >
+        <span className="font-bold">
+          {translations[language].closedExhibitions} (
+          {chartData.closedExhibitionsCount})
+        </span>
+      </div>
+    </div>
+  )}
+  {chartData.barData && (
+    <div
+      className={`p-4 rounded-2xl shadow-2xl border-2 transform transition-transform duration-300 hover:scale-105 ${
+        isDarkMode
+          ? "bg-gradient-to-r from-gray-700 to-gray-800"
+          : "bg-gradient-to-r from-gray-100 to-gray-100"
+      }`}
+    >
+      <h2
+        className={`text-lg font-bold mb-2 text-center ${
+          isDarkMode ? "text-gray-200" : "text-gray-800"
+        }`}
+      >
+        {translations[language].numberOfArtworks}
+      </h2>
+      <div className="h-64">
+        <Bar data={chartData.barData} options={barChartOptions} />
+      </div>
+    </div>
+  )}
+  {chartData.doughnutData && (
+    <div
+      className={`p-4 rounded-2xl shadow-2xl border-2 transform transition-transform duration-300 hover:scale-105 ${
+        isDarkMode
+          ? "bg-gradient-to-r from-gray-700 to-gray-800"
+          : "bg-gradient-to-r from-gray-100 to-gray-100"
+      }`}
+    >
+      <h2
+        className={`text-lg font-bold mb-2 text-center ${
+          isDarkMode ? "text-gray-200" : "text-gray-800"
+        }`}
+      >
+        {translations[language].freeVsExistingArtworksSpace}
+      </h2>
+      <div className="h-64">
+        <Doughnut data={chartData.doughnutData} options={doughnutChartOptions} />
+      </div>
+    </div>
+  )}
+  {chartData.lineData && (
+    <div
+      className={`p-4 rounded-2xl shadow-2xl border-2 transform transition-transform duration-300 hover:scale-105 ${
+        isDarkMode
+          ? "bg-gradient-to-r from-gray-700 to-gray-800"
+          : "bg-gradient-to-r from-gray-100 to-gray-100"
+      }`}
+    >
+      <h2
+        className={`text-lg font-bold mb-2 text-center ${
+          isDarkMode ? "text-gray-200" : "text-gray-800"
+        }`}
+      >
+        {translations[language].exhibitionsCreationTrend}
+      </h2>
+      <div className="h-64">
+        <Line data={chartData.lineData} options={lineChartOptions} />
+      </div>
+    </div>
+  )}
+</div>
+
     </div>
   );
 };

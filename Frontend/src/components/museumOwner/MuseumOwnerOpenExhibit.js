@@ -424,6 +424,7 @@ import CuratorSelect from "./CuratorSelect";
 import geminiApi from "../../api/GeminiApi"; // Import the GeminiApi
 import { useThemeMode } from "../../contexts/DarkModeContext"; // Import Theme Context
 import { useLang } from "../../contexts/LangContext"; // Import Language Context
+import { FaMagic } from 'react-icons/fa'; // Import the magic wand icon from react-icons
 
 const MuseumOwnerOpenExhibit = () => {
   const { isDarkMode } = useThemeMode(); // Destructure isDarkMode
@@ -596,7 +597,7 @@ const MuseumOwnerOpenExhibit = () => {
       }`}
     >
       <h1
-        className={`text-4xl font-extrabold mb-8 text-center ${
+        className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center ${
           isDarkMode ? "text-white" : "text-gray-900"
         }`}
       >
@@ -604,28 +605,32 @@ const MuseumOwnerOpenExhibit = () => {
       </h1>
       {museum && (
         <>
-          <p className={`mb-4 ${isDarkMode ? "text-white" : "text-gray-700"}`}>
+          <p className={`mb-4 ${isDarkMode ? "text-gray-300" : "text-gray-700"} font-poppins font-medium`}>
             {t.exhibitionsLeft}:{" "}
+            <span className="font-bold">
             {planDetails.exhibitionsLeft !== null
               ? `${planDetails.exhibitionsLeft} / ${
                   planDetails.maxExhibitions || "unlimited"
                 }`
               : "unlimited"}
+            </span>
           </p>
-          <p className={`mb-8 ${isDarkMode ? "text-white" : "text-gray-700"}`}>
+          <p className={`mb-4 ${isDarkMode ? "text-gray-300" : "text-gray-700"} font-poppins font-medium`}>
             {t.artworksLeft}:{" "}
+            <span className="font-bold">
             {planDetails.artworksLeft !== null
               ? `${planDetails.artworksLeft} / ${
                   planDetails.maxArtWorks || "unlimited"
                 }`
               : "unlimited"}
+            </span>
           </p>
 
           {planDetails.exhibitionsLeft > 0 ? (
             <form
               id="exhibitionForm"
               onSubmit={handleSubmit(onSubmit)}
-              className={`mx-auto shadow p-6 sm:p-8 lg:p-12 ${
+              className={`mx-auto shadow p-6 sm:p-8 lg:p-12 font-poppins ${
                 isDarkMode ? "bg-gray-800" : "bg-gray-200"
               } rounded-lg transition-colors duration-300 ${
                 isHebrew ? "text-right" : ""
@@ -714,17 +719,19 @@ const MuseumOwnerOpenExhibit = () => {
               </div>
 
               {/* New Button to Generate AI Description */}
-              <div className="mb-4">
+              <div className="mb-4 flex justify-center">
                 <button
                   type="button"
                   onClick={handleGenerateExhibitDescription}
-                  className={`w-full md:w-auto bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline shadow-md ${
-                    isDarkMode ? "bg-purple-600 hover:bg-purple-800" : ""
-                  } transition-colors duration-300`}
+                  className={`w-auto border border-gray-500 text-gray-700 dark:text-gray-300 py-1.5 px-4 rounded-full flex items-center justify-center gap-2 
+                    transition-all duration-300 ease-in-out 
+                    hover:bg-blue-50 dark:hover:bg-gray-700 hover:shadow-lg hover:border-transparent hover:text-blue-600 dark:hover:text-blue-400
+                    focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500`}
                 >
-                  {t.generateAI}
+                  <FaMagic className="text-gray-500 dark:text-gray-300" /> {t.generateAI}
                 </button>
               </div>
+
 
               <div className="mb-4">
                 <label
