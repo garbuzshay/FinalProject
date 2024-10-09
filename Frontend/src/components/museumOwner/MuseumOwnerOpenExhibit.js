@@ -779,17 +779,17 @@ const MuseumOwnerOpenExhibit = () => {
                       isEditable: true,
                     })
                   }
-                  className={`w-full sm:w-auto bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline shadow-md ${
-                    isDarkMode ? "bg-green-600 hover:bg-green-800" : ""
-                  } transition-colors duration-300`}
+                  className={`w-full sm:w-auto py-2 px-4 font-poppins border border-transparent hover:border-black underline transition-colors duration-300 ${
+                    isDarkMode ? "text-white hover:border-white" : "text-black"
+                  }`}
                 >
                   {t.addCurator}
                 </button>
                 <button
                   type="button"
                   onClick={() => setShowCuratorSelect(true)}
-                  className={`w-full sm:w-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline shadow-md ${
-                    isDarkMode ? "bg-blue-600 hover:bg-blue-800" : ""
+                  className={`w-full sm:w-auto text-black py-2 px-4 font-poppins border border-transparent hover:border-black underline ${
+                    isDarkMode ? "text-white hover:border-white": ""
                   } transition-colors duration-300`}
                 >
                   {t.selectFromCuratorList}
@@ -973,9 +973,11 @@ const MuseumOwnerOpenExhibit = () => {
                 onSubmit={handleSubmit(onSubmit)}
                 buttonText={t.confirmCreateExhibition}
                 dialogMessage={t.confirmCreateExhibition}
-                className={`w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-                  isDarkMode ? "bg-blue-600 hover:bg-blue-800" : ""
-                } transition-colors duration-300`}
+                className={`py-2 px-4 rounded-full font-bold text-white font-poppins transition-transform transform-gpu duration-300 focus:outline-none focus:ring-4 border-2 ${
+                  isDarkMode
+                    ? "bg-gradient-to-r from-blue-800 to-blue-900 hover:from-blue-700 hover:to-blue-800 border-blue-500 focus:ring-blue-600"
+                    : "bg-[#587cd9] hover:bg-blue-700 border-white focus:ring-blue-300"
+                }`}
               />
             </form>
           ) : (
