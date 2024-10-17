@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <footer
-      className={`py-4 relative z-60 ${
+      className={`py-4 z-60 ${
         isDarkMode ? 'bg-gray-800 text-gray-200' : 'bg-gray-200 text-gray-800'
       } transition-colors duration-300`}
     >
