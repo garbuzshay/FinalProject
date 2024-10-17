@@ -45,14 +45,14 @@ const Sidebar = ({ links }) => {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          className={`p-6 rounded-r-xl shadow-2xl transition-all duration-300 ease-in-out
+          className={`p-6 shadow-2xl transition-all duration-300 ease-in-out
           ${isOpen ? "w-64 md:w-64 sm:w-48" : "w-0"} 
           ${isOpen ? "fixed md:relative" : "fixed"} 
-          h-screen z-50 transform md:translate-x-0 
+          z-50 transform md:translate-x-0 flex flex-col overflow-y-auto
           ${isOpen ? "translate-x-0" : `${
             isHebrew ? "translate-x-full" : "-translate-x-full"
           } md:translate-x-0`}
-          sm:max-w-full
+          min-h-screen h-full sm:h-auto // Ensuring full height for all screens
           ${isDarkMode ? "bg-gradient-to-b from-gray-800 to-gray-900" : "bg-gradient-to-b from-gray-100 to-gray-200"}
           ${isDarkMode ? "text-gray-300" : "text-gray-800"}`}
           style={{
@@ -64,7 +64,7 @@ const Sidebar = ({ links }) => {
           {/* Close Button */}
           <button
             onClick={toggleSidebar}
-            className={`text-black absolute top-4 ${isHebrew ? "left-4" : "right-4"} hover:text-red-400 transition-colors duration-300 hidden sm:block`}
+            className={`text-black absolute top-4 ${isHebrew ? "left-4" : "right-4"} hover:text-red-400 transition-colors duration-300 sm:block`}
           >
             ✕
           </button>
