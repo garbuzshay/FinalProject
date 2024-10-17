@@ -45,7 +45,7 @@ const Sidebar = ({ links }) => {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          className={`p-6 rounded-r-xl shadow-2xl transition-all duration-300 ease-in-out
+          className={`p-6 shadow-2xl transition-all duration-300 ease-in-out
           ${isOpen ? "w-64 md:w-64 sm:w-48" : "w-0"} 
           ${isOpen ? "fixed md:relative" : "fixed"} 
           h-screen z-50 transform md:translate-x-0 
@@ -64,7 +64,7 @@ const Sidebar = ({ links }) => {
           {/* Close Button */}
           <button
             onClick={toggleSidebar}
-            className={`text-black absolute top-4 ${isHebrew ? "left-4" : "right-4"} hover:text-red-400 transition-colors duration-300 hidden sm:block`}
+            className={`text-black absolute top-4 ${isHebrew ? "left-4" : "right-4"} hover:text-red-400 transition-colors duration-300`}
           >
             ✕
           </button>
@@ -103,7 +103,7 @@ const Sidebar = ({ links }) => {
       ) : (
         <button
           onClick={toggleSidebar}
-          className={`absolute z-50 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2 rounded-r-xl shadow-lg hover:bg-gray-700 transition-colors duration-300`}
+          className={`absolute z-50 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2 shadow-lg hover:bg-gray-700 transition-colors duration-300`}
         >
           ☰
         </button>
