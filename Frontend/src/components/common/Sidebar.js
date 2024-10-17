@@ -49,19 +49,11 @@ const Sidebar = ({ links }) => {
           ${isOpen ? "w-64 md:w-64 sm:w-48" : "w-0"} 
           ${isOpen ? "fixed md:relative" : "fixed"} 
           z-50 transform md:translate-x-0 flex flex-col overflow-y-auto
-          ${
-            isOpen
-              ? "translate-x-0"
-              : `${
-                  isHebrew ? "translate-x-full" : "-translate-x-full"
-                } md:translate-x-0`
-          }
+          ${isOpen ? "translate-x-0" : `${
+            isHebrew ? "translate-x-full" : "-translate-x-full"
+          } md:translate-x-0`}
           min-h-screen h-full sm:h-auto // Ensuring full height for all screens
-          ${
-            isDarkMode
-              ? "bg-gradient-to-b from-gray-800 to-gray-900"
-              : "bg-gradient-to-b from-gray-100 to-gray-200"
-          }
+          ${isDarkMode ? "bg-gradient-to-b from-gray-800 to-gray-900" : "bg-gradient-to-b from-gray-100 to-gray-200"}
           ${isDarkMode ? "text-gray-300" : "text-gray-800"}`}
           style={{
             transform: `translateX(${dragDistance}px)`,
@@ -72,9 +64,7 @@ const Sidebar = ({ links }) => {
           {/* Close Button */}
           <button
             onClick={toggleSidebar}
-            className={`text-black absolute top-4 ${
-              isHebrew ? "left-4" : "right-4"
-            } hover:text-red-400 transition-colors duration-300`}
+            className={`text-black absolute top-4 ${isHebrew ? "left-4" : "right-4"} hover:text-red-400 transition-colors duration-300 sm:block`}
           >
             ✕
           </button>
@@ -90,11 +80,7 @@ const Sidebar = ({ links }) => {
                 <Link to={links[0].path}>{links[0].name}</Link>
               </h2>
               <nav>
-                <ul
-                  className={`space-y-6 ${
-                    isHebrew ? "text-right" : "text-left"
-                  }`}
-                >
+                <ul className={`space-y-6 ${isHebrew ? "text-right" : "text-left"}`}>
                   {links.slice(1).map((link, index) => (
                     <li key={index}>
                       <Link
@@ -117,7 +103,7 @@ const Sidebar = ({ links }) => {
       ) : (
         <button
           onClick={toggleSidebar}
-          className={`absolute z-50 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2 shadow-lg hover:bg-gray-700 transition-colors duration-300`}
+          className={`absolute z-50 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2 rounded-r-xl shadow-lg hover:bg-gray-700 transition-colors duration-300`}
         >
           ☰
         </button>

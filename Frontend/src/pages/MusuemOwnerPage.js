@@ -106,7 +106,7 @@ const MuseumOwnerPage = () => {
 
   return (
     <div
-      className={`flex h-screen ${
+      className={`flex min-h-screen ${
         isDarkMode ? "bg-gray-900 text-black" : "bg-gray-100 text-gray-900"
       }`}
     >
