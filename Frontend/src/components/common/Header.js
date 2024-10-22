@@ -146,7 +146,7 @@ const EmployeeHeader = ({ buttonText, buttonPath }) => {
 
       <div
         className={`flex items-center ${
-          isHebrew ? "space-x-reverse space-x-4" : "space-x-4"
+          isHebrew ? "space-x-reverse space-x-2" : "space-x-2"
         }`}
       >
         {isHebrew ? (
@@ -159,7 +159,7 @@ const EmployeeHeader = ({ buttonText, buttonPath }) => {
             </button>
             <LanguageSwitcher />
             <button
-              className="flex items-center bg-gray-200 text-gray-800 px-3 py-2 rounded-full sm:px-3 sm:py-1 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-200"
+              className="flex items-center mx-2 bg-gray-200 text-gray-800 px-3 py-2 rounded-full sm:px-3 sm:py-1 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-200"
               onClick={toggleDarkMode}
             >
               {isDarkMode ? <FaSun /> : <FaMoon />}
