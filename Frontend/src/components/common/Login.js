@@ -79,7 +79,6 @@
 import React, { useState } from 'react';
 import { useUserContext } from '../../contexts/UserContext';
 import { Link } from 'react-router-dom';
-import LogoMuseum from '../../assets/LogoMusuem.png'; // Importing the logo image
 import SymbolMuseum from '../../assets/MusuemSymbol.png'; // Importing the logo image
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';

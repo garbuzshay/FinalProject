@@ -308,7 +308,7 @@ const CuratorEditArtwork = () => {
   };
 
   return (
-    <div className="mx-10">
+    <div >
     <>
       <ArtworkForm
         onSubmit={handleEditArtwork}

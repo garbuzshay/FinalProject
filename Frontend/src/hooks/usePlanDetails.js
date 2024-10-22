@@ -30,7 +30,7 @@ const usePlanDetails = (museum, exhibitions) => {
           : null,
       });
     }
-  }, [museum]);
+  }, [museum, exhibitions]);
 
   return planDetails;
 };

@@ -268,7 +268,8 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="mx-4">
+    <div className="mx-4"
+    dir={isHebrew ? "rtl" : "ltr"}>
       <div>
         <h1
           className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center ${

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import config from '../config.js';
 import BaseApi from './BaseApi.js';
 

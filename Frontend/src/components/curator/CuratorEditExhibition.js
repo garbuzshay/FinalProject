@@ -442,9 +442,9 @@ const CuratorEditExhibition = () => {
 
   return (
     <div
-      className={`container mx-auto p-4 ${
-        isHebrew ? "text-right" : "text-left"
-      }`}
+      className={`container mx-auto p-4 `}
+      dir={isHebrew ? "rtl" : "ltr"}
+
     >
       <form
         onSubmit={handleSubmit(onSubmit)}

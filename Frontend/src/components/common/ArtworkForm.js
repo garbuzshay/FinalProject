@@ -434,11 +434,11 @@ const ArtworkForm = ({
       viewImage: "View Image",
     },
     he: {
-      title: "כותרת",
-      artistName: "שם האמן",
-      createdDate: "תאריך יצירה על ידי האמן",
+      title: ":כותרת",
+      artistName: ":שם האמן",
+      createdDate: ":תאריך יצירה על ידי האמן",
       imageUpload: "העלאת תמונה",
-      description: "תיאור",
+      description: ":תיאור",
       useSpeechToText: "השתמש בדיבור לטקסט",
       hideSpeechToText: "הסתר דיבור לטקסט",
       generateAIDescription: "צור תיאור באמצעות AI",
@@ -569,14 +569,14 @@ const ArtworkForm = ({
   };
 
   return (
-    <div>
-      <h2
-        className={`text-2xl lg:text-3xl font-bold mb-4 text-center ${
-          isDarkMode ? "text-white" : "text-gray-900"
-        }`}
+    <div className={`container mx-auto p-8 min-h-screen transition-colors duration-300 `}
+    
+    >
+      <h1
+         className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center`}
       >
         {formType === "edit" ? t.updateArtwork : t.createArtwork}
-      </h2>
+      </h1>
       <form
         onSubmit={handleSubmit(handleFormSubmit)}
         className={`space-y-4  mx-8 ${

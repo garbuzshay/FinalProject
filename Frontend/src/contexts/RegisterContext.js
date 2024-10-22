@@ -11,7 +11,7 @@ import {
   validateChoosePlan,
 } from "../validators/registrationValidators";
 import requestsApi from "../api/RequestsApi";
-import { loginWithEmailPassword } from "../utils/auth";
+// import { loginWithEmailPassword } from "../utils/auth";
 import { useUserContext } from "./UserContext"; // Import useUserContext
 
 export const RegisterContext = React.createContext();

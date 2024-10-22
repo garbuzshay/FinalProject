@@ -82,12 +82,11 @@ const CuratorExhibitionsList = () => {
 
   return (
     <div
-      className={`container mx-auto p-4 ${
-        isHebrew ? "text-right" : "text-left"
-      }`}
+    className={`container mx-auto p-8 min-h-screen transition-colors duration-300 `}
+    
     >
       <h1
-        className={`text-3xl font-bold mb-2 text-center ${
+         className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center ${
           isDarkMode ? "text-white" : "text-gray-900"
         }`}
       >
@@ -97,10 +96,11 @@ const CuratorExhibitionsList = () => {
         className={`text-md mb-6 text-center ${
           isDarkMode ? "text-gray-300" : "text-gray-700"
         }`}
+        dir={isHebrew ? "rtl" : "ltr"}
       >
         {t.viewEditExhibition}
       </p>
-      <div className="grid grid-cols-1 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 mr-6 gap-4">
+      <div className="grid grid-cols-1 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 mr-6 gap-4"    >
         {exhibitions.map((exhibition) => (
           <ExhibitCard
             key={exhibition._id}

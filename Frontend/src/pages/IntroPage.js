@@ -4,7 +4,7 @@ import pageData from "../data/introPageData";
 import { NavigationButtons } from "../components/common/NavigationButtons";
 import MobileStepper from "@mui/material/MobileStepper";
 import { useNavigate } from "react-router-dom";
-import { useMediaQuery } from "@mui/material";
+// import { useMediaQuery } from "@mui/material";
 
 
 const IntroPage = () => {
@@ -13,7 +13,6 @@ const IntroPage = () => {
     pageData[currentPage];
 
   const navigate = useNavigate();
-  const isLargeScreen = useMediaQuery("(min-width: 1920px)");
 
   const handleLoginClick = () => {
     navigate("/login");
@@ -58,7 +57,7 @@ const IntroPage = () => {
         />
         <button
           onClick={handleLoginClick}
-          className="bg-transparent border-none underline cursor-pointer text-base text-sm"
+          className="bg-transparent border-none underline cursor-pointer text-base "
           style={{ color: '#3a4c98' }}
         >
           Already a user? Click here

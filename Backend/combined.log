@@ -2571,3 +2571,9 @@ Use mongoose.model(name, schema)
 2024-10-17 19:09:58 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fe
 2024-10-17 19:12:12 [32minfo[39m: Retrieving exhibitions for User with ID: 66dff8a7ed28d360b1ac13fe
 2024-10-17 19:17:56 [32minfo[39m: Retrieving all exhibitions
+2024-10-22 17:16:59 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-22 17:31:19 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-22 20:33:49 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-22 20:34:35 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-22 20:52:45 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-22 21:12:20 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711

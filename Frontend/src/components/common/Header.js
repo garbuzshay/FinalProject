@@ -25,17 +25,29 @@ const AdminHeader = ({ buttonText, buttonPath }) => {
 
   return (
     <header
-      className={`p-4 flex ${isHebrew ? "flex-row-reverse" : "flex-row"} justify-between items-center rounded-b-2xl shadow-xl 
-      bg-gradient-to-r ${isDarkMode ? "from-gray-800 to-gray-900" : "from-gray-100 to-gray-200"} 
+      className={`p-4 flex ${
+        isHebrew ? "flex-row-reverse" : "flex-row"
+      } justify-between items-center rounded-b-2xl shadow-xl 
+      bg-gradient-to-r ${
+        isDarkMode ? "from-gray-800 to-gray-900" : "from-gray-100 to-gray-200"
+      } 
       transition-colors duration-300`}
     >
       {/* Title */}
-      <h1 className={`font-poppins text-2xl sm:text-xl text-gray-800 dark:text-gray-200 ${isHebrew ? "ml-auto" : "mr-auto"}`}>
+      <h1
+        className={`font-poppins text-2xl sm:text-xl text-gray-800 dark:text-gray-200 ${
+          isHebrew ? "ml-auto" : "mr-auto"
+        }`}
+      >
         {title}
       </h1>
 
       {/* Container for Theme Toggle, Language Switcher, and Logout */}
-      <div className={`flex items-center ${isHebrew ? "space-x-reverse space-x-4" : "space-x-4"}`}>
+      <div
+        className={`flex items-center ${
+          isHebrew ? "space-x-reverse space-x-4" : "space-x-4"
+        }`}
+      >
         {isHebrew ? (
           <>
             <button
@@ -90,12 +102,15 @@ const EmployeeHeader = ({ buttonText, buttonPath }) => {
       switch (user.role.roleName) {
         case "MuseumOwner":
           return isHebrew
-            ? `   ברוך הבא למערכת ניהול המוזיאון, ${user.name}`
-            : `Hello ${user.name}, Welcome to ${museum ? museum.name : "your museum"} CMS`;
+            ? ` ${user.name}, ברוך הבא למערכת ניהול המוזיאון`
+            : `${user.name}, Welcome to ${
+                museum ? museum.name : "your museum"
+              } CMS`;
         case "Curator":
-          return isHebrew
-            ? `שלום ${user.name}, ברוך הבא לאזור האוצרים`
-            : `Hello ${user.name}, Welcome to the Curator's area CMS`;
+          return  `${user.name}`;
+        // return isHebrew
+        //   ? `שלום ${user.name}, ברוך הבא לאזור האוצרים`
+        //   : `Hello ${user.name}, Welcome to the Curator's area CMS`;
         default:
           return "";
       }
@@ -110,15 +125,30 @@ const EmployeeHeader = ({ buttonText, buttonPath }) => {
 
   return (
     <header
-      className={`p-4 flex ${isHebrew ? "flex-row-reverse" : "flex-row"} justify-between items-center shadow-xl 
-      bg-gradient-to-r ${isDarkMode ? "from-gray-800 to-gray-900" : "from-gray-100 to-gray-200"} 
+      className={`p-4 flex ${
+        isHebrew ? "flex-row-reverse" : "flex-1 flex-row"
+      } justify-between items-center shadow-xl 
+      bg-gradient-to-r ${
+        isDarkMode ? "from-gray-800 to-gray-900" : "from-gray-100 to-gray-200"
+      } 
       transition-colors duration-300`}
+      
+      
     >
-      <h1 className={`font-poppins text-xl sm:text-lg text-gray-800 dark:text-gray-200 ${isHebrew ? "ml-auto" : "mr-auto"}`}>
+      <h1
+        className={`font-poppins text-xl sm:text-lg text-gray-800 dark:text-gray-200 ${
+          isHebrew ? "ml-auto" : "mr-auto"
+        }`}
+        dir={isHebrew ? "rtl" : "ltr"}
+      >
         {title}
       </h1>
 
-      <div className={`flex items-center ${isHebrew ? "space-x-reverse space-x-4" : "space-x-4"}`}>
+      <div
+        className={`flex items-center ${
+          isHebrew ? "space-x-reverse space-x-4" : "space-x-4"
+        }`}
+      >
         {isHebrew ? (
           <>
             <button

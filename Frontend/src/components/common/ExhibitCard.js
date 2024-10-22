@@ -173,10 +173,10 @@ import { useLang } from "../../contexts/LangContext"; // Import LangContext
 // Translations
 const translations = {
   en: {
-    artworks: "Artworks",
-    curators: "Curators",
-    status: "Status",
-    museum: "Museum",
+    artworks: "Artworks:",
+    curators: "Curators:",
+    status: "Status:",
+    museum: "Museum:",
     reopen: "Re-open?",
     confirmReopen: "Are you sure you want to re-open this exhibition?",
     closed: "Closed",
@@ -184,10 +184,10 @@ const translations = {
     open: "Open",
   },
   he: {
-    artworks: "יצירות אמנות ",
-    curators: "אוצרים ",
+    artworks: "יצירות אומנות: ",
+    curators: "אוצרים:",
     status: "סטטוס ",
-    museum: "מוזיאון ",
+    museum: "מוזיאון:  ",
     reopen: "פתח מחדש? ",
     confirmReopen: "האם אתה בטוח שברצונך לפתוח מחדש את התערוכה? ",
     closed: "סגור ",
@@ -223,9 +223,7 @@ const AdminExhibitCard = ({
     <div
       className={`max-w-sm w-full rounded overflow-hidden shadow-lg m-4 transform transition duration-500 ${
         status === "open" ? "cursor-pointer hover:scale-105" : "cursor-default"
-      } ${isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"} ${
-        isHebrew ? "text-right" : "text-left"
-      }`} // Set text alignment
+      } ${isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"} `}
       dir={isHebrew ? "rtl" : "ltr"} // Set RTL direction for Hebrew
       onClick={status === "open" ? handleCardClick : undefined}
     >
@@ -294,9 +292,9 @@ const EmployeeExhibitCard = ({
     <div
       className={`max-w-sm w-full rounded overflow-hidden shadow-lg m-4 transform transition duration-500 ${
         status === "open" ? "cursor-pointer hover:scale-105" : "cursor-default"
-      } ${isDarkMode ? "bg-gray-800 text-gray-300" : "bg-gray-50 text-gray-900"} ${
-        isHebrew ? "text-right" : "text-left"
-      }`} // Set text alignment
+      } ${isDarkMode ? "bg-gray-800 text-gray-300" : "bg-gray-50 text-gray-900"}
+    
+      `} // Set text alignment
       dir={isHebrew ? "rtl" : "ltr"} // Set RTL direction for Hebrew
       onClick={status === "open" ? handleCardClick : undefined}
     >
@@ -307,24 +305,24 @@ const EmployeeExhibitCard = ({
           alt={`${name}`}
         />
       </div>
-      <div className="px-6 py-4">
+      <div className=" px-2 py-4">
         <div className="font-bold text-xl mb-2">{name}</div>
-        <p className={`text-base mb-2 ${isDarkMode ? "text-white-200" : "text-gray-700"}`}> {description}</p>
+        <p className={`text-base mb-2 ${isDarkMode ? "text-white-200" : "text-gray-700"}`}>{description}</p>
 
         {location && (
           <div className="flex mb-2">
-            <span className="font-semibold">{t.museum}:</span> {/* Translate 'Museum' */}
-            <span className={`ml-1 ${isDarkMode ? "text-white-200" : "text-gray-700"}`}> {location}</span>
+            <span className="font-semibold">{t.museum}</span> {/* Translate 'Museum' */}
+            <span className={`ml-1 ${isDarkMode ? "text-white-200" : "text-gray-700"}`}> {location} </span>
           </div>
         )}
 
         <div className="flex mb-2">
-          <span className="font-semibold">{t.artworks}:</span> {/* Translate 'Artworks' */}
+          <span className="font-semibold">{t.artworks}</span> {/* Translate 'Artworks' */}
           <span className={`ml-1 ${isDarkMode ? "text-white-200" : "text-gray-700"}`}> {artworks}</span>
         </div>
 
         <div className="flex mb-2">
-          <span className="font-semibold">{t.curators}:</span> {/* Translate 'Curators' */}
+          <span className="font-semibold">{t.curators}</span> {/* Translate 'Curators' */}
           <span className={`ml-1 truncate ${isDarkMode ? "text-white-200" : "text-gray-700"}`}> {curators}</span>
         </div>
 

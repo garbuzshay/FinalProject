@@ -179,6 +179,7 @@
 // src/components/MuseumOwnerExhibitionsList.js
 
 // src/components/MuseumOwnerExhibitionsList.js
+
 import React, { useState } from "react";
 import { useThemeMode } from "../../contexts/DarkModeContext"; // Import Theme Context
 import { useLang } from "../../contexts/LangContext"; // Import Language Context
@@ -195,7 +196,8 @@ const MuseumOwnerExhibitionsList = () => {
   const translations = {
     en: {
       pageTitle: "Your Exhibitions",
-      description: "To view or edit an exhibition, simply click on the tab and start exploring.",
+      description:
+        "To view or edit an exhibition, simply click on the tab and start exploring.",
       showAll: "Show All",
       showOpen: "Show Opened Exhibitions",
       showClosed: "Show Closed Exhibitions",
@@ -204,7 +206,8 @@ const MuseumOwnerExhibitionsList = () => {
     },
     he: {
       pageTitle: "התערוכות שלך",
-      description: "כדי לצפות או לערוך תערוכה, פשוט לחץ על הכרטיסיה והתחל לחקור.",
+      description:
+        "כדי לצפות או לערוך תערוכה, פשוט לחץ על הכרטיסיה והתחל לחקור.",
       showAll: "הצג הכל",
       showOpen: "הצג תערוכות פתוחות",
       showClosed: "הצג תערוכות סגורות",
@@ -246,7 +249,9 @@ const MuseumOwnerExhibitionsList = () => {
   const filteredExhibitions = filterExhibitions();
 
   return (
-    <div className={`container mx-auto p-4 transition-colors duration-300`}>
+    <div
+    className={`container mx-auto p-8 min-h-screen transition-colors duration-300 `}
+    >
       <h1
         className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center ${
           isDarkMode ? "text-white" : "text-gray-900"
@@ -258,55 +263,59 @@ const MuseumOwnerExhibitionsList = () => {
         className={`text-md mb-6 ${
           isDarkMode ? "text-gray-400" : "text-gray-700"
         }`}
+        dir={isHebrew ? "rtl" : "ltr"}
       >
         {t.description}
       </p>
-      <div className={`flex justify-center mb-4 space-x-2 ${isHebrew ? 'flex-row-reverse' : 'flex-row'}`}>
-  {/* Adjust button order based on language */}
-  <button
-    onClick={() => setFilter("all")}
-    className={`px-4 py-2 font-poppins ${
-      filter === "all"
-        ? isDarkMode
-          ? "border-b-2 border-blue-400 text-white font-bold"
-          : "border-b-2 border-black text-gray-900 font-bold"
-        : isDarkMode
-        ? "text-gray-400 hover:text-gray-200"
-        : "text-gray-600 hover:text-gray-900"
-    } transition-colors duration-300`}
-  >
-    {t.showAll}
-  </button>
-  <button
-    onClick={() => setFilter("open")}
-    className={`px-4 py-2 font-poppins ${
-      filter === "open"
-        ? isDarkMode
-          ? "border-b-2 border-blue-400 text-white font-bold"
-          : "border-b-2 border-black text-gray-900 font-bold"
-        : isDarkMode
-        ? "text-gray-400 hover:text-gray-200"
-        : "text-gray-600 hover:text-gray-900"
-    } transition-colors duration-300`}
-  >
-    {t.showOpen}
-  </button>
-  <button
-    onClick={() => setFilter("closed")}
-    className={`px-4 py-2 font-poppins ${
-      filter === "closed"
-        ? isDarkMode
-          ? "border-b-2 border-blue-400 text-white font-bold"
-          : "border-b-2 border-black text-gray-900 font-bold"
-        : isDarkMode
-        ? "text-gray-400 hover:text-gray-200"
-        : "text-gray-600 hover:text-gray-900"
-    } transition-colors duration-300`}
-  >
-    {t.showClosed}
-  </button>
-</div>
-
+      <div
+        className={`flex justify-center mb-4 space-x-2 ${
+          isHebrew ? "flex-row-reverse" : "flex-row"
+        }`}
+      >
+        {/* Adjust button order based on language */}
+        <button
+          onClick={() => setFilter("all")}
+          className={`px-4 py-2 font-poppins ${
+            filter === "all"
+              ? isDarkMode
+                ? "border-b-2 border-blue-400 text-white font-bold"
+                : "border-b-2 border-black text-gray-900 font-bold"
+              : isDarkMode
+              ? "text-gray-400 hover:text-gray-200"
+              : "text-gray-600 hover:text-gray-900"
+          } transition-colors duration-300`}
+        >
+          {t.showAll}
+        </button>
+        <button
+          onClick={() => setFilter("open")}
+          className={`px-4 py-2 font-poppins ${
+            filter === "open"
+              ? isDarkMode
+                ? "border-b-2 border-blue-400 text-white font-bold"
+                : "border-b-2 border-black text-gray-900 font-bold"
+              : isDarkMode
+              ? "text-gray-400 hover:text-gray-200"
+              : "text-gray-600 hover:text-gray-900"
+          } transition-colors duration-300`}
+        >
+          {t.showOpen}
+        </button>
+        <button
+          onClick={() => setFilter("closed")}
+          className={`px-4 py-2 font-poppins ${
+            filter === "closed"
+              ? isDarkMode
+                ? "border-b-2 border-blue-400 text-white font-bold"
+                : "border-b-2 border-black text-gray-900 font-bold"
+              : isDarkMode
+              ? "text-gray-400 hover:text-gray-200"
+              : "text-gray-600 hover:text-gray-900"
+          } transition-colors duration-300`}
+        >
+          {t.showClosed}
+        </button>
+      </div>
 
       {/* Responsive grid layout for exhibition cards */}
       <div className="grid mr-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -331,7 +340,11 @@ const MuseumOwnerExhibitionsList = () => {
             />
           ))
         ) : (
-          <p className={`text-center w-full ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+          <p
+            className={`text-center w-full ${
+              isDarkMode ? "text-white" : "text-gray-900"
+            }`}
+          >
             {t.noExhibitions}
           </p>
         )}

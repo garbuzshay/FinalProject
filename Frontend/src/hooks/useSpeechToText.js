@@ -49,7 +49,7 @@ const useSpeechToText = (initialLanguage = 'en-US') => {
                 recognition.current.onerror = null;
             }
         };
-    }, []);
+    }, [language]);
 
     useEffect(() => {
         if (recognition.current) {

@@ -325,7 +325,8 @@ const MuseumOwnerCuratorsList = () => {
   };
 
   return (
-    <div className={`mx-8 overflow-y-auto ${isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-100 text-gray-900'} min-h-screen transition-colors duration-300`}>
+    <div  className={`container mx-auto p-8 min-h-screen transition-colors duration-300  ${isDarkMode ? ' text-gray-300' : ' text-gray-900'}`}
+    >
       <h1 className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
         {t.curatorsTitle}
       </h1>

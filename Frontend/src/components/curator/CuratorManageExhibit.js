@@ -197,13 +197,14 @@ const CuratorManageExhibit = () => {
   const museumUrl = `https://mensch-visitors.vercel.app/${exhibition?.museum.name}`;
 
   return (
-    <div
-      className={`container mx-auto p-4 ${
-        isHebrew ? "text-right" : "text-left"
-      }`}
+     <div
+    className={`container mx-auto p-8 min-h-screen transition-colors duration-300 `}
+    
     >
       {/* Title */}
-      <h1 className="text-3xl font-bold mb-6 text-center">{exhibition.name}</h1>
+      <h1
+         className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center`}
+      >{exhibition.name}</h1>
 
       {/* Visit Museum Link */}
       <div className="text-center mb-4">
@@ -264,7 +265,7 @@ const CuratorManageExhibit = () => {
       {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
 
       {/* Artworks Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mx-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mx-5"   dir={isHebrew ? "rtl" : "ltr"}>
         {exhibition.artworks.map((artwork) => (
           <ArtworkCard
             key={artwork._id}

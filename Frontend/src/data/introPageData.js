@@ -1,6 +1,6 @@
 import LogoMusuem from "../assets/LogoMusuem.png";
 import People from "../assets/people.png";
-import Symbols from "../assets/Symbols.png";
+// import Symbols from "../assets/Symbols.png";
 import design from "../assets/design.png";
 import introPage2 from "../assets/IntroPage2.png";
 
