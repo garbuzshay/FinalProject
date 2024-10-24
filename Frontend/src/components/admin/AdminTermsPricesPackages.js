@@ -9,9 +9,13 @@
 //   TextField,
 // } from "@mui/material";
 // import { useThemeMode } from "../../contexts/DarkModeContext"; // For dark mode
+// import { useLang } from "../../contexts/LangContext"; // For language context
 
 // const AdminTermsPricesPackages = () => {
 //   const { isDarkMode } = useThemeMode(); // Dark mode toggle from context
+//   const { language } = useLang(); // Get the current language
+//   const isHebrew = language === "he"; // Check if the language is Hebrew
+
 //   const { plansData, termsOfUseData } = useAdminContext();
 //   const { plans, loading, error, updatePlan, addPlan, deletePlan } = plansData;
 //   const { termsOfUse, updateTermsOfUse, fetchTermsOfUse } = termsOfUseData;
@@ -88,23 +92,19 @@
 //     try {
 //       await deletePlan(id);
 //       setEditingPlanIndex(null);
-//       // Optionally, you can show a success message or handle errors here
 //     } catch (error) {
 //       console.error("Failed to delete the plan:", error);
-//       // Optionally, handle the error (e.g., show a notification)
 //     }
 //   };
 
-//   if (loading) return <p>Loading...</p>;
-//   if (error) return <p>{error}</p>;
+//   if (loading) return <p>{isHebrew ? 'טוען...' : 'Loading...'}</p>;
+//   if (error) return <p>{isHebrew ? `שגיאה: ${error}` : `Error: ${error}`}</p>;
 
 //   return (
-//     <div
-//       className={`p-4 ${
-//         isDarkMode ? "bg-gray-900 text-gray-300" : "text-gray-900"
-//       }`}
-//     >
-//       <h2 className="text-2xl font-semibold mb-5">Prices and Packages</h2>
+//     <div className={`p-4 ${isDarkMode ? "bg-gray-900 text-gray-300" : "text-gray-900"}`}>
+//       <h2 className="text-2xl font-semibold mb-5">
+//         {isHebrew ? "מחירים וחבילות" : "Prices and Packages"}
+//       </h2>
 
 //       {/* Plan Form */}
 //       {isAdding ? (
@@ -113,18 +113,22 @@
 //             (field, index) => (
 //               <div className="mb-4" key={index}>
 //                 <label
-//                   className={`block mb-2 ${
-//                     isDarkMode ? "text-gray-300" : "text-gray-700"
-//                   }`}
+//                   className={`block mb-2 ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}
 //                   htmlFor={field}
 //                 >
-//                   {field.charAt(0).toUpperCase() + field.slice(1)}
+//                   {isHebrew
+//                     ? {
+//                         name: "שם",
+//                         maxExhibitions: "מקסימום תערוכות",
+//                         maxArtWorks: "מקסימום יצירות אמנות",
+//                         features: "תכונות",
+//                         price: "מחיר",
+//                       }[field]
+//                     : field.charAt(0).toUpperCase() + field.slice(1)}
 //                 </label>
 //                 <input
 //                   className={`w-full px-2 py-1 border rounded ${
-//                     isDarkMode
-//                       ? "bg-gray-800 text-gray-300"
-//                       : "bg-white text-gray-900"
+//                     isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"
 //                   }`}
 //                   type={field === "price" ? "number" : "text"}
 //                   id={field}
@@ -136,18 +140,15 @@
 //               </div>
 //             )
 //           )}
-//           <button
-//             className="w-full bg-green-500 text-white px-4 py-2 rounded"
-//             type="submit"
-//           >
-//             Add Plan
+//           <button className="w-full bg-green-500 text-white px-4 py-2 rounded" type="submit">
+//             {isHebrew ? "הוסף חבילה" : "Add Plan"}
 //           </button>
 //           <button
 //             className="w-full bg-red-500 text-white px-4 py-2 rounded mt-2"
 //             type="button"
 //             onClick={() => setIsAdding(false)}
 //           >
-//             Cancel
+//             {isHebrew ? "בטל" : "Cancel"}
 //           </button>
 //         </form>
 //       ) : (
@@ -155,31 +156,21 @@
 //           className="bg-green-500 text-white px-4 py-2 rounded mb-5"
 //           onClick={() => setIsAdding(true)}
 //         >
-//           Add Plan
+//           {isHebrew ? "הוסף חבילה" : "Add Plan"}
 //         </button>
 //       )}
 
 //       {/* Responsive Table */}
 //       <div className="overflow-x-auto">
-//         <table
-//           className={`min-w-full mb-5 ${
-//             isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"
-//           }`}
-//         >
-//           <thead
-//             className={`${
-//               isDarkMode
-//                 ? "bg-gray-900 text-gray-300"
-//                 : "bg-gray-800 text-white"
-//             }`}
-//           >
-//             <tr>
-//               <th className="w-1/6 py-2">Package</th>
-//               <th className="w-1/6 py-2">Exhibitions</th>
-//               <th className="w-1/6 py-2 ">Artworks</th>
-//               <th className="w-1/6 py-2 ">Features</th>
-//               <th className="w-1/6 py-2 ">Price</th>
-//               <th className="w-1/6 py-2 ">Actions</th>
+//         <table className={`min-w-full mb-5 ${isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"}`}>
+//           <thead className={`${isDarkMode ? "bg-gray-900 text-gray-300" : "bg-gray-800 text-white"}`}>
+//             <tr className={isHebrew ? "flex-row-reverse" : ""}>
+//               <th className="w-1/6 py-2">{isHebrew ? "חבילה" : "Package"}</th>
+//               <th className="w-1/6 py-2">{isHebrew ? "תערוכות" : "Exhibitions"}</th>
+//               <th className="w-1/6 py-2">{isHebrew ? "יצירות אמנות" : "Artworks"}</th>
+//               <th className="w-1/6 py-2">{isHebrew ? "תכונות" : "Features"}</th>
+//               <th className="w-1/6 py-2">{isHebrew ? "מחיר" : "Price"}</th>
+//               <th className="w-1/6 py-2">{isHebrew ? "פעולות" : "Actions"}</th>
 //             </tr>
 //           </thead>
 //           <tbody>
@@ -187,71 +178,56 @@
 //               <React.Fragment key={index}>
 //                 {editingPlanIndex === index ? (
 //                   <tr>
-//                     {[
-//                       "name",
-//                       "maxExhibitions",
-//                       "maxArtWorks",
-//                       "features",
-//                       "price",
-//                     ].map((field, i) => (
-//                       <td key={i} className="border px-4 py-2">
-//                         <input
-//                           className={`w-full px-2 py-1 border rounded ${
-//                             isDarkMode
-//                               ? "bg-gray-800 text-gray-300"
-//                               : "bg-white text-gray-900"
-//                           }`}
-//                           type={field === "price" ? "number" : "text"}
-//                           value={newPlanData[field]}
-//                           onChange={(e) =>
-//                             setNewPlanData({
-//                               ...newPlanData,
-//                               [field]: e.target.value,
-//                             })
-//                           }
-//                         />
-//                       </td>
-//                     ))}
+//                     {["name", "maxExhibitions", "maxArtWorks", "features", "price"].map(
+//                       (field, i) => (
+//                         <td key={i} className="border px-4 py-2">
+//                           <input
+//                             className={`w-full px-2 py-1 border rounded ${
+//                               isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"
+//                             }`}
+//                             type={field === "price" ? "number" : "text"}
+//                             value={newPlanData[field]}
+//                             onChange={(e) =>
+//                               setNewPlanData({
+//                                 ...newPlanData,
+//                                 [field]: e.target.value,
+//                               })
+//                             }
+//                           />
+//                         </td>
+//                       )
+//                     )}
 //                     <td className="border">
-//                       <button
-//                         className="bg-green-500 text-white px-2 py-1 rounded mr-2"
-//                         onClick={handleSavePlan}
-//                       >
-//                         Save
+//                       <button className="bg-green-500 text-white px-2 py-1 rounded mr-2" onClick={handleSavePlan}>
+//                         {isHebrew ? "שמור" : "Save"}
 //                       </button>
-//                       <button
-//                         className="bg-red-500 text-white px-2 py-1 rounded mr-2"
-//                         onClick={handleCancelEdit}
-//                       >
-//                         Cancel
+//                       <button className="bg-red-500 text-white px-2 py-1 rounded mr-2" onClick={handleCancelEdit}>
+//                         {isHebrew ? "בטל" : "Cancel"}
 //                       </button>
-//                       <button
-//                         className="bg-red-500 text-white px-2 py-1 rounded"
-//                         onClick={() => handleDeletePlan(plan._id)}
-//                       >
-//                         Delete
+//                       <button className="bg-red-500 text-white px-2 py-1 rounded" onClick={() => handleDeletePlan(plan._id)}>
+//                         {isHebrew ? "מחק" : "Delete"}
 //                       </button>
 //                     </td>
 //                   </tr>
 //                 ) : (
 //                   <tr
-//                     className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+//                     className={`cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 ${isHebrew ? "flex-row-reverse" : ""}`}
 //                     onClick={() => handleEditPlan(index)}
 //                   >
 //                     <td className="border px-4 py-2">{plan.name}</td>
 //                     <td className="border px-4 py-2">
 //                       {plan.maxExhibitions === null
-//                         ? "Unlimited exhibitions"
-//                         : `Up to ${plan.maxExhibitions} exhibitions`}
+//                         ? isHebrew ? "תערוכות ללא הגבלה" : "Unlimited exhibitions"
+//                         : `${isHebrew ? 'עד ' : 'Up to '} ${plan.maxExhibitions} ${isHebrew ? 'תערוכות' : 'exhibitions'}`}
 //                     </td>
 //                     <td className="border px-4 py-2">
 //                       {plan.maxArtWorks === null
-//                         ? "Unlimited artworks"
-//                         : `Manage up to ${plan.maxArtWorks} artworks`}
+//                         ? isHebrew ? "יצירות ללא הגבלה" : "Unlimited artworks"
+//                         : `${isHebrew ? 'עד ' : 'Up to '} ${plan.maxArtWorks} ${isHebrew ? 'יצירות' : 'artworks'}`}
 //                     </td>
 //                     <td className="border px-4 py-2">{plan.features}</td>
-//                     <td className="border px-4 py-2">{plan.price}$</td>
-//                     <td className="border px-4 py-2">Edit</td>
+//                     <td className="border px-4 py-2">{`${plan.price}$`}</td>
+//                     <td className="border px-4 py-2">{isHebrew ? "ערוך" : "Edit"}</td>
 //                   </tr>
 //                 )}
 //               </React.Fragment>
@@ -261,26 +237,17 @@
 //       </div>
 
 //       {/* Button to Open Terms Modal */}
-//       <h2 className="text-2xl font-semibold mb-5">Manage Terms of Use</h2>
-//       <button
-//         className="bg-blue-500 text-white px-4 py-2 rounded"
-//         onClick={handleOpenTermsModal}
-//       >
-//         Open and Edit Terms
+//       <h2 className="text-2xl font-semibold mb-5">{isHebrew ? "נהל את תנאי השימוש" : "Manage Terms of Use"}</h2>
+//       <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={handleOpenTermsModal}>
+//         {isHebrew ? "פתח וערוך תנאים" : "Open and Edit Terms"}
 //       </button>
 
 //       {/* Terms Modal */}
-//       <Dialog
-//         open={openTermsModal}
-//         onClose={handleCloseTermsModal}
-//         fullWidth
-//         maxWidth="md"
-//       >
-//         <DialogTitle>Edit Terms and Conditions</DialogTitle>
+//       <Dialog open={openTermsModal} onClose={handleCloseTermsModal} fullWidth maxWidth="md">
+//         <DialogTitle>{isHebrew ? "ערוך את תנאי השימוש" : "Edit Terms and Conditions"}</DialogTitle>
 //         <DialogContent>
-//           {/* No dark mode styles applied here, keeping the original style */}
 //           <TextField
-//             label="Terms and Conditions"
+//             label={isHebrew ? "תנאים והגבלות" : "Terms and Conditions"}
 //             multiline
 //             rows={10}
 //             fullWidth
@@ -291,10 +258,10 @@
 //         </DialogContent>
 //         <DialogActions>
 //           <Button onClick={handleCloseTermsModal} color="secondary">
-//             Close
+//             {isHebrew ? "סגור" : "Close"}
 //           </Button>
 //           <Button onClick={handleSaveTerms} color="primary" variant="contained">
-//             Save
+//             {isHebrew ? "שמור" : "Save"}
 //           </Button>
 //         </DialogActions>
 //       </Dialog>
@@ -303,8 +270,6 @@
 // };
 
 // export default AdminTermsPricesPackages;
-
-
 import React, { useState, useEffect } from "react";
 import { useAdminContext } from "../../contexts/AdminContext";
 import {
@@ -315,13 +280,13 @@ import {
   Button,
   TextField,
 } from "@mui/material";
-import { useThemeMode } from "../../contexts/DarkModeContext"; // For dark mode
-import { useLang } from "../../contexts/LangContext"; // For language context
+import { useThemeMode } from "../../contexts/DarkModeContext";
+import { useLang } from "../../contexts/LangContext";
 
 const AdminTermsPricesPackages = () => {
-  const { isDarkMode } = useThemeMode(); // Dark mode toggle from context
-  const { language } = useLang(); // Get the current language
-  const isHebrew = language === "he"; // Check if the language is Hebrew
+  const { isDarkMode } = useThemeMode();
+  const { language } = useLang();
+  const isHebrew = language === "he";
 
   const { plansData, termsOfUseData } = useAdminContext();
   const { plans, loading, error, updatePlan, addPlan, deletePlan } = plansData;
@@ -341,12 +306,10 @@ const AdminTermsPricesPackages = () => {
   const [newTerms, setNewTerms] = useState("");
   const [openTermsModal, setOpenTermsModal] = useState(false);
 
-  // Fetch the current terms of use when the component mounts
   useEffect(() => {
     fetchTermsOfUse();
   }, [fetchTermsOfUse]);
 
-  // Sync the fetched terms with the local state for editing
   useEffect(() => {
     if (termsOfUse) {
       setNewTerms(termsOfUse);
@@ -404,23 +367,46 @@ const AdminTermsPricesPackages = () => {
     }
   };
 
-  if (loading) return <p>{isHebrew ? 'טוען...' : 'Loading...'}</p>;
-  if (error) return <p>{isHebrew ? `שגיאה: ${error}` : `Error: ${error}`}</p>;
+  if (loading)
+    return (
+      <p className="text-center py-4">{isHebrew ? "טוען..." : "Loading..."}</p>
+    );
+  if (error)
+    return (
+      <p className="text-center py-4 text-red-500">
+        {isHebrew ? `שגיאה: ${error}` : `Error: ${error}`}
+      </p>
+    );
 
   return (
-    <div className={`p-4 ${isDarkMode ? "bg-gray-900 text-gray-300" : "text-gray-900"}`}>
-      <h2 className="text-2xl font-semibold mb-5">
+    <div
+      className={`p-4 ${
+        isDarkMode ? "bg-gray-900 text-gray-300" : " text-gray-900"
+      }`}
+      dir={isHebrew ? "rtl" : "ltr"}
+    >
+      <h2 className="text-2xl font-semibold mb-5 text-center">
         {isHebrew ? "מחירים וחבילות" : "Prices and Packages"}
       </h2>
 
-      {/* Plan Form */}
-      {isAdding ? (
-        <form onSubmit={handleAddPlan} className="mb-5">
+      {/* Add Plan Button */}
+      <button
+        className="w-full md:w-auto bg-green-500 text-white  px-4 py-2 rounded mb-5"
+        onClick={() => setIsAdding(true)}
+      >
+        {isHebrew ? "הוסף חבילה" : "Add Plan"}
+      </button>
+
+      {/* Add Plan Form */}
+      {isAdding && (
+        <form onSubmit={handleAddPlan} className="mb-5 space-y-4">
           {["name", "maxExhibitions", "maxArtWorks", "features", "price"].map(
-            (field, index) => (
-              <div className="mb-4" key={index}>
+            (field) => (
+              <div key={field}>
                 <label
-                  className={`block mb-2 ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}
+                  className={`block mb-2 ${
+                    isDarkMode ? "text-gray-300" : "text-gray-700"
+                  }`}
                   htmlFor={field}
                 >
                   {isHebrew
@@ -435,7 +421,9 @@ const AdminTermsPricesPackages = () => {
                 </label>
                 <input
                   className={`w-full px-2 py-1 border rounded ${
-                    isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"
+                    isDarkMode
+                      ? "bg-gray-800 text-gray-300"
+                      : "bg-white text-gray-900"
                   }`}
                   type={field === "price" ? "number" : "text"}
                   id={field}
@@ -447,34 +435,51 @@ const AdminTermsPricesPackages = () => {
               </div>
             )
           )}
-          <button className="w-full bg-green-500 text-white px-4 py-2 rounded" type="submit">
-            {isHebrew ? "הוסף חבילה" : "Add Plan"}
-          </button>
-          <button
-            className="w-full bg-red-500 text-white px-4 py-2 rounded mt-2"
-            type="button"
-            onClick={() => setIsAdding(false)}
+          <div
+            className={`flex ${
+              isHebrew ? "space-x-reverse space-x-2" : "space-x-2"
+            }`}
+            dir={isHebrew ? "rtl" : "ltr"}
           >
-            {isHebrew ? "בטל" : "Cancel"}
-          </button>
+            <button
+              className="flex-1 bg-green-500 text-white px-4 py-2 rounded"
+              type="submit"
+            >
+              {isHebrew ? "הוסף" : "Add"}
+            </button>
+            <button
+              className="flex-1 bg-red-500 text-white px-4 py-2 rounded"
+              type="button"
+              onClick={() => setIsAdding(false)}
+            >
+              {isHebrew ? "בטל" : "Cancel"}
+            </button>
+          </div>
         </form>
-      ) : (
-        <button
-          className="bg-green-500 text-white px-4 py-2 rounded mb-5"
-          onClick={() => setIsAdding(true)}
-        >
-          {isHebrew ? "הוסף חבילה" : "Add Plan"}
-        </button>
       )}
 
-      {/* Responsive Table */}
-      <div className="overflow-x-auto">
-        <table className={`min-w-full mb-5 ${isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"}`}>
-          <thead className={`${isDarkMode ? "bg-gray-900 text-gray-300" : "bg-gray-800 text-white"}`}>
+      {/* Responsive Table/Cards */}
+      <div className="hidden md:block overflow-x-auto">
+        <table
+          className={`min-w-full mb-5 ${
+            isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"
+          }`}
+        >
+          <thead
+            className={`${
+              isDarkMode
+                ? "bg-gray-900 text-gray-300"
+                : "bg-gray-800 text-white"
+            }`}
+          >
             <tr className={isHebrew ? "flex-row-reverse" : ""}>
               <th className="w-1/6 py-2">{isHebrew ? "חבילה" : "Package"}</th>
-              <th className="w-1/6 py-2">{isHebrew ? "תערוכות" : "Exhibitions"}</th>
-              <th className="w-1/6 py-2">{isHebrew ? "יצירות אמנות" : "Artworks"}</th>
+              <th className="w-1/6 py-2">
+                {isHebrew ? "תערוכות" : "Exhibitions"}
+              </th>
+              <th className="w-1/6 py-2">
+                {isHebrew ? "יצירות אמנות" : "Artworks"}
+              </th>
               <th className="w-1/6 py-2">{isHebrew ? "תכונות" : "Features"}</th>
               <th className="w-1/6 py-2">{isHebrew ? "מחיר" : "Price"}</th>
               <th className="w-1/6 py-2">{isHebrew ? "פעולות" : "Actions"}</th>
@@ -485,56 +490,107 @@ const AdminTermsPricesPackages = () => {
               <React.Fragment key={index}>
                 {editingPlanIndex === index ? (
                   <tr>
-                    {["name", "maxExhibitions", "maxArtWorks", "features", "price"].map(
-                      (field, i) => (
-                        <td key={i} className="border px-4 py-2">
-                          <input
-                            className={`w-full px-2 py-1 border rounded ${
-                              isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"
-                            }`}
-                            type={field === "price" ? "number" : "text"}
-                            value={newPlanData[field]}
-                            onChange={(e) =>
-                              setNewPlanData({
-                                ...newPlanData,
-                                [field]: e.target.value,
-                              })
-                            }
-                          />
-                        </td>
-                      )
-                    )}
-                    <td className="border">
-                      <button className="bg-green-500 text-white px-2 py-1 rounded mr-2" onClick={handleSavePlan}>
+                    {[
+                      "name",
+                      "maxExhibitions",
+                      "maxArtWorks",
+                      "features",
+                      "price",
+                    ].map((field, i) => (
+                      <td key={i} className="border px-4 py-2">
+                        <input
+                          className={`w-full px-2 py-1 border rounded ${
+                            isDarkMode
+                              ? "bg-gray-800 text-gray-300"
+                              : "bg-white text-gray-900"
+                          }`}
+                          type={field === "price" ? "number" : "text"}
+                          value={newPlanData[field]}
+                          onChange={(e) =>
+                            setNewPlanData({
+                              ...newPlanData,
+                              [field]: e.target.value,
+                            })
+                          }
+                        />
+                      </td>
+                    ))}
+                    {/* <td className="border">
+                      <button
+                        className="bg-green-500 text-white px-2 py-1 rounded mr-2"
+                        onClick={handleSavePlan}
+                      >
                         {isHebrew ? "שמור" : "Save"}
                       </button>
-                      <button className="bg-red-500 text-white px-2 py-1 rounded mr-2" onClick={handleCancelEdit}>
+                      <button
+                        className="bg-red-500 text-white px-2 py-1 rounded mr-2"
+                        onClick={handleCancelEdit}
+                      >
                         {isHebrew ? "בטל" : "Cancel"}
                       </button>
-                      <button className="bg-red-500 text-white px-2 py-1 rounded" onClick={() => handleDeletePlan(plan._id)}>
+                      <button
+                        className="bg-red-500 text-white px-2 py-1 rounded"
+                        onClick={() => handleDeletePlan(plan._id)}
+                      >
+                        {isHebrew ? "מחק" : "Delete"}
+                      </button>
+                    </td> */}
+                    <td className="border">
+                      <button
+                        className={`bg-green-500 text-white px-2 py-1 rounded ${
+                          isHebrew ? "ml-2" : "mr-2"
+                        }`}
+                        onClick={handleSavePlan}
+                      >
+                        {isHebrew ? "שמור" : "Save"}
+                      </button>
+                      <button
+                        className={`bg-red-500 text-white px-2 py-1 rounded ${
+                          isHebrew ? "ml-2" : "mr-2"
+                        }`}
+                        onClick={handleCancelEdit}
+                      >
+                        {isHebrew ? "בטל" : "Cancel"}
+                      </button>
+                      <button
+                        className="bg-red-500 text-white px-2 py-1 rounded"
+                        onClick={() => handleDeletePlan(plan._id)}
+                      >
                         {isHebrew ? "מחק" : "Delete"}
                       </button>
                     </td>
                   </tr>
                 ) : (
                   <tr
-                    className={`cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 ${isHebrew ? "flex-row-reverse" : ""}`}
+                    className={`cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 ${
+                      isHebrew ? "flex-row-reverse " : ""
+                    }`}
                     onClick={() => handleEditPlan(index)}
                   >
                     <td className="border px-4 py-2">{plan.name}</td>
                     <td className="border px-4 py-2">
                       {plan.maxExhibitions === null
-                        ? isHebrew ? "תערוכות ללא הגבלה" : "Unlimited exhibitions"
-                        : `${isHebrew ? 'עד ' : 'Up to '} ${plan.maxExhibitions} ${isHebrew ? 'תערוכות' : 'exhibitions'}`}
+                        ? isHebrew
+                          ? "תערוכות ללא הגבלה"
+                          : "Unlimited exhibitions"
+                        : `${isHebrew ? "עד " : "Up to "} ${
+                            plan.maxExhibitions
+                          } ${isHebrew ? "תערוכות" : "exhibitions"}`}
                     </td>
                     <td className="border px-4 py-2">
                       {plan.maxArtWorks === null
-                        ? isHebrew ? "יצירות ללא הגבלה" : "Unlimited artworks"
-                        : `${isHebrew ? 'עד ' : 'Up to '} ${plan.maxArtWorks} ${isHebrew ? 'יצירות' : 'artworks'}`}
+                        ? isHebrew
+                          ? "יצירות ללא הגבלה"
+                          : "Unlimited artworks"
+                        : `${isHebrew ? "עד " : "Up to "} ${plan.maxArtWorks} ${
+                            isHebrew ? "יצירות" : "artworks"
+                          }`}
                     </td>
                     <td className="border px-4 py-2">{plan.features}</td>
                     <td className="border px-4 py-2">{`${plan.price}$`}</td>
-                    <td className="border px-4 py-2">{isHebrew ? "ערוך" : "Edit"}</td>
+                    <td className="border px-4 py-2">
+                      {isHebrew ? "ערוך" : "Edit"}
+                    </td>
                   </tr>
                 )}
               </React.Fragment>
@@ -543,15 +599,158 @@ const AdminTermsPricesPackages = () => {
         </table>
       </div>
 
-      {/* Button to Open Terms Modal */}
-      <h2 className="text-2xl font-semibold mb-5">{isHebrew ? "נהל את תנאי השימוש" : "Manage Terms of Use"}</h2>
-      <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={handleOpenTermsModal}>
+      {/* Mobile Cards */}
+      <div className="md:hidden space-y-4">
+        {plans.map((plan, index) => (
+          <div
+            key={index}
+            className={`p-4 rounded-lg shadow-md ${
+              isDarkMode ? "bg-gray-800" : "bg-white"
+            }`}
+          >
+            {editingPlanIndex === index ? (
+              <form onSubmit={handleSavePlan} className="space-y-4">
+                {[
+                  "name",
+                  "maxExhibitions",
+                  "maxArtWorks",
+                  "features",
+                  "price",
+                ].map((field) => (
+                  <div key={field}>
+                    <label
+                      className={`block mb-2 ${
+                        isDarkMode ? "text-gray-300" : "text-gray-700"
+                      }`}
+                    >
+                      {isHebrew
+                        ? {
+                            name: "שם",
+                            maxExhibitions: "מקסימום תערוכות",
+                            maxArtWorks: "מקסימום יצירות אמנות",
+                            features: "תכונות",
+                            price: "מחיר",
+                          }[field]
+                        : field.charAt(0).toUpperCase() + field.slice(1)}
+                    </label>
+                    <input
+                      className={`w-full px-2 py-1 border rounded ${
+                        isDarkMode
+                          ? "bg-gray-700 text-gray-300"
+                          : "bg-white text-gray-900"
+                      }`}
+                      type={field === "price" ? "number" : "text"}
+                      value={newPlanData[field]}
+                      onChange={(e) =>
+                        setNewPlanData({
+                          ...newPlanData,
+                          [field]: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                ))}
+                <div className="flex space-x-2">
+                  <button
+                    type="submit"
+                    className="flex-1 bg-green-500 text-white px-4 py-2 rounded"
+                  >
+                    {isHebrew ? "שמור" : "Save"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleCancelEdit}
+                    className="flex-1 bg-red-500 text-white px-4 py-2 rounded"
+                  >
+                    {isHebrew ? "בטל" : "Cancel"}
+                  </button>
+                </div>
+              </form>
+            ) : (
+              <>
+                <h3 className="text-lg font-semibold mb-2">{plan.name}</h3>
+                <p>
+                  <strong>{isHebrew ? "תערוכות" : "Exhibitions"}:</strong>{" "}
+                  {plan.maxExhibitions === null
+                    ? isHebrew
+                      ? "ללא הגבלה"
+                      : "Unlimited"
+                    : `${isHebrew ? "עד " : "Up to "} ${plan.maxExhibitions}`}
+                </p>
+                <p>
+                  <strong>{isHebrew ? "יצירות אמנות" : "Artworks"}:</strong>{" "}
+                  {plan.maxArtWorks === null
+                    ? isHebrew
+                      ? "ללא הגבלה"
+                      : "Unlimited"
+                    : `${isHebrew ? "עד " : "Up to "} ${plan.maxArtWorks}`}
+                </p>
+                <p>
+                  <strong>{isHebrew ? "תכונות" : "Features"}:</strong>{" "}
+                  {plan.features}
+                </p>
+                <p>
+                  <strong>{isHebrew ? "מחיר" : "Price"}:</strong> ${plan.price}
+                </p>
+                {/* <div className="mt-4 flex space-x-2">
+                  <button
+                    onClick={() => handleEditPlan(index)}
+                    className="flex-1 bg-blue-500 text-white px-4 py-2 rounded"
+                  >
+                    {isHebrew ? "ערוך" : "Edit"}
+                  </button>
+                  <button
+                    onClick={() => handleDeletePlan(plan._id)}
+                    className="flex-1 bg-red-500 text-white px-4 py-2 rounded"
+                  >
+                    {isHebrew ? "מחק" : "Delete"}
+                  </button>
+                </div> */}
+                <div
+                  className={`mt-4 flex ${
+                    isHebrew ? "space-x-reverse space-x-2" : "space-x-2"
+                  }`}
+                >
+                  <button
+                    onClick={() => handleEditPlan(index)}
+                    className="flex-1 bg-blue-500 text-white px-4 py-2 rounded"
+                  >
+                    {isHebrew ? "ערוך" : "Edit"}
+                  </button>
+                  <button
+                    onClick={() => handleDeletePlan(plan._id)}
+                    className="flex-1 bg-red-500 text-white px-4 py-2 rounded"
+                  >
+                    {isHebrew ? "מחק" : "Delete"}
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Terms of Use Section */}
+      <h2 className="text-2xl font-semibold my-5 text-center">
+        {isHebrew ? "נהל את תנאי השימוש" : "Manage Terms of Use"}
+      </h2>
+      <button
+        className="w-full md:w-auto bg-blue-500 text-white px-4 py-2 rounded"
+        onClick={handleOpenTermsModal}
+      >
         {isHebrew ? "פתח וערוך תנאים" : "Open and Edit Terms"}
       </button>
 
       {/* Terms Modal */}
-      <Dialog open={openTermsModal} onClose={handleCloseTermsModal} fullWidth maxWidth="md">
-        <DialogTitle>{isHebrew ? "ערוך את תנאי השימוש" : "Edit Terms and Conditions"}</DialogTitle>
+      <Dialog
+        open={openTermsModal}
+        onClose={handleCloseTermsModal}
+        fullWidth
+        maxWidth="md"
+      >
+        <DialogTitle>
+          {isHebrew ? "ערוך את תנאי השימוש" : "Edit Terms and Conditions"}
+        </DialogTitle>
         <DialogContent>
           <TextField
             label={isHebrew ? "תנאים והגבלות" : "Terms and Conditions"}
