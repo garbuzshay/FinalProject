@@ -47,7 +47,7 @@ const CuratorPage = () => {
       {/* Dynamically position the sidebar on the right for Hebrew and left for English */}
       {isHebrew ? (
         <>
-          <div className="flex-1 flex flex-col">
+          <div className="flex-1 flex flex-col w-full">
             <CuratorHeader />
             <main className="flex-1 p-4 overflow-y-auto">
               <Outlet />

@@ -47,7 +47,7 @@ const AdminPage = () => {
       {/* Sidebar is on the left for English and on the right for Hebrew */}
       {isHebrew ? (
         <>
-          <div className="flex-1 flex flex-col">
+          <div className="flex-1 flex flex-col w-full">
             <AdminHeader />
             <main className="flex-1 p-4 overflow-y-auto">
               <Outlet />

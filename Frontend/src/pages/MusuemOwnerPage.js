@@ -130,7 +130,7 @@ const MuseumOwnerPage = () => {
 
   // Component for the main content layout
   const MainLayout = ({ children }) => (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col w-full">
       <MuseumOwnerHeader />
       <main className="overflow-y-auto">
         {children}
