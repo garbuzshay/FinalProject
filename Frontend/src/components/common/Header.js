@@ -16,7 +16,7 @@ const AdminHeader = ({ buttonText, buttonPath }) => {
   const isHebrew = language === "he";
 
   useEffect(() => {
-    setTitle(isHebrew ? "לוח מחוונים ניהולי" : "Admin Dashboard");
+    setTitle(isHebrew ? "מנהל המערכת" : "System Admin");
   }, [language, isHebrew]);
 
   const handleButtonClick = () => {
@@ -25,7 +25,7 @@ const AdminHeader = ({ buttonText, buttonPath }) => {
 
   return (
     <header
-      className={`p-4 flex ${
+      className={`p-4 flex w-full ${
         isHebrew ? "flex-row-reverse" : "flex-row"
       } justify-between items-center rounded-b-2xl shadow-xl 
       bg-gradient-to-r ${
@@ -35,9 +35,10 @@ const AdminHeader = ({ buttonText, buttonPath }) => {
     >
       {/* Title */}
       <h1
-        className={`font-poppins text-2xl sm:text-xl text-gray-800 dark:text-gray-200 ${
+        className={`font-poppins text-md text-gray-800 dark:text-gray-200 ${
           isHebrew ? "ml-auto" : "mr-auto"
         }`}
+        dir={isHebrew ? "rtl" : "ltr"}
       >
         {title}
       </h1>
@@ -95,17 +96,21 @@ const EmployeeHeader = ({ buttonText, buttonPath }) => {
   const { language } = useLang();
   const { museum } = useMuseumContext();
   const isHebrew = language === "he";
-
+// ${user.name}, ברוך הבא ל-CMS
+// museum ? museum.name : "your museum"
+//          : `${user.name},
   useEffect(() => {
     const getTitle = () => {
       if (!user || !user.role) return "";
       switch (user.role.roleName) {
         case "MuseumOwner":
           return isHebrew
-            ? ` ${user.name}, ברוך הבא למערכת ניהול המוזיאון`
-            : `${user.name}, Welcome to ${
+            ? `${user.name}, ברוך הבא ל-CMS`
+            : `
+             ${
                 museum ? museum.name : "your museum"
-              } CMS`;
+              } 
+             `;
         case "Curator":
           return  `${user.name}`;
         // return isHebrew

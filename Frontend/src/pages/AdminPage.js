@@ -43,11 +43,11 @@ const AdminPage = () => {
   const isHebrew = language === "he"; // Check if the current language is Hebrew
 
   return (
-    <div className={`flex h-screen ${isDarkMode ? 'bg-gray-900 text-black' : 'bg-gray-100 text-gray-900'}`}>
+    <div className={`flex h-screen w-full ${isDarkMode ? 'bg-gray-900 text-black' : 'bg-gray-100 text-gray-900'}`}>
       {/* Sidebar is on the left for English and on the right for Hebrew */}
       {isHebrew ? (
         <>
-          <div className="flex-1 flex flex-col w-full">
+          <div className="flex-1 flex flex-col ">
             <AdminHeader />
             <main className="flex-1 p-4 overflow-y-auto">
               <Outlet />
