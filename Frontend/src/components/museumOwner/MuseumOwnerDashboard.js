@@ -856,8 +856,11 @@ const MuseumOwnerDashboard = () => {
           isDarkMode ? "bg-gray-900 text-red-500" : "bg-gray-200 text-red-500"
         }`}
       >
-        <h1 className="text-2xl font-semibold">
-          {isHebrew ? `שגיאה: ${error.message}` : `Error: ${error.message}`}
+       <h1
+        className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center ${
+          isDarkMode ? "text-white" : "text-gray-900"
+        }`}
+      >
         </h1>
       </div>
     );
@@ -865,7 +868,7 @@ const MuseumOwnerDashboard = () => {
 
   return (
     <div
-      className={`p-4 min-h-screen ${
+      className={`p-8 min-h-screen ${
         isDarkMode ? "bg-gray-900 text-gray-300" : "bg-grey-100 text-gray-900"
       } transition-colors duration-300`}
     >
