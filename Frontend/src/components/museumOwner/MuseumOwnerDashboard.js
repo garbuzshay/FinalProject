@@ -446,7 +446,6 @@
 
 // export default MuseumOwnerDashboard;
 
-
 // src/components/museumOwner/MuseumOwnerDashboard.js
 // src/components/museumOwner/MuseumOwnerDashboard.js
 
@@ -588,11 +587,16 @@ const MuseumOwnerDashboard = () => {
       const pieData = {
         labels: [
           `${translations[language].currentExhibitions} (${currentExhibitions})`,
-          `${translations[language].remainingExhibitions} (${totalMaxExhibitions - currentExhibitions})`,
+          `${translations[language].remainingExhibitions} (${
+            totalMaxExhibitions - currentExhibitions
+          })`,
         ],
         datasets: [
           {
-            data: [currentExhibitions, totalMaxExhibitions - currentExhibitions],
+            data: [
+              currentExhibitions,
+              totalMaxExhibitions - currentExhibitions,
+            ],
             backgroundColor: colors.pie,
             hoverBackgroundColor: colors.pie,
           },
@@ -604,8 +608,7 @@ const MuseumOwnerDashboard = () => {
 
       const barData = {
         labels: exhibitions.map(
-          (exhibition) =>
-            `${exhibition.name} (${exhibition.artworks.length} ${translations[language].numberOfArtworks.toLowerCase()})`
+          (exhibition) => `${exhibition.name}(${exhibition.artworks.length})`
         ),
         datasets: [
           {
@@ -653,11 +656,8 @@ const MuseumOwnerDashboard = () => {
         labels: sortedDates,
         datasets: [
           {
-            label:
-              translations[language].exhibitionsCreationTrend,
-            data: sortedDates.map(
-              (date) => newCreationTrend[date].length
-            ), // Count of exhibitions on each date
+            label: translations[language].exhibitionsCreationTrend,
+            data: sortedDates.map((date) => newCreationTrend[date].length), // Count of exhibitions on each date
             fill: false,
             borderColor: isDarkMode ? "#F1C40F" : "#36A2EB",
             backgroundColor: isDarkMode ? "#F1C40F" : "#36A2EB",
@@ -674,22 +674,20 @@ const MuseumOwnerDashboard = () => {
         closedExhibitionsCount,
       });
     }
-  }, [isLoading, museum, planDetails, exhibitions, isDarkMode, language, isHebrew]);
+  }, [
+    isLoading,
+    museum,
+    planDetails,
+    exhibitions,
+    isDarkMode,
+    language,
+    isHebrew,
+  ]);
 
   // Custom tooltip options for the pie chart
   const pieChartOptions = {
     maintainAspectRatio: false,
     plugins: {
-      tooltip: {
-        callbacks: {
-          label: function (context) {
-            // Show label and value
-            const label = context.label || "";
-            const value = context.raw || 0;
-            return `${label}: ${value}`;
-          },
-        },
-      },
       legend: {
         labels: {
           color: isDarkMode ? "#ecf0f1" : "#2c3e50", // Adjust legend text color
@@ -795,9 +793,9 @@ const MuseumOwnerDashboard = () => {
             return exhibitionsOnDate
               .map((exhibition) => {
                 const artworks = exhibition.artworks.length;
-                return `${exhibition.name}: ${artworks} ${
-                  translations[language].numberOfArtworks.toLowerCase()
-                }`;
+                return `${exhibition.name}: ${artworks} ${translations[
+                  language
+                ].numberOfArtworks.toLowerCase()}`;
               })
               .join("\n");
           },
@@ -879,100 +877,102 @@ const MuseumOwnerDashboard = () => {
         {translations[language].dashboardTitle}
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-  {chartData.pieData && (
-    <div
-      className={`p-4 rounded-2xl border-2 shadow-2xl transform transition-transform duration-300 hover:scale-105 ${
-        isDarkMode
-          ? "bg-gradient-to-r from-gray-700 to-gray-800"
-          : "bg-gradient-to-r from-gray-100 to-gray-100"
-      }`}
-    >
-      <h2
-        className={`text-lg md:text-xl font-bold mb-2 text-center ${
-          isDarkMode ? "text-gray-200" : "text-gray-800"
-        }`}
-      >
-        {translations[language].currentVsMaxExhibitions}
-      </h2>
-      <div className="relative h-64 w-full flex justify-center items-center">
-        <div className="relative h-full w-full md:w-3/4 lg:w-2/3">
-          <Pie data={chartData.pieData} options={pieChartOptions} />
-        </div>
+        {chartData.pieData && (
+          <div
+            className={`p-4 rounded-2xl border-2 shadow-2xl transform transition-transform duration-300 hover:scale-105 ${
+              isDarkMode
+                ? "bg-gradient-to-r from-gray-700 to-gray-800"
+                : "bg-gradient-to-r from-gray-100 to-gray-100"
+            }`}
+          >
+            <h2
+              className={`text-lg md:text-xl font-bold mb-2 text-center ${
+                isDarkMode ? "text-gray-200" : "text-gray-800"
+              }`}
+            >
+              {translations[language].currentVsMaxExhibitions}
+            </h2>
+            <div className="relative h-64 w-full flex justify-center items-center">
+              <div className="relative h-full w-full md:w-3/4 lg:w-2/3">
+                <Pie data={chartData.pieData} options={pieChartOptions} />
+              </div>
+            </div>
+            <div
+              className={`text-center mt-2 ${
+                isDarkMode ? "text-gray-300" : "text-gray-600"
+              }`}
+            >
+              <span className="font-bold">
+                {translations[language].closedExhibitions} (
+                {chartData.closedExhibitionsCount})
+              </span>
+            </div>
+          </div>
+        )}
+        {chartData.barData && (
+          <div
+            className={`p-4 rounded-2xl shadow-2xl border-2 transform transition-transform duration-300 hover:scale-105 ${
+              isDarkMode
+                ? "bg-gradient-to-r from-gray-700 to-gray-800"
+                : "bg-gradient-to-r from-gray-100 to-gray-100"
+            }`}
+          >
+            <h2
+              className={`text-lg font-bold mb-2 text-center ${
+                isDarkMode ? "text-gray-200" : "text-gray-800"
+              }`}
+            >
+              {translations[language].numberOfArtworks}
+            </h2>
+            <div className="h-64">
+              <Bar data={chartData.barData} options={barChartOptions} />
+            </div>
+          </div>
+        )}
+        {chartData.doughnutData && (
+          <div
+            className={`p-4 rounded-2xl shadow-2xl border-2 transform transition-transform duration-300 hover:scale-105 ${
+              isDarkMode
+                ? "bg-gradient-to-r from-gray-700 to-gray-800"
+                : "bg-gradient-to-r from-gray-100 to-gray-100"
+            }`}
+          >
+            <h2
+              className={`text-lg font-bold mb-2 text-center ${
+                isDarkMode ? "text-gray-200" : "text-gray-800"
+              }`}
+            >
+              {translations[language].freeVsExistingArtworksSpace}
+            </h2>
+            <div className="h-64">
+              <Doughnut
+                data={chartData.doughnutData}
+                options={doughnutChartOptions}
+              />
+            </div>
+          </div>
+        )}
+        {chartData.lineData && (
+          <div
+            className={`p-4 rounded-2xl shadow-2xl border-2 transform transition-transform duration-300 hover:scale-105 ${
+              isDarkMode
+                ? "bg-gradient-to-r from-gray-700 to-gray-800"
+                : "bg-gradient-to-r from-gray-100 to-gray-100"
+            }`}
+          >
+            <h2
+              className={`text-lg font-bold mb-2 text-center ${
+                isDarkMode ? "text-gray-200" : "text-gray-800"
+              }`}
+            >
+              {translations[language].exhibitionsCreationTrend}
+            </h2>
+            <div className="h-64">
+              <Line data={chartData.lineData} options={lineChartOptions} />
+            </div>
+          </div>
+        )}
       </div>
-      <div
-        className={`text-center mt-2 ${
-          isDarkMode ? "text-gray-300" : "text-gray-600"
-        }`}
-      >
-        <span className="font-bold">
-          {translations[language].closedExhibitions} (
-          {chartData.closedExhibitionsCount})
-        </span>
-      </div>
-    </div>
-  )}
-  {chartData.barData && (
-    <div
-      className={`p-4 rounded-2xl shadow-2xl border-2 transform transition-transform duration-300 hover:scale-105 ${
-        isDarkMode
-          ? "bg-gradient-to-r from-gray-700 to-gray-800"
-          : "bg-gradient-to-r from-gray-100 to-gray-100"
-      }`}
-    >
-      <h2
-        className={`text-lg font-bold mb-2 text-center ${
-          isDarkMode ? "text-gray-200" : "text-gray-800"
-        }`}
-      >
-        {translations[language].numberOfArtworks}
-      </h2>
-      <div className="h-64">
-        <Bar data={chartData.barData} options={barChartOptions} />
-      </div>
-    </div>
-  )}
-  {chartData.doughnutData && (
-    <div
-      className={`p-4 rounded-2xl shadow-2xl border-2 transform transition-transform duration-300 hover:scale-105 ${
-        isDarkMode
-          ? "bg-gradient-to-r from-gray-700 to-gray-800"
-          : "bg-gradient-to-r from-gray-100 to-gray-100"
-      }`}
-    >
-      <h2
-        className={`text-lg font-bold mb-2 text-center ${
-          isDarkMode ? "text-gray-200" : "text-gray-800"
-        }`}
-      >
-        {translations[language].freeVsExistingArtworksSpace}
-      </h2>
-      <div className="h-64">
-        <Doughnut data={chartData.doughnutData} options={doughnutChartOptions} />
-      </div>
-    </div>
-  )}
-  {chartData.lineData && (
-    <div
-      className={`p-4 rounded-2xl shadow-2xl border-2 transform transition-transform duration-300 hover:scale-105 ${
-        isDarkMode
-          ? "bg-gradient-to-r from-gray-700 to-gray-800"
-          : "bg-gradient-to-r from-gray-100 to-gray-100"
-      }`}
-    >
-      <h2
-        className={`text-lg font-bold mb-2 text-center ${
-          isDarkMode ? "text-gray-200" : "text-gray-800"
-        }`}
-      >
-        {translations[language].exhibitionsCreationTrend}
-      </h2>
-      <div className="h-64">
-        <Line data={chartData.lineData} options={lineChartOptions} />
-      </div>
-    </div>
-  )}
-</div>
-
     </div>
   );
 };

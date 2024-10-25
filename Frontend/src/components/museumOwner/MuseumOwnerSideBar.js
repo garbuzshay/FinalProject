@@ -28,16 +28,13 @@ import { useLang } from "../../contexts/LangContext";
 
 const MuseumOwnerSideBar = ({ isMuseumOpen }) => {
   const { language } = useLang();
-  const isHebrew = language === "he";
+
 
   // Get the museum owner links for the current language
   const museumsLinks = sideBarData.MuseumOwner[language] || [];
 
-  // Conditionally display all links or only the first link based on isMuseumOpen
-  const displayLinks = isMuseumOpen ? museumsLinks : [museumsLinks[0]];
-
   return (
-    <Sidebar links={displayLinks} isHebrew={isHebrew} />
+    <Sidebar links={museumsLinks} />
   );
 };
 
