@@ -29,7 +29,6 @@
 
 
 import React from "react";
-import AdminSideBar from "../components/admin/AdminSideBar";
 import AdminHeader from "../components/admin/AdminHeader";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/common/Footer";
@@ -54,11 +53,10 @@ const AdminPage = () => {
             </main>
             <Footer />
           </div>
-          <AdminSideBar /> {/* Sidebar on the right */}
+       
         </>
       ) : (
         <>
-          <AdminSideBar /> {/* Sidebar on the left */}
           <div className="flex-1 flex flex-col">
             <AdminHeader />
             <main className="flex-1 p-4 overflow-y-auto">

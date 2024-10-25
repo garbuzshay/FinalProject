@@ -100,7 +100,6 @@
 
 
 import React from "react";
-import MuseumOwnerSideBar from "../components/museumOwner/MuseumOwnerSideBar";
 import { Outlet } from "react-router-dom";
 import MuseumOwnerHeader from "../components/museumOwner/MuseumOwnerHeader";
 import Footer from "../components/common/Footer";
@@ -172,19 +171,22 @@ const MuseumOwnerPage = () => {
   );
 
   return (
+    // <div className={`flex min-h-screen ${getThemeClasses()}`}>
+    //   {isHebrew ? (
+    //     <>
+    //       <MainContent />
+    //       <MuseumOwnerSideBar isMuseumOpen={isMuseumOpen} />
+    //     </>
+    //   ) : (
+    //     <>
+    //       <MuseumOwnerSideBar isMuseumOpen={isMuseumOpen} />
+    //       <MainContent />
+    //     </>
+    //   )}
+    // </div>
     <div className={`flex min-h-screen ${getThemeClasses()}`}>
-      {isHebrew ? (
-        <>
-          <MainContent />
-          <MuseumOwnerSideBar isMuseumOpen={isMuseumOpen} />
-        </>
-      ) : (
-        <>
-          <MuseumOwnerSideBar isMuseumOpen={isMuseumOpen} />
-          <MainContent />
-        </>
-      )}
-    </div>
+        <MainContent />
+  </div>
   );
 };
 
