@@ -250,7 +250,7 @@ const MuseumOwnerExhibitionsList = () => {
 
   return (
     <div
-    className={`container mx-auto p-8 min-h-screen transition-colors duration-300 `}
+    className={`container mx-auto min-h-screen transition-colors duration-300 `}
     >
       <h1
         className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center ${
