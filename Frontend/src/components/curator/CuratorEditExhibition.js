@@ -281,7 +281,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMuseumContext } from "../../contexts/MuseumContext";
 import FormConfirmButton from "../common/FormConfirmButton";
-import GoBackButton from "../common/GoBackButton";
+// import GoBackButton from "../common/GoBackButton";
 import { useForm } from "react-hook-form";
 import geminiApi from "../../api/GeminiApi";
 import { uploadFile } from "../common/FileUpload"; // Import file upload logic
@@ -442,7 +442,7 @@ const CuratorEditExhibition = () => {
 
   return (
     <div
-      className={`container mx-auto p-4 `}
+      className={`container mx-auto px-4 `}
       dir={isHebrew ? "rtl" : "ltr"}
 
     >
@@ -454,7 +454,7 @@ const CuratorEditExhibition = () => {
       >
         {/* Exhibition Name */}
         <div className="mb-4">
-          <h2 className={`text-lg font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+          <h2 className={`text-xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
             {t.editExhibition}
           </h2>
           <label className={`block text-sm font-bold mb-2 ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}>
@@ -583,9 +583,9 @@ const CuratorEditExhibition = () => {
       </form>
 
       {/* Go Back Button */}
-      <div className="mt-4 text-center">
+      {/* <div className="mt-4 text-center">
         <GoBackButton />
-      </div>
+      </div> */}
     </div>
   );
 };

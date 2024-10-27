@@ -229,7 +229,7 @@ const AdminExhibitCard = ({
     >
       <div className="w-full h-40 sm:h-56 md:h-64 lg:h-72 overflow-hidden">
         <img
-          className="w-full h-full object-center"
+          className="w-full h-full"
           src={imageUrl}
           alt={`${name}`}
         />
@@ -290,7 +290,7 @@ const EmployeeExhibitCard = ({
 
   return (
     <div
-      className={`max-w-sm w-full rounded overflow-hidden shadow-lg m-4 transform transition duration-500 ${
+      className={`w-full rounded overflow-hidden shadow-lg  transform transition duration-500 ${
         status === "open" ? "cursor-pointer hover:scale-105" : "cursor-default"
       } ${isDarkMode ? "bg-gray-800 text-gray-300" : "bg-gray-50 text-gray-900"}
     
@@ -300,7 +300,7 @@ const EmployeeExhibitCard = ({
     >
       <div className="w-full h-40 sm:h-56 md:h-64 lg:h-72 overflow-hidden">
         <img
-          className="w-full h-full object-center"
+          className="w-full h-full object-cover"
           src={imageUrl}
           alt={`${name}`}
         />

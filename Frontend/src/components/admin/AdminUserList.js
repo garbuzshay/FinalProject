@@ -328,7 +328,7 @@ const AdminUserList = () => {
   const curators = users.filter(user => user.role.roleName === 'Curator');
 
   return (
-    <div>
+    <div dir={language ? "rtl" : "ltr"}>
       <MuseumOwnerList users={museumOwners} updateUser={updateUser} deleteUser={deleteUser} />
       <CuratorList users={curators} updateUser={updateUser} deleteUser={deleteUser} />
     </div>

@@ -177,15 +177,8 @@ const MuseumOwnerWatchArtworks = () => {
   }
 
   return (
-    <div className="mx-4">
+    <div>
       <div className="mb-6">
-        <h1
-          className={`text-3xl font-bold mb-2 ${
-            isDarkMode ? "text-white" : "text-gray-900"
-          }`}
-        >
-          {exhibition.name} {t.artworksTitle}
-        </h1>
         <p
           className={`text-md ${
             isDarkMode ? "text-gray-400" : "text-gray-700"
@@ -194,7 +187,7 @@ const MuseumOwnerWatchArtworks = () => {
           {t.clickToEdit}
         </p>
       </div>
-      <div className="flex flex-wrap -m-4">
+      <div className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {exhibition.artworks.map((artwork) => (
           <ArtworkCard
             key={artwork._id}

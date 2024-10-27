@@ -268,7 +268,7 @@ const MuseumOwnerExhibitionsList = () => {
         {t.description}
       </p>
       <div
-        className={`flex justify-center mb-4 space-x-2 ${
+        className={`flex justify-center px-2 mb-4 space-x-2 ${
           isHebrew ? "flex-row-reverse" : "flex-row"
         }`}
       >
@@ -318,7 +318,7 @@ const MuseumOwnerExhibitionsList = () => {
       </div>
 
       {/* Responsive grid layout for exhibition cards */}
-      <div className="grid mr-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid px-4  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 " dir={language ? "rtl" : "ltr"} >
         {filteredExhibitions.length > 0 ? (
           filteredExhibitions.map((exhibition) => (
             <ExhibitCard

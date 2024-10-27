@@ -143,13 +143,13 @@ const AdminExhibitList = () => {
   const filteredExhibitions = filterExhibitions();
 
   return (
-    <div className="p-4">
+    <div className="p-4"  dir={isHebrew ? "rtl" : "ltr"}>
       <h2 className={`text-2xl font-semibold mb-5 ${isDarkMode ? 'text-gray-300' : 'text-gray-900'}`}>
         {isHebrew ? 'תערוכות' : 'Exhibitions'}
       </h2>
 
       {/* Filter buttons - Reverse order for Hebrew */}
-      <div className={`flex justify-center mb-4 ${isHebrew ? 'flex-row-reverse' : ''}`}>
+      <div className={`flex justify-center mb-4 `}>
         <button
           onClick={() => setFilter("all")}
           className={`px-4 py-2 ${filter === "all" ? "bg-blue-500 text-white" : "bg-gray-200 dark:bg-gray-700 dark:text-gray-300"}`}
@@ -171,7 +171,7 @@ const AdminExhibitList = () => {
       </div>
 
       {/* Table view for desktop */}
-      <div className="hidden md:block overflow-x-auto">
+      <div className="hidden md:block overflow-x-auto" >
         <table className={`min-w-full border ${isDarkMode ? 'bg-gray-800 text-gray-300' : 'bg-white text-gray-900'}`}>
           <thead className={`${isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-800 text-white'}`}>
             <tr className={`${isHebrew ? 'flex-row-reverse' : ''}`}>

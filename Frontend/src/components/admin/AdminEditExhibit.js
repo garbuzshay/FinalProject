@@ -302,6 +302,7 @@ const AdminEditExhibit = () => {
         className={`flex justify-center items-center h-screen ${
           isDarkMode ? "bg-gray-900 text-red-500" : "bg-white text-red-500"
         }`}
+        
       >
         <h1 className="text-2xl font-semibold">
           {isHebrew ? `שגיאה: ${error}` : `Error: ${error}`}
@@ -313,11 +314,12 @@ const AdminEditExhibit = () => {
   const exhibit = exhibitions.find((exhibit) => exhibit._id === id);
 
   return (
-    <div>
+    <div dir={isHebrew ? "rtl" : "ltr"}>
       <h3
         className={`text-2xl font-semibold mt-5 text-center ${
           isDarkMode ? "text-white" : "text-black"
         }`}
+        
       >
         {isHebrew ? "ערוך תערוכה" : "Edit Exhibit"}
       </h3>
@@ -475,7 +477,7 @@ const AdminEditExhibit = () => {
           </div>
 
           {/* Form Actions */}
-          <div className="flex  items-center">
+          <div className="flex  items-center space-x-2 space-x-reverse">
             {/* Back Button */}
             <button
               type="button"

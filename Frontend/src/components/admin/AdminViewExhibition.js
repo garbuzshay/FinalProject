@@ -96,7 +96,7 @@ const AdminViewExhibition = () => {
   if (error) return <div style={{ color: "red" }}>{isHebrew ? `שגיאה: ${error}` : `Error: ${error}`}</div>; // Handle error state
 
   return (
-    <div className={`p-4 min-h-screen ${isDarkMode ? "bg-gray-900" : "bg-gray-200"}`}>
+    <div className={`p-4 min-h-screen `} dir={isHebrew ? "rtl" : "ltr"}>
       {currentExhibition ? (
         <>
           <h1 className={`text-3xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-black"}`}>
@@ -106,7 +106,7 @@ const AdminViewExhibition = () => {
             {currentExhibition.description}
           </p>
 
-          <div className="flex flex-wrap justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {currentExhibition.artworks && currentExhibition.artworks.length > 0 ? (
               currentExhibition.artworks.map((artwork) => (
                 <ArtworkCard

@@ -868,7 +868,7 @@ const MuseumOwnerDashboard = () => {
 
   return (
     <div
-      className={`p-8 min-h-screen ${
+      className={`px-4 my-8 min-h-screen ${
         isDarkMode ? "bg-gray-900 text-gray-300" : "bg-grey-100 text-gray-900"
       } transition-colors duration-300`}
     >

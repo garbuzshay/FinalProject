@@ -2611,3 +2611,44 @@ Use mongoose.model(name, schema)
 2024-10-25 15:26:47 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
 2024-10-25 15:27:52 [32minfo[39m: Retrieving all exhibitions
 2024-10-25 15:33:18 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 11:24:58 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 11:26:04 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 11:30:01 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 11:31:19 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 11:39:56 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!!","description":"Embark on a musical odyssey, tracing the threads of sound across civilizations and centuries. \"Harmonic Journeys!\" unveils the captivating evolution of music from ancient beginnings to modern masterpieces. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
+2024-10-27 11:39:56 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!!","description":"Embark on a musical odyssey, tracing the threads of sound across civilizations and centuries. \"Harmonic Journeys!\" unveils the captivating evolution of music from ancient beginnings to modern masterpieces. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fe","66e34ab5db4a5633d2fdedbe","66e2a6c283c04454e71e8711"]}
+2024-10-27 11:39:57 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 11:40:05 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!","description":"Embark on a musical odyssey, tracing the threads of sound across civilizations and centuries. \"Harmonic Journeys!\" unveils the captivating evolution of music from ancient beginnings to modern masterpieces. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg"}
+2024-10-27 11:40:05 [32minfo[39m: Updating exhibition with ID: 66dff8a7ed28d360b1ac1404 and data: {"name":"Harmonic Journeys!","description":"Embark on a musical odyssey, tracing the threads of sound across civilizations and centuries. \"Harmonic Journeys!\" unveils the captivating evolution of music from ancient beginnings to modern masterpieces. \n","imageUrl":"https://miro.medium.com/v2/resize:fit:1024/1*_tv3fXjr0i9Ri5_ror7ChA@2x.jpeg","curators":["66dff8a7ed28d360b1ac13fe","66e34ab5db4a5633d2fdedbe","66e2a6c283c04454e71e8711"]}
+2024-10-27 11:40:05 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:01:16 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:14:31 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:15:21 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:23:54 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:25:17 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:27:06 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:31:49 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:32:48 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:35:09 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:35:13 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:40:01 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:52:50 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:54:19 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:54:27 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:55:31 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 12:57:28 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 13:28:19 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 13:35:34 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 13:40:41 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 13:41:01 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 13:41:29 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 13:55:11 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 13:55:51 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 14:12:13 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 15:08:00 [32minfo[39m: Retrieving all exhibitions
+2024-10-27 15:11:37 [32minfo[39m: Retrieving all exhibitions
+2024-10-27 15:24:53 [32minfo[39m: Retrieving exhibitions for User with ID: 66e2a6c283c04454e71e8711
+2024-10-27 15:34:04 [32minfo[39m: Retrieving all exhibitions
+2024-10-27 15:36:35 [32minfo[39m: Retrieving all exhibitions
+2024-10-27 15:38:02 [32minfo[39m: Retrieving all exhibitions
+2024-10-27 15:40:26 [32minfo[39m: Retrieving all exhibitions

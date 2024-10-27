@@ -454,7 +454,7 @@ const MuseumOwnerEditDetails = () => {
     //       {t.editDetailsTitle}
     //     </h1>
     <div
-      className={`container mx-auto p-8 min-h-screen transition-colors duration-300 ${
+      className={`container mx-auto my-8 min-h-screen transition-colors duration-300 ${
         isHebrew ? "rtl" : "ltr"
       }`}
     >
@@ -662,7 +662,7 @@ const MuseumOwnerEditDetails = () => {
                 {...register("email", { required: true })}
                 defaultValue={museum?.email}
                 readOnly
-                className={`mt-2 w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
+                className={`my-2 w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
                   isDarkMode
                     ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
                     : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
@@ -684,7 +684,11 @@ const MuseumOwnerEditDetails = () => {
             >
               {t.imageUrl}
             </label>
-            <div className="flex items-center space-x-4 mt-2">
+            <div
+              className={`flex items-center space-x-4 ${
+                isHebrew ? "space-x-reverse" : ""
+              } mt-2`}
+            >
               <input
                 type="text"
                 {...register("imageUrl")}
@@ -718,7 +722,11 @@ const MuseumOwnerEditDetails = () => {
             >
               {t.password}
             </label>
-            <div className="flex items-center space-x-4 mt-2">
+            <div
+              className={`flex items-center space-x-4 ${
+                isHebrew ? "space-x-reverse" : ""
+              } mt-2`}
+            >
               <input
                 type="text"
                 {...register("password")}

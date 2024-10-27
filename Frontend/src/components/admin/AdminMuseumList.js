@@ -136,14 +136,14 @@ const AdminMuseumList = () => {
   const filteredMuseums = filterMuseums();
 
   return (
-    <div className="p-4">
+    <div className="p-4" dir={isHebrew ? "rtl" : "ltr"}>
       {/* Page Title */}
       <h2 className={`text-2xl font-semibold mb-5 ${isDarkMode ? 'text-gray-300' : 'text-gray-900'}`}>
         {isHebrew ? 'מוזיאונים' : 'Museums'}
       </h2>
 
       {/* Filter Buttons - Reverse Order for Hebrew */}
-      <div className={`flex justify-center mb-4 ${isHebrew ? 'flex-row-reverse' : ''}`}>
+      <div className={`flex justify-center mb-4`}>
         <button
           onClick={() => setFilter("all")}
           className={`px-4 py-2 ${filter === "all" ? "bg-blue-500 text-white" : "bg-gray-200 dark:bg-gray-700 dark:text-gray-300"}`}

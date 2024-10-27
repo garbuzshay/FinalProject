@@ -41,12 +41,10 @@ const sideBarData = {
   },
   Curator: {
     en: [
-      { name: "Curator Dashboard", path: "/curator/exhibitions" },
       { name: "Exhibitions Management", path: "/curator/exhibitions" },
       { name: "Contact us", path: "/curator/contact-us" },
     ],
     he: [
-      { name: "לוח מחוונים של האוצר", path: "/curator/exhibitions" },
       { name: "ניהול תערוכות", path: "/curator/exhibitions" },
       { name: "צור קשר", path: "/curator/contact-us" },
     ],

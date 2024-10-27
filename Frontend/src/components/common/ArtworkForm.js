@@ -1,4 +1,3 @@
-
 // import React, { useEffect, useState } from "react";
 // import { useForm } from "react-hook-form";
 // import FormConfirmButton from "../common/FormConfirmButton";
@@ -381,15 +380,13 @@
 
 // export default ArtworkForm;
 
-
-
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import FormConfirmButton from "../common/FormConfirmButton";
 import geminiApi from "../../api/GeminiApi";
 import SpeechToText from "./SpeechToText";
 import { uploadFile } from "./FileUpload";
-import { useThemeMode } from '../../contexts/DarkModeContext';
+import { useThemeMode } from "../../contexts/DarkModeContext";
 import { useLang } from "../../contexts/LangContext"; // Import useLang
 
 const ArtworkForm = ({
@@ -399,10 +396,17 @@ const ArtworkForm = ({
   formType,
   onSuccess,
 }) => {
-  const { register, handleSubmit, formState: { errors }, reset, setValue, watch } = useForm({ defaultValues: initialData });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    setValue,
+    watch,
+  } = useForm({ defaultValues: initialData });
   const { isDarkMode } = useThemeMode(); // Destructure isDarkMode
   const { language } = useLang(); // Destructure language from LangContext
-  
+
   // Translation object
   const translations = {
     en: {
@@ -427,7 +431,8 @@ const ArtworkForm = ({
       pleaseEnterArtistName: "Please enter the artist name.",
       pleaseEnterCreatedDate: "Please enter the created date by the artist.",
       pleaseEnterDescription: "Please enter a description.",
-      pleaseUploadImage: "Please upload the image before generating the description.",
+      pleaseUploadImage:
+        "Please upload the image before generating the description.",
       progress: "Progress",
       existingImage: "Existing Image:",
       uploadedImage: "Uploaded Image:",
@@ -460,7 +465,7 @@ const ArtworkForm = ({
       existingImage: "תמונה קיימת:",
       uploadedImage: "תמונה שהועלתה:",
       viewImage: "הצג תמונה",
-    }
+    },
   };
 
   const t = translations[language]; // Get the current translations based on selected language
@@ -499,13 +504,15 @@ const ArtworkForm = ({
 
     if (title && artist && createdDateByArtist) {
       try {
-        const generatedDescription = await geminiApi.generateArtworkDescription({
-          title,
-          artist,
-          createdDateByArtist,
-          imageUrl: url, // Use `url` instead of `imageUrl` to ensure the uploaded URL is passed
-          description,
-        });
+        const generatedDescription = await geminiApi.generateArtworkDescription(
+          {
+            title,
+            artist,
+            createdDateByArtist,
+            imageUrl: url, // Use `url` instead of `imageUrl` to ensure the uploaded URL is passed
+            description,
+          }
+        );
         setValue("description", generatedDescription); // Fill in the Description field
       } catch (error) {
         console.error("Error generating AI description:", error);
@@ -513,7 +520,11 @@ const ArtworkForm = ({
       }
     } else {
       alert(
-        t.pleaseEnterTitle + ", " + t.pleaseEnterArtistName + ", " + t.pleaseEnterCreatedDate
+        t.pleaseEnterTitle +
+          ", " +
+          t.pleaseEnterArtistName +
+          ", " +
+          t.pleaseEnterCreatedDate
       );
     }
   };
@@ -569,244 +580,255 @@ const ArtworkForm = ({
   };
 
   return (
-    <div className={`container mx-auto p-8 min-h-screen transition-colors duration-300 `}
-    
-    >
-      <h1
-         className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center`}
-      >
-        {formType === "edit" ? t.updateArtwork : t.createArtwork}
-      </h1>
-      <form
-        onSubmit={handleSubmit(handleFormSubmit)}
-        className={`space-y-4  mx-8 ${
-          isDarkMode ? "text-gray-300" : "text-gray-900"
-        }`}
-      >
-        {/* Title */}
-        <div className="w-full">
-          <label
-            className={`block text-sm font-bold mb-2 ${
-              isDarkMode ? "text-gray-300" : "text-gray-700"
-            }`}
-            htmlFor="title"
-          >
-            {t.title}
-          </label>
-          <input
-            className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
-              errors.title
-                ? "border-red-500"
-                : isDarkMode
-                ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
-                : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
-            }`}
-            id="title"
-            type="text"
-            {...register("title", { required: true })}
-          />
-          {errors.title && (
-            <p className="text-red-500 text-xs italic">{t.pleaseEnterTitle}</p>
-          )}
-        </div>
+    <div className={`container mx-auto `}>
+    <div className={`shadow  rounded-lg space-y-6 p-6 ${isDarkMode ? "bg-gray-800" : "bg-gray-200"}`}>
 
-        {/* Artist Name */}
-        <div className="w-full">
-          <label
-            className={`block text-sm font-bold mb-2 ${
-              isDarkMode ? "text-gray-300" : "text-gray-700"
-            }`}
-            htmlFor="artist"
-          >
-            {t.artistName}
-          </label>
-          <input
-            className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
-              errors.artist
-                ? "border-red-500"
-                : isDarkMode
-                ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
-                : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
-            }`}
-            id="artist"
-            type="text"
-            {...register("artist", { required: true })}
-          />
-          {errors.artist && (
-            <p className="text-red-500 text-xs italic">
-              {t.pleaseEnterArtistName}
-            </p>
-          )}
-        </div>
+        <h2
+          className={`text-xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-900"}`}
+        >
+          {formType === "edit" ? t.updateArtwork : t.createArtwork}
+        </h2>
+        <form
+          onSubmit={handleSubmit(handleFormSubmit)}
+          className={`space-y-4  mx-8`}
+        >
+          {/* Title */}
+          <div className="w-full">
+            <label
+              className={`block text-sm font-bold mb-2 ${
+                isDarkMode ? "text-gray-300" : "text-gray-700"
+              }`}
+              htmlFor="title"
+            >
+              {t.title}
+            </label>
+            <input
+              className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
+                errors.title
+                  ? "border-red-500"
+                  : isDarkMode
+                  ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
+                  : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
+              }`}
+              id="title"
+              type="text"
+              {...register("title", { required: true })}
+            />
+            {errors.title && (
+              <p className="text-red-500 text-xs italic">
+                {t.pleaseEnterTitle}
+              </p>
+            )}
+          </div>
 
-        {/* Created Date by Artist */}
-        <div className="w-full">
-          <label
-            className={`block text-sm font-bold mb-2 ${
-              isDarkMode ? "text-gray-300" : "text-gray-700"
-            }`}
-            htmlFor="createdDateByArtist"
-          >
-            {t.createdDate}
-          </label>
-          <input
-            className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
-              errors.createdDateByArtist
-                ? "border-red-500"
-                : isDarkMode
-                ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
-                : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
-            }`}
-            id="createdDateByArtist"
-            type="date"
-            {...register("createdDateByArtist", { required: true })}
-          />
-          {errors.createdDateByArtist && (
-            <p className="text-red-500 text-xs italic">
-              {t.pleaseEnterCreatedDate}
-            </p>
-          )}
-        </div>
+          {/* Artist Name */}
+          <div className="w-full">
+            <label
+              className={`block text-sm font-bold mb-2 ${
+                isDarkMode ? "text-gray-300" : "text-gray-700"
+              }`}
+              htmlFor="artist"
+            >
+              {t.artistName}
+            </label>
+            <input
+              className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
+                errors.artist
+                  ? "border-red-500"
+                  : isDarkMode
+                  ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
+                  : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
+              }`}
+              id="artist"
+              type="text"
+              {...register("artist", { required: true })}
+            />
+            {errors.artist && (
+              <p className="text-red-500 text-xs italic">
+                {t.pleaseEnterArtistName}
+              </p>
+            )}
+          </div>
 
-        {/* Image Upload Section */}
-        <div className="w-full">
-          <label
-            className={`block text-sm font-bold mb-2 ${
-              isDarkMode ? "text-gray-300" : "text-gray-700"
-            }`}
-            htmlFor="imageUrl"
-          >
-            {t.imageUpload}
-          </label>
-          <input
-            type="file"
-            onChange={handleFileChange}
-            className="block w-full"
-          />
-          {uploading && (
-            <p className={`mt-2 ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
-              {t.progress}: {progress}%
-            </p>
-          )}
-          {url && (
-            <div className="mt-4 flex flex-col items-center">
+          {/* Created Date by Artist */}
+          <div className="w-full">
+            <label
+              className={`block text-sm font-bold mb-2 ${
+                isDarkMode ? "text-gray-300" : "text-gray-700"
+              }`}
+              htmlFor="createdDateByArtist"
+            >
+              {t.createdDate}
+            </label>
+            <input
+              className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
+                errors.createdDateByArtist
+                  ? "border-red-500"
+                  : isDarkMode
+                  ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
+                  : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
+              }`}
+              id="createdDateByArtist"
+              type="date"
+              {...register("createdDateByArtist", { required: true })}
+            />
+            {errors.createdDateByArtist && (
+              <p className="text-red-500 text-xs italic">
+                {t.pleaseEnterCreatedDate}
+              </p>
+            )}
+          </div>
+
+          {/* Image Upload Section */}
+          <div className="w-full">
+            <label
+              className={`block text-sm font-bold mb-2 ${
+                isDarkMode ? "text-gray-300" : "text-gray-700"
+              }`}
+              htmlFor="imageUrl"
+            >
+              {t.imageUpload}
+            </label>
+            <input
+              type="file"
+              onChange={handleFileChange}
+              className="block w-full"
+            />
+            {uploading && (
               <p
-                className={`${
-                  isDarkMode ? "text-gray-300" : "text-gray-700"
+                className={`mt-2 ${
+                  isDarkMode ? "text-gray-400" : "text-gray-600"
                 }`}
               >
-                {formType === "edit" && !file ? t.existingImage : t.uploadedImage}
+                {t.progress}: {progress}%
               </p>
-              <img
-                src={url}
-                alt="Uploaded"
-                className="w-48 h-48 mt-2 rounded-lg object-cover"
+            )}
+            {url && (
+              <div className="mt-4 flex flex-col items-center">
+                <p
+                  className={`${
+                    isDarkMode ? "text-gray-300" : "text-gray-700"
+                  }`}
+                >
+                  {formType === "edit" && !file
+                    ? t.existingImage
+                    : t.uploadedImage}
+                </p>
+                <img
+                  src={url}
+                  alt="Uploaded"
+                  className="w-48 h-48 mt-2 rounded-lg object-cover"
+                />
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-blue-500 mt-2"
+                >
+                  {t.viewImage}
+                </a>
+              </div>
+            )}
+          </div>
+
+          {/* Description */}
+          <div className="w-full">
+            <label
+              className={`block text-sm font-bold mb-2 ${
+                isDarkMode ? "text-gray-300" : "text-gray-700"
+              }`}
+              htmlFor="description"
+            >
+              {t.description}
+            </label>
+            <textarea
+              className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
+                errors.description
+                  ? "border-red-500"
+                  : isDarkMode
+                  ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
+                  : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
+              }`}
+              id="description"
+              {...register("description", { required: true })}
+            ></textarea>
+            {errors.description && (
+              <p className="text-red-500 text-xs italic">
+                {t.pleaseEnterDescription}
+              </p>
+            )}
+          </div>
+
+          {/* Toggle Speech-to-Text */}
+          <div className="w-full">
+            <button
+              type="button"
+              onClick={() => setShowSpeechToText(!showSpeechToText)}
+              className={`bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+                isDarkMode ? "bg-gray-700 hover:bg-blue-800" : ""
+              } transition-colors duration-300`}
+            >
+              {showSpeechToText ? t.hideSpeechToText : t.useSpeechToText}
+            </button>
+          </div>
+
+          {/* Conditionally render SpeechToText */}
+          {showSpeechToText && (
+            <div className="w-full">
+              <SpeechToText
+                finalTranscript={description}
+                setFinalTranscript={(value) => setValue("description", value)}
               />
-              <a
-                href={url}
-                target="_blank"
-                rel="noreferrer"
-                className="text-blue-500 mt-2"
-              >
-                {t.viewImage}
-              </a>
             </div>
           )}
-        </div>
 
-        {/* Description */}
-        <div className="w-full">
-          <label
-            className={`block text-sm font-bold mb-2 ${
-              isDarkMode ? "text-gray-300" : "text-gray-700"
-            }`}
-            htmlFor="description"
-          >
-            {t.description}
-          </label>
-          <textarea
-            className={`shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline ${
-              errors.description
-                ? "border-red-500"
-                : isDarkMode
-                ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
-                : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
-            }`}
-            id="description"
-            {...register("description", { required: true })}
-          ></textarea>
-          {errors.description && (
-            <p className="text-red-500 text-xs italic">
-              {t.pleaseEnterDescription}
-            </p>
-          )}
-        </div>
-
-        {/* Toggle Speech-to-Text */}
-        <div className="w-full">
-          <button
-            type="button"
-            onClick={() => setShowSpeechToText(!showSpeechToText)}
-            className={`bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-              isDarkMode ? "bg-gray-700 hover:bg-blue-800" : ""
-            } transition-colors duration-300`}
-          >
-            {showSpeechToText ? t.hideSpeechToText : t.useSpeechToText}
-          </button>
-        </div>
-
-        {/* Conditionally render SpeechToText */}
-        {showSpeechToText && (
+          {/* Generate AI Description Button */}
           <div className="w-full">
-            <SpeechToText
-              finalTranscript={description}
-              setFinalTranscript={(value) => setValue("description", value)}
-            />
-          </div>
-        )}
-
-        {/* Generate AI Description Button */}
-        <div className="w-full">
-          <button
-            type="button"
-            onClick={handleGenerateDescription}
-            className={`bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-              isDarkMode ? "bg-purple-600 hover:bg-purple-800" : ""
-            } transition-colors duration-300`}
-          >
-            {t.generateAIDescription}
-          </button>
-        </div>
-
-        {/* Submit and Delete Buttons */}
-        <div className="w-full flex flex-col items-center space-y-4">
-          {/* Save/Update Button */}
-          <div className="flex justify-center">
-            <FormConfirmButton
-              onSubmit={handleSubmit(handleFormSubmit)}
-              buttonText={formType === "edit" ? t.updateButton : t.createButton}
-              dialogMessage={formType === "edit" ? t.dialogUpdate : t.dialogCreate}
-              className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-                isDarkMode ? "bg-blue-600 hover:bg-blue-800" : ""
+            <button
+              type="button"
+              onClick={handleGenerateDescription}
+              className={`bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+                isDarkMode ? "bg-purple-600 hover:bg-purple-800" : ""
               } transition-colors duration-300`}
-            />
+            >
+              {t.generateAIDescription}
+            </button>
           </div>
 
-          {/* Delete Button (only in edit mode) */}
-          {formType === "edit" && (
+          {/* Submit and Delete Buttons */}
+          <div className="w-full flex flex-col items-center space-y-4">
+            {/* Save/Update Button */}
             <div className="flex justify-center">
               <FormConfirmButton
-                onSubmit={handleSubmit(handleDeleteArtwork)}
-                buttonText={t.deleteButton}
-                dialogMessage={t.dialogDelete}
-                className={`bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-                  isDarkMode ? "bg-red-600 hover:bg-red-800" : ""
+                onSubmit={handleSubmit(handleFormSubmit)}
+                buttonText={
+                  formType === "edit" ? t.updateButton : t.createButton
+                }
+                dialogMessage={
+                  formType === "edit" ? t.dialogUpdate : t.dialogCreate
+                }
+                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+                  isDarkMode ? "bg-blue-600 hover:bg-blue-800" : ""
                 } transition-colors duration-300`}
               />
             </div>
-          )}
-        </div>
-      </form>
+
+            {/* Delete Button (only in edit mode) */}
+            {formType === "edit" && (
+              <div className="flex justify-center">
+                <FormConfirmButton
+                  onSubmit={handleSubmit(handleDeleteArtwork)}
+                  buttonText={t.deleteButton}
+                  dialogMessage={t.dialogDelete}
+                  className={`bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+                    isDarkMode ? "bg-red-600 hover:bg-red-800" : ""
+                  } transition-colors duration-300`}
+                />
+              </div>
+            )}
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
