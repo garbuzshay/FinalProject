@@ -145,7 +145,6 @@
 //     </div>
 //   );
 // };
-
 // export default ExhibitionPage;
 
 import React, { useState, useEffect, useRef } from "react";
@@ -153,93 +152,7 @@ import { useParams } from "react-router-dom";
 import { useMuseum } from "../contexts/MuseumContext";
 import GoBackButton from "../components/GoBackButton";
 import LogoutButton from "../components/LogoutButton";
-
-const ArtworkDetailView = ({ artwork, onClose, onNext, onPrevious }) => {
-  return (
-    <div className="p-6 flex flex-col h-full bg-white rounded-lg shadow-lg relative">
-      <button
-        onClick={onClose}
-        className="text-blue-500 self-start mb-4 font-semibold hover:text-blue-600 transition  top-4 left-4 z-20"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 inline-block mr-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
-        Back to Artworks
-      </button>
-
-      <div className="flex-1 flex flex-col justify-center items-center relative">
-        <button
-          onClick={onPrevious}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600 transition z-20"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </button>
-
-        <div className="relative w-82 h-96 flex justify-center items-center rounded-lg overflow-hidden shadow-lg">
-          <img
-            src={artwork.imageUrl}
-            alt={artwork.title}
-            className="object-cover max-h-full max-w-full"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50"></div>
-          <div className="absolute bottom-4 left-4 text-white z-20">
-            <h2 className="text-2xl font-bold">{artwork.title}</h2>
-            <p className="text-gray-300 italic">{artwork.artist}</p>
-          </div>
-        </div>
-
-        <button
-          onClick={onNext}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600 transition z-20"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </button>
-      </div>
-
-      <div className="mt-6 p-4">
-        <p className="font-bold text-lg">Description</p>
-        <p className="text-gray-700">{artwork.description}</p>
-      </div>
-    </div>
-  );
-};
+import ArtworkDetailView from "../components/ArtworkDetailView"; // Import the ArtworkDetailView component
 
 const ExhibitionPage = () => {
   const { museumName, exhibitionId } = useParams();
@@ -298,13 +211,19 @@ const ExhibitionPage = () => {
     }
   };
 
-  const artworksToDisplay = searchQuery
-    ? filteredArtworks
-    : exhibition?.artworks || [];
+  // Use all artworks for browsing after entering artwork view, regardless of filter
+  const artworksToDisplay = exhibition?.artworks || [];
+  const artworksToRender = searchQuery ? filteredArtworks : artworksToDisplay;
 
-  const handleArtworkClick = (index) => {
+  const handleArtworkClick = (indexInFiltered) => {
+    // Find the original index in the full artworks array to maintain consistency
+    const artworkId = artworksToRender[indexInFiltered]._id;
+    const indexInAllArtworks = artworksToDisplay.findIndex(
+      (artwork) => artwork._id === artworkId
+    );
+
     setSearchQuery(""); // Reset search query to allow full navigation
-    setSelectedArtworkIndex(index);
+    setSelectedArtworkIndex(indexInAllArtworks); // Use full list index for viewing
   };
 
   const handleNextArtwork = () => {
@@ -338,16 +257,14 @@ const ExhibitionPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <div className="bg-white shadow-lg">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-800">{museum.name}</h1>
-            <p className="text-gray-600 text-base">
-              {museum.address}, {museum.state}
-            </p>
-          </div>
-          <LogoutButton />
+      <div className="flex justify-between items-center p-4 bg-white shadow-lg">
+        <div>
+          <h1 className="text-3xl font-bold">{museum.name}</h1>
+          <p className="text-lg text-gray-600">
+            {museum.address}, {museum.state}
+          </p>
         </div>
+        <LogoutButton /> {/* Logout button */}
       </div>
 
       <div
@@ -399,23 +316,25 @@ const ExhibitionPage = () => {
 
             <div
               ref={artworksSectionRef}
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
             >
-              {artworksToDisplay.length > 0 ? (
-                artworksToDisplay.map((artwork, index) => (
+              {artworksToRender.length > 0 ? (
+                artworksToRender.map((artwork, index) => (
                   <div
                     key={artwork._id}
                     onClick={() => handleArtworkClick(index)}
-                    className="cursor-pointer bg-white p-4 shadow-md rounded-lg hover:shadow-lg transition duration-200 ease-in-out"
+                    className="cursor-pointer flex justify-center bg-white p-4 shadow-md rounded-lg hover:shadow-lg transition duration-200 ease-in-out"
                   >
-                    <img
-                      src={artwork.imageUrl}
-                      alt={artwork.title}
-                      className="object-cover w-full h-48 rounded-md"
-                    />
-                    <p className="mt-4 text-center font-semibold text-gray-800 line-clamp-2">
-                      {artwork.title}
-                    </p>
+                    <div>
+                      <img
+                        src={artwork.imageUrl}
+                        alt={artwork.title}
+                        className="w-full h-48 rounded-md object-cover"
+                      />
+                      <p className="mt-4 text-center font-semibold text-gray-800 line-clamp-2">
+                        {artwork.title}
+                      </p>
+                    </div>
                   </div>
                 ))
               ) : (
