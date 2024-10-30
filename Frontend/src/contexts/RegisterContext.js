@@ -9,9 +9,9 @@ import {
   validateRegistration,
   validateMuseumRegistration,
   validateChoosePlan,
+  validatePayment, // Import validatePayment function
 } from "../validators/registrationValidators";
 import requestsApi from "../api/RequestsApi";
-// import { loginWithEmailPassword } from "../utils/auth";
 import { useUserContext } from "./UserContext"; // Import useUserContext
 
 export const RegisterContext = React.createContext();
@@ -24,32 +24,32 @@ export const RegisterProvider = ({ children }) => {
     museumData: {},
   });
 
-  const { login } = useUserContext(); 
+  const { login } = useUserContext();
 
   const steps = [
     {
       component: <Registration />,
-      title:"Museum Owner Sign Up ",
+      title: "Museum Owner Sign Up",
       isValid: (data) => validateRegistration(data.userData),
     },
     {
       component: <MuseumRegistration />,
-      title:"Museum Registration ",
+      title: "Museum Registration",
       isValid: (data) => validateMuseumRegistration(data.museumData),
     },
     {
       component: <ChoosePlan />,
-      title:"Choose your plan ",
+      title: "Choose your plan",
       isValid: (data) => validateChoosePlan(data.userData),
     },
     {
       component: <PaymentStep />,
-      title:"Payment ",
-      isValid: () => true,
+      title: "Payment",
+      isValid: (data) => validatePayment(data.userData), // Use validatePayment for payment step
     },
     {
       component: <UserDataDisplay />,
-      isValid: (data) => true,
+      isValid: () => true,
     },
   ];
 
@@ -73,14 +73,11 @@ export const RegisterProvider = ({ children }) => {
 
   const submitData = async () => {
     try {
-
-      await requestsApi.createRequest({...formData, type: "Museum-Opening"});
-      await login(formData.userData.email, formData.userData.password);  
+      await requestsApi.createRequest({ ...formData, type: "Museum-Opening" });
+      await login(formData.userData.email, formData.userData.password);
     } catch (error) {
       console.error("Error submitting data:", error);
     }
-    // setFormData({ userData: {}, museumData: {} });
-    // setStep(0);
   };
 
   return (
@@ -106,7 +103,9 @@ export const RegisterProvider = ({ children }) => {
 export const useRegisterContext = () => {
   const context = useContext(RegisterContext);
   if (!context) {
-    throw new Error("useRegisterContext must be used within a RegisterProvider");
+    throw new Error(
+      "useRegisterContext must be used within a RegisterProvider"
+    );
   }
   return context;
 };
