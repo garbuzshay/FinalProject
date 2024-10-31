@@ -20,7 +20,6 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 
 const MuseumContext = createContext();
 const TOKEN_EXPIRY_TIME = 6 * 60 * 60 * 1000; // 6 hours in milliseconds
-
 export const MuseumProvider = ({ children }) => {
   const [museum, setMuseum] = useState(null);
   const [exhibitions, setExhibitions] = useState([]);
@@ -57,9 +56,11 @@ export const MuseumProvider = ({ children }) => {
       const savedMuseumData = localStorage.getItem('museumData');
       if (savedMuseumData) {
         const { museum, exhibitions, artworks } = JSON.parse(savedMuseumData);
+        
         setMuseum(museum);
         setExhibitions(exhibitions);
         setArtworks(artworks);
+        
       }
     } else {
       localStorage.removeItem('museumData');
