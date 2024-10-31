@@ -7,7 +7,7 @@ import { useMuseumApi } from '../hooks/useMuseumApi';
 const MuseumLayout = () => {
   const { museumName } = useParams();
   const { museum, setMuseum, exhibitions, setExhibitions } = useMuseum();
-  const { fetchMuseumDetails } = useMuseumApi();
+  const { getMuseumDetails } = useMuseumApi();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const MuseumLayout = () => {
       if (!museum || !exhibitions || museum.name !== museumName) {
         setLoading(true);
         try {
-          const data = await fetchMuseumDetails(museumName);
+          const data = await getMuseumDetails(museumName);
           setMuseum(data.museum);
           setExhibitions(data.exhibitions);
         } catch (error) {
@@ -29,7 +29,7 @@ const MuseumLayout = () => {
     };
 
     fetchData();
-  }, [museumName, museum, exhibitions, fetchMuseumDetails, setMuseum, setExhibitions]);
+  }, [museumName, museum, exhibitions, getMuseumDetails, setMuseum, setExhibitions]);
 
   if (loading) return <p>Loading...</p>;
 

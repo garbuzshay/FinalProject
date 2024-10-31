@@ -82,7 +82,7 @@ import { useMuseum } from '../contexts/MuseumContext';
 const LandingPage = () => {
   const { museumName } = useParams(); // Get museum name from URL params
   const { museum, initializeMuseumData, validateMuseumToken } = useMuseum(); // Context data and methods
-  const { fetchMuseumDetails, loading } = useMuseumApi(); // API fetch
+  const { getMuseumDetails, loading } = useMuseumApi(); // API fetch
   const navigate = useNavigate();
   const [error, setError] = useState(null); // State for handling fetch errors
 
@@ -91,7 +91,7 @@ const LandingPage = () => {
     if (!museum || museum.name !== museumName) {
       const fetchData = async () => {
         try {
-          const data = await fetchMuseumDetails(museumName);
+          const data = await getMuseumDetails(museumName);
           initializeMuseumData(data);
         } catch (err) {
           console.error("Error fetching museum details:", err.message);
@@ -103,7 +103,7 @@ const LandingPage = () => {
       // If the token is invalid, navigate to login
       navigate('/');
     }
-  }, [museum, museumName, initializeMuseumData, validateMuseumToken, fetchMuseumDetails, navigate]);
+  }, [museum, museumName, initializeMuseumData, validateMuseumToken, getMuseumDetails, navigate]);
 
   // Check if museum data or API loading is in progress
   if (loading || !museum) {
