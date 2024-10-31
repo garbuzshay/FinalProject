@@ -72,29 +72,49 @@
 
 // export default LandingPage;
 
+// src/components/LandingPage.js
 
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useMuseumApi } from '../hooks/useMuseumApi';
 import { useMuseum } from '../contexts/MuseumContext';
 
 const LandingPage = () => {
-  const { museum, validateMuseumToken } = useMuseum();
+  const { museumName } = useParams(); // Get museum name from URL params
+  const { museum, initializeMuseumData, validateMuseumToken } = useMuseum(); // Context data and methods
+  const { fetchMuseumDetails, loading } = useMuseumApi(); // API fetch
   const navigate = useNavigate();
+  const [error, setError] = useState(null); // State for handling fetch errors
 
   useEffect(() => {
-    // If museum is not loaded or token is invalid, redirect
-    if (!museum || !validateMuseumToken(museum.name)) {
+    // If no museum data or the loaded museum is not the one in URL, fetch the data
+    if (!museum || museum.name !== museumName) {
+      const fetchData = async () => {
+        try {
+          const data = await fetchMuseumDetails(museumName);
+          initializeMuseumData(data);
+        } catch (err) {
+          console.error("Error fetching museum details:", err.message);
+          setError(err.message);
+        }
+      };
+      fetchData();
+    } else if (!validateMuseumToken(museumName)) {
+      // If the token is invalid, navigate to login
       navigate('/');
     }
-  }, [museum, navigate, validateMuseumToken]);
+  }, [museum, museumName, initializeMuseumData, validateMuseumToken, fetchMuseumDetails, navigate]);
 
-  // Check if museum data is available before rendering
-  if (!museum) {
+  // Check if museum data or API loading is in progress
+  if (loading || !museum) {
     return <p>Loading...</p>;
   }
 
+  if (error) {
+    return <p>Error loading museum data: {error}</p>;
+  }
+
   const handleShowExhibitions = () => {
-    // Validate token before navigation
     if (validateMuseumToken(museum.name)) {
       navigate(`/${museum.name}/exhibitions`);
     } else {
@@ -110,7 +130,6 @@ const LandingPage = () => {
       }}
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
-
       <div className="absolute bottom-12 left-8 text-white z-10">
         <h1 className="text-4xl font-extrabold mb-4">
           Welcome to {museum.name}
