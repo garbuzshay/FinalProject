@@ -161,6 +161,7 @@ import AdminEditExhibit from "./components/admin/AdminEditExhibit.js";
 import AdminStatistics from "./components/admin/AdminStatistics.js";
 import AdminViewExhibition from "./components/admin/AdminViewExhibition.js";
 import { LangProvider } from "./contexts/LangContext.js";
+import MuseumOwnerEditInfo from "./components/museumOwner/MuseumOwnerEditInfo.js";
 
 const App = () => {
   return (
@@ -225,11 +226,7 @@ const App = () => {
                 element={<MuseumOwnerExhibitionsList />}
               />
               <Route path="edit-details" element={<MuseumOwnerEditDetails />} />
-              {/* <Route
-            path="exhibitions/:id"
-            element={<MuseumOwnerEditExhibition />}
-          />
-          <Route path="exhibitions/:id/artworks" element={<MuseumOwnerWatchArtworks />} /> */}
+              <Route path="edit-info" element={<MuseumOwnerEditInfo />} />
               <Route path="exhibitions/:id/*" element={<MuseumOwnerTabs />}>
                 <Route index element={<Navigate to="artworks" replace />} />
                 <Route path="edit" element={<MuseumOwnerEditExhibition />} />

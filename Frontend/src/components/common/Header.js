@@ -259,14 +259,13 @@ const Header = ({ links }) => {
       case "Admin":
         return isHebrew ? "מנהל המערכת" : "System Admin";
       case "MuseumOwner":
-        return isHebrew ? `${user.name}, ברוך הבא למערכת` : `Welcome, ${user.name}`;
+        return isHebrew ? `${user.name}, מנהל המוזיאון` : `${user.name}, Museum owner`;
       case "Curator":
-        return isHebrew ? `${user.name}, אוצר` : `Curator: ${user.name}`;
+        return isHebrew ? `${user.name}, אוצר התערוכות` : `${user.name}, Curator `;
       default:
         return isHebrew ? `${user.name}, עובד` : `Employee: ${user.name}`;
     }
-  };
-
+  };         
   return (
     <>
       <header

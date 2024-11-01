@@ -451,11 +451,7 @@ const MuseumOwnerEditDetails = () => {
   // const museumUrl = `http://localhost:3001/?museumName=${encodeURIComponent(museum?.name)}&password=${encodeURIComponent(museum?.password)}`;
   
   return (
-    // <div className='container mx-auto p-8 min-h-screen transition-colors duration-300 '>
-    //   <div  dir={isHebrew ? "rtl" : "ltr"}>
-    //     <h1 className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center ${isDarkMode ? "text-white" : "text-gray-900"}`}>
-    //       {t.editDetailsTitle}
-    //     </h1>
+
     <div
       className={`container mx-auto my-8 min-h-screen transition-colors duration-300 ${
         isHebrew ? "rtl" : "ltr"
