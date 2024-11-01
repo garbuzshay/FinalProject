@@ -152,16 +152,6 @@ const MuseumLoginPage = () => {
     }
   };
 
-  useEffect(() => {
-    // Redirect to the museum page if a valid token already exists
-    if (validateMuseumToken()) {
-      const savedMuseumData = JSON.parse(localStorage.getItem('museumData'));
-      if (savedMuseumData && savedMuseumData.museum) {
-        navigate(`/${savedMuseumData.museum.name}`);
-      }
-    }
-  }, [navigate, validateMuseumToken]);
-
   const handleLogin = async (e) => {
     e.preventDefault();
     try {

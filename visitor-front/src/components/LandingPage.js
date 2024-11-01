@@ -80,13 +80,6 @@ const LandingPage = () => {
   const { museumData, loading } = useMuseum();
 
   const navigate = useNavigate();
-  const [error, setError] = useState(null); // State for handling fetch errors
-
-  // useEffect(() => {
-  //   if (museumName) {
-  //     fetchFullMuseumData(museumName); // Pass museumName to the fetch function
-  //   }
-  // }, [museumName, fetchFullMuseumData]);
 
   // Show loading spinner if museum data is not yet available
   if (loading || !museumData) {

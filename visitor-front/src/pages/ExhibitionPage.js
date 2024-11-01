@@ -434,7 +434,7 @@
 // C:\Users\Shay\Desktop\MuseumApp\visitor-front\src\components\ExhibitionPage.js
 
 import React, { useState, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useMuseum } from "../contexts/MuseumContext";
 import GoBackButton from "../components/GoBackButton";
 import LogoutButton from "../components/LogoutButton";
@@ -448,6 +448,7 @@ const ExhibitionPage = () => {
   const [filteredArtworks, setFilteredArtworks] = useState([]);
   const [loadingArtworks, setLoadingArtworks] = useState(true); // Artwork-specific loading state
   const artworksSectionRef = useRef(null);
+  const navigate = useNavigate();
 
   const exhibition = exhibitions?.find((exhibition) => exhibition._id === exhibitionId);
 
@@ -595,7 +596,7 @@ const ExhibitionPage = () => {
               onClose={closeArtworkDetailView}
               onNext={handleNextArtwork}
               onPrevious={handlePreviousArtwork}
-              goBackToMuseum={() => navigate(`/${museum.name}/exhibitions`)}
+              goBackToMuseum={() => navigate(`/${museumData.name}/exhibitions`)}
             />
           </div>
         )}
