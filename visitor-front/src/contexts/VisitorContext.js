@@ -1,4 +1,3 @@
-// C:\Users\Shay\Desktop\MuseumApp\visitor-front\src\contexts\VisitorContext.js
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useMuseumApi } from "../hooks/useMuseumApi";

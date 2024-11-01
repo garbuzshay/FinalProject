@@ -1,5 +1,3 @@
-// C:\Users\Shay\Desktop\MuseumApp\visitor-front\src\components\ProtectedRoute.js
-
 import React from "react";
 import { useVisitor } from "../contexts/VisitorContext";
 import { useNavigate } from "react-router-dom";

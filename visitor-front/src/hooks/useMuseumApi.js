@@ -22,7 +22,7 @@ export const useMuseumApi = () => {
     [setLoading, setError]
   );
 
-  const getMuseumDetails = useCallback(
+  const fetchMuseumDetails = useCallback(
     async (museumName) => {
       setLoading(true);
       setError(null);
@@ -38,9 +38,6 @@ export const useMuseumApi = () => {
     },
     [setLoading, setError]
   );
-  // useEffect(() => {
-  //   fetchMuseumDetails();
-  // }, []);
 
 
   const fetchExhibitionDetails = useCallback(
@@ -66,9 +63,7 @@ export const useMuseumApi = () => {
     loading,
     error,
     verifyPassword,
-    getMuseumDetails,
+    fetchMuseumDetails,
     fetchExhibitionDetails,
   };
 };
-
-
