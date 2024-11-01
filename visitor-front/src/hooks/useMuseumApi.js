@@ -38,6 +38,10 @@ export const useMuseumApi = () => {
     },
     [setLoading, setError]
   );
+  // useEffect(() => {
+  //   fetchMuseumDetails();
+  // }, []);
+
 
   const fetchExhibitionDetails = useCallback(
     async (exhibitionId) => {
@@ -55,6 +59,8 @@ export const useMuseumApi = () => {
     },
     [setLoading, setError]
   );
+
+
 
   return {
     loading,

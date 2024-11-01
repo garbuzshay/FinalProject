@@ -1,12 +1,15 @@
 // src/components/LogoutButton.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useVisitor } from '../contexts/VisitorContext';
 
 const LogoutButton = () => {
   const navigate = useNavigate();
+  const {logout} = useVisitor();
 
   const handleLogout = () => {
     // Perform any logout logic here (e.g., clearing tokens, user data)
+    logout();
     navigate('/');
   };
 

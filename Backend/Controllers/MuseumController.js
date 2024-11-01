@@ -1,4 +1,5 @@
 import MuseumsService from "../Services/MuseumsService.js";
+import { generateToken } from "../Utils/jwtUtils.js";
 
 //
 export const getMuseumByCurator = async (req, res) => {
@@ -149,9 +150,12 @@ export const verifyMuseumPassword = async (req, res) => {
   const { museumName, password } = req.body; // Use museumName instead of museumId
   try {
     const museum = await MuseumsService.verifyPassword(museumName, password);
+    const token = generateToken({ museumId: museum.id, museumName: museum.name });
+
+
     res
       .status(200)
-      .json({ message: "Password verified", success: true, data: museum });
+      .json({ message: "Password verified", success: true, data: {museum, token} });
   } catch (error) {
     res.status(401).json({ message: error.message });
   }

@@ -443,10 +443,13 @@ const MuseumOwnerEditDetails = () => {
     setValue("password", randomPassword);
   };
 
-  const museumUrl = `https://mensch-visitors.vercel.app/${encodeURIComponent(
-    museum?.name
-  )}`;
+  // const museumUrl = `https://mensch-visitors.vercel.app/${encodeURIComponent(
+  //   museum?.name
+  // )}`;
 
+  const museumUrl = `https://mensch-visitors.vercel.app/?museumName=${encodeURIComponent(museum?.name)}&password=${encodeURIComponent(museum?.password)}`;
+  // const museumUrl = `http://localhost:3001/?museumName=${encodeURIComponent(museum?.name)}&password=${encodeURIComponent(museum?.password)}`;
+  
   return (
     // <div className='container mx-auto p-8 min-h-screen transition-colors duration-300 '>
     //   <div  dir={isHebrew ? "rtl" : "ltr"}>
