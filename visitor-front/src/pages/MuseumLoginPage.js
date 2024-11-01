@@ -119,6 +119,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useVisitor } from "../contexts/VisitorContext";
 
+
 const MuseumLoginPage = () => {
   const [museumName, setMuseumName] = useState("");
   const [password, setPassword] = useState("");
@@ -150,6 +151,16 @@ const MuseumLoginPage = () => {
       setLocalError("Auto-login failed. Please enter your credentials manually.");
     }
   };
+
+  useEffect(() => {
+    // Redirect to the museum page if a valid token already exists
+    if (validateMuseumToken()) {
+      const savedMuseumData = JSON.parse(localStorage.getItem('museumData'));
+      if (savedMuseumData && savedMuseumData.museum) {
+        navigate(`/${savedMuseumData.museum.name}`);
+      }
+    }
+  }, [navigate, validateMuseumToken]);
 
   const handleLogin = async (e) => {
     e.preventDefault();

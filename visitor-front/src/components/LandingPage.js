@@ -25,7 +25,6 @@
 //           setLoading(false); // Stop loading even if an error occurs
 //         }
 //       };
-
 //       fetchData();
 //     } else {
 //       setLoading(false); // Data already available, skip loading
@@ -81,6 +80,7 @@ const LandingPage = () => {
   const { museumData, loading } = useMuseum();
 
   const navigate = useNavigate();
+  const [error, setError] = useState(null); // State for handling fetch errors
 
   // useEffect(() => {
   //   if (museumName) {

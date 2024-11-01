@@ -1,3 +1,8 @@
+// import React, { useEffect, useState } from 'react';
+// import { useParams, Outlet, useNavigate } from 'react-router-dom';
+// import { useMuseumApi } from '../hooks/useMuseumApi';
+// import { useMuseum } from '../contexts/MuseumContext';
+// import LogoutButton from '../components/LogoutButton';
 
 // import React, { useEffect, useState } from 'react';
 // import { useParams, Outlet, useNavigate } from 'react-router-dom';
@@ -133,7 +138,7 @@ const MuseumPage = () => {
       // Initial filter to show only open exhibitions with artworks
       const openExhibitionsWithArtworks = exhibitions.filter(
         (exhibition) =>
-          exhibition.status === 'open' &&
+          exhibition.status === 'open' && 
           exhibition.artworks &&
           exhibition.artworks.length > 0
       );
@@ -168,7 +173,6 @@ const MuseumPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      {/* Header with Museum name and address */}
       <div className="flex justify-between items-center p-4 bg-white shadow-lg">
         <div>
           <h1 className="text-3xl font-bold">{museumData.name}</h1>
@@ -176,10 +180,9 @@ const MuseumPage = () => {
             {museumData.address}, {museumData.state}
           </p>
         </div>
-        <LogoutButton /> {/* Logout button */}
+        <LogoutButton />
       </div>
 
-      {/* Museum Image with Search bar at the bottom */}
       <div
         className="relative bg-cover bg-center h-72 flex items-end justify-center"
         style={{ backgroundImage: `url(${museumData.imageUrl})` }}
@@ -204,7 +207,6 @@ const MuseumPage = () => {
         </div>
       </div>
 
-      {/* Popular Exhibitions */}
       <div className="p-4">
         <h3 className="text-2xl font-semibold mb-6">Popular Exhibitions</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
