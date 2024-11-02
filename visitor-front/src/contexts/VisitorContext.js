@@ -35,7 +35,7 @@ export const VisitorProvider = ({ children }) => {
     } catch (err) {
     //   setError("Login failed. Please check your museum name and password.");
       setIsAuthenticated(false);
-      throw new Error('אמא שלך זונה');
+      throw new Error(err);
     } finally {
       setLoading(false);
     }
