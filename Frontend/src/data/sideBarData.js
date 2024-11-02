@@ -28,6 +28,7 @@ const sideBarData = {
       { name: "Open New Exhibitions", path: "/owner/open-exhibit" },
       { name: "Our Curators", path: "/owner/my-curators" },
       { name: "Museum Details", path: "/owner/edit-details" },
+      { name: "My Account", path: "/owner/edit-info" },
       { name: "Contact us", path: "/owner/contact-us" },
     ],
     he: [
@@ -36,16 +37,19 @@ const sideBarData = {
       { name: "פתח תערוכה חדשה", path: "/owner/open-exhibit" },
       { name: "האוצרים שלנו", path: "/owner/my-curators" },
       { name: "פרטי המוזיאון", path: "/owner/edit-details" },
+      { name: "החשבון שלי", path: "/owner/edit-info" },
       { name: "צור קשר", path: "/owner/contact-us" },
     ],
   },
   Curator: {
     en: [
       { name: "Exhibitions Management", path: "/curator/exhibitions" },
+      { name: "My Account", path: "/curator/edit-info" },
       { name: "Contact us", path: "/curator/contact-us" },
     ],
     he: [
       { name: "ניהול תערוכות", path: "/curator/exhibitions" },
+      { name: "החשבון שלי", path: "/curator/edit-info" },
       { name: "צור קשר", path: "/curator/contact-us" },
     ],
   },

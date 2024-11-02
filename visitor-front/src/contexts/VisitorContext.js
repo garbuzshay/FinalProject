@@ -28,7 +28,7 @@ export const VisitorProvider = ({ children }) => {
       // Verify login with API, which should return a token on success
       const response = await verifyPassword(museumName, password);
       const token = response.token; // Assuming API returns { token, ... }
-
+      
       // Store token in localStorage
       localStorage.setItem("authToken", token);
       setIsAuthenticated(true);

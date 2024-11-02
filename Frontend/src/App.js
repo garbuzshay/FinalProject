@@ -162,6 +162,7 @@ import AdminStatistics from "./components/admin/AdminStatistics.js";
 import AdminViewExhibition from "./components/admin/AdminViewExhibition.js";
 import { LangProvider } from "./contexts/LangContext.js";
 import MuseumOwnerEditInfo from "./components/museumOwner/MuseumOwnerEditInfo.js";
+import CuratorEditInfo from "./components/curator/CuratorEditInfo.js";
 
 const App = () => {
   return (
@@ -265,10 +266,12 @@ const App = () => {
                 path="exhibitions/edit/:id"
                 element={<CuratorEditExhibition />}
               />
+
               <Route
                 path="exhibitions/:exhibitionId/:artworkId"
                 element={<CuratorEditArtwork />}
               />
+              <Route path="edit-info" element={<CuratorEditInfo />} />
               <Route path="contact-us" element={<CuratorContactUs />} />
             </Route>
           </Routes>
