@@ -1,19 +1,11 @@
-// // src/components/ArtworkDetailView.js
-
 // import React from "react";
+// import { useNavigate } from "react-router-dom";
 
-// const ArtworkDetailView = ({
-//   artwork,
-//   onClose,
-//   onNext,
-//   onPrevious,
-//   goBackToMuseum,
-// }) => {
+// const ArtworkDetailView = ({ artwork, onClose, onNext, onPrevious }) => {
+//   const navigate = useNavigate();
+
 //   return (
-//     <div
-//       className="p-6  h-full bg-white rounded-lg shadow-lg 
-// "
-//     >
+//     <div className="p-6 h-full bg-white rounded-lg shadow-lg">
 //       <button
 //         onClick={onClose}
 //         className="text-blue-500 self-start mb-4 font-semibold hover:text-blue-600 transition top-4 left-4 z-20"
@@ -96,7 +88,7 @@
 //       </div>
 
 //       <button
-//         onClick={goBackToMuseum}
+//         onClick={() => navigate(-1)}
 //         className="text-blue-500 self-start mb-4 font-semibold hover:text-blue-600 transition top-4 left-4 z-20"
 //       >
 //         <svg
@@ -121,19 +113,17 @@
 
 // export default ArtworkDetailView;
 
-
 // src/components/ArtworkDetailView.js
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import useTextToSpeech from "../hooks/useTextToSpeech";
+import AudioPlayerControls from "./AudioPlayerControls";
 
-const ArtworkDetailView = ({
-  artwork,
-  onClose,
-  onNext,
-  onPrevious,
-}) => {
+const ArtworkDetailView = ({ artwork, onClose, onNext, onPrevious }) => {
   const navigate = useNavigate();
+  const { play, pause, stop, isPlaying, isPaused } = useTextToSpeech(
+    artwork.description
+  );
 
   return (
     <div className="p-6 h-full bg-white rounded-lg shadow-lg">
@@ -212,11 +202,31 @@ const ArtworkDetailView = ({
           </svg>
         </button>
       </div>
+      {/* <div className=" text-center space-x-4 mt-4">
+        <button onClick={play} className="btn">
+          {isPlaying ? "Playing" : isPaused ? "Resume" : "Play"}
+        </button>
+        <button onClick={pause} className="btn" disabled={!isPlaying}>
+          Pause
+        </button>
+        <button onClick={stop} className="btn">
+          Stop
+        </button>
+      </div> */}
+        <AudioPlayerControls
+        isPlaying={isPlaying}
+        isPaused={isPaused}
+        play={play}
+        pause={pause}
+        stop={stop}
+      />
 
-      <div className="mt-6 p-4">
+      <div className=" p-4">
         <p className="font-bold text-lg">Description</p>
         <p className="text-gray-700">{artwork.description}</p>
       </div>
+
+      {/* Text-to-Speech Controls */}
 
       <button
         onClick={() => navigate(-1)}

@@ -111,7 +111,7 @@ import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 const CardArtwork = ({ imageUrl, title, artist, description, createdDate, isOpen, onClick }) => {
-  const { ref, inView } = useInView({
+  const { ref } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });

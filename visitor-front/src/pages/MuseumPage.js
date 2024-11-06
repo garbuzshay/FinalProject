@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Outlet, useNavigate } from 'react-router-dom';
 import { useMuseum } from '../contexts/MuseumContext';
 import LogoutButton from '../components/LogoutButton';
+import Header from '../components/Header';
 
 const MuseumPage = () => {
   const { museumName } = useParams();
@@ -60,16 +61,7 @@ const MuseumPage = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header with Museum name and address */}
-      <div className="flex justify-between items-center p-4 bg-white shadow-lg">
-        <div>
-          <h1 className="text-3xl font-bold">{museumData.name}</h1>
-          <p className="text-lg text-gray-600">
-            {museumData.address}, {museumData.state}
-          </p>
-        </div>
-        <LogoutButton /> {/* Logout button */}
-      </div>
-
+      <Header museumData={museumData} LogoutButton={LogoutButton} />
       {/* Museum Image with Search bar at the bottom */}
       <div
         className="relative bg-cover bg-center h-72 flex items-end justify-center"

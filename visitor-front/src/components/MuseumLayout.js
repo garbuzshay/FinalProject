@@ -3,6 +3,7 @@
 import React from "react";
 import { Outlet, useParams } from "react-router-dom";
 import { MuseumProvider } from "../contexts/MuseumContext";
+import Footer from "./Footer";
 
 const MuseumLayout = () => {
   const { museumName } = useParams(); // Get museumName from URL
@@ -10,6 +11,7 @@ const MuseumLayout = () => {
   return (
     <MuseumProvider museumName={museumName}>
       <Outlet /> {/* Render nested routes here */}
+      <Footer/>
     </MuseumProvider>
   );
 };
