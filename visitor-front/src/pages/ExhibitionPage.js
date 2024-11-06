@@ -1,20 +1,21 @@
-
 import React, { useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useMuseum } from "../contexts/MuseumContext";
 import GoBackButton from "../components/GoBackButton";
 import LogoutButton from "../components/LogoutButton";
-import ArtworkDetailView from "../components/ArtworkDetailView"; 
+import ArtworkDetailView from "../components/ArtworkDetailView";
 
 const ExhibitionPage = () => {
-  const {  exhibitionId } = useParams();
+  const { exhibitionId } = useParams();
   const { museumData, exhibitions, loading } = useMuseum();
   const [selectedArtworkIndex, setSelectedArtworkIndex] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredArtworks, setFilteredArtworks] = useState([]);
   const artworksSectionRef = useRef(null);
 
-  const exhibition = exhibitions?.find((exhibition) => exhibition._id === exhibitionId);
+  const exhibition = exhibitions?.find(
+    (exhibition) => exhibition._id === exhibitionId
+  );
 
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
@@ -146,6 +147,9 @@ const ExhibitionPage = () => {
                 </p>
               )}
             </div>
+            <div className="flex justify-center">
+              <GoBackButton text="Back to museum" />
+            </div>
           </>
         ) : (
           <ArtworkDetailView
@@ -153,12 +157,9 @@ const ExhibitionPage = () => {
             onClose={closeArtworkDetailView}
             onNext={handleNextArtwork}
             onPrevious={handlePreviousArtwork}
+            
           />
         )}
-      </div>
-
-      <div className="fixed bottom-0">
-        <GoBackButton text="Back to museum" />
       </div>
     </div>
   );
