@@ -100,16 +100,9 @@ app.listen(PORT, () => {
 
 //mensch.edutainment@gmail.com  Mensch123
 //shay.garbuz Shay123
-// curator1@gmail.com e007279c
-// curator2@gmail.com 8670a6e3
-// curator3@gmail.com  e576872e
-// curator4@gmail.com  15234592
-// curator5@gmail.com  6af94e61F
-// curator6@gmail.com feca2141
 //ofekaz24 ofek123
 //maycaspi May123
-// test@gmail.com Generated Password: test123
-//try@gmail.com Generated Password: trytry
+
 
 
 

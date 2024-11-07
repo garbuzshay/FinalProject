@@ -1,4 +1,3 @@
-
 // import React from "react";
 // import { useNavigate } from "react-router-dom";
 // import FormConfirmButton from "./FormConfirmButton";
@@ -186,7 +185,7 @@ const translations = {
   he: {
     artworks: "יצירות אומנות: ",
     curators: "אוצרים:",
-    status: "סטטוס ",
+    status: "סטטוס:  ",
     museum: "מוזיאון:  ",
     reopen: "פתח מחדש? ",
     confirmReopen: "האם אתה בטוח שברצונך לפתוח מחדש את התערוכה? ",
@@ -223,31 +222,65 @@ const AdminExhibitCard = ({
     <div
       className={`max-w-sm w-full rounded overflow-hidden shadow-lg m-4 transform transition duration-500 ${
         status === "open" ? "cursor-pointer hover:scale-105" : "cursor-default"
-      } ${isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"} `}
+      } ${
+        isDarkMode ? "bg-gray-800 text-gray-300" : "bg-white text-gray-900"
+      } `}
       dir={isHebrew ? "rtl" : "ltr"} // Set RTL direction for Hebrew
       onClick={status === "open" ? handleCardClick : undefined}
     >
       <div className="w-full h-40 sm:h-56 md:h-64 lg:h-72 overflow-hidden">
-        <img
-          className="w-full h-full"
-          src={imageUrl}
-          alt={`${name}`}
-        />
+        <img className="w-full h-full" src={imageUrl} alt={`${name}`} />
       </div>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{name}</div>
-        <p className={`text-base mb-2 ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}> {description}</p>
+        <p
+          className={`text-base mb-2 ${
+            isDarkMode ? "text-gray-400" : "text-gray-700"
+          }`}
+          style={{
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            WebkitLineClamp: 3, // Limits to 3 lines
+          }}
+        >
+          {" "}
+          {description}
+        </p>
         <div className="flex mb-2">
-          <span className="font-semibold">{t.artworks}:</span> {/* Translate 'Artworks' */}
-          <span className={`ml-1 ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}> {artworks}</span>
+          <span className="font-semibold">{t.artworks} </span>{" "}
+          {/* Translate 'Artworks' */}
+          <span
+            className={`ml-1 ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}
+          >
+            {" "}
+            {artworks}
+          </span>
+        </div>
+        <div className="flex mb-2 ">
+          <span className="font-semibold">{t.curators} </span>{" "}
+          {/* Translate 'Curators' */}
+          <span
+            className={`ml-1 truncate ${
+              isDarkMode ? "text-gray-400" : "text-gray-700"
+            }`}
+          >
+            {" "}
+            {curators}
+          </span>
         </div>
         <div className="flex mb-2">
-          <span className="font-semibold">{t.curators}:</span> {/* Translate 'Curators' */}
-          <span className={`ml-1 truncate ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}> {curators}</span>
-        </div>
-        <div className="flex mb-2">
-          <span className="font-semibold">{t.status}:</span> {/* Translate 'Status' */}
-          <span className={`ml-1 capitalize ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}> {t[status]}</span>
+          <span className="font-semibold">{t.status}</span>{" "}
+          {/* Translate 'Status' */}
+          <span
+            className={`ml-1 capitalize ${
+              isDarkMode ? "text-gray-400" : "text-gray-700"
+            }`}
+          >
+            {" "}
+            {t[status]}
+          </span>
         </div>
       </div>
     </div>
@@ -305,26 +338,64 @@ const EmployeeExhibitCard = ({
           alt={`${name}`}
         />
       </div>
-      <div className=" px-2 py-4">
-        <div className="font-bold text-xl mb-2">{name}</div>
-        <p className={`text-base mb-2 ${isDarkMode ? "text-white-200" : "text-gray-700"}`}>{description}</p>
+      <div className=" px-2 py-4 ">
+        <h3 className="font-bold text-xl mb-2">{name}</h3>
+        <div>
+          <div className=" mb-2">
+            <span className="font-semibold">{t.artworks}</span>{" "}
+            {/* Translate 'Artworks' */}
+            <span
+              className={`ml-1 ${
+                isDarkMode ? "text-white-200" : "text-gray-700"
+              }`}
+            >
+              {" "}
+              {artworks}
+            </span>
+          </div>
+
+          <div className=" mb-2">
+            <span className="font-semibold">{t.curators}</span>{" "}
+            {/* Translate 'Curators' */}
+            <span
+              className={`ml-1 truncate ${
+                isDarkMode ? "text-white-200" : "text-gray-700"
+              }`}
+            >
+              {" "}
+              {curators}
+            </span>
+          </div>
+        </div>
+        <p
+          className={`text-base mb-2 ${
+            isDarkMode ? "text-white-200" : "text-gray-700"
+          }`}
+          style={{
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            WebkitLineClamp: 3, // Limits to 3 lines
+          }}
+        >
+          {description}
+        </p>
 
         {location && (
           <div className="flex mb-2">
-            <span className="font-semibold">{t.museum}</span> {/* Translate 'Museum' */}
-            <span className={`ml-1 ${isDarkMode ? "text-white-200" : "text-gray-700"}`}> {location} </span>
+            <span className="font-semibold">{t.museum}</span>{" "}
+            {/* Translate 'Museum' */}
+            <span
+              className={`ml-1 ${
+                isDarkMode ? "text-white-200" : "text-gray-700"
+              }`}
+            >
+              {" "}
+              {location}{" "}
+            </span>
           </div>
         )}
-
-        <div className="flex mb-2">
-          <span className="font-semibold">{t.artworks}</span> {/* Translate 'Artworks' */}
-          <span className={`ml-1 ${isDarkMode ? "text-white-200" : "text-gray-700"}`}> {artworks}</span>
-        </div>
-
-        <div className="flex mb-2">
-          <span className="font-semibold">{t.curators}</span> {/* Translate 'Curators' */}
-          <span className={`ml-1 truncate ${isDarkMode ? "text-white-200" : "text-gray-700"}`}> {curators}</span>
-        </div>
 
         {status === "closed" && user?.role?.roleName === "MuseumOwner" && (
           <div className="mt-3 text-gray-500 flex justify-end">
@@ -339,8 +410,17 @@ const EmployeeExhibitCard = ({
 
         {status === "closed" && (
           <div className="flex mb-2">
-            <span className="font-semibold text-xl">{t.status}:</span> {/* Translate 'Status' */}
-            <span className={`ml-1 capitalize ${isDarkMode ? "text-red-500" : "text-red-600"}`}> {t.closed}</span> {/* Translate 'Closed' */}
+            <span className="font-semibold text-xl">{t.status}</span>{" "}
+            {/* Translate 'Status' */}
+            <span
+              className={`ml-1 capitalize ${
+                isDarkMode ? "text-red-500" : "text-red-600"
+              }`}
+            >
+              {" "}
+              {t.closed}
+            </span>{" "}
+            {/* Translate 'Closed' */}
           </div>
         )}
       </div>

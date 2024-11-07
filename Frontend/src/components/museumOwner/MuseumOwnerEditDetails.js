@@ -400,6 +400,9 @@ const MuseumOwnerEditDetails = () => {
       confirmationMessage: "Are you sure you want to save these changes?",
       requiredField: "This field is required",
       invalidImageUrl: "Invalid Image URL",
+      plan: "Plan",
+      exhibitions: "Exhibitions", // New translation for exhibitions
+      artworks: "Artworks", // New translation for artworks
     },
     he: {
       editDetailsTitle: "ערוך פרטי מוזיאון",
@@ -418,6 +421,9 @@ const MuseumOwnerEditDetails = () => {
       confirmationMessage: "האם אתה בטוח שברצונך לשמור את השינויים?",
       requiredField: "שדה זה הוא חובה",
       invalidImageUrl: "כתובת תמונה לא חוקית",
+      plan: "חבילה",
+      exhibitions: "תערוכות", // New translation for exhibitions
+      artworks: "יצירות אמנות", // New translation for artworks
     },
   };
 
@@ -447,11 +453,12 @@ const MuseumOwnerEditDetails = () => {
   //   museum?.name
   // )}`;
 
-  const museumUrl = `https://mensch-visitors.vercel.app/?museumName=${encodeURIComponent(museum?.name)}&password=${encodeURIComponent(museum?.password)}`;
+  const museumUrl = `https://mensch-visitors.vercel.app/?museumName=${encodeURIComponent(
+    museum?.name
+  )}&password=${encodeURIComponent(museum?.password)}`;
   // const museumUrl = `http://localhost:3001/?museumName=${encodeURIComponent(museum?.name)}&password=${encodeURIComponent(museum?.password)}`;
-  
-  return (
 
+  return (
     <div
       className={`container mx-auto my-8 min-h-screen transition-colors duration-300 ${
         isHebrew ? "rtl" : "ltr"
@@ -670,6 +677,37 @@ const MuseumOwnerEditDetails = () => {
               {errors.email && (
                 <p className="text-red-500 text-sm mt-1">{t.requiredField}</p>
               )}
+            </div>
+            {/* Plan */}
+            <div>
+              <label
+                className={`block text-lg font-medium mb-1 ${
+                  isDarkMode ? "text-gray-300" : "text-gray-700"
+                }`}
+                htmlFor="plan"
+              >
+                {t.plan}
+              </label>
+              <input
+                type="text"
+                value={
+                  isHebrew
+                    ? `${museum?.plan?.name || ""}\n - ${t.exhibitions} ${
+                        museum?.plan?.maxExhibitions || 0
+                      }, ${t.artworks} ${museum?.plan?.maxArtWorks || 0}`
+                    : `${museum?.plan?.name || ""}\n - ${
+                        museum?.plan?.maxExhibitions || 0
+                      } ${t.exhibitions}, ${museum?.plan?.maxArtWorks || 0} ${
+                        t.artworks
+                      }`
+                }
+                readOnly
+                className={`mt-2 w-full text-sm p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
+                  isDarkMode
+                    ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
+                    : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
+                }`}
+              />
             </div>
           </div>
 

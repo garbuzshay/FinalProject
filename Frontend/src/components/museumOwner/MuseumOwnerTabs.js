@@ -112,7 +112,11 @@ const MuseumOwnerTabs = () => {
         {exhibition ? exhibition.name : t.notFound}
       </h1>
 
-      <div className={`flex border-b mb-4 ${isHebrew ? "flex-row-reverse" : ""}`}>
+      <div
+        className={`flex justify-center px-4 mb-4 space-x-2 ${
+          isHebrew ? "flex-row-reverse" : "flex-row"
+        }`}
+      >
         <NavLink
           to="edit"
           className={({ isActive }) =>

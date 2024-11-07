@@ -120,12 +120,12 @@ const AdminDashboard = () => {
   if (errorExhibitions) return <div style={{ color: 'red' }}>{errorExhibitions}</div>;
 
   return (
-    <div className="p-4" >
+    <div className="container  px-4  sm:px-6 lg:px-8" >
       {/* Adjusting text based on the selected language */}
       <p className={`mt-5 ${isDarkMode ? 'text-gray-300' : 'text-gray-900'}`}>
         {isHebrew ? 'המוזיאונים המבוקרים ביותר' : 'The most visited museums'}
       </p>
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center ">
         {openMuseums.map((museum) => (
           <MuseumCard
             key={museum._id}

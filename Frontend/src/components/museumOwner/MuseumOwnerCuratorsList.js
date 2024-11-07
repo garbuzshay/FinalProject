@@ -325,7 +325,7 @@ const MuseumOwnerCuratorsList = () => {
   };
 
   return (
-    <div
+    <div dir={language ==='he' ? "rtl" : "ltr"}
       className={`container mx-auto my-8 min-h-screen transition-colors duration-300  ${
         isDarkMode ? " text-gray-300" : " text-gray-900"
       }`}
@@ -394,28 +394,14 @@ const MuseumOwnerCuratorsList = () => {
             </tr>
           </thead>
           <tbody>
-            {/* {curators.map((curator) => (
-              <tr key={curator._id}>
-                <td className={`py-2 px-4 border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>{`${curator.name} ${curator.lastName}`}</td>
-                <td className={`py-2 px-4 border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>{curator.email}</td>
-                <td className={`py-2 px-4 border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>{curator.phoneNumber}</td>
-                <td className={`py-2 px-4 border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>{curator.exhibitions.join(', ')}</td>
-                <td className={`py-2 px-4 border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
-                  <button className={`bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300 ${isDarkMode ? 'focus:ring-red-400' : 'focus:ring-red-400'}`} onClick={() => handleDisableClick(curator)}>
-                    {t.disableCurator}
-                  </button>
-                </td>
-              </tr>
-
-            ))} */}
             {curators.map((curator) => (
               <tr
                 key={curator._id}
-                className={`${
+                className={` ${
                   isDarkMode
                     ? "border-b border-gray-700"
                     : "border-b border-gray-300"
-                } last:border-b-0`}
+                } last:border-b-0 `}
               >
                 <td className="py-2 px-4">{`${curator.name} ${curator.lastName}`}</td>
                 <td className="py-2 px-4">{curator.email}</td>
@@ -444,6 +430,7 @@ const MuseumOwnerCuratorsList = () => {
             className={`mb-4 p-4 rounded-lg shadow ${
               isDarkMode ? "bg-gray-800" : "bg-white"
             } transition-colors duration-300`}
+            
           >
             <h2 className="text-xl font-bold mb-2">{`${curator.name} ${curator.lastName}`}</h2>
             <p className="mb-1">

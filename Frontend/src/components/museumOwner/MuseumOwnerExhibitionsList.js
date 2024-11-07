@@ -191,7 +191,7 @@ const MuseumOwnerExhibitionsList = () => {
   const { isDarkMode } = useThemeMode(); // Destructure isDarkMode
   const { language } = useLang(); // Get the current language from LangContext
   const isHebrew = language === "he"; // Check if the language is Hebrew
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("open");
 
   const translations = {
     en: {
@@ -250,17 +250,17 @@ const MuseumOwnerExhibitionsList = () => {
 
   return (
     <div
-    className={`container py-8 mx-auto min-h-screen transition-colors duration-300 `}
+      className={`container py-8 mx-auto min-h-screen transition-colors duration-300 `}
     >
       <h1
-        className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center ${
+        className={`text-4xl font-poppins font-bold tracking-wide mb-4 text-center ${
           isDarkMode ? "text-white" : "text-gray-900"
         }`}
       >
         {t.pageTitle}
       </h1>
       <p
-        className={`text-md mb-6 ${
+        className={`text-md mb-4 ${
           isDarkMode ? "text-gray-400" : "text-gray-700"
         }`}
         dir={isHebrew ? "rtl" : "ltr"}
@@ -268,14 +268,14 @@ const MuseumOwnerExhibitionsList = () => {
         {t.description}
       </p>
       <div
-        className={`flex justify-center px-2 mb-4 space-x-2 ${
+        className={` flex justify-center px-4 space-x-2 mb-4  ${
           isHebrew ? "flex-row-reverse" : "flex-row"
         }`}
       >
         {/* Adjust button order based on language */}
         <button
           onClick={() => setFilter("all")}
-          className={`px-4 py-2 font-poppins ${
+          className={`px-2 py-2 font-poppins ${
             filter === "all"
               ? isDarkMode
                 ? "border-b-2 border-blue-400 text-white font-bold"
@@ -318,7 +318,13 @@ const MuseumOwnerExhibitionsList = () => {
       </div>
 
       {/* Responsive grid layout for exhibition cards */}
-      <div className="grid px-4  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 " dir={language ? "rtl" : "ltr"} >
+      <div></div>
+      <div
+        className={`grid px-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 ${
+          isHebrew ? "text-right" : "text-left"
+        }`}
+        dir={isHebrew ? "rtl" : "ltr"}
+      >
         {filteredExhibitions.length > 0 ? (
           filteredExhibitions.map((exhibition) => (
             <ExhibitCard

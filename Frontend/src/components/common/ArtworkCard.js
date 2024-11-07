@@ -1,4 +1,3 @@
-
 // import React from "react";
 // import { useNavigate } from "react-router-dom";
 // import { useThemeMode } from "../../contexts/DarkModeContext";
@@ -54,7 +53,6 @@
 
 // export default ArtworkCard;
 
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useThemeMode } from "../../contexts/DarkModeContext";
@@ -83,8 +81,12 @@ const ArtworkCard = ({
   return (
     <div
       className={`max-w-sm w-full rounded overflow-hidden shadow-lg ${
-        clickable ? "cursor-pointer transform transition duration-500 hover:scale-105" : ""
-      } ${isDarkMode ? "bg-gray-800 text-gray-300" : "bg-gray-50 text-gray-900"}`}
+        clickable
+          ? "cursor-pointer transform transition duration-500 hover:scale-105"
+          : ""
+      } ${
+        isDarkMode ? "bg-gray-800 text-gray-300" : "bg-gray-50 text-gray-900"
+      }`}
       onClick={handleCardClick} // This will only work if clickable is true
       dir={isHebrew ? "rtl" : "ltr"} // Apply RTL direction if Hebrew
     >
@@ -96,17 +98,39 @@ const ArtworkCard = ({
         />
       </div>
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{title}</div>
-        <p className={`text-base mb-2 ${isDarkMode ? "text-gray-200" : "text-gray-700"}`}>
-          {description}
+        <div className="font-bold text-xl mb-2">{title}
+        <p
+          className={`text-base ${
+            isDarkMode ? "text-gray-200" : "text-gray-700"
+          }`}
+        >
+          <strong>{isHebrew ? "אמן:" : "Artist:"}</strong> {artist}
         </p>
-        <p className={`text-base mb-2 ${isDarkMode ? "text-gray-200" : "text-gray-700"}`}>
+        <p
+          className={`text-sm mb-2 ${
+            isDarkMode ? "text-gray-200" : "text-gray-700"
+          }`}
+        >
           <strong>{isHebrew ? "תאריך יצירה:" : "Created Date:"}</strong>{" "}
           {new Date(createdDateByArtist).toLocaleDateString()}
         </p>
-        <p className={`text-base ${isDarkMode ? "text-gray-200" : "text-gray-700"}`}>
-          <strong>{isHebrew ? "אמן:" : "Artist:"}</strong> {artist}
+        </div>
+        <p
+          className={`text-base mb-2 ${
+            isDarkMode ? "text-gray-200" : "text-gray-700"
+          }`}
+          style={{
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            WebkitLineClamp: 3, // Limits to 3 lines
+          }}
+        >
+          {description}
         </p>
+
+
       </div>
     </div>
   );
