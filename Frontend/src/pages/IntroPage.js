@@ -4,9 +4,7 @@ import pageData from "../data/introPageData";
 import { NavigationButtons } from "../components/common/NavigationButtons";
 import MobileStepper from "@mui/material/MobileStepper";
 import { useNavigate } from "react-router-dom";
-// import { useMediaQuery } from "@mui/material";
-
-
+import Logo from "../components/intros/Logo";
 const IntroPage = () => {
   const { currentPage, goToNextPage, goToPreviousPage } = useIntroContext();
   const { logoSrc, explanation, imageSrc, title, nextButtonText } =
@@ -19,11 +17,10 @@ const IntroPage = () => {
   };
 
   return (
-    // <div className="min-h-screen flex flex-col justify-between bg-gradient-to-br from-blue-200 via-purple-300 to-pink-300">
     <div className="flex flex-col justify-between">
+      <Logo src={logoSrc} />
       <div className="px-4">
         <ContentSection
-          logoSrc={logoSrc}
           title={title}
           explanation={explanation}
           imageSrc={imageSrc}
@@ -37,11 +34,11 @@ const IntroPage = () => {
             sx={{
               justifyContent: "center",
               backgroundColor: "transparent", // Keep the background transparent
-              '& .MuiMobileStepper-dot': {
-                backgroundColor: 'lightgray', // Inactive dot color
+              "& .MuiMobileStepper-dot": {
+                backgroundColor: "lightgray", // Inactive dot color
               },
-              '& .MuiMobileStepper-dotActive': {
-                backgroundColor: '#3a4c98', // Active dot color
+              "& .MuiMobileStepper-dotActive": {
+                backgroundColor: "#3a4c98", // Active dot color
               },
             }}
             position="static"
@@ -58,7 +55,7 @@ const IntroPage = () => {
         <button
           onClick={handleLoginClick}
           className="bg-transparent border-none underline cursor-pointer text-base "
-          style={{ color: '#3a4c98' }}
+          style={{ color: "#3a4c98" }}
         >
           Already a user? Click here
         </button>

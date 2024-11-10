@@ -59,7 +59,7 @@ const RegistrationPage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Fixed logo in top left corner */}
-      <div className="absolute top-0 left-0 px-4">
+      <div className="absolute top-0 left-0 ">
         <Logo src={logoSrc} />
       </div>
 

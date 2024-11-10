@@ -218,7 +218,7 @@ const AdminRequestsManagement = () => {
   };
 
   return (
-    <div className="p-4" dir={language ? "rtl" : "ltr"}>
+    <div className="p-4" dir={isHebrew ? "rtl" : "ltr"}>
       <h2 className={`text-2xl font-semibold mb-5 ${isDarkMode ? 'text-gray-300' : 'text-gray-900'}`}>
         {isHebrew ? 'ניהול בקשות' : 'Requests Management'}
       </h2>

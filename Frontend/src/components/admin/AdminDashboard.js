@@ -120,7 +120,7 @@ const AdminDashboard = () => {
   if (errorExhibitions) return <div style={{ color: 'red' }}>{errorExhibitions}</div>;
 
   return (
-    <div className="container  px-4  sm:px-6 lg:px-8" >
+    <div className="container  px-4 mx-auto sm:px-6 lg:px-8" >
       {/* Adjusting text based on the selected language */}
       <p className={`mt-5 ${isDarkMode ? 'text-gray-300' : 'text-gray-900'}`}>
         {isHebrew ? 'המוזיאונים המבוקרים ביותר' : 'The most visited museums'}

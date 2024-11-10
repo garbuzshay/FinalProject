@@ -244,6 +244,7 @@ const AdminExhibitCard = ({
             textOverflow: "ellipsis",
             WebkitLineClamp: 3, // Limits to 3 lines
           }}
+          
         >
           {" "}
           {description}
@@ -252,7 +253,7 @@ const AdminExhibitCard = ({
           <span className="font-semibold">{t.artworks} </span>{" "}
           {/* Translate 'Artworks' */}
           <span
-            className={`ml-1 ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}
+            className={`mx-2 ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}
           >
             {" "}
             {artworks}
@@ -262,7 +263,7 @@ const AdminExhibitCard = ({
           <span className="font-semibold">{t.curators} </span>{" "}
           {/* Translate 'Curators' */}
           <span
-            className={`ml-1 truncate ${
+            className={`mx-2 truncate ${
               isDarkMode ? "text-gray-400" : "text-gray-700"
             }`}
           >
@@ -274,7 +275,7 @@ const AdminExhibitCard = ({
           <span className="font-semibold">{t.status}</span>{" "}
           {/* Translate 'Status' */}
           <span
-            className={`ml-1 capitalize ${
+            className={`mx-2 capitalize ${
               isDarkMode ? "text-gray-400" : "text-gray-700"
             }`}
           >
