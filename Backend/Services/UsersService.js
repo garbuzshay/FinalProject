@@ -83,7 +83,7 @@ class UsersService {
   // }
   async createUser(userData) {
     try {
-      const { name, lastName, email, phoneNumber, terms, role, museum } = userData;
+      const { name, lastName, email, phoneNumber, terms, role } = userData;
       let password = userData.password;
   
       const formattedNumber = toE164(phoneNumber);
@@ -91,7 +91,8 @@ class UsersService {
       // Check if the user already exists in MongoDB
       const existingUser = await UserModel.findOne({ email });
       if (existingUser) {
-        return existingUser; // If the user exists in MongoDB, return the user
+        // return existingUser; // If the user exists in MongoDB, return the user
+        return null;
       }
   
       // Check if the user exists in Firebase

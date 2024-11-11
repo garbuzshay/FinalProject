@@ -48,7 +48,11 @@ class RequestsService {
         userData.role = "MuseumOwner";
         newUser = await UsersService.createUser(userData);
         if (!newUser) {
-          throw new Error("Error creating user");
+          console.log(
+            "User already exists, skipping request creation and email."
+          );
+          // throw new Error("Error creating user");
+          return null;
         }
         const adminEmail = process.env.EMAIL_USER;
         const emailSubject = `New User Registration: ${userData.name}`;
@@ -56,7 +60,8 @@ class RequestsService {
         Name: ${userData.name} ${userData.lastName}\n
         Email: ${userData.email}\n
         Please review and approve the request.
-        In order to get more information, please log in to the admin system to access the list of requests`;
+        In order to get more information, please log in to the admin system to access the list of requests:
+        https://final-project-jwpy.vercel.app/admin/requests`;
         await sendEmail(adminEmail, emailSubject, emailMessage);
       }
 
