@@ -623,8 +623,8 @@ const MuseumOwnerOpenExhibit = () => {
     },
     he: {
       openNewExhibition: "פתח תערוכה חדשה",
-      exhibitionsLeft: "תערוכות בשימוש",
-      artworksLeft: "יצירות אמנות בשימוש",
+      exhibitionsLeft: "תערוכות שנותרו",
+      artworksLeft: "יצירות אמנות שנותרו",
       exhibitionName: "שם התערוכה",
       maxArtworks: "מספר מקסימלי של יצירות אמנות",
       description: "תיאור",

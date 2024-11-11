@@ -709,6 +709,7 @@ const MuseumOwnerEditExhibition = () => {
       saveChanges: "Save Changes",
       closeExhibition: "Would you like to close this exhibition?",
       closeExhibitionDialog: "Are you sure you want to close this exhibition?",
+      saveExhibitionDialod:"Are you sure you want to save these changes?",
       curatorName: "Name",
       curatorSurname: "Surname",
       curatorEmail: "Email",
@@ -725,6 +726,7 @@ const MuseumOwnerEditExhibition = () => {
       addCurator: "+ הוסף אוצר",
       selectCurator: "בחר מרשימת האוצרים",
       saveChanges: "שמור שינויים",
+      saveExhibitionDialod: "האם אתה בטוח שברצונך לשמור את השינויים?",
       closeExhibition: "האם ברצונך לסגור תערוכה זו?",
       closeExhibitionDialog: "האם אתה בטוח שברצונך לסגור תערוכה זו?",
       curatorName: "שם",
@@ -1337,7 +1339,7 @@ const MuseumOwnerEditExhibition = () => {
             <FormConfirmButton
               onSubmit={handleSubmit(onSubmit)}
               buttonText={t.saveChanges}
-              dialogMessage="Are you sure you want to save these changes?"
+              dialogMessage={t.saveExhibitionDialod}
               className={`w-full md:w-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
                 isDarkMode ? "bg-blue-600 hover:bg-blue-800" : ""
               } transition-colors duration-300`}

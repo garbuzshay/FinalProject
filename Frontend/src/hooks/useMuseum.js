@@ -178,6 +178,7 @@ const useMuseum = (role) => {
 
   const updateExhibition = useCallback(async (exhibitionId, updatedData) => {
     try {
+      console.log('fuck my life');
       await exhibitionsApi.updateExhibition(exhibitionId, updatedData);
       await fetchMuseum();
     } catch (error) {

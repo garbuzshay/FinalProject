@@ -111,7 +111,6 @@ const useOpenExhibit = () => {
           curators: data.curators,
           museum: museum.id,
         };
-       
         await exhibitionsApi.createExhibition(exhibitionData);
         alert('Exhibition created successfully');
         fetchMuseum(); // Refresh museum data

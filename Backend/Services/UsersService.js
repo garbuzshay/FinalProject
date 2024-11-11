@@ -90,9 +90,16 @@ class UsersService {
   
       // Check if the user already exists in MongoDB
       const existingUser = await UserModel.findOne({ email });
+      // if (existingUser) {
+      //   // return existingUser; // If the user exists in MongoDB, return the user
+      //   return null;
+      // }
       if (existingUser) {
-        // return existingUser; // If the user exists in MongoDB, return the user
-        return null;
+        // Return null for admin users; return the existing user for others
+        if (existingUser.role === "admin") {
+          return null;
+        }
+        return existingUser;
       }
   
       // Check if the user exists in Firebase
