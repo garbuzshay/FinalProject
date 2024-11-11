@@ -49,9 +49,10 @@ class RequestsService {
         newUser = await UsersService.createUser(userData);
         if (!newUser) {
           console.log(
-            "User already exists, skipping request creation and email."
+            "User already exists."
           );
           // throw new Error("Error creating user");
+
           return null;
         }
         const adminEmail = process.env.EMAIL_USER;
@@ -144,7 +145,8 @@ class RequestsService {
         if (owner && owner.email) {
           const ownerEmail = owner.email;
           const emailSubject = "Your Request Has Been Approved";
-          const emailMessage = `Dear ${owner.name},\n\nYour request for ${request.museumName} has been approved.\nYou can now log into the system and enjoy managing your museum through the CMS.\n\nThank you,\nThe Museum Team`;
+          // const emailMessage = `Dear ${owner.name},\n\nYour request for ${request.museumName} has been approved.\nYou can now log into the system and enjoy managing your museum through the CMS.\n\nThank you,\nThe Museum Team`;
+          const emailMessage = `Dear ${owner.name},\n\nYour request for ${request.museumName} has been approved.\nYou can now log into the system and enjoy managing your museum through the CMS.\n\nPlease log in here: https://final-project-jwpy.vercel.app/login\n\nThank you,\nThe Museum Team`;
 
           // Send email to the museum owner
           await sendEmail(ownerEmail, emailSubject, emailMessage);

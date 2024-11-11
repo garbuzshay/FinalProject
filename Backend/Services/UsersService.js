@@ -154,8 +154,9 @@ class UsersService {
   
       return newUser;
     } catch (error) {
-      console.error("Error creating user:", error);
-      throw error;
+      console.error("Error creating user already exists");
+      return null;
+      // throw error;
     }
   }
   

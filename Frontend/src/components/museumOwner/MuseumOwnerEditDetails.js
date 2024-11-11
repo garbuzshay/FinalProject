@@ -78,13 +78,26 @@ const MuseumOwnerEditDetails = () => {
     }
   }, [museum, setValue]);
 
+  // const onSubmit = (data) => {
+  //   updateMuseumDetails(data);
+  //   setTimeout(() => {
+  //     alert("Updated succefully");
+  //     navigate("/owner/edit-details");
+
+  //   }, 1000); // 1 second delay
+
+  // };
   const onSubmit = (data) => {
     updateMuseumDetails(data);
     setTimeout(() => {
-      navigate("/owner");
+      alert("Updated successfully");
+      navigate("/owner/edit-details");
+      setTimeout(() => {
+        window.location.reload(); // Refreshes the page
+      }, 500); // Short delay after navigating
     }, 1000); // 1 second delay
   };
-
+  
   const generateRandomPassword = () => {
     const randomPassword = Math.random().toString(36).slice(-8);
     setValue("password", randomPassword);
@@ -127,7 +140,6 @@ const MuseumOwnerEditDetails = () => {
         >
           {t.visitMuseum}
         </a>
-       
         <form
           onSubmit={handleSubmit(onSubmit)}
           className={`p-6 rounded-lg shadow-lg ${
@@ -149,7 +161,6 @@ const MuseumOwnerEditDetails = () => {
                 type="text"
                 {...register("name", { required: true })}
                 defaultValue={museum?.name}
-                readOnly
                 className={`mt-2 w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
                   isDarkMode
                     ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
@@ -175,7 +186,6 @@ const MuseumOwnerEditDetails = () => {
                 type="text"
                 {...register("address", { required: true })}
                 defaultValue={museum?.address}
-                readOnly
                 className={`mt-2 w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
                   isDarkMode
                     ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
@@ -201,7 +211,6 @@ const MuseumOwnerEditDetails = () => {
                 type="text"
                 {...register("city", { required: true })}
                 defaultValue={museum?.city}
-                readOnly
                 className={`mt-2 w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
                   isDarkMode
                     ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
@@ -227,7 +236,6 @@ const MuseumOwnerEditDetails = () => {
                 type="text"
                 {...register("state", { required: true })}
                 defaultValue={museum?.state}
-                readOnly
                 className={`mt-2 w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
                   isDarkMode
                     ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
@@ -253,7 +261,6 @@ const MuseumOwnerEditDetails = () => {
                 type="text"
                 {...register("zipcode", { required: true })}
                 defaultValue={museum?.zipcode}
-                readOnly
                 className={`mt-2 w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
                   isDarkMode
                     ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
@@ -279,7 +286,6 @@ const MuseumOwnerEditDetails = () => {
                 type="text"
                 {...register("phoneNumber", { required: true })}
                 defaultValue={museum?.phoneNumber}
-                readOnly
                 className={`mt-2 w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
                   isDarkMode
                     ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
@@ -305,7 +311,6 @@ const MuseumOwnerEditDetails = () => {
                 type="email"
                 {...register("email", { required: true })}
                 defaultValue={museum?.email}
-                readOnly
                 className={`my-2 w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
                   isDarkMode
                     ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
@@ -435,8 +440,8 @@ const MuseumOwnerEditDetails = () => {
             isDarkMode={isDarkMode} // Pass isDarkMode as a prop for styling
           />
         </form>
-         {/* QR Code */}
-         <div className="flex justify-center mb-8">
+        {/* QR Code */}
+        <div className="flex justify-center mb-8">
           <QRCodeGenerator url={museumUrl} fileName={museum?.name} />
         </div>
       </div>

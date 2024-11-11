@@ -71,14 +71,26 @@ export const RegisterProvider = ({ children }) => {
     }
   };
 
+  // const submitData = async () => {
+  //   try {
+  //     await requestsApi.createRequest({ ...formData, type: "Museum-Opening" });
+  //     await login(formData.userData.email, formData.userData.password);
+  //   } catch (error) {
+  //     console.error("Error submitting data:", error);
+  //   alert("Error submitting data. Please check you info and try again.");
+  // }
+  // };
   const submitData = async () => {
     try {
       await requestsApi.createRequest({ ...formData, type: "Museum-Opening" });
-      await login(formData.userData.email, formData.userData.password);
     } catch (error) {
       console.error("Error submitting data:", error);
+      alert("Error submitting data. Please check your info and try again.");
+    } finally {
+      await login(formData.userData.email, formData.userData.password);
     }
   };
+  
 
   return (
     <div>

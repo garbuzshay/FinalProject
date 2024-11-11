@@ -5,6 +5,7 @@
 // import LogoutButton from "../components/LogoutButton";
 // import ArtworkDetailView from "../components/ArtworkDetailView";
 // import Header from "../components/Header";
+// import ArtworkCard from "../components/ArtworkCard"; // Import the new ArtworkCard component
 
 // const ExhibitionPage = () => {
 //   const { exhibitionId } = useParams();
@@ -76,7 +77,6 @@
 //   return (
 //     <div className="min-h-screen bg-gray-100">
 //       <Header museumData={museumData} LogoutButton={LogoutButton} />
-
 //       <div
 //         className="relative bg-cover bg-center h-72 sm:h-96 flex items-end justify-center"
 //         style={{ backgroundImage: `url(${exhibition.imageUrl})` }}
@@ -86,13 +86,15 @@
 //           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold">
 //             {exhibition.name}
 //           </h1>
+//           <h2>{exhibition.description}</h2>
 //         </div>
 //       </div>
 
-//       <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+//       <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
 //         {selectedArtworkIndex === null ? (
 //           <>
-//             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-8 mb-4 text-gray-800">
+
+//             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold  mb-4 text-gray-800">
 //               Artworks
 //             </h2>
 
@@ -117,22 +119,11 @@
 //             >
 //               {artworksToRender.length > 0 ? (
 //                 artworksToRender.map((artwork, index) => (
-//                   <div
+//                   <ArtworkCard
 //                     key={artwork._id}
+//                     artwork={artwork}
 //                     onClick={() => handleArtworkClick(index)}
-//                     className="cursor-pointer flex justify-center bg-white p-4 shadow-md rounded-lg hover:shadow-lg transition duration-200 ease-in-out"
-//                   >
-//                     <div>
-//                       <img
-//                         src={artwork.imageUrl}
-//                         alt={artwork.title}
-//                         className="w-full h-48 rounded-md object-cover"
-//                       />
-//                       <p className="mt-4 text-center font-semibold text-gray-800 line-clamp-2">
-//                         {artwork.title}
-//                       </p>
-//                     </div>
-//                   </div>
+//                   />
 //                 ))
 //               ) : (
 //                 <p className="text-center text-gray-500 col-span-full">
@@ -159,7 +150,6 @@
 
 // export default ExhibitionPage;
 
-
 import React, { useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useMuseum } from "../contexts/MuseumContext";
@@ -167,7 +157,9 @@ import GoBackButton from "../components/GoBackButton";
 import LogoutButton from "../components/LogoutButton";
 import ArtworkDetailView from "../components/ArtworkDetailView";
 import Header from "../components/Header";
-import ArtworkCard from "../components/ArtworkCard"; // Import the new ArtworkCard component
+import ArtworkCard from "../components/ArtworkCard";
+import useTextToSpeech from "../hooks/useTextToSpeech";
+import AudioPlayerControls from "../components/AudioPlayerControls";
 
 const ExhibitionPage = () => {
   const { exhibitionId } = useParams();
@@ -175,10 +167,15 @@ const ExhibitionPage = () => {
   const [selectedArtworkIndex, setSelectedArtworkIndex] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredArtworks, setFilteredArtworks] = useState([]);
+  const [showAudioControls, setShowAudioControls] = useState(false); // Controls visibility of AudioPlayerControls
   const artworksSectionRef = useRef(null);
 
   const exhibition = exhibitions?.find(
     (exhibition) => exhibition._id === exhibitionId
+  );
+
+  const { play, pause, stop, isPlaying, isPaused } = useTextToSpeech(
+    exhibition?.description || ""
   );
 
   const handleSearch = (e) => {
@@ -222,6 +219,16 @@ const ExhibitionPage = () => {
     setSelectedArtworkIndex(null);
   };
 
+  const handleListenClick = () => {
+    setShowAudioControls(true); // Show controls
+    play();
+  };
+
+  const handleStop = () => {
+    stop();
+    setShowAudioControls(false); // Hide controls and show "Listen to Description" button
+  };
+
   if (loading) {
     return (
       <p className="text-center text-gray-500 my-8">
@@ -239,7 +246,6 @@ const ExhibitionPage = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <Header museumData={museumData} LogoutButton={LogoutButton} />
-
       <div
         className="relative bg-cover bg-center h-72 sm:h-96 flex items-end justify-center"
         style={{ backgroundImage: `url(${exhibition.imageUrl})` }}
@@ -249,13 +255,35 @@ const ExhibitionPage = () => {
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold">
             {exhibition.name}
           </h1>
+          <h2 className="max-w-2xl text-md">{exhibition.description}</h2>
+
+          <div className="mt-4" style={{ height: "48px" }}>
+            {" "}
+            {/* Fixed height for consistency */}
+            {!showAudioControls ? (
+              <button
+                onClick={handleListenClick}
+                className="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition"
+              >
+                Listen to Description
+              </button>
+            ) : (
+              <AudioPlayerControls
+                isPlaying={isPlaying}
+                isPaused={isPaused}
+                play={play}
+                pause={pause}
+                stop={handleStop} // Use handleStop to hide controls
+              />
+            )}
+          </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
         {selectedArtworkIndex === null ? (
           <>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold  mb-4 text-gray-800">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-800">
               Artworks
             </h2>
 

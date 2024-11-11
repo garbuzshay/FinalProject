@@ -46,9 +46,7 @@ app.listen(PORT, () => {
 //mensch.edutainment@gmail.com  Mensch123
 //shay.garbuz Shay123
 //ofekaz24 ofek123
-//curator1@gmail.com Generated Password: 2179ff2e
-// curator2@gmail.com Generated Password: 037ad669
-// curator8@gmail.com Generated Password: 952899b1
+// curator1@gmail.com Generated Password: b1a0af80
 
 // const adminData = {
 //   name: 'admin',

@@ -114,6 +114,7 @@
 // export default ArtworkDetailView;
 
 // src/components/ArtworkDetailView.js
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import useTextToSpeech from "../hooks/useTextToSpeech";
@@ -148,7 +149,7 @@ const ArtworkDetailView = ({ artwork, onClose, onNext, onPrevious }) => {
         Back to Artworks
       </button>
 
-      <div className="flex-1 flex flex-col justify-center items-center relative">
+      <div className="flex-1 flex flex-col justify-center items-center relative pb-2">
         <button
           onClick={onPrevious}
           className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-200 bg-opacity-80 rounded-full shadow-lg active:bg-gray-700 active:scale-90 active:text-white transition duration-200 ease-in-out z-20"
@@ -202,18 +203,8 @@ const ArtworkDetailView = ({ artwork, onClose, onNext, onPrevious }) => {
           </svg>
         </button>
       </div>
-      {/* <div className=" text-center space-x-4 mt-4">
-        <button onClick={play} className="btn">
-          {isPlaying ? "Playing" : isPaused ? "Resume" : "Play"}
-        </button>
-        <button onClick={pause} className="btn" disabled={!isPlaying}>
-          Pause
-        </button>
-        <button onClick={stop} className="btn">
-          Stop
-        </button>
-      </div> */}
-        <AudioPlayerControls
+
+      <AudioPlayerControls
         isPlaying={isPlaying}
         isPaused={isPaused}
         play={play}
