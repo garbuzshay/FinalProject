@@ -251,7 +251,7 @@ const CuratorList = ({ users, updateUser, deleteUser }) => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4" dir={isHebrew ? "rtl" : "ltr"}>
       <h2 className={`text-2xl font-semibold mb-5 ${isDarkMode ? 'text-gray-300' : 'text-gray-900'}`}>
         {isHebrew ? 'אוצרים' : 'Curators'}
       </h2>
