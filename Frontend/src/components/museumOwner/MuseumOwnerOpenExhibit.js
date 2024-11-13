@@ -825,7 +825,7 @@ const MuseumOwnerOpenExhibit = () => {
             <form
               id="exhibitionForm"
               onSubmit={handleSubmit(onSubmit)}
-              className={`py-6  rounded-lg shadow-lg ${
+              className={`p-6  rounded-lg shadow-lg ${
                 isDarkMode ? "bg-gray-800" : "bg-gray-200"
               }`}
             >
