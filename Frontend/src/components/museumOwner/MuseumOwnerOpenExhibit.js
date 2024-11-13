@@ -780,8 +780,9 @@ const MuseumOwnerOpenExhibit = () => {
 
   return (
     <div
-      className={`container mx-auto my-8  transition-colors duration-300 `}
-      dir={isHebrew ? "rtl" : "ltr"}
+    className={`container mx-auto my-8 min-h-screen transition-colors duration-300 ${
+      isHebrew ? "rtl" : "ltr"
+    }`}
     >
       <h1
         className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center ${
@@ -791,7 +792,7 @@ const MuseumOwnerOpenExhibit = () => {
         {t.openNewExhibition}
       </h1>
       {museum && (
-        <>
+       <div dir={isHebrew ? "rtl" : "ltr"}>
           <p
             className={`mb-4 ${
               isDarkMode ? "text-gray-300" : "text-gray-700"
@@ -825,14 +826,14 @@ const MuseumOwnerOpenExhibit = () => {
             <form
               id="exhibitionForm"
               onSubmit={handleSubmit(onSubmit)}
-              className={`p-6  rounded-lg shadow-lg ${
+              className={`p-6 rounded-lg shadow-lg ${
                 isDarkMode ? "bg-gray-800" : "bg-gray-200"
               }`}
             >
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="mb-4">
                   <label
-                    className={`block text-sm font-bold mb-2 ${
+                    className={`block text-sm font-bold mb-1 ${
                       isDarkMode ? "text-gray-300" : "text-gray-700"
                     }`}
                   >
@@ -855,7 +856,7 @@ const MuseumOwnerOpenExhibit = () => {
                 </div>
                 <div className="mb-4">
                   <label
-                    className={`block text-sm font-bold mb-2 ${
+                    className={`block text-sm font-bold mb-1 ${
                       isDarkMode ? "text-gray-300" : "text-gray-700"
                     }`}
                   >
@@ -886,7 +887,7 @@ const MuseumOwnerOpenExhibit = () => {
               </div>
               <div className="mb-4">
                 <label
-                  className={`block text-sm font-bold mb-2 ${
+                  className={`block text-sm font-bold mb-1 ${
                     isDarkMode ? "text-gray-300" : "text-gray-700"
                   }`}
                 >
@@ -1189,7 +1190,7 @@ const MuseumOwnerOpenExhibit = () => {
               {t.noExhibitionsLeft}
             </p>
           )}
-        </>
+        </div>
       )}
     </div>
   );
