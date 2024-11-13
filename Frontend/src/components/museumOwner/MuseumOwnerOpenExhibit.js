@@ -825,10 +825,8 @@ const MuseumOwnerOpenExhibit = () => {
             <form
               id="exhibitionForm"
               onSubmit={handleSubmit(onSubmit)}
-              className={`mx-auto shadow p-6 sm:p-8 lg:p-12 font-poppins ${
+              className={`p-6 rounded-lg shadow-lg ${
                 isDarkMode ? "bg-gray-800" : "bg-gray-200"
-              } rounded-lg transition-colors duration-300 ${
-                isHebrew ? "text-right" : ""
               }`}
             >
               <div className="grid grid-cols-1 gap-4">
