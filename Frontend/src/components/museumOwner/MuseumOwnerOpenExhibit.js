@@ -780,7 +780,7 @@ const MuseumOwnerOpenExhibit = () => {
 
   return (
     <div
-    className={`container mx-auto my-8 min-h-screen transition-colors duration-300 ${
+    className={`container mx-auto my-8 transition-colors duration-300 ${
       isHebrew ? "rtl" : "ltr"
     }`}
     >
@@ -792,7 +792,7 @@ const MuseumOwnerOpenExhibit = () => {
         {t.openNewExhibition}
       </h1>
       {museum && (
-       <div dir={isHebrew ? "rtl" : "ltr"}>
+       <div dir={isHebrew ? "rtl" : "ltr"} className=" px-4 ">
           <p
             className={`mb-4 ${
               isDarkMode ? "text-gray-300" : "text-gray-700"
