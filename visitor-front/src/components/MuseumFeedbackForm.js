@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { useMuseum } from "../contexts/MuseumContext";
+import useFeedback from "../hooks/useFeedback";
 
 // Custom Button Component
-const Button = ({ type, children }) => (
+const Button = ({ type, children, disabled }) => (
   <button
     type={type}
-    className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition"
+    disabled={disabled}
+    className={`w-full py-2 px-4 ${
+      disabled ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-600'
+    } text-white font-semibold rounded-lg transition`}
   >
     {children}
   </button>
@@ -33,56 +37,51 @@ const Rating = ({ value, onValueChange, max = 5 }) => (
 
 export default function MuseumFeedbackForm({ onSubmit }) {
   const { museumData, exhibitions } = useMuseum();
+  const { submitFeedback, loading } = useFeedback(museumData?._id);
+  
   const [exhibitionRatings, setExhibitionRatings] = useState(
-    exhibitions.reduce(
-      (acc, exhibition) => ({ ...acc, [exhibition.name]: 0 }),
-      {}
-    )
+    exhibitions.reduce((acc, exhibition) => ({
+      ...acc,
+      [exhibition._id]: 0
+    }), {})
   );
   const [overallRating, setOverallRating] = useState(0);
   const [showThankYou, setShowThankYou] = useState(false);
 
-  const handleExhibitionRating = (exhibition, rating) => {
-    setExhibitionRatings((prev) => ({ ...prev, [exhibition]: rating }));
+  const handleExhibitionRating = (exhibitionId, rating) => {
+    setExhibitionRatings(prev => ({
+      ...prev,
+      [exhibitionId]: rating
+    }));
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitted feedback");
-    console.log(
-      museumData.name,
-      "ID:",
-      museumData._id,
-      "Overall Experience Rating:",
-      overallRating
-    );
 
-    exhibitions.forEach((exhibition) => {
-      console.log(
-        `${exhibition.name}, ID: ${exhibition._id}, Rating: ${
-          exhibitionRatings[exhibition.name]
-        }`
+    const success = await submitFeedback(overallRating, exhibitionRatings);
+    
+    if (success) {
+      setShowThankYou(true);
+      
+      // Reset form
+      setExhibitionRatings(
+        exhibitions.reduce((acc, exhibition) => ({
+          ...acc,
+          [exhibition._id]: 0
+        }), {})
       );
-    });
+      setOverallRating(0);
 
-    // Display thank you message
-    setShowThankYou(true);
-
-    // Clear form values
-    setExhibitionRatings(
-      exhibitions.reduce(
-        (acc, exhibition) => ({ ...acc, [exhibition.name]: 0 }),
-        {}
-      )
-    );
-    setOverallRating(0);
-
-    // Log user out after a delay
-    setTimeout(() => {
-      setShowThankYou(false);
-      onSubmit(); // Trigger logout after displaying thank you message
-    }, 1500); // Adjust the delay as needed
+      // Trigger logout after delay
+      setTimeout(() => {
+        setShowThankYou(false);
+        if (onSubmit) onSubmit();
+      }, 1500);
+    }
   };
+
+  const isFormValid = overallRating > 0 && 
+    Object.values(exhibitionRatings).some(rating => rating > 0);
 
   return (
     <form
@@ -90,7 +89,7 @@ export default function MuseumFeedbackForm({ onSubmit }) {
       className="max-w-2xl mx-auto p-6 space-y-8 bg-white rounded-lg shadow-md"
     >
       {showThankYou ? (
-        <p className="text-center text-lg font-semibold ">
+        <p className="text-center text-lg font-semibold">
           Thank you for your feedback!
         </p>
       ) : (
@@ -108,14 +107,14 @@ export default function MuseumFeedbackForm({ onSubmit }) {
             <h3 className="text-xl font-semibold">Exhibition Ratings</h3>
             {exhibitions.map((exhibition) => (
               <div
-                key={exhibition.name}
+                key={exhibition._id}
                 className="flex items-center text-left justify-between"
               >
                 <span className="text-sm font-medium">{exhibition.name}</span>
                 <Rating
-                  value={exhibitionRatings[exhibition.name]}
+                  value={exhibitionRatings[exhibition._id]}
                   onValueChange={(value) =>
-                    handleExhibitionRating(exhibition.name, value)
+                    handleExhibitionRating(exhibition._id, value)
                   }
                 />
               </div>
@@ -125,14 +124,16 @@ export default function MuseumFeedbackForm({ onSubmit }) {
           <div className="space-y-2">
             <h3 className="text-xl font-semibold">Overall Museum Experience</h3>
             <div className="flex items-center justify-between">
-              <span className="text-sm font-medium">
+              <span className="text-sm text-left font-medium">
                 Rate your overall experience
               </span>
               <Rating value={overallRating} onValueChange={setOverallRating} />
             </div>
           </div>
 
-          <Button type="submit">Submit Feedback</Button>
+          <Button type="submit" disabled={loading || !isFormValid}>
+            {loading ? "Submitting..." : "Submit Feedback"}
+          </Button>
         </>
       )}
     </form>

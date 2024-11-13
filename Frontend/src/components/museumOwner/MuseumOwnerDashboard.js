@@ -466,6 +466,7 @@ import {
   PointElement,
   LineElement,
 } from "chart.js";
+import MuseumReviewsComponent from "./MuseumReviewsComponent";
 
 ChartJS.register(
   ArcElement,
@@ -872,6 +873,7 @@ const MuseumOwnerDashboard = () => {
         isDarkMode ? "bg-gray-900 text-gray-300" : "bg-grey-100 text-gray-900"
       } transition-colors duration-300`}
     >
+
       <h1
         className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center ${
           isDarkMode ? "text-gray-100" : "text-gray-800"
@@ -879,7 +881,9 @@ const MuseumOwnerDashboard = () => {
       >
         {translations[language].dashboardTitle}
       </h1>
+      {museum && <MuseumReviewsComponent museumId={museum._id} />}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
         {chartData.pieData && (
           <div
             className={`p-4 rounded-2xl border-2 shadow-2xl transform transition-transform duration-300 hover:scale-105 ${
@@ -976,6 +980,7 @@ const MuseumOwnerDashboard = () => {
           </div>
         )}
       </div>
+
     </div>
   );
 };

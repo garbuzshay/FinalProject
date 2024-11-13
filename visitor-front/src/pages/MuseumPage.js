@@ -1,4 +1,3 @@
-
 // import React, { useEffect, useState } from 'react';
 // import { useParams, Outlet, useNavigate } from 'react-router-dom';
 // import { useMuseum } from '../contexts/MuseumContext';
@@ -6,6 +5,16 @@
 // import Header from '../components/Header';
 // import MuseumFeedbackForm from '../components/MuseumFeedbackForm';
 
+// const StarIcon = ({ className = "w-6 h-6" }) => (
+//   <svg
+//     className={`cursor-pointer ${className}`}
+//     xmlns="http://www.w3.org/2000/svg"
+//     viewBox="0 0 24 24"
+//     fill="currentColor"
+//   >
+//     <path d="M12 17.27l5.18 3.04-1.64-6.82L21 9.24l-7.19-.61L12 2.5 10.19 8.63 3 9.24l5.46 4.25-1.63 6.82L12 17.27z" />
+//   </svg>
+// );
 
 // const MuseumPage = () => {
 //   const { museumName } = useParams();
@@ -13,18 +22,10 @@
 //   const { museumData, exhibitions } = useMuseum();
 //   const [searchQuery, setSearchQuery] = useState('');
 //   const [filteredExhibitions, setFilteredExhibitions] = useState([]);
-
-  
-//   // useEffect(() => {
-//   //   if (museumName) {
-//   //     fetchFullMuseumData(museumName); // Pass museumName to the fetch function
-//   //   }
-//   // }, [museumName, fetchFullMuseumData]);
-
+//   const [showFeedbackForm, setShowFeedbackForm] = useState(false);
 
 //   useEffect(() => {
 //     if (museumData && exhibitions) {
-//       // Initial filter to show only open exhibitions with artworks
 //       const openExhibitionsWithArtworks = exhibitions.filter(
 //         (exhibition) =>
 //           exhibition.status === 'open' &&
@@ -45,7 +46,6 @@
 //     const query = e.target.value.toLowerCase();
 //     setSearchQuery(query);
 
-//     // Filter from already-filtered exhibitions
 //     setFilteredExhibitions(
 //       exhibitions
 //         .filter(
@@ -60,11 +60,18 @@
 //     );
 //   };
 
+//   const handleOpenFeedbackForm = () => {
+//     setShowFeedbackForm(true);
+//   };
+
+//   const handleCloseFeedbackForm = () => {
+//     setShowFeedbackForm(false);
+//   };
+
 //   return (
 //     <div className="min-h-screen bg-gray-100">
-//       {/* Header with Museum name and address */}
 //       <Header museumData={museumData} LogoutButton={LogoutButton} />
-//       {/* Museum Image with Search bar at the bottom */}
+
 //       <div
 //         className="relative bg-cover bg-center h-72 flex items-end justify-center"
 //         style={{ backgroundImage: `url(${museumData.imageUrl})` }}
@@ -89,9 +96,18 @@
 //         </div>
 //       </div>
 
-//       {/* Popular Exhibitions */}
 //       <div className="p-4">
-//         <h3 className="text-2xl font-semibold mb-6">Popular Exhibitions</h3>
+//         <div className="flex justify-between items-center mb-6">
+//           <h3 className="text-2xl font-semibold">Popular Exhibitions</h3>
+//           <button
+//             onClick={handleOpenFeedbackForm}
+//             className="flex items-center text-blue-600 hover:text-blue-700 transition"
+//           >
+//             <StarIcon className="w-4 h-4 mr-1" />
+//             Add Review
+//           </button>
+//         </div>
+
 //         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
 //           {filteredExhibitions.slice(0, 3).map((exhibition) => (
 //             <div
@@ -111,16 +127,40 @@
 //             </div>
 //           ))}
 //         </div>
-
 //       </div>
- 
+
 //       <Outlet />
-      
+
+//       {/* Feedback Form Modal */}
+//       {showFeedbackForm && (
+//         <div
+//           className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+//           onClick={handleCloseFeedbackForm} // Close modal on background click
+//         >
+//           <div
+//             className="relative bg-white p-6 rounded-lg shadow-lg max-w-lg w-full mx-4"
+//             onClick={(e) => e.stopPropagation()} // Prevent background click from closing the modal
+//           >
+//             {/* Left-Aligned Close Button */}
+//             <button
+//               onClick={handleCloseFeedbackForm}
+//               className="absolute top-2 left-2 text-gray-500 hover:text-gray-700"
+//               aria-label="Close feedback form"
+//             >
+//               <span className="text-2xl font-semibold">&times;</span>
+//             </button>
+
+//             <MuseumFeedbackForm onSubmit={handleCloseFeedbackForm} />
+//           </div>
+//         </div>
+//       )}
 //     </div>
 //   );
 // };
 
 // export default MuseumPage;
+
+
 import React, { useEffect, useState } from 'react';
 import { useParams, Outlet, useNavigate } from 'react-router-dom';
 import { useMuseum } from '../contexts/MuseumContext';
@@ -146,6 +186,9 @@ const MuseumPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredExhibitions, setFilteredExhibitions] = useState([]);
   const [showFeedbackForm, setShowFeedbackForm] = useState(false);
+  const [hasSubmittedFeedback, setHasSubmittedFeedback] = useState(
+    localStorage.getItem(`submittedFeedback-${museumName}`) === 'true'
+  );
 
   useEffect(() => {
     if (museumData && exhibitions) {
@@ -187,6 +230,12 @@ const MuseumPage = () => {
     setShowFeedbackForm(true);
   };
 
+  const handleFeedbackSubmitted = () => {
+    setHasSubmittedFeedback(true);
+    localStorage.setItem(`submittedFeedback-${museumName}`, 'true'); // Use localStorage here
+    setShowFeedbackForm(false);
+  };
+
   const handleCloseFeedbackForm = () => {
     setShowFeedbackForm(false);
   };
@@ -222,13 +271,16 @@ const MuseumPage = () => {
       <div className="p-4">
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-2xl font-semibold">Popular Exhibitions</h3>
-          <button
-            onClick={handleOpenFeedbackForm}
-            className="flex items-center text-blue-600 hover:text-blue-700 transition"
-          >
-            <StarIcon className="w-4 h-4 mr-1" />
-            Add Review
-          </button>
+          
+          {!hasSubmittedFeedback && (
+            <button
+              onClick={handleOpenFeedbackForm}
+              className="flex items-center text-blue-600 hover:text-blue-700 transition"
+            >
+              <StarIcon className="w-4 h-4 mr-1" />
+              Add Review
+            </button>
+          )}
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
@@ -254,17 +306,15 @@ const MuseumPage = () => {
 
       <Outlet />
 
-      {/* Feedback Form Modal */}
       {showFeedbackForm && (
         <div
           className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-          onClick={handleCloseFeedbackForm} // Close modal on background click
+          onClick={handleCloseFeedbackForm}
         >
           <div
             className="relative bg-white p-6 rounded-lg shadow-lg max-w-lg w-full mx-4"
-            onClick={(e) => e.stopPropagation()} // Prevent background click from closing the modal
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* Left-Aligned Close Button */}
             <button
               onClick={handleCloseFeedbackForm}
               className="absolute top-2 left-2 text-gray-500 hover:text-gray-700"
@@ -273,7 +323,7 @@ const MuseumPage = () => {
               <span className="text-2xl font-semibold">&times;</span>
             </button>
 
-            <MuseumFeedbackForm onSubmit={handleCloseFeedbackForm} />
+            <MuseumFeedbackForm onSubmit={handleFeedbackSubmitted} />
           </div>
         </div>
       )}
