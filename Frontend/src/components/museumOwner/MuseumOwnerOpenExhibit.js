@@ -755,7 +755,7 @@ const MuseumOwnerOpenExhibit = () => {
   if (isLoading) {
     return (
       <div
-        className={`flex justify-center items-center h-screen ${
+        className={`flex justify-center items-center min-h-screen ${
           isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
         }`}
       >
@@ -780,7 +780,7 @@ const MuseumOwnerOpenExhibit = () => {
 
   return (
     <div
-      className={`container mx-auto my-8 min-h-screen transition-colors duration-300 `}
+      className={`container mx-auto my-8  transition-colors duration-300 `}
       dir={isHebrew ? "rtl" : "ltr"}
     >
       <h1
@@ -825,7 +825,7 @@ const MuseumOwnerOpenExhibit = () => {
             <form
               id="exhibitionForm"
               onSubmit={handleSubmit(onSubmit)}
-              className={`p-6 rounded-lg shadow-lg ${
+              className={`py-6 px-2 rounded-lg shadow-lg ${
                 isDarkMode ? "bg-gray-800" : "bg-gray-200"
               }`}
             >
