@@ -785,7 +785,7 @@ const MuseumOwnerOpenExhibit = () => {
     }`}
     >
       <h1
-        className={`text-4xl font-poppins font-bold tracking-wide mb-6 text-center ${
+        className={`text-4xl font-poppins font-bold  mb-4 text-center ${
           isDarkMode ? "text-white" : "text-gray-900"
         }`}
       >
