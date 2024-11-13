@@ -840,10 +840,10 @@ const MuseumOwnerOpenExhibit = () => {
                     <input
                       type="text"
                       {...register("name", { required: t.exhibitionName })}
-                      className={`mt-2 w-full p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm ${
+                      className={`mt-2 w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
                         isDarkMode
-                          ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200"
-                          : "border-gray-300 bg-white placeholder-gray-400 text-gray-900"
+                          ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
+                          : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
                       }`}
                     />
                     {errors.name && (
@@ -870,10 +870,10 @@ const MuseumOwnerOpenExhibit = () => {
                         },
                       })}
                       min="0"
-                      className={`mt-2 w-full p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm ${
+                      className={`mt-2 w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
                         isDarkMode
-                          ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200"
-                          : "border-gray-300 bg-white placeholder-gray-400 text-gray-900"
+                          ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
+                          : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
                       }`}
                     />
                     {errors.maxArtworks && (
@@ -893,10 +893,10 @@ const MuseumOwnerOpenExhibit = () => {
                   {t.description}:
                   <textarea
                     {...register("description", { required: t.description })}
-                    className={`mt-2 w-full p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm ${
+                    className={`mt-2 w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
                       isDarkMode
-                        ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200"
-                        : "border-gray-300 bg-white placeholder-gray-400 text-gray-900"
+                        ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200 focus:ring-blue-500"
+                        : "border-gray-300 bg-white placeholder-gray-400 text-gray-900 focus:ring-blue-500"
                     }`}
                   />
                   {errors.description && (
