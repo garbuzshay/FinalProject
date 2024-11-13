@@ -5,8 +5,8 @@ const Header = ({ museumData, LogoutButton }) => {
     <div className="flex justify-between items-center px-4
      bg-gray-200  transition-colors shadow-lg ">
       <div>
-        <h1 className="text-3xl font-bold">{museumData.name}</h1>
-        <p className="text-lg ">
+        <h1 className="text-2xl font-bold">{museumData.name}</h1>
+        <p className="text-md ">
           {museumData.address}, {museumData.state}
         </p>
       </div>
