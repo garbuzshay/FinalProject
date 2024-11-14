@@ -2881,3 +2881,9 @@ Use mongoose.model(name, schema)
 2024-11-13 09:10:42 [32minfo[39m: Updating exhibition with ID: 673202d94ee2f830b7ccfdc1 and data: {"status":"open","curators":["673202d84ee2f830b7ccfdbc"],"openedAt":"2024-11-13T07:10:42.051Z","closedAt":null}
 2024-11-13 09:12:36 [32minfo[39m: Creating exhibition with data: {"name":"tables","description":"More than just a surface, \"tables\" explores the diverse forms, functions, and stories woven into this everyday object.  Discover the history, design, and cultural significance of tables across time and cultures. \n","maxArtworks":"10","imageUrl":"https://firebasestorage.googleapis.com/v0/b/mesnchmuseumapp.appspot.com/o/images%2Fimages%20(1).jpg?alt=media&token=0ee26510-9955-41fc-a9d2-79e67a2276f4","curators":[{"_id":"673202d84ee2f830b7ccfdbc","uid":"QfUvnxGXxGOKzoUdpRNHFSwhjfz1","name":"curator1","lastName":"s1","email":"curator1@gmail.com","phoneNumber":"+972521111111","role":"669bca0a5d5c0e176bb1e683","createdAt":"2024-11-11T13:12:56.921Z","updatedAt":"2024-11-11T13:12:56.921Z","__v":0,"exhibitions":["Board games and strategy"],"isEditable":false}]}
 2024-11-13 09:14:50 [32minfo[39m: Retrieving exhibitions for User with ID: 673202d84ee2f830b7ccfdbc
+2024-11-14 12:41:23 [32minfo[39m: Retrieving all exhibitions
+2024-11-14 12:41:26 [32minfo[39m: Retrieving all exhibitions
+2024-11-14 12:41:29 [32minfo[39m: Retrieving all exhibitions
+2024-11-14 12:41:42 [32minfo[39m: Retrieving all exhibitions
+2024-11-14 12:41:48 [32minfo[39m: Retrieving all exhibitions
+2024-11-14 12:41:57 [32minfo[39m: Retrieving all exhibitions
