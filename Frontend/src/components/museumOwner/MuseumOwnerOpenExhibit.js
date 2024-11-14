@@ -354,7 +354,7 @@ const MuseumOwnerOpenExhibit = () => {
                 </button>
               </div>
 
-              <div className="mb-4 ">
+              <div className="mb-4">
                 <label
                   className={`block text-sm font-bold mb-2 ${
                     isDarkMode ? "text-gray-300" : "text-gray-700"
@@ -372,7 +372,7 @@ const MuseumOwnerOpenExhibit = () => {
                     </p>
                   )}
                   {url && (
-                    <div className="mb-4 flex flex-col items-center">
+                    <div className="mt-4 flex flex-col justify-center">
                       <img
                         src={url}
                         alt="Uploaded"
