@@ -395,6 +395,55 @@ const MuseumOwnerOpenExhibit = () => {
                   )}
                 </label>
               </div> */}
+              <div className="mb-4 flex flex-col items-center">
+                <button
+                  type="button"
+                  onClick={() => document.getElementById("file-upload").click()}
+                  className={`w-auto border border-gray-500 text-gray-700 dark:text-gray-300 py-1.5 px-4 rounded-full flex items-center justify-center gap-2
+      transition-all duration-300 ease-in-out
+      hover:bg-blue-50 dark:hover:bg-gray-700 hover:shadow-lg hover:border-transparent hover:text-blue-600 dark:hover:text-blue-400
+      focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500`}
+                >
+                  {t.imageUpload}
+                </button>
+
+                <input
+                  id="file-upload"
+                  type="file"
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
+
+                {uploading && (
+                  <p className="text-sm mt-2">
+                    {t.progress}: {progress}%
+                  </p>
+                )}
+
+                {url && (
+                  <div className="mt-4 flex flex-col items-center">
+                    <img
+                      src={url}
+                      alt="Uploaded"
+                      className="w-48 h-48 mt-2 rounded-lg object-cover"
+                    />
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-blue-500 mt-2"
+                    >
+                      {t.viewImage}
+                    </a>
+                  </div>
+                )}
+
+                {errors.imageUrl && (
+                  <span className="text-red-500 text-sm mt-1">
+                    {errors.imageUrl.message}
+                  </span>
+                )}
+              </div>
 
               <h2
                 className={`text-xl md:text-2xl font-bold text-center my-4 ${
