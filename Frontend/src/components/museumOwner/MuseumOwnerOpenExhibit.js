@@ -354,7 +354,7 @@ const MuseumOwnerOpenExhibit = () => {
                 </button>
               </div>
 
-              <div className="mb-4">
+              {/* <div className="mb-4">
                 <label
                   className={`block text-sm font-bold mb-2 ${
                     isDarkMode ? "text-gray-300" : "text-gray-700"
@@ -394,7 +394,7 @@ const MuseumOwnerOpenExhibit = () => {
                     </span>
                   )}
                 </label>
-              </div>
+              </div> */}
 
               <h2
                 className={`text-xl md:text-2xl font-bold text-center my-4 ${
