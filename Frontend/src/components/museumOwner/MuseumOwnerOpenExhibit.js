@@ -372,7 +372,7 @@ const MuseumOwnerOpenExhibit = () => {
                     </p>
                   )}
                   {url && (
-                    <div className="mt-4 flex flex-col justify-center">
+                    <div className="mt-4">
                       <img
                         src={url}
                         alt="Uploaded"
