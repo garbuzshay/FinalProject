@@ -8,7 +8,8 @@ import CuratorSelect from "./CuratorSelect";
 import geminiApi from "../../api/GeminiApi"; // Import the GeminiApi
 import { useThemeMode } from "../../contexts/DarkModeContext"; // Import Theme Context
 import { useLang } from "../../contexts/LangContext"; // Import Language Context
-import { FaMagic } from 'react-icons/fa'; // Import the magic wand icon from react-icons
+import { FaMagic } from "react-icons/fa"; // Import the magic wand icon from react-icons
+import { uploadFile } from "../common/FileUpload";
 
 const MuseumOwnerOpenExhibit = () => {
   const { isDarkMode } = useThemeMode(); // Destructure isDarkMode
@@ -37,6 +38,8 @@ const MuseumOwnerOpenExhibit = () => {
       surname: "Surname",
       email: "Email",
       phone: "Phone",
+      viewImage: "View Image",
+      imageUpload: "Image Upload",
     },
     he: {
       openNewExhibition: "פתח תערוכה חדשה",
@@ -59,6 +62,8 @@ const MuseumOwnerOpenExhibit = () => {
       surname: "שם משפחה",
       email: "דואר אלקטרוני",
       phone: "טלפון",
+      imageUpload: "העלאת תמונה",
+      viewImage: "הצג תמונה",
     },
   };
 
@@ -98,9 +103,34 @@ const MuseumOwnerOpenExhibit = () => {
   });
 
   const [showCuratorSelect, setShowCuratorSelect] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [url, setUrl] = useState("");
   const name = watch("name");
   const description = watch("description");
   const navigate = useNavigate();
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setUploading(true);
+      setProgress(0);
+      uploadFile(
+        file,
+        (progress) => setProgress(progress),
+        (url) => {
+          setUrl(url);
+          setValue("imageUrl", url);
+          setUploading(false);
+        },
+        (error) => {
+          console.error("Error uploading file:", error);
+          setUploading(false);
+          alert("Image upload failed. Please try again.");
+        }
+      );
+    }
+  };
 
   // Function to handle generating the exhibition description via API
   const handleGenerateExhibitDescription = async () => {
@@ -188,24 +218,32 @@ const MuseumOwnerOpenExhibit = () => {
       </h1>
       {museum && (
         <>
-          <p className={`mb-4 ${isDarkMode ? "text-gray-300" : "text-gray-700"} font-poppins font-medium`}>
+          <p
+            className={`mb-4 ${
+              isDarkMode ? "text-gray-300" : "text-gray-700"
+            } font-poppins font-medium`}
+          >
             {t.exhibitionsLeft}:{" "}
             <span className="font-bold">
-            {planDetails.exhibitionsLeft !== null
-              ? `${planDetails.exhibitionsLeft} / ${
-                  planDetails.maxExhibitions || "unlimited"
-                }`
-              : "unlimited"}
+              {planDetails.exhibitionsLeft !== null
+                ? `${planDetails.exhibitionsLeft} / ${
+                    planDetails.maxExhibitions || "unlimited"
+                  }`
+                : "unlimited"}
             </span>
           </p>
-          <p className={`mb-4 ${isDarkMode ? "text-gray-300" : "text-gray-700"} font-poppins font-medium`}>
+          <p
+            className={`mb-4 ${
+              isDarkMode ? "text-gray-300" : "text-gray-700"
+            } font-poppins font-medium`}
+          >
             {t.artworksLeft}:{" "}
             <span className="font-bold">
-            {planDetails.artworksLeft !== null
-              ? `${planDetails.artworksLeft} / ${
-                  planDetails.maxArtWorks || "unlimited"
-                }`
-              : "unlimited"}
+              {planDetails.artworksLeft !== null
+                ? `${planDetails.artworksLeft} / ${
+                    planDetails.maxArtWorks || "unlimited"
+                  }`
+                : "unlimited"}
             </span>
           </p>
 
@@ -311,28 +349,45 @@ const MuseumOwnerOpenExhibit = () => {
                     hover:bg-blue-50 dark:hover:bg-gray-700 hover:shadow-lg hover:border-transparent hover:text-blue-600 dark:hover:text-blue-400
                     focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500`}
                 >
-                  <FaMagic className="text-gray-500 dark:text-gray-300" /> {t.generateAI}
+                  <FaMagic className="text-gray-500 dark:text-gray-300" />{" "}
+                  {t.generateAI}
                 </button>
               </div>
 
-              <div className="mb-4">
+              <div className="mb-4 ">
                 <label
                   className={`block text-sm font-bold mb-2 ${
                     isDarkMode ? "text-gray-300" : "text-gray-700"
                   }`}
                 >
-                  {t.imageUrl}:
+                  {t.imageUpload}:
                   <input
-                    type="text"
-                    {...register("imageUrl", {
-                      required: t.imageUrl,
-                    })}
-                    className={`mt-2 w-full p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm ${
-                      isDarkMode
-                        ? "border-gray-700 bg-gray-700 placeholder-gray-500 text-gray-200"
-                        : "border-gray-300 bg-white placeholder-gray-400 text-gray-900"
-                    }`}
+                    type="file"
+                    onChange={handleFileChange}
+                    className="mt-2"
                   />
+                  {uploading && (
+                    <p className="text-sm mt-2">
+                      {t.progress}: {progress}%
+                    </p>
+                  )}
+                  {url && (
+                    <div className="mb-4 flex flex-col items-center">
+                      <img
+                        src={url}
+                        alt="Uploaded"
+                        className="w-48 h-48 mt-2 rounded-lg object-cover"
+                      />
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-blue-500 mt-2"
+                      >
+                        {t.viewImage}
+                      </a>
+                    </div>
+                  )}
                   {errors.imageUrl && (
                     <span className="text-red-500 text-sm mt-1">
                       {errors.imageUrl.message}
@@ -371,7 +426,7 @@ const MuseumOwnerOpenExhibit = () => {
                   type="button"
                   onClick={() => setShowCuratorSelect(true)}
                   className={`w-full sm:w-auto text-black py-2 px-4 font-poppins border border-transparent hover:border-black underline ${
-                    isDarkMode ? "text-white hover:border-white": ""
+                    isDarkMode ? "text-white hover:border-white" : ""
                   } transition-colors duration-300`}
                 >
                   {t.selectFromCuratorList}
@@ -683,27 +738,27 @@ export default MuseumOwnerOpenExhibit;
 //   const [progress, setProgress] = useState(0);
 //   const [url, setUrl] = useState("");
 
-//   const handleFileChange = (e) => {
-//     const file = e.target.files[0];
-//     if (file) {
-//       setUploading(true);
-//       setProgress(0);
-//       uploadFile(
-//         file,
-//         (progress) => setProgress(progress),
-//         (url) => {
-//           setUrl(url);
-//           setValue("imageUrl", url);
-//           setUploading(false);
-//         },
-//         (error) => {
-//           console.error("Error uploading file:", error);
-//           setUploading(false);
-//           alert("Image upload failed. Please try again.");
-//         }
-//       );
-//     }
-//   };
+// const handleFileChange = (e) => {
+//   const file = e.target.files[0];
+//   if (file) {
+//     setUploading(true);
+//     setProgress(0);
+//     uploadFile(
+//       file,
+//       (progress) => setProgress(progress),
+//       (url) => {
+//         setUrl(url);
+//         setValue("imageUrl", url);
+//         setUploading(false);
+//       },
+//       (error) => {
+//         console.error("Error uploading file:", error);
+//         setUploading(false);
+//         alert("Image upload failed. Please try again.");
+//       }
+//     );
+//   }
+// };
 
 //   const handleGenerateExhibitDescription = async () => {
 //     const name = watch("name");
@@ -909,46 +964,46 @@ export default MuseumOwnerOpenExhibit;
 //               </div>
 
 //               <div className="mb-4 flex flex-col items-center">
-//                 <label
-//                   className={`block text-sm font-bold mb-2 ${
-//                     isDarkMode ? "text-gray-300" : "text-gray-700"
-//                   }`}
-//                 >
-//                   {t.imageUpload}:
-//                   <input
-//                     type="file"
-//                     onChange={handleFileChange}
-//                     className="mt-2"
-//                   />
-//                   {uploading && (
-//                     <p className="text-sm mt-2">
-//                       {t.progress}: {progress}%
-//                     </p>
-//                   )}
-//                   {url && (
-//                     <div className="mt-4 flex justify-center">
-//                       <img
-//                         src={url}
-//                         alt="Uploaded"
-//                         className="w-48 h-48 mt-2 rounded-lg object-cover"
-//                       />
-//                     </div>
-//                   )}
-//                   {errors.imageUrl && (
-//                     <span className="text-red-500 text-sm mt-1">
-//                       {errors.imageUrl.message}
-//                     </span>
-//                   )}
-//                 </label>
-//                 <a
-//                   href={url}
-//                   target="_blank"
-//                   rel="noreferrer"
-//                   className="text-blue-500 mt-2"
-//                 >
-//                 {t.viewImage}
-//                 </a>
-//               </div>
+//   <label
+//     className={`block text-sm font-bold mb-2 ${
+//       isDarkMode ? "text-gray-300" : "text-gray-700"
+//     }`}
+//   >
+//     {t.imageUpload}:
+//     <input
+//       type="file"
+//       onChange={handleFileChange}
+//       className="mt-2"
+//     />
+//     {uploading && (
+//       <p className="text-sm mt-2">
+//         {t.progress}: {progress}%
+//       </p>
+//     )}
+//     {url && (
+//       <div className="mt-4 flex justify-center">
+//         <img
+//           src={url}
+//           alt="Uploaded"
+//           className="w-48 h-48 mt-2 rounded-lg object-cover"
+//         />
+//       </div>
+//     )}
+//     {errors.imageUrl && (
+//       <span className="text-red-500 text-sm mt-1">
+//         {errors.imageUrl.message}
+//       </span>
+//     )}
+//   </label>
+//   <a
+//     href={url}
+//     target="_blank"
+//     rel="noreferrer"
+//     className="text-blue-500 mt-2"
+//   >
+//   {t.viewImage}
+//   </a>
+// </div>
 
 //               <div className="mb-4 flex justify-center">
 //                 <button
