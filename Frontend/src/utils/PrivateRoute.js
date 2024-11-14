@@ -22,6 +22,10 @@ const PrivateRoute = ({ children, requiredRole }) => {
     return <Navigate to="/unauthorized" />;
   }
 
+  // 
+
+  // 
+
   return children;
 };
 
