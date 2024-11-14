@@ -2887,3 +2887,4 @@ Use mongoose.model(name, schema)
 2024-11-14 12:41:42 [32minfo[39m: Retrieving all exhibitions
 2024-11-14 12:41:48 [32minfo[39m: Retrieving all exhibitions
 2024-11-14 12:41:57 [32minfo[39m: Retrieving all exhibitions
+2024-11-14 13:09:09 [32minfo[39m: Creating exhibition with data: {"name":"try","description":"tey","maxArtworks":"7","imageUrl":"https://www.allrecipes.com/thmb/0xH8n2D4cC97t7mcC7eT2SDZ0aE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6776_Pizza-Dough_ddmfs_2x1_1725-fdaa76496da045b3bdaadcec6d4c5398.jpg","curators":[{"_id":"673202d84ee2f830b7ccfdbc","uid":"QfUvnxGXxGOKzoUdpRNHFSwhjfz1","name":"curator1","lastName":"s1","email":"curator1@gmail.com","phoneNumber":"+972521111111","role":"669bca0a5d5c0e176bb1e683","createdAt":"2024-11-11T13:12:56.921Z","updatedAt":"2024-11-11T13:12:56.921Z","__v":0,"exhibitions":["Board games and strategy","tables"],"isEditable":false}]}
