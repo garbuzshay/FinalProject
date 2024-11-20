@@ -227,10 +227,12 @@ const MuseumPage = () => {
   };
 
   const handleOpenFeedbackForm = () => {
+  
     setShowFeedbackForm(true);
   };
 
   const handleFeedbackSubmitted = () => {
+
     setHasSubmittedFeedback(true);
     localStorage.setItem(`submittedFeedback-${museumName}`, 'true'); // Use localStorage here
     setShowFeedbackForm(false);

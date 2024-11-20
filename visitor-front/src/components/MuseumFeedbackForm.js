@@ -8,7 +8,7 @@ const Button = ({ type, children, disabled }) => (
     type={type}
     disabled={disabled}
     className={`w-full py-2 px-4 ${
-      disabled ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-600'
+      disabled ? "bg-gray-400" : "bg-blue-500 hover:bg-blue-600"
     } text-white font-semibold rounded-lg transition`}
   >
     {children}
@@ -38,20 +38,24 @@ const Rating = ({ value, onValueChange, max = 5 }) => (
 export default function MuseumFeedbackForm({ onSubmit }) {
   const { museumData, exhibitions } = useMuseum();
   const { submitFeedback, loading } = useFeedback(museumData?._id);
-  
+
   const [exhibitionRatings, setExhibitionRatings] = useState(
-    exhibitions.reduce((acc, exhibition) => ({
-      ...acc,
-      [exhibition._id]: 0
-    }), {})
+    exhibitions.reduce(
+      (acc, exhibition) => ({
+        ...acc,
+        [exhibition._id]: 0,
+      }),
+      {}
+    )
   );
+
   const [overallRating, setOverallRating] = useState(0);
   const [showThankYou, setShowThankYou] = useState(false);
 
   const handleExhibitionRating = (exhibitionId, rating) => {
-    setExhibitionRatings(prev => ({
+    setExhibitionRatings((prev) => ({
       ...prev,
-      [exhibitionId]: rating
+      [exhibitionId]: rating,
     }));
   };
 
@@ -59,16 +63,19 @@ export default function MuseumFeedbackForm({ onSubmit }) {
     e.preventDefault();
 
     const success = await submitFeedback(overallRating, exhibitionRatings);
-    
+
     if (success) {
       setShowThankYou(true);
-      
+
       // Reset form
       setExhibitionRatings(
-        exhibitions.reduce((acc, exhibition) => ({
-          ...acc,
-          [exhibition._id]: 0
-        }), {})
+        exhibitions.reduce(
+          (acc, exhibition) => ({
+            ...acc,
+            [exhibition._id]: 0,
+          }),
+          {}
+        )
       );
       setOverallRating(0);
 
@@ -80,8 +87,9 @@ export default function MuseumFeedbackForm({ onSubmit }) {
     }
   };
 
-  const isFormValid = overallRating > 0 && 
-    Object.values(exhibitionRatings).some(rating => rating > 0);
+  const isFormValid =
+    overallRating > 0 &&
+    Object.values(exhibitionRatings).some((rating) => rating > 0);
 
   return (
     <form
@@ -105,20 +113,27 @@ export default function MuseumFeedbackForm({ onSubmit }) {
 
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">Exhibition Ratings</h3>
-            {exhibitions.map((exhibition) => (
-              <div
-                key={exhibition._id}
-                className="flex items-center text-left justify-between"
-              >
-                <span className="text-sm font-medium">{exhibition.name}</span>
-                <Rating
-                  value={exhibitionRatings[exhibition._id]}
-                  onValueChange={(value) =>
-                    handleExhibitionRating(exhibition._id, value)
-                  }
-                />
-              </div>
-            ))}
+            {exhibitions
+              .filter(
+                (exhibition) =>
+                  exhibition.status === "open" &&
+                  exhibition.artworks &&
+                  exhibition.artworks.length > 0
+              )
+              .map((exhibition) => (
+                <div
+                  key={exhibition._id}
+                  className="flex items-center text-left justify-between"
+                >
+                  <span className="text-sm font-medium">{exhibition.name}</span>
+                  <Rating
+                    value={exhibitionRatings[exhibition._id]}
+                    onValueChange={(value) =>
+                      handleExhibitionRating(exhibition._id, value)
+                    }
+                  />
+                </div>
+              ))}
           </div>
 
           <div className="space-y-2">
