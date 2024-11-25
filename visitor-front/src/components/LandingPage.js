@@ -97,16 +97,16 @@ const LandingPage = () => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
       {/* Content with responsive design */}
-      <div className="relative z-10 text-left text-white px-4 sm:px-8 md:px-12 lg:px-16 w-full max-w-4xl mb-16 sm:mb-20">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 animate-fadeIn">
+      <div className="relative text-left text-white px-4 sm:px-8 md:px-12 lg:px-16 w-full max-w-4xl mb-28 ">
+        <h1 className="text-4xl  md:text-5xl font-extrabold mb-4 animate-fadeIn">
           Welcome to {museumData.name}
         </h1>
-        <p className="text-base sm:text-lg md:text-xl mb-8 max-w-2xl leading-relaxed animate-fadeIn">
+        <p className="text-base sm:text-lg md:text-xl my-4 max-w-2xl leading-relaxed animate-fadeIn">
           Enjoy an immersive and engaging experience as you explore the museum!
         </p>
         <button
           onClick={() => navigate(`/${museumData.name}/exhibitions`)}
-          className="bg-black bg-opacity-70 text-white  text-2xl px-3 sm:px-12 py-2 sm:py-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300 animate-fadeIn"
+          className="bg-black bg-opacity-80 text-white  text-2xl px-3 sm:px-12 py-2 sm:py-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300 animate-fadeIn"
         >
           Show Exhibitions
         </button>
