@@ -73,8 +73,6 @@
 // };
 
 // export default LandingPage;
-
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMuseum } from '../contexts/MuseumContext';
@@ -90,34 +88,31 @@ const LandingPage = () => {
 
   return (
     <div
-      className="relative min-h-screen bg-cover bg-center overflow-hidden"
+      className="relative min-h-screen bg-cover bg-center flex items-end justify-start overflow-hidden"
       style={{
         backgroundImage: `url(${museumData.imageUrl})`,
       }}
     >
-      {/* Dark overlay with improved gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black opacity-50"></div>
 
-      {/* Content with improved responsive layout and spacing */}
-      <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 md:p-12 lg:p-16 text-white z-10 opacity-0 animate-fadeIn">
-        <div className="max-w-3xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-            Welcome to {museumData.name}
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl mb-8 leading-relaxed max-w-2xl">
-            Enjoy an immersive and engaging experience as you explore the museum!
-          </p>
-          <button
-            onClick={() => navigate(`/${museumData.name}/exhibitions`)}
-            className="bg-white text-black text-base sm:text-lg px-8 sm:px-12 py-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
-            style={{ minWidth: '200px' }}
-          >
-            Show Exhibitions
-          </button>
-        </div>
+      {/* Content with responsive design */}
+      <div className="relative z-10 text-left text-white px-4 sm:px-8 md:px-12 lg:px-16 w-full max-w-4xl mb-16 sm:mb-20">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 animate-fadeIn">
+          Welcome to {museumData.name}
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl mb-8 max-w-2xl leading-relaxed animate-fadeIn">
+          Enjoy an immersive and engaging experience as you explore the museum!
+        </p>
+        <button
+          onClick={() => navigate(`/${museumData.name}/exhibitions`)}
+          className="bg-black bg-opacity-70 text-white  text-2xl px-3 sm:px-12 py-2 sm:py-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300 animate-fadeIn"
+        >
+          Show Exhibitions
+        </button>
       </div>
 
-      {/* Refined animations */}
+      {/* Adding custom animations */}
       <style>
         {`
           @keyframes fadeIn {
@@ -125,32 +120,17 @@ const LandingPage = () => {
             to { opacity: 1; transform: translateY(0); }
           }
 
-          @keyframes zoomIn {
-            from { transform: scale(1.1); }
-            to { transform: scale(1); }
-          }
-
           .animate-fadeIn {
             animation: fadeIn 1.5s ease-out forwards;
+            opacity: 0;
           }
 
-          .animate-zoom {
-            animation: zoomIn 10s ease-out forwards;
-          }
-
-          body {
-            overflow: hidden;
-          }
-
-          /* Smooth transition for button hover */
-          button {
-            transition: all 0.3s ease;
-          }
-
-          /* Responsive font size adjustments */
+          /* Responsive background image */
           @media (max-width: 640px) {
-            h1 { font-size: 2.5rem; }
-            p { font-size: 1rem; }
+            .bg-cover {
+              background-position: center;
+              background-size: cover;
+            }
           }
         `}
       </style>
