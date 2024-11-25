@@ -19,7 +19,7 @@ const ArtworkCard = ({ artwork, onClick }) => {
         <img
           src={artwork.imageUrl}
           alt={artwork.title}
-          className={`w-full h-48 rounded-md  transition-opacity duration-300 ${
+          className={`w-full h-48 rounded-md  transition-opacity duration-50 ${
             imageLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           onLoad={() => setImageLoaded(true)} // Set loaded to true on load

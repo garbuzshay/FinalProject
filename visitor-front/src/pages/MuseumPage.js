@@ -285,15 +285,15 @@ const MuseumPage = () => {
           )}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-          {filteredExhibitions.slice(0, 3).map((exhibition) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 ">
+          {filteredExhibitions.slice(0, 4).map((exhibition) => (
             <div
               key={exhibition._id}
-              className="cursor-pointer"
+              className="cursor-pointer "
               onClick={() => handleExhibitionClick(exhibition._id)}
             >
               <div
-                className="relative bg-cover bg-center h-40 rounded-lg shadow-md"
+                className="relative bg-cover bg-center h-48 rounded-lg shadow-md "
                 style={{ backgroundImage: `url(${exhibition.imageUrl})` }}
               >
                 <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
