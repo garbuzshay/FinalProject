@@ -2891,3 +2891,4 @@ Use mongoose.model(name, schema)
 2024-11-14 13:31:16 [32minfo[39m: Updating exhibition with ID: 6735da57ac06641a4a4f6634 and data: {"status":"closed"}
 2024-11-14 13:31:16 [32minfo[39m: Updating exhibition with ID: 6735da57ac06641a4a4f6634 and data: {"status":"closed","curators":["673202d84ee2f830b7ccfdbc"],"closedAt":"2024-11-14T11:31:16.700Z","openedAt":null}
 2024-11-14 13:34:24 [32minfo[39m: Creating exhibition with data: {"name":"museum","description":"test it a test ","maxArtworks":"10","imageUrl":"https://firebasestorage.googleapis.com/v0/b/mesnchmuseumapp.appspot.com/o/images%2Fimages%20(1).jpg?alt=media&token=57199f4d-fffa-4191-83a6-5519aa7dcb96","curators":[]}
+2024-11-25 12:45:14 [32minfo[39m: Retrieving exhibitions for User with ID: 673202d84ee2f830b7ccfdbc
