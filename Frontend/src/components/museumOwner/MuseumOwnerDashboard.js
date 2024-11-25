@@ -944,6 +944,7 @@ const MuseumOwnerDashboard = () => {
               </div>
             </div>
             <div
+              dir={isHebrew ? "rtl" : "ltr"}
               className={`text-center mt-2 ${
                 isDarkMode ? "text-gray-300" : "text-gray-600"
               }`}
