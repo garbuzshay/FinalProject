@@ -540,8 +540,8 @@ const translations = {
     openExhibitions: "תערוכות פתוחות",
     currentExhibitions: "תערוכות פתוחות נוכחיות",
     remainingExhibitions: "תערוכות שנותרו",
-    currentArtworks: "יצירות נוכחיות",
-    freeArtworksSpace: "מרחב יצירות חופשי",
+    currentArtworks: " בשימוש",
+    freeArtworksSpace: " פנוי",
     exhibitionsCreatedOverTime: "תערוכות שנוצרו לאורך זמן",
     exhibitionsByStatus: "תערוכות לפי סטטוס מוזיאון",
   },
@@ -746,7 +746,7 @@ const MuseumOwnerDashboard = () => {
       },
     },
     // For RTL support
-    indexAxis: isHebrew ? "y" : "x",
+    // indexAxis: isHebrew ? "y" : "x",
   };
 
   const doughnutChartOptions = {
@@ -833,7 +833,7 @@ const MuseumOwnerDashboard = () => {
       },
     },
     // For RTL support
-    indexAxis: isHebrew ? "y" : "x",
+    // indexAxis: isHebrew ? "y" : "x",
   };
 
   if (isLoading) {
@@ -883,7 +883,46 @@ const MuseumOwnerDashboard = () => {
       </h1>
       {museum && <MuseumReviewsComponent museumId={museum._id} />}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        
+      {chartData.barData && (
+          <div
+            className={`p-4 rounded-2xl shadow-2xl border-2 transform transition-transform duration-300 hover:scale-105 ${
+              isDarkMode
+                ? "bg-gradient-to-r from-gray-700 to-gray-800"
+                : "bg-gradient-to-r from-gray-100 to-gray-100"
+            }`}
+          >
+            <h2
+              className={`text-lg font-bold mb-2 text-center ${
+                isDarkMode ? "text-gray-200" : "text-gray-800"
+              }`}
+            >
+              {translations[language].numberOfArtworks}
+            </h2>
+            <div className="h-64">
+              <Bar data={chartData.barData} options={barChartOptions} />
+            </div>
+          </div>
+        )}
+        {chartData.lineData && (
+          <div
+            className={`p-4 rounded-2xl shadow-2xl border-2 transform transition-transform duration-300 hover:scale-105 ${
+              isDarkMode
+                ? "bg-gradient-to-r from-gray-700 to-gray-800"
+                : "bg-gradient-to-r from-gray-100 to-gray-100"
+            }`}
+          >
+            <h2
+              className={`text-lg font-bold mb-2 text-center ${
+                isDarkMode ? "text-gray-200" : "text-gray-800"
+              }`}
+            >
+              {translations[language].exhibitionsCreationTrend}
+            </h2>
+            <div className="h-64">
+              <Line data={chartData.lineData} options={lineChartOptions} />
+            </div>
+          </div>
+        )}
         {chartData.pieData && (
           <div
             className={`p-4 rounded-2xl border-2 shadow-2xl transform transition-transform duration-300 hover:scale-105 ${
@@ -916,26 +955,7 @@ const MuseumOwnerDashboard = () => {
             </div>
           </div>
         )}
-        {chartData.barData && (
-          <div
-            className={`p-4 rounded-2xl shadow-2xl border-2 transform transition-transform duration-300 hover:scale-105 ${
-              isDarkMode
-                ? "bg-gradient-to-r from-gray-700 to-gray-800"
-                : "bg-gradient-to-r from-gray-100 to-gray-100"
-            }`}
-          >
-            <h2
-              className={`text-lg font-bold mb-2 text-center ${
-                isDarkMode ? "text-gray-200" : "text-gray-800"
-              }`}
-            >
-              {translations[language].numberOfArtworks}
-            </h2>
-            <div className="h-64">
-              <Bar data={chartData.barData} options={barChartOptions} />
-            </div>
-          </div>
-        )}
+        
         {chartData.doughnutData && (
           <div
             className={`p-4 rounded-2xl shadow-2xl border-2 transform transition-transform duration-300 hover:scale-105 ${
@@ -959,26 +979,7 @@ const MuseumOwnerDashboard = () => {
             </div>
           </div>
         )}
-        {chartData.lineData && (
-          <div
-            className={`p-4 rounded-2xl shadow-2xl border-2 transform transition-transform duration-300 hover:scale-105 ${
-              isDarkMode
-                ? "bg-gradient-to-r from-gray-700 to-gray-800"
-                : "bg-gradient-to-r from-gray-100 to-gray-100"
-            }`}
-          >
-            <h2
-              className={`text-lg font-bold mb-2 text-center ${
-                isDarkMode ? "text-gray-200" : "text-gray-800"
-              }`}
-            >
-              {translations[language].exhibitionsCreationTrend}
-            </h2>
-            <div className="h-64">
-              <Line data={chartData.lineData} options={lineChartOptions} />
-            </div>
-          </div>
-        )}
+        
       </div>
 
     </div>

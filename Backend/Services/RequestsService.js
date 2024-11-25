@@ -6,6 +6,7 @@ import UserModel from "../Models/User.js";
 
 class RequestActions {
   static async createMuseum(request) {
+    const randomPassword = Math.floor(1000 + Math.random() * 9000).toString();
     const museumData = {
       name: request.museumName,
       address: request.museumAddress,
@@ -16,6 +17,7 @@ class RequestActions {
       email: request.museumEmail,
       owner: request.user,
       plan: request.plan,
+      password: randomPassword,
     };
     await MuseumsService.createMuseum(museumData);
   }

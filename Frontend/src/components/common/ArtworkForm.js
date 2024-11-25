@@ -388,6 +388,7 @@ import SpeechToText from "./SpeechToText";
 import { uploadFile } from "./FileUpload";
 import { useThemeMode } from "../../contexts/DarkModeContext";
 import { useLang } from "../../contexts/LangContext"; // Import useLang
+import { FaMagic } from "react-icons/fa";
 
 const ArtworkForm = ({
   onSubmit,
@@ -760,14 +761,15 @@ const ArtworkForm = ({
           </div>
 
           {/* Toggle Speech-to-Text */}
-          <div className="w-full">
+          <div className="w-full flex justify-center ">
             <button
               type="button"
               onClick={() => setShowSpeechToText(!showSpeechToText)}
-              className={`bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-                isDarkMode ? "bg-gray-700 hover:bg-blue-800" : ""
-              } transition-colors duration-300`}
-            >
+              className={`w-auto border border-gray-500 text-gray-700 dark:text-gray-300 py-1.5 px-4 rounded-full flex items-center justify-center gap-2
+                  transition-all duration-300 ease-in-out
+                  hover:bg-blue-50 dark:hover:bg-gray-700 hover:shadow-lg hover:border-transparent hover:text-blue-600 dark:hover:text-blue-400
+                  focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500`}
+              >
               {showSpeechToText ? t.hideSpeechToText : t.useSpeechToText}
             </button>
           </div>
@@ -783,14 +785,16 @@ const ArtworkForm = ({
           )}
 
           {/* Generate AI Description Button */}
-          <div className="w-full">
+          <div className="mb-2 flex justify-center">
             <button
               type="button"
               onClick={handleGenerateDescription}
-              className={`bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-                isDarkMode ? "bg-purple-600 hover:bg-purple-800" : ""
-              } transition-colors duration-300`}
+              className={`w-auto border border-gray-500 text-gray-700 dark:text-gray-300 py-1.5 px-4 rounded-full flex items-center justify-center gap-2
+                transition-all duration-300 ease-in-out
+                hover:bg-blue-50 dark:hover:bg-gray-700 hover:shadow-lg hover:border-transparent hover:text-blue-600 dark:hover:text-blue-400
+                focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500`}
             >
+              <FaMagic className="text-gray-500 dark:text-gray-300" />{" "}
               {t.generateAIDescription}
             </button>
           </div>

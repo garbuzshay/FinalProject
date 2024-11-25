@@ -253,9 +253,9 @@ const MuseumOwnerOpenExhibit = () => {
               onSubmit={handleSubmit(onSubmit)}
               className={`mx-auto shadow p-6 sm:p-8 lg:p-12 font-poppins ${
                 isDarkMode ? "bg-gray-800" : "bg-gray-200"
-              } rounded-lg transition-colors duration-300 ${
-                isHebrew ? "text-right" : ""
-              }`}
+              } rounded-lg transition-colors duration-300 
+
+              `}
             >
               <div className="grid grid-cols-1 gap-4">
                 <div className="mb-4">
@@ -490,7 +490,7 @@ const MuseumOwnerOpenExhibit = () => {
               )}
 
               {/* Curators Fields */}
-              <div className="space-y-4">
+              <div className="space-y-4 mb-4">
                 {fields.map((field, index) => (
                   <div
                     key={field.id}

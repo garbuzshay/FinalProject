@@ -171,7 +171,7 @@ const CuratorSelect = ({ onCuratorsSelect }) => {
               id={curator._id}
               checked={selectedCurators.includes(curator._id)}
               onChange={() => handleSelect(curator._id)}
-              className="mr-2"
+              className="mx-2"
             />
             <label
               htmlFor={curator._id}

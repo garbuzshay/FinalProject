@@ -110,6 +110,7 @@ const MuseumOwnerEditDetails = () => {
   const museumUrl = `https://mensch-visitors.vercel.app/?museumName=${encodeURIComponent(
     museum?.name
   )}&password=${encodeURIComponent(museum?.password)}`;
+
   // const museumUrl = `http://localhost:3001/?museumName=${encodeURIComponent(museum?.name)}&password=${encodeURIComponent(museum?.password)}`;
 
   return (
