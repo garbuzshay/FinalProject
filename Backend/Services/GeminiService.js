@@ -20,7 +20,6 @@ export const generateText = async (prompt) => {
 
 // Backend/Services/GeminiService.js
 
-// Backend/Services/GeminiService.js
 
 export const generateExhibitDescription = async ({ title, description }) => {
   try {

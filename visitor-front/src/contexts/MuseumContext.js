@@ -3,7 +3,6 @@ import React, { createContext, useContext, useState, useCallback, useEffect } fr
 import { useMuseumApi } from "../hooks/useMuseumApi";
 import { useParams } from "react-router-dom";
 import { useVisitor } from "./VisitorContext";
-// import { useVisitor } from "./VisitorContext"; // Import VisitorContext for authentication status
 
 const MuseumContext = createContext();
 
@@ -19,8 +18,6 @@ export const MuseumProvider = ({ children }) => {
   const { isAuthenticated } = useVisitor(); // Only fetch data if authenticated
 
   
-  
-
   const fetchFullMuseumData = useCallback(
     async (museumName) => {
       setLoading(true);
@@ -43,9 +40,9 @@ export const MuseumProvider = ({ children }) => {
     },
     [fetchMuseumDetails, fetchExhibitionDetails]
   );
-
+  // console.log(museumData)
   useEffect(() => {
-    console.log(museumName)
+    // console.log(museumName)
     if (museumName && isAuthenticated) {
       fetchFullMuseumData(museumName); // Pass museumName to the fetch function
     }

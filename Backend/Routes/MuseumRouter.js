@@ -15,12 +15,12 @@ import authenticateUser from '../Middlewares/AuthenticateUser.js';
 
 const router = Router();
 router.get('/', getMuseums);
-// router.get('/owner',authenticateUser,  getMuseumByOwnerId); // Add the new route
-router.get('/my',authenticateUser, getUserMuseum); // Corrected route
+// router.get('/owner',authenticateUser,  getMuseumByOwnerId); 
+router.get('/my',authenticateUser, getUserMuseum); 
 
 router.get('/:id', getMuseumById);
 //
-router.get('/curator/:curatorId', authenticateUser, getMuseumByCurator); // Corrected route
+router.get('/curator/:curatorId', authenticateUser, getMuseumByCurator); 
 //
 router.post('/',authenticateUser, createMuseum);
 router.put('/:id',authenticateUser, updateMuseum);

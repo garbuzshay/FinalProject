@@ -10,77 +10,7 @@ class UsersService {
    * @param {Object} userData - The user data.
    * @returns {Object} The created user.
    */
-  // async createUser(userData) {
-  //   try {
-  //     const { name, lastName, email, phoneNumber, terms, role, museum } =
-  //       userData;
-  //     let password = userData.password;
 
-  //     const formattedNumber = toE164(phoneNumber);
-
-  //     // Check if the email is already taken
-  //     const existingUser = await UserModel.findOne({ email });
-  //     console.log(existingUser);
-  //     if (existingUser) {
-  //       return existingUser;
-  //     }
-  //     const existingPhonenumber = await UserModel.findOne({
-  //       phoneNumber: formattedNumber,
-  //     });
-  //     if (existingPhonenumber) {
-  //       throw new Error(`${email}: Phone number already exist.`);
-  //     }
-  //     if (!password) {
-  //       password = generateRandomPassword();
-  //     }
-
-  //     // Fetch the role objectId from the database
-  //     let roleId = null;
-  //     if (role) {
-  //       const roleRecord = await RoleModel.findOne({ roleName: role });
-  //       if (roleRecord) {
-  //         roleId = roleRecord._id;
-  //       } else {
-  //         throw new Error("Invalid role");
-  //       }
-  //     }
-
-  //     // Create the user in Firebase Authentication
-  //     const userRecord = await admin.auth().createUser({
-  //       email,
-  //       password,
-  //       displayName: `${name} ${lastName}`,
-  //       phoneNumber: formattedNumber,
-  //     });
-  //     console.log(email + " Generated Password:", password);
-
-  //     // Set custom user claims (roles)
-  //     let claims = {};
-  //     if (role) {
-  //       claims = { role };
-  //       await admin.auth().setCustomUserClaims(userRecord.uid, claims);
-  //     }
-
-  //     // Create the user in MongoDB
-  //     const newUser = new UserModel({
-  //       uid: userRecord.uid,
-  //       name,
-  //       lastName,
-  //       email,
-  //       phoneNumber: formattedNumber,
-  //       terms,
-  //       role: roleId,
-  //       // museum : userData.museum,
-  //     });
-
-  //     await newUser.save();
-
-  //     return newUser;
-  //   } catch (error) {
-  //     console.error("Error creating user:", error);
-  //     throw error;
-  //   }
-  // }
   async createUser(userData) {
     try {
       const { name, lastName, email, phoneNumber, terms, role } = userData;
@@ -261,3 +191,75 @@ class UsersService {
 }
 
 export default new UsersService();
+
+  // async createUser(userData) {
+  //   try {
+  //     const { name, lastName, email, phoneNumber, terms, role, museum } =
+  //       userData;
+  //     let password = userData.password;
+
+  //     const formattedNumber = toE164(phoneNumber);
+
+  //     // Check if the email is already taken
+  //     const existingUser = await UserModel.findOne({ email });
+  //     console.log(existingUser);
+  //     if (existingUser) {
+  //       return existingUser;
+  //     }
+  //     const existingPhonenumber = await UserModel.findOne({
+  //       phoneNumber: formattedNumber,
+  //     });
+  //     if (existingPhonenumber) {
+  //       throw new Error(`${email}: Phone number already exist.`);
+  //     }
+  //     if (!password) {
+  //       password = generateRandomPassword();
+  //     }
+
+  //     // Fetch the role objectId from the database
+  //     let roleId = null;
+  //     if (role) {
+  //       const roleRecord = await RoleModel.findOne({ roleName: role });
+  //       if (roleRecord) {
+  //         roleId = roleRecord._id;
+  //       } else {
+  //         throw new Error("Invalid role");
+  //       }
+  //     }
+
+  //     // Create the user in Firebase Authentication
+  //     const userRecord = await admin.auth().createUser({
+  //       email,
+  //       password,
+  //       displayName: `${name} ${lastName}`,
+  //       phoneNumber: formattedNumber,
+  //     });
+  //     console.log(email + " Generated Password:", password);
+
+  //     // Set custom user claims (roles)
+  //     let claims = {};
+  //     if (role) {
+  //       claims = { role };
+  //       await admin.auth().setCustomUserClaims(userRecord.uid, claims);
+  //     }
+
+  //     // Create the user in MongoDB
+  //     const newUser = new UserModel({
+  //       uid: userRecord.uid,
+  //       name,
+  //       lastName,
+  //       email,
+  //       phoneNumber: formattedNumber,
+  //       terms,
+  //       role: roleId,
+  //       // museum : userData.museum,
+  //     });
+
+  //     await newUser.save();
+
+  //     return newUser;
+  //   } catch (error) {
+  //     console.error("Error creating user:", error);
+  //     throw error;
+  //   }
+  // }

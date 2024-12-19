@@ -91,26 +91,55 @@ const MuseumOwnerTabs = () => {
       viewArtworks: "View Artworks",
       addNewArtwork: "Add New Artwork",
       notFound: "Exhibition Not Found",
+      exhibitionName: "Exhibition name:",
     },
     he: {
       editExhibition: "ערוך תערוכה",
       viewArtworks: "צפה ביצירות אמנות",
       addNewArtwork: "הוסף יצירת אמנות חדשה",
       notFound: "התערוכה לא נמצאה",
+      exhibitionName: "שם התערוכה:",
     },
   };
 
   const t = translations[language];
-  
+
   // Find the current exhibition by ID
   const exhibition = exhibitions.find((exhibit) => exhibit._id === id);
 
   return (
-    <div className={`container mx-auto p-4 ${isDarkMode ? "bg-gray-900 text-white" : " text-gray-900"}`}>
+    <div
+      className={`container mx-auto p-4 ${
+        isDarkMode ? "bg-gray-900 text-white" : " text-gray-900"
+      }`}
+    >
       {/* Display exhibition name as the title */}
-      <h1 className={`text-3xl font-bold mb-6 text-center ${isDarkMode ? "text-white" : "text-gray-900"}`}>
-        {exhibition ? exhibition.name : t.notFound}
-      </h1>
+      {/* <h1 className={`text-3xl font-bold mb-6 text-center ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+     {exhibition ? exhibition.name : t.notFound}
+      </h1> */}
+     <div
+      className={`text-center sm:text-left ${isDarkMode ? "text-white" : "text-gray-900"}  mb-3 sm:mb-6 `}
+      dir={isHebrew ? "rtl" : "ltr"}
+    >
+      <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-center sm:gap-3">
+        <h1 className="text-base sm:text-2xl font-medium text-gray-500">
+          {t.exhibitionName}
+        </h1>
+        <h2 className="text-xl sm:text-4xl font-bold">
+          {exhibition ? exhibition.name : t.notFound}
+        </h2>
+      </div>
+    </div>
+
+      {/* <h1
+        className={`text-3xl font-bold mb-6 text-center ${
+          isDarkMode ? "text-white" : "text-gray-900"
+        }`}
+        dir={isHebrew ? "rtl" : "ltr"}
+      >
+        <span>{t.exhibitionName}</span>{" "}
+        <span>{exhibition ? exhibition.name : t.notFound}</span>
+      </h1> */}
 
       <div
         className={`flex justify-center px-4 mb-4 space-x-2 ${
@@ -120,7 +149,15 @@ const MuseumOwnerTabs = () => {
         <NavLink
           to="edit"
           className={({ isActive }) =>
-            `px-4 py-2 ${isActive ? (isDarkMode ? "border-b-2 border-blue-400 text-blue-400" : "border-b-2 border-blue-500 text-blue-500") : (isDarkMode ? "text-gray-300" : "text-gray-500")}`
+            `px-4 py-2 ${
+              isActive
+                ? isDarkMode
+                  ? "border-b-2 border-blue-400 text-blue-400"
+                  : "border-b-2 border-blue-500 text-blue-500"
+                : isDarkMode
+                ? "text-gray-300"
+                : "text-gray-500"
+            }`
           }
         >
           {t.editExhibition}
@@ -128,7 +165,15 @@ const MuseumOwnerTabs = () => {
         <NavLink
           to="artworks"
           className={({ isActive }) =>
-            `px-4 py-2 ${isActive ? (isDarkMode ? "border-b-2 border-blue-400 text-blue-400" : "border-b-2 border-blue-500 text-blue-500") : (isDarkMode ? "text-gray-300" : "text-gray-500")}`
+            `px-4 py-2 ${
+              isActive
+                ? isDarkMode
+                  ? "border-b-2 border-blue-400 text-blue-400"
+                  : "border-b-2 border-blue-500 text-blue-500"
+                : isDarkMode
+                ? "text-gray-300"
+                : "text-gray-500"
+            }`
           }
         >
           {t.viewArtworks}
@@ -136,7 +181,15 @@ const MuseumOwnerTabs = () => {
         <NavLink
           to="add-artwork"
           className={({ isActive }) =>
-            `px-4 py-2 ${isActive ? (isDarkMode ? "border-b-2 border-blue-400 text-blue-400" : "border-b-2 border-blue-500 text-blue-500") : (isDarkMode ? "text-gray-300" : "text-gray-500")}`
+            `px-4 py-2 ${
+              isActive
+                ? isDarkMode
+                  ? "border-b-2 border-blue-400 text-blue-400"
+                  : "border-b-2 border-blue-500 text-blue-500"
+                : isDarkMode
+                ? "text-gray-300"
+                : "text-gray-500"
+            }`
           }
         >
           {t.addNewArtwork}

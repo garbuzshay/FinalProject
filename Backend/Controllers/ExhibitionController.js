@@ -1,6 +1,6 @@
 import ExhibitionsService from '../Services/ExhibitionsService.js';
 import ArtworkService from '../Services/ArtworkService.js';
-import logger from '../Utils/logger.js'; // Assuming you have a logger utility
+import logger from '../Utils/logger.js'; 
 import MuseumsService from '../Services/MuseumsService.js';
 
 export const createExhibition = async (req, res) => {

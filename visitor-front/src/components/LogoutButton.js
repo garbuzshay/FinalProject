@@ -1,49 +1,35 @@
-// import React from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import { useVisitor } from '../contexts/VisitorContext';
-
-// const LogoutButton = () => {
-//   const navigate = useNavigate();
-//   const {logout} = useVisitor();
-
-//   const handleLogout = () => {
-//     // Perform any logout logic here (e.g., clearing tokens, user data)
-//     logout();
-//     navigate('/');
-//   };
-
-//   return (
-//     <button
-//       onClick={handleLogout}
-//       className="p-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1"
-//     >
-//       Leave Museum
-//     </button>
-//   );
-// };
-
-// export default LogoutButton;
-
 // import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+// import { useNavigate, useParams } from 'react-router-dom';
 // import { useVisitor } from '../contexts/VisitorContext';
 // import MuseumFeedbackForm from './MuseumFeedbackForm';
 
 // const LogoutButton = () => {
 //   const navigate = useNavigate();
+//   const { museumName } = useParams();
 //   const { logout } = useVisitor();
 //   const [showDialog, setShowDialog] = useState(false);
 //   const [showFeedbackForm, setShowFeedbackForm] = useState(false);
 //   const [loading, setLoading] = useState(false);
 
+//   // Check if feedback has been submitted in this session
+//   const feedbackSubmitted =   localStorage.getItem(`submittedFeedback-${museumName}`) === 'true'
+
 //   const handleLogoutClick = () => {
-//     setShowDialog(true); // Show dialog to ask for feedback
+//     if (!feedbackSubmitted) {
+//       setShowDialog(true); // Show dialog to ask for feedback
+//     } else {
+//       handleDirectLogout();
+//     }
 //   };
 
 //   const handleFeedbackSubmit = () => {
 //     setShowDialog(false);
 //     setShowFeedbackForm(false);
 //     setLoading(true); // Start loading spinner
+
+//     // Set the session storage flag to indicate feedback has been submitted
+//     localStorage.setItem('feedbackSubmitted', 'true');
+
 //     setTimeout(() => {
 //       logout();
 //       navigate('/');
@@ -53,6 +39,10 @@
 //   const handleFeedbackNo = () => {
 //     setShowDialog(false);
 //     setLoading(true);
+
+//     // Set the session storage flag to skip feedback prompt next time
+//     localStorage.setItem('feedbackSubmitted', 'true');
+
 //     setTimeout(() => {
 //       logout();
 //       navigate('/');
@@ -62,6 +52,14 @@
 //   const handleCancelLogout = () => {
 //     setShowDialog(false);
 //     setShowFeedbackForm(false);
+//   };
+
+//   const handleDirectLogout = () => {
+//     setLoading(true);
+//     setTimeout(() => {
+//       logout();
+//       navigate('/');
+//     }, 2000);
 //   };
 
 //   return (
@@ -106,7 +104,7 @@
 //                     onClick={handleFeedbackNo}
 //                     className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 w-full md:w-auto"
 //                   >
-//                     No
+//                     No, leave without giving a review.
 //                   </button>
 //                 </div>
 //               </>
@@ -131,11 +129,10 @@
 
 // export default LogoutButton;
 
-
-import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useVisitor } from '../contexts/VisitorContext';
-import MuseumFeedbackForm from './MuseumFeedbackForm';
+import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useVisitor } from "../contexts/VisitorContext";
+import MuseumFeedbackForm from "./MuseumFeedbackForm";
 
 const LogoutButton = () => {
   const navigate = useNavigate();
@@ -143,56 +140,56 @@ const LogoutButton = () => {
   const { logout } = useVisitor();
   const [showDialog, setShowDialog] = useState(false);
   const [showFeedbackForm, setShowFeedbackForm] = useState(false);
+  const [showConfirmationDialog, setShowConfirmationDialog] = useState(false); // New state for the confirmation dialog
   const [loading, setLoading] = useState(false);
 
-  // Check if feedback has been submitted in this session
-  const feedbackSubmitted =   localStorage.getItem(`submittedFeedback-${museumName}`) === 'true'
+  const feedbackSubmitted =
+    localStorage.getItem(`submittedFeedback-${museumName}`) === "true";
 
   const handleLogoutClick = () => {
     if (!feedbackSubmitted) {
       setShowDialog(true); // Show dialog to ask for feedback
     } else {
-      handleDirectLogout();
+      setShowConfirmationDialog(true); // Show confirmation dialog instead of direct logout
     }
   };
 
   const handleFeedbackSubmit = () => {
     setShowDialog(false);
     setShowFeedbackForm(false);
-    setLoading(true); // Start loading spinner
+    setLoading(true);
 
-    // Set the session storage flag to indicate feedback has been submitted
-    localStorage.setItem('feedbackSubmitted', 'true');
+    localStorage.setItem(`submittedFeedback-${museumName}`, "true");
 
     setTimeout(() => {
       logout();
-      navigate('/');
-    }, 2000); // Simulate a delay for the spinner, adjust if needed
+      navigate("/");
+    }, 2000);
   };
 
   const handleFeedbackNo = () => {
     setShowDialog(false);
     setLoading(true);
 
-    // Set the session storage flag to skip feedback prompt next time
-    localStorage.setItem('feedbackSubmitted', 'true');
+    // localStorage.setItem(`submittedFeedback-${museumName}`, 'true');
 
     setTimeout(() => {
       logout();
-      navigate('/');
+      navigate("/");
     }, 2000);
   };
 
   const handleCancelLogout = () => {
     setShowDialog(false);
     setShowFeedbackForm(false);
+    setShowConfirmationDialog(false);
   };
 
-  const handleDirectLogout = () => {
+  const handleConfirmLogout = () => {
     setLoading(true);
     setTimeout(() => {
       logout();
-      navigate('/');
+      navigate("/");
     }, 2000);
   };
 
@@ -223,9 +220,10 @@ const LogoutButton = () => {
             </button>
 
             {!showFeedbackForm ? (
-              <>
+              <div>
                 <p className="text-lg font-semibold mb-6">
-                  Would you like to leave feedback about your visit before logging out?
+                  Would you like to leave feedback about your visit before
+                  logging out?
                 </p>
                 <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4">
                   <button
@@ -241,10 +239,54 @@ const LogoutButton = () => {
                     No, leave without giving a review.
                   </button>
                 </div>
-              </>
+              </div>
             ) : (
               <MuseumFeedbackForm onSubmit={handleFeedbackSubmit} />
             )}
+          </div>
+        </div>
+      )}
+
+      {showConfirmationDialog && (
+        <div
+          className="fixed inset-0 flex items-center justify-center bg-black/75 backdrop-blur-sm z-50"
+          onClick={handleCancelLogout}
+        >
+          <div
+            className="bg-white p-8 rounded-xl shadow-2xl max-w-md w-full mx-4 text-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 className="text-2xl font-bold mb-4 text-gray-800">
+              Leaving the Museum?
+            </h2>
+            <div className="text-lg text-gray-600 mb-8 space-y-4">
+              <p>Are you sure you want to log out?</p>
+              <p>To log back in, you'll have two options:</p>
+              <ol className="list-decimal list-inside text-left space-y-2">
+                <li>
+                  <span className="font-semibold">Scan QR Code:</span> Use your
+                  device to scan the museum's QR code
+                </li>
+                <li>
+                  <span className="font-semibold">Manual Entry:</span> Enter the
+                  museum name and password
+                </li>
+              </ol>
+            </div>
+            <div className="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
+              <button
+                onClick={handleConfirmLogout}
+                className="w-full sm:w-1/2 px-6 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition duration-300 ease-in-out"
+              >
+                Yes, Log Out
+              </button>
+              <button
+                onClick={handleCancelLogout}
+                className="w-full sm:w-1/2 px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out"
+              >
+                Stay Logged In
+              </button>
+            </div>
           </div>
         </div>
       )}

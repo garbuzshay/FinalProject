@@ -150,19 +150,50 @@ class MuseumsService {
     }
   
 
+  // async getMuseumDetails(museumName) {
+  //   try {
+  //     const museum = await MuseumModel.findOne({ name: museumName }).populate({
+  //       path: 'exhibitions',
+  //       populate: { path: 'artworks'}
+  //     });
+  //     if (!museum) throw new Error('Museum not found');
+      
+  //     return { museum, exhibitions: museum.exhibitions };
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // }
   async getMuseumDetails(museumName) {
+    console.log(`Visitor entered into ${museumName}`);
     try {
       const museum = await MuseumModel.findOne({ name: museumName }).populate({
         path: 'exhibitions',
         populate: { path: 'artworks'}
       });
       if (!museum) throw new Error('Museum not found');
-      
-      return { museum, exhibitions: museum.exhibitions };
+  
+      // Construct a custom object with only the necessary fields
+      return {
+        museum: {
+          _id: museum._id,
+          name: museum.name,
+          address: museum.address,
+          city: museum.city,
+          state: museum.state,
+          zipcode: museum.zipcode,
+          email: museum.email,
+          phoneNumber: museum.phoneNumber,
+          password: museum.password,
+          status: museum.status,
+          imageUrl: museum.imageUrl,
+        },
+        exhibitions: museum.exhibitions
+      };
     } catch (error) {
       throw error;
     }
   }
+  
 }
 
 

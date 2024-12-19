@@ -152,7 +152,6 @@ export const verifyMuseumPassword = async (req, res) => {
     const museum = await MuseumsService.verifyPassword(museumName, password);
     const token = generateToken({ museumId: museum.id, museumName: museum.name });
 
-
     res
       .status(200)
       .json({ message: "Password verified", success: true, data: {museum, token} });

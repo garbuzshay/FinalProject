@@ -1,5 +1,4 @@
 
-// C:\Users\Shay\Desktop\MuseumApp\visitor-front\src\hooks\useFeedback.js
 import { useState, useEffect } from 'react';
 import feedbackApi from '../api/FeedbackApi';
 
