@@ -22,6 +22,11 @@ const artworkSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    recordUrl: {
+      type: String,
+      required: false,
+    },
+    
   },
   {
     timestamps: true,
