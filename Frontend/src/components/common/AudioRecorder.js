@@ -138,6 +138,7 @@
 
 
 // src/components/AudioRecorder.js
+
 import React, { useState, useRef } from "react";
 
 const AudioRecorder = ({ onAudioReady }) => {
@@ -161,7 +162,8 @@ const AudioRecorder = ({ onAudioReady }) => {
       };
 
       mediaRecorderRef.current.onstop = () => {
-        const completeBlob = new Blob(chunks, { type: "audio/webm" });
+        const completeBlob = new Blob(chunks, { type: "audio/wav" });
+        // const completeBlob = new Blob(chunks, { type: "audio/webm" });
         setAudioBlob(completeBlob);
       };
 
