@@ -1,9 +1,8 @@
+// // src/components/AudioRecorder.js
+
 // import React, { useState, useRef } from "react";
-// import { storage } from '../../configuration/firebaseConfig';
-// import { ref as storageRef, uploadBytes } from "firebase/storage";
 
-
-// const AudioRecorder = () => {
+// const AudioRecorder = ({ onAudioReady }) => {
 //   const [isRecording, setIsRecording] = useState(false);
 //   const [isPlaying, setIsPlaying] = useState(false);
 //   const [audioBlob, setAudioBlob] = useState(null);
@@ -24,7 +23,8 @@
 //       };
 
 //       mediaRecorderRef.current.onstop = () => {
-//         const completeBlob = new Blob(chunks, { type: "audio/webm" });
+//         const completeBlob = new Blob(chunks, { type: "audio/wav" });
+//         // const completeBlob = new Blob(chunks, { type: "audio/webm" });
 //         setAudioBlob(completeBlob);
 //       };
 
@@ -38,7 +38,10 @@
 //   };
 
 //   const handleStopRecording = () => {
-//     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
+//     if (
+//       mediaRecorderRef.current &&
+//       mediaRecorderRef.current.state !== "inactive"
+//     ) {
 //       mediaRecorderRef.current.stop();
 //       setIsRecording(false);
 //     }
@@ -50,7 +53,8 @@
 //     const audioURL = URL.createObjectURL(audioBlob);
 //     audioPlayerRef.current = new Audio(audioURL);
 //     audioPlayerRef.current.onended = () => setIsPlaying(false);
-//     audioPlayerRef.current.play()
+//     audioPlayerRef.current
+//       .play()
 //       .then(() => setIsPlaying(true))
 //       .catch((err) => {
 //         setErrorMessage("Error playing audio.");
@@ -70,26 +74,19 @@
 //   const handleDelete = () => {
 //     stopPlayback();
 //     setAudioBlob(null);
+//     onAudioReady(null); // Let the parent know we've removed the audio
 //   };
 
-//   const handleUpload = () => {
+//   // Instead of uploading to Firebase, this "Save to Cloud" button
+//   // just sends the blob up to the parent (the form) for future upload
+//   const handleSaveLocally = () => {
 //     if (!audioBlob) {
-//       alert("No recording available to upload");
+//       alert("No recording available to save");
 //       return;
 //     }
-
-//     const fileRef = storageRef(storage, `audio/${new Date().getTime()}-recording.webm`);
-//     uploadBytes(fileRef, audioBlob).then((snapshot) => {
-//       console.log('Uploaded a blob or file!', snapshot);
-//       alert("Upload successful!");
-//     }).catch((error) => {
-//       console.error("Error uploading file:", error);
-//       alert("Upload failed!");
-//     });
-//   };
-
-//   const handleSave = () => {
-//     handleUpload();
+//     // Let parent know that we have a final audio blob
+//     onAudioReady(audioBlob);
+//     alert("Audio is ready to be uploaded when you submit the form!");
 //   };
 
 //   return (
@@ -124,7 +121,7 @@
 //           <button onClick={handleDelete} style={{ marginLeft: "10px" }}>
 //             Delete
 //           </button>
-//           <button onClick={handleSave} style={{ marginLeft: "10px" }}>
+//           <button onClick={handleSaveLocally} style={{ marginLeft: "10px" }}>
 //             Save to Cloud
 //           </button>
 //         </div>
@@ -135,16 +132,16 @@
 
 // export default AudioRecorder;
 
-
-
-// src/components/AudioRecorder.js
-
 import React, { useState, useRef } from "react";
+import { createFFmpeg } from "@ffmpeg/ffmpeg";
+
+const ffmpeg = createFFmpeg({ log: true });
 
 const AudioRecorder = ({ onAudioReady }) => {
   const [isRecording, setIsRecording] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [audioBlob, setAudioBlob] = useState(null);
+  const [setAudioBlob] = useState(null);
+  const [convertedBlob, setConvertedBlob] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
 
   const mediaRecorderRef = useRef(null);
@@ -161,10 +158,13 @@ const AudioRecorder = ({ onAudioReady }) => {
         chunks.push(e.data);
       };
 
-      mediaRecorderRef.current.onstop = () => {
+      mediaRecorderRef.current.onstop = async () => {
         const completeBlob = new Blob(chunks, { type: "audio/wav" });
-        // const completeBlob = new Blob(chunks, { type: "audio/webm" });
         setAudioBlob(completeBlob);
+
+        // Convert the recorded audio to MP3
+        const mp3Blob = await convertToMP3(completeBlob);
+        setConvertedBlob(mp3Blob); // Store the converted MP3 blob
       };
 
       mediaRecorderRef.current.start();
@@ -187,9 +187,9 @@ const AudioRecorder = ({ onAudioReady }) => {
   };
 
   const handlePlay = () => {
-    if (!audioBlob) return;
+    if (!convertedBlob) return;
     stopPlayback();
-    const audioURL = URL.createObjectURL(audioBlob);
+    const audioURL = URL.createObjectURL(convertedBlob);
     audioPlayerRef.current = new Audio(audioURL);
     audioPlayerRef.current.onended = () => setIsPlaying(false);
     audioPlayerRef.current
@@ -213,19 +213,26 @@ const AudioRecorder = ({ onAudioReady }) => {
   const handleDelete = () => {
     stopPlayback();
     setAudioBlob(null);
+    setConvertedBlob(null);
     onAudioReady(null); // Let the parent know we've removed the audio
   };
 
-  // Instead of uploading to Firebase, this "Save to Cloud" button
-  // just sends the blob up to the parent (the form) for future upload
-  const handleSaveLocally = () => {
-    if (!audioBlob) {
-      alert("No recording available to save");
-      return;
+  const convertToMP3 = async (wavBlob) => {
+    try {
+      if (!ffmpeg.isLoaded()) await ffmpeg.load();
+
+      const wavArray = new Uint8Array(await wavBlob.arrayBuffer());
+      ffmpeg.FS("writeFile", "input.wav", wavArray);
+
+      await ffmpeg.run("-i", "input.wav", "output.mp3");
+
+      const mp3Data = ffmpeg.FS("readFile", "output.mp3");
+      return new Blob([mp3Data.buffer], { type: "audio/mp3" });
+    } catch (error) {
+      console.error("Error converting to MP3", error);
+      setErrorMessage("Error: Failed to convert audio.");
+      return null;
     }
-    // Let parent know that we have a final audio blob
-    onAudioReady(audioBlob);
-    alert("Audio is ready to be uploaded when you submit the form!");
   };
 
   return (
@@ -250,7 +257,7 @@ const AudioRecorder = ({ onAudioReady }) => {
         <button onClick={handleStopRecording}>Stop Recording</button>
       )}
 
-      {audioBlob && !isRecording && (
+      {convertedBlob && !isRecording && (
         <div style={{ marginTop: "10px" }}>
           {!isPlaying ? (
             <button onClick={handlePlay}>Play</button>
@@ -259,9 +266,6 @@ const AudioRecorder = ({ onAudioReady }) => {
           )}
           <button onClick={handleDelete} style={{ marginLeft: "10px" }}>
             Delete
-          </button>
-          <button onClick={handleSaveLocally} style={{ marginLeft: "10px" }}>
-            Save to Cloud
           </button>
         </div>
       )}
