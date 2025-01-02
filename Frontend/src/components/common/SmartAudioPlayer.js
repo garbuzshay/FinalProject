@@ -105,13 +105,12 @@
 
 // export default SmartAudioPlayer;
 
-
 import React, { useEffect, useState, useRef } from "react";
 
 const SmartAudioPlayer = ({ audioUrl, isDarkMode, t }) => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [ setIsPlaying] = useState(false);
+  const [setIsPlaying] = useState(false);
   const audioRef = useRef(null);
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
@@ -132,18 +131,6 @@ const SmartAudioPlayer = ({ audioUrl, isDarkMode, t }) => {
 
         if (isMounted && currentAudioElement) {
           currentAudioElement.src = audioUrl;
-
-          if (isIOS) {
-            // iOS requires user interaction to play audio
-            const enablePlayback = () => {
-              currentAudioElement
-                .play()
-                .then(() => setIsPlaying(true))
-                .catch((err) => console.warn("Playback error on iOS:", err.message));
-              document.removeEventListener("click", enablePlayback);
-            };
-            document.addEventListener("click", enablePlayback);
-          }
         }
       } catch (err) {
         console.error("Error setting up audio:", err.message);
@@ -184,18 +171,25 @@ const SmartAudioPlayer = ({ audioUrl, isDarkMode, t }) => {
     setIsLoading(false);
   };
 
-
   return (
     <div className="mb-4 text-center">
       {error && <p className="text-red-500 font-bold">{error}</p>}
       {isLoading && !error && (
-        <p className={`font-bold ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}>
+        <p
+          className={`font-bold ${
+            isDarkMode ? "text-gray-300" : "text-gray-700"
+          }`}
+        >
           Loading audio...
         </p>
       )}
       {!error && (
         <>
-          <p className={`font-bold ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}>
+          <p
+            className={`font-bold ${
+              isDarkMode ? "text-gray-300" : "text-gray-700"
+            }`}
+          >
             {t?.existingAudio}
           </p>
           <audio
@@ -208,7 +202,6 @@ const SmartAudioPlayer = ({ audioUrl, isDarkMode, t }) => {
           >
             Your browser does not support the audio element.
           </audio>
-          
         </>
       )}
     </div>
