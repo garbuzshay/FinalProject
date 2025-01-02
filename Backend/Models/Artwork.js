@@ -20,7 +20,7 @@ const artworkSchema = new mongoose.Schema(
     },
     imageUrl: {
       type: String,
-      required: true,
+      required: false,
     },
     recordUrl: {
       type: String,

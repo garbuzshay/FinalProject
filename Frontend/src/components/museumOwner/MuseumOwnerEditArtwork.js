@@ -1,6 +1,5 @@
 
-
-// import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState, useMemo } from "react";
 // import { useParams } from "react-router-dom";
 // import { useMuseumContext } from "../../contexts/MuseumContext";
 // import ArtworkForm from "../common/ArtworkForm";
@@ -13,10 +12,12 @@
 //   const [loading, setLoading] = useState(true);
 //   const { goBack } = useNavigation();
 
-//   const exhibition = exhibitions.find((exhibit) => exhibit._id === id);
-//   const initialData = exhibition
-//     ? exhibition.artworks.find((art) => art._id === artworkId)
-//     : {};
+//   const initialData = useMemo(() => {
+//     const exhibition = exhibitions.find((exhibit) => exhibit._id === id);
+//     return exhibition
+//       ? exhibition.artworks.find((art) => art._id === artworkId)
+//       : {};
+//   }, [exhibitions, id, artworkId]);
 
 //   useEffect(() => {
 //     if (initialData) {
@@ -56,14 +57,12 @@
 //           formType="edit"
 //         />
 //       )}
-//       <GoBackButton/>
+//       <GoBackButton />
 //     </div>
 //   );
 // };
 
 // export default MuseumOwnerEditArtwork;
-
-
 import React, { useEffect, useState, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { useMuseumContext } from "../../contexts/MuseumContext";
@@ -75,6 +74,7 @@ const MuseumOwnerEditArtwork = () => {
   const { id, artworkId } = useParams();
   const { exhibitions, updateArtwork, deleteArtwork } = useMuseumContext();
   const [loading, setLoading] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Track submission state
   const { goBack } = useNavigation();
 
   const initialData = useMemo(() => {
@@ -92,11 +92,14 @@ const MuseumOwnerEditArtwork = () => {
 
   const handleEditArtwork = async (data) => {
     try {
+      setIsSubmitting(true); // Show spinner during submission
       await updateArtwork(id, artworkId, data);
       alert("Artwork updated successfully");
       goBack();
     } catch (error) {
       console.error("There was an error updating the artwork!", error);
+    } finally {
+      setIsSubmitting(false); // Hide spinner
     }
   };
 
@@ -112,8 +115,13 @@ const MuseumOwnerEditArtwork = () => {
 
   return (
     <div>
-      {loading ? (
-        <p>Loading...</p>
+      {loading || isSubmitting ? (
+        <div className="flex justify-center items-center h-48">
+          <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          <p className="ml-4 text-lg font-medium">
+            {loading ? "Loading..." : "Updating..."}
+          </p>
+        </div>
       ) : (
         <ArtworkForm
           onSubmit={handleEditArtwork}

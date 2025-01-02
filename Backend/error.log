@@ -194,3 +194,4 @@ Use mongoose.model(name, schema)
 2024-11-11 14:14:02 [31merror[39m: Error updating exhibition with ID 6731f2279b634a043a6dc9aa: Cannot read properties of null (reading '_id')
 2024-11-11 14:14:22 [31merror[39m: Error updating exhibition with ID 6731f2279b634a043a6dc9aa: Cannot read properties of null (reading '_id')
 2024-11-11 14:14:22 [31merror[39m: Error updating exhibition with ID 6731f2279b634a043a6dc9aa: Cannot read properties of null (reading '_id')
+2025-01-02 17:59:31 [31merror[39m: Error creating artwork for exhibition with ID 673202d94ee2f830b7ccfdc1: artworks validation failed: imageUrl: Path `imageUrl` is required.

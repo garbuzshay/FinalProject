@@ -2895,3 +2895,12 @@ Use mongoose.model(name, schema)
 2024-11-25 15:01:17 [32minfo[39m: Retrieving exhibitions for User with ID: 673202d84ee2f830b7ccfdbc
 2024-12-16 13:42:59 [32minfo[39m: Updating exhibition with ID: 673202d94ee2f830b7ccfdc1 and data: {"name":"Board games and strategy","description":"Journey through time and across cultures as you explore a world of classic board games. Discover rare and unique versions of chess, Go, checkers, Risk, Monopoly, and more! \n","maxArtworks":10,"imageUrl":"https://firebasestorage.googleapis.com/v0/b/mesnchmuseumapp.appspot.com/o/images%2Fkarthik-balakrishnan-NrS53eUKgiE-unsplash.jpg?alt=media&token=b97c958c-bb1a-4a35-ac74-4b535de7d18e","curators":["673202d84ee2f830b7ccfdbc"],"newCurators":[{"name":"curator2","lastName":"s2","email":"curator2@gmail.com","phoneNumber":"0521111112","isEditable":true}]}
 2024-12-16 13:43:01 [32minfo[39m: Updating exhibition with ID: 673202d94ee2f830b7ccfdc1 and data: {"name":"Board games and strategy","description":"Journey through time and across cultures as you explore a world of classic board games. Discover rare and unique versions of chess, Go, checkers, Risk, Monopoly, and more! \n","maxArtworks":10,"imageUrl":"https://firebasestorage.googleapis.com/v0/b/mesnchmuseumapp.appspot.com/o/images%2Fkarthik-balakrishnan-NrS53eUKgiE-unsplash.jpg?alt=media&token=b97c958c-bb1a-4a35-ac74-4b535de7d18e","curators":["673202d84ee2f830b7ccfdbc","676012452d5eaff6c40bafb5"]}
+2025-01-02 17:58:41 [32minfo[39m: Creating artwork for exhibition with ID: 673202d94ee2f830b7ccfdc1
+2025-01-02 17:59:08 [32minfo[39m: Deleting artwork with ID 6776b7b19ee4349fe1e98143 from exhibition with ID 673202d94ee2f830b7ccfdc1
+2025-01-02 17:59:31 [32minfo[39m: Creating artwork for exhibition with ID: 673202d94ee2f830b7ccfdc1
+2025-01-02 17:59:31 [31merror[39m: Error creating artwork for exhibition with ID 673202d94ee2f830b7ccfdc1: artworks validation failed: imageUrl: Path `imageUrl` is required.
+2025-01-02 18:00:24 [32minfo[39m: Creating artwork for exhibition with ID: 673202d94ee2f830b7ccfdc1
+2025-01-02 18:01:32 [32minfo[39m: Deleting artwork with ID 6776b8180193d5614af52a50 from exhibition with ID 673202d94ee2f830b7ccfdc1
+2025-01-02 18:02:19 [32minfo[39m: Creating artwork for exhibition with ID: 673202d94ee2f830b7ccfdc1
+2025-01-02 18:02:24 [32minfo[39m: Deleting artwork with ID 6776b88b0193d5614af52a5b from exhibition with ID 673202d94ee2f830b7ccfdc1
+2025-01-02 18:03:00 [32minfo[39m: Retrieving exhibitions for User with ID: 673202d84ee2f830b7ccfdbc
