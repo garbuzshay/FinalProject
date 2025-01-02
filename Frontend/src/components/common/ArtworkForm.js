@@ -475,6 +475,12 @@ import { uploadFile } from "./FileUpload";
 import { useThemeMode } from "../../contexts/DarkModeContext";
 import { useLang } from "../../contexts/LangContext"; // Import useLang
 import { FaMagic } from "react-icons/fa";
+import {
+  FaMicrophone,
+  FaMicrophoneSlash,
+  FaCommentDots,
+  FaCommentSlash,
+} from "react-icons/fa";
 import AudioRecorder from "./AudioRecorder";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../configuration/firebaseConfig";
@@ -529,7 +535,7 @@ const ArtworkForm = ({
       uploadedImage: "Uploaded Image:",
       viewImage: "View Image",
       existingAudio: "Existing Audio:",
-      newAudioRec:"New audio recorded! (Will overwrite old audio on submit)", 
+      newAudioRec: "New audio recorded! (Will overwrite old audio on submit)",
       closeRecord: "Close & Cancel recording",
     },
     he: {
@@ -561,7 +567,7 @@ const ArtworkForm = ({
       uploadedImage: "תמונה שהועלתה:",
       viewImage: "הצג תמונה",
       existingAudio: ":שמע קיים",
-      newAudioRec:"ההקלטה נשמרה ותעלה מיד לאחר הגשת הטופס.",
+      newAudioRec: "ההקלטה נשמרה ותעלה מיד לאחר הגשת הטופס.",
       closeRecord: "סגור ובטל הקלטה",
     },
   };
@@ -734,29 +740,7 @@ const ArtworkForm = ({
         >
           {formType === "edit" ? t.updateArtwork : t.createArtwork}
         </h2>
-        {/* {existingRecordUrl && !audioBlob && (
-          <div className="mb-4 text-center">
-            <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
-              Existing Audio:
-            </p>
-            <audio
-              controls
-              src={existingRecordUrl}
-              className="mt-2"
-            >
-              Your browser does not support the audio element.
-            </audio>
-          </div>
-        )} */}
 
-        {/* {audioBlob && (
-          <div className="mb-4 text-center">
-            <p className="text-green-600">
-              New audio recorded! (Will overwrite old audio on submit)
-            </p>
-          </div>
-        )} */}
-        
         <form onSubmit={handleSubmit(handleFormSubmit)} className={`space-y-4`}>
           {/* Title */}
           <div className="w-full">
@@ -927,14 +911,14 @@ const ArtworkForm = ({
           {existingRecordUrl && !audioBlob && (
             <div className="mb-4 text-center font-bold">
               <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
-              {t.existingAudio}
+                {t.existingAudio}
               </p>
               <audio controls src={existingRecordUrl} className="mt-2 mx-auto">
                 Your browser does not support the audio element.
               </audio>
             </div>
           )}
-          
+
           <div className="mb-2 flex justify-center">
             <button
               type="button"
@@ -945,18 +929,21 @@ const ArtworkForm = ({
                 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500
               `}
             >
-          {showAudioRecorder ? t.closeRecord : t.recordDescription}
+              {showAudioRecorder ? <FaMicrophoneSlash /> : <FaMicrophone />}
+              {showAudioRecorder ? t.closeRecord : t.recordDescription}
             </button>
           </div>
-          {showAudioRecorder && <AudioRecorder onAudioReady={handleAudioReady} />}
+          {showAudioRecorder && (
+            <AudioRecorder onAudioReady={handleAudioReady} />
+          )}
           {audioBlob && (
-          <div className="mb-4 text-center">
-            <p className="text-green-600">
-              {t.newAudioRec}
-              {/* New audio recorded! (Will overwrite old audio on submit) */}
-            </p>
-          </div>
-        )}
+            <div className="mb-4 text-center">
+              <p className="text-green-600">
+                {t.newAudioRec}
+                {/* New audio recorded! (Will overwrite old audio on submit) */}
+              </p>
+            </div>
+          )}
           {/* Toggle Speech-to-Text */}
           <div className="w-full flex justify-center ">
             <button
@@ -967,6 +954,7 @@ const ArtworkForm = ({
                   hover:bg-blue-50 dark:hover:bg-gray-700 hover:shadow-lg hover:border-transparent hover:text-blue-600 dark:hover:text-blue-400
                   focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500`}
             >
+              {showSpeechToText ? <FaCommentSlash /> : <FaCommentDots />} 
               {showSpeechToText ? t.hideSpeechToText : t.useSpeechToText}
             </button>
           </div>
@@ -995,20 +983,6 @@ const ArtworkForm = ({
               {t.generateAIDescription}
             </button>
           </div>
-
-          {/* <div className="mb-2 flex justify-center">
-            <button
-              type="button"
-              onClick={() => setShowAudioRecorder(!showAudioRecorder)}
-              className={`w-auto border border-gray-500 text-gray-700 dark:text-gray-300 py-1.5 px-4 rounded-full flex items-center justify-center gap-2
-                transition-all duration-300 ease-in-out
-                hover:bg-blue-50 dark:hover:bg-gray-700 hover:shadow-lg hover:border-transparent hover:text-blue-600 dark:hover:text-blue-400
-                focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500
-              `}
-            >
-              {t.recordDescription}
-            </button>
-          </div> */}
 
           {/* Submit and Delete Buttons */}
           <div className="w-full flex flex-col items-center space-y-4">
@@ -1043,7 +1017,6 @@ const ArtworkForm = ({
             )}
           </div>
         </form>
-        {/* {showAudioRecorder && <AudioRecorder onAudioReady={handleAudioReady} />} */}
       </div>
     </div>
   );
