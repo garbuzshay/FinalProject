@@ -215,7 +215,7 @@
 //         >
 //           {formType === "edit" ? t.updateArtwork : t.createArtwork}
 //         </h2>
-       
+
 //         <form
 //           onSubmit={handleSubmit(handleFormSubmit)}
 //           className={`space-y-4  mx-8`}
@@ -248,7 +248,7 @@
 //               </p>
 //             )}
 //           </div>
- 
+
 //           {/* Artist Name */}
 //           <div className="w-full">
 //             <label
@@ -426,7 +426,6 @@
 //             </button>
 //           </div>
 
-         
 //           {/* Submit and Delete Buttons */}
 //           <div className="w-full flex flex-col items-center space-y-4">
 //             {/* Save/Update Button */}
@@ -444,7 +443,7 @@
 //                 } transition-colors duration-300`}
 //               />
 //             </div>
-         
+
 //             {/* Delete Button (only in edit mode) */}
 //             {formType === "edit" && (
 //               <div className="flex justify-center">
@@ -479,7 +478,6 @@ import { FaMagic } from "react-icons/fa";
 import AudioRecorder from "./AudioRecorder";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../configuration/firebaseConfig";
-
 
 const ArtworkForm = ({
   onSubmit,
@@ -530,6 +528,9 @@ const ArtworkForm = ({
       existingImage: "Existing Image:",
       uploadedImage: "Uploaded Image:",
       viewImage: "View Image",
+      existingAudio: "Existing Audio:",
+      newAudioRec:"New audio recorded! (Will overwrite old audio on submit)", 
+      closeRecord: "Close & Cancel recording",
     },
     he: {
       title: ":כותרת",
@@ -539,7 +540,7 @@ const ArtworkForm = ({
       description: ":תיאור",
       useSpeechToText: "השתמש בדיבור לטקסט",
       hideSpeechToText: "הסתר דיבור לטקסט",
-      generateAIDescription: "צור תיאור באמצעות AI",
+      generateAIDescription: "AI צור תיאור באמצעות ",
       recordDescription: "הקלט תיאור",
       createArtwork: "צור יצירה",
       updateArtwork: "עדכן יצירה",
@@ -559,6 +560,9 @@ const ArtworkForm = ({
       existingImage: "תמונה קיימת:",
       uploadedImage: "תמונה שהועלתה:",
       viewImage: "הצג תמונה",
+      existingAudio: ":שמע קיים",
+      newAudioRec:"ההקלטה נשמרה ותעלה מיד לאחר הגשת הטופס.",
+      closeRecord: "סגור ובטל הקלטה",
     },
   };
 
@@ -572,22 +576,16 @@ const ArtworkForm = ({
   // State to toggle SpeechToText visibility
   const [showSpeechToText, setShowSpeechToText] = useState(false);
 
-
   const [audioBlob, setAudioBlob] = useState(null);
   const [showAudioRecorder, setShowAudioRecorder] = useState(false);
 
-  const [existingRecordUrl] = useState(
-    initialData.recordUrl || ""
-  );
-
+  const [existingRecordUrl] = useState(initialData.recordUrl || "");
 
   // State for file upload
   const [file, setFile] = useState(null);
   const [url, setUrl] = useState(initialData.imageUrl || ""); // Use initialData imageUrl if in edit mode
   const [progress, setProgress] = useState(0);
   const [uploading, setUploading] = useState(false);
-
-
 
   useEffect(() => {
     if (initialData) {
@@ -634,8 +632,8 @@ const ArtworkForm = ({
     }
   };
 
-const handleFormSubmit = async (data) => {
-  let finalAudioUrl = existingRecordUrl;
+  const handleFormSubmit = async (data) => {
+    let finalAudioUrl = existingRecordUrl;
 
     // 1. If we have an audioBlob, upload it to Firebase here.
     if (audioBlob) {
@@ -668,8 +666,8 @@ const handleFormSubmit = async (data) => {
     try {
       await onSubmit({
         ...data,
-        imageUrl: url,                   // The uploaded image URL
-        recordUrl: finalAudioUrl , // If we have a new one or fallback
+        imageUrl: url, // The uploaded image URL
+        recordUrl: finalAudioUrl, // If we have a new one or fallback
       });
       if (formType === "create") {
         reset();
@@ -736,7 +734,7 @@ const handleFormSubmit = async (data) => {
         >
           {formType === "edit" ? t.updateArtwork : t.createArtwork}
         </h2>
-        {existingRecordUrl && !audioBlob && (
+        {/* {existingRecordUrl && !audioBlob && (
           <div className="mb-4 text-center">
             <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
               Existing Audio:
@@ -749,19 +747,17 @@ const handleFormSubmit = async (data) => {
               Your browser does not support the audio element.
             </audio>
           </div>
-        )}
+        )} */}
 
-        {audioBlob && (
+        {/* {audioBlob && (
           <div className="mb-4 text-center">
             <p className="text-green-600">
               New audio recorded! (Will overwrite old audio on submit)
             </p>
           </div>
-        )}
-        <form
-          onSubmit={handleSubmit(handleFormSubmit)}
-          className={`space-y-4  mx-8`}
-        >
+        )} */}
+        
+        <form onSubmit={handleSubmit(handleFormSubmit)} className={`space-y-4`}>
           {/* Title */}
           <div className="w-full">
             <label
@@ -790,7 +786,7 @@ const handleFormSubmit = async (data) => {
               </p>
             )}
           </div>
- 
+
           {/* Artist Name */}
           <div className="w-full">
             <label
@@ -928,7 +924,39 @@ const handleFormSubmit = async (data) => {
               </p>
             )}
           </div>
-
+          {existingRecordUrl && !audioBlob && (
+            <div className="mb-4 text-center font-bold">
+              <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
+              {t.existingAudio}
+              </p>
+              <audio controls src={existingRecordUrl} className="mt-2 mx-auto">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+          )}
+          
+          <div className="mb-2 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAudioRecorder(!showAudioRecorder)}
+              className={`w-auto border border-gray-500 text-gray-700 dark:text-gray-300 py-1.5 px-4 rounded-full flex items-center justify-center gap-2
+                transition-all duration-300 ease-in-out
+                hover:bg-blue-50 dark:hover:bg-gray-700 hover:shadow-lg hover:border-transparent hover:text-blue-600 dark:hover:text-blue-400
+                focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500
+              `}
+            >
+          {showAudioRecorder ? t.closeRecord : t.recordDescription}
+            </button>
+          </div>
+          {showAudioRecorder && <AudioRecorder onAudioReady={handleAudioReady} />}
+          {audioBlob && (
+          <div className="mb-4 text-center">
+            <p className="text-green-600">
+              {t.newAudioRec}
+              {/* New audio recorded! (Will overwrite old audio on submit) */}
+            </p>
+          </div>
+        )}
           {/* Toggle Speech-to-Text */}
           <div className="w-full flex justify-center ">
             <button
@@ -968,7 +996,7 @@ const handleFormSubmit = async (data) => {
             </button>
           </div>
 
-          <div className="mb-2 flex justify-center">
+          {/* <div className="mb-2 flex justify-center">
             <button
               type="button"
               onClick={() => setShowAudioRecorder(!showAudioRecorder)}
@@ -980,8 +1008,8 @@ const handleFormSubmit = async (data) => {
             >
               {t.recordDescription}
             </button>
-          </div>
-          
+          </div> */}
+
           {/* Submit and Delete Buttons */}
           <div className="w-full flex flex-col items-center space-y-4">
             {/* Save/Update Button */}
@@ -999,7 +1027,7 @@ const handleFormSubmit = async (data) => {
                 } transition-colors duration-300`}
               />
             </div>
-         
+
             {/* Delete Button (only in edit mode) */}
             {formType === "edit" && (
               <div className="flex justify-center">
@@ -1015,9 +1043,7 @@ const handleFormSubmit = async (data) => {
             )}
           </div>
         </form>
-        {showAudioRecorder && (
-          <AudioRecorder onAudioReady={handleAudioReady} />
-        )}
+        {/* {showAudioRecorder && <AudioRecorder onAudioReady={handleAudioReady} />} */}
       </div>
     </div>
   );

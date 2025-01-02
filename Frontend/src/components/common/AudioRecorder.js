@@ -1,5 +1,3 @@
-// // src/components/AudioRecorder.js
-
 // import React, { useState, useRef } from "react";
 
 // const AudioRecorder = ({ onAudioReady }) => {
@@ -10,7 +8,9 @@
 
 //   const mediaRecorderRef = useRef(null);
 //   const audioPlayerRef = useRef(null);
+//   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
+  
 //   const handleStartRecording = async () => {
 //     setErrorMessage("");
 //     try {
@@ -23,8 +23,7 @@
 //       };
 
 //       mediaRecorderRef.current.onstop = () => {
-//         const completeBlob = new Blob(chunks, { type: "audio/wav" });
-//         // const completeBlob = new Blob(chunks, { type: "audio/webm" });
+//         const completeBlob = new Blob(chunks, { type: "audio/webm" });
 //         setAudioBlob(completeBlob);
 //       };
 
@@ -37,29 +36,119 @@
 //     }
 //   };
 
-//   const handleStopRecording = () => {
-//     if (
-//       mediaRecorderRef.current &&
-//       mediaRecorderRef.current.state !== "inactive"
-//     ) {
-//       mediaRecorderRef.current.stop();
-//       setIsRecording(false);
+//   const convertBlobForPlayback = async (originalBlob) => {
+//     if (!isIOS) return originalBlob;
+
+//     try {
+//       // Create an audio context
+//       const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      
+//       // Convert blob to array buffer
+//       const arrayBuffer = await originalBlob.arrayBuffer();
+      
+//       // Decode the audio data
+//       const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+      
+//       // Create offline context for rendering
+//       const offlineContext = new OfflineAudioContext(
+//         audioBuffer.numberOfChannels,
+//         audioBuffer.length,
+//         audioBuffer.sampleRate
+//       );
+      
+//       // Create buffer source
+//       const source = offlineContext.createBufferSource();
+//       source.buffer = audioBuffer;
+//       source.connect(offlineContext.destination);
+//       source.start();
+      
+//       // Render audio
+//       const renderedBuffer = await offlineContext.startRendering();
+      
+//       // Convert to WAV format
+//       const wav = audioBufferToWav(renderedBuffer);
+//       return new Blob([wav], { type: 'audio/wav' });
+//     } catch (error) {
+//       console.error('Error converting audio for playback:', error);
+//       return originalBlob;
 //     }
 //   };
 
-//   const handlePlay = () => {
+//   // Helper function to convert AudioBuffer to WAV format
+//   const audioBufferToWav = (buffer) => {
+//     const numChannels = buffer.numberOfChannels;
+//     const sampleRate = buffer.sampleRate;
+//     const format = 1; // PCM
+//     const bitDepth = 16;
+    
+//     const bytesPerSample = bitDepth / 8;
+//     const blockAlign = numChannels * bytesPerSample;
+    
+//     const wav = new ArrayBuffer(44 + buffer.length * bytesPerSample);
+//     const view = new DataView(wav);
+    
+//     // Write WAV header
+//     const writeString = (view, offset, string) => {
+//       for (let i = 0; i < string.length; i++) {
+//         view.setUint8(offset + i, string.charCodeAt(i));
+//       }
+//     };
+    
+//     writeString(view, 0, 'RIFF');
+//     view.setUint32(4, 36 + buffer.length * bytesPerSample, true);
+//     writeString(view, 8, 'WAVE');
+//     writeString(view, 12, 'fmt ');
+//     view.setUint32(16, 16, true);
+//     view.setUint16(20, format, true);
+//     view.setUint16(22, numChannels, true);
+//     view.setUint32(24, sampleRate, true);
+//     view.setUint32(28, sampleRate * blockAlign, true);
+//     view.setUint16(32, blockAlign, true);
+//     view.setUint16(34, bitDepth, true);
+//     writeString(view, 36, 'data');
+//     view.setUint32(40, buffer.length * bytesPerSample, true);
+    
+//     const channels = [];
+//     for (let i = 0; i < numChannels; i++) {
+//       channels.push(buffer.getChannelData(i));
+//     }
+    
+//     let offset = 44;
+//     for (let i = 0; i < buffer.length; i++) {
+//       for (let channel = 0; channel < numChannels; channel++) {
+//         const sample = Math.max(-1, Math.min(1, channels[channel][i]));
+//         view.setInt16(offset, sample < 0 ? sample * 0x8000 : sample * 0x7FFF, true);
+//         offset += 2;
+//       }
+//     }
+    
+//     return wav;
+//   };
+
+//   const handlePlay = async () => {
 //     if (!audioBlob) return;
 //     stopPlayback();
-//     const audioURL = URL.createObjectURL(audioBlob);
-//     audioPlayerRef.current = new Audio(audioURL);
-//     audioPlayerRef.current.onended = () => setIsPlaying(false);
-//     audioPlayerRef.current
-//       .play()
-//       .then(() => setIsPlaying(true))
-//       .catch((err) => {
-//         setErrorMessage("Error playing audio.");
-//         console.error(err);
-//       });
+    
+//     try {
+//       // Convert blob for iOS if needed
+//       const playableBlob = await convertBlobForPlayback(audioBlob);
+//       const audioURL = URL.createObjectURL(playableBlob);
+//       audioPlayerRef.current = new Audio(audioURL);
+//       audioPlayerRef.current.onended = () => setIsPlaying(false);
+      
+//       await audioPlayerRef.current.play();
+//       setIsPlaying(true);
+//     } catch (err) {
+//       setErrorMessage("Error playing audio.");
+//       console.error(err);
+//     }
+//   };
+
+//   const handleStopRecording = () => {
+//     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
+//       mediaRecorderRef.current.stop();
+//       setIsRecording(false);
+//     }
 //   };
 
 //   const stopPlayback = () => {
@@ -74,55 +163,74 @@
 //   const handleDelete = () => {
 //     stopPlayback();
 //     setAudioBlob(null);
-//     onAudioReady(null); // Let the parent know we've removed the audio
+//     onAudioReady(null);
 //   };
 
-//   // Instead of uploading to Firebase, this "Save to Cloud" button
-//   // just sends the blob up to the parent (the form) for future upload
 //   const handleSaveLocally = () => {
 //     if (!audioBlob) {
 //       alert("No recording available to save");
 //       return;
 //     }
-//     // Let parent know that we have a final audio blob
 //     onAudioReady(audioBlob);
 //     alert("Audio is ready to be uploaded when you submit the form!");
 //   };
 
 //   return (
-//     <div
-//       style={{
-//         maxWidth: "300px",
-//         margin: "auto",
-//         padding: "20px",
-//         fontFamily: "sans-serif",
-//       }}
-//     >
-//       <h2>Audio Recorder</h2>
-
-//       {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
+//     <div>
+//       {errorMessage && <div className="text-red-500 mb-2">{errorMessage}</div>}
 
 //       {!isRecording && (
-//         <button onClick={handleStartRecording} disabled={isPlaying}>
+//         <button
+//           type="button" // Specify type to prevent form submission
+//           onClick={handleStartRecording}
+//           disabled={isPlaying}
+//           className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:opacity-50"
+//         >
 //           Start Recording
 //         </button>
 //       )}
 //       {isRecording && (
-//         <button onClick={handleStopRecording}>Stop Recording</button>
+//         <button
+//           type="button" // Specify type to prevent form submission
+//           onClick={handleStopRecording}
+//           className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+//         >
+//           Stop Recording
+//         </button>
 //       )}
 
 //       {audioBlob && !isRecording && (
-//         <div style={{ marginTop: "10px" }}>
+//         <div className="mt-4 items-center mx-auto space-x-2">
 //           {!isPlaying ? (
-//             <button onClick={handlePlay}>Play</button>
+//             <button
+//               type="button" // Specify type to prevent form submission
+//               onClick={handlePlay}
+//               className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+//             >
+//               Play
+//             </button>
 //           ) : (
-//             <button onClick={stopPlayback}>Stop</button>
+//             <button
+//               type="button" // Specify type to prevent form submission
+//               onClick={stopPlayback}
+//               className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
+//             >
+//               Stop
+//             </button>
 //           )}
-//           <button onClick={handleDelete} style={{ marginLeft: "10px" }}>
+//           <button
+//             type="button" // Specify type to prevent form submission
+//             onClick={handleDelete}
+//             className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+//           >
 //             Delete
 //           </button>
-//           <button onClick={handleSaveLocally} style={{ marginLeft: "10px" }}>
-//             Save to Cloud
+//           <button
+//             type="button" // Specify type to prevent form submission
+//             onClick={handleSaveLocally}
+//             className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
+//           >
+//             Use this Record
 //           </button>
 //         </div>
 //       )}
@@ -133,7 +241,8 @@
 // export default AudioRecorder;
 
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useLang } from "../../contexts/LangContext"; // Ensure this path is correct
 
 const AudioRecorder = ({ onAudioReady }) => {
   const [isRecording, setIsRecording] = useState(false);
@@ -143,12 +252,58 @@ const AudioRecorder = ({ onAudioReady }) => {
 
   const mediaRecorderRef = useRef(null);
   const audioPlayerRef = useRef(null);
+  const streamRef = useRef(null); // To keep track of the media stream
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
+  // Translation object
+  const translations = {
+    en: {
+      errorAccessMic: "Error: Could not access microphone.",
+      startRecording: "Start Recording",
+      stopRecording: "Stop Recording",
+      play: "Play",
+      stop: "Stop",
+      delete: "Delete",
+      useThisRecord: "Use this Record",
+      noRecording: "No recording available to save",
+      audioReady: "Audio is ready to be uploaded when you submit the form!",
+      confirmOverwrite: "A recording already exists. Do you want to overwrite it?",
+      confirmDelete: "Are you sure you want to delete this recording?",
+    },
+    he: {
+      errorAccessMic: "שגיאה: לא ניתן לגשת למיקרופון.",
+      startRecording: "התחל הקלטה",
+      stopRecording: "הפסק הקלטה",
+      play: "נגן",
+      stop: "הפסק",
+      delete: "מחק",
+      useThisRecord: " שמור הקלטה",
+      noRecording: " הקלטה זו אינה זמינה לשמירה",
+      audioReady: "ההקלטה מוכנה להעלאה ותעלה מיד לאחר שתאשר את הטופס!",
+      confirmOverwrite: "הקלטה כבר קיימת. האם ברצונך להחליפה?",
+      confirmDelete: "האם אתה בטוח שברצונך למחוק הקלטה זו?",
+    },
+  };
+
+  const { language } = useLang(); // Get current language from context
+  const t = translations[language] || translations.en; // Fallback to English
+
+  // Determine text direction based on language
+  const isRTL = language === "he";
+
   const handleStartRecording = async () => {
+    // If there's an existing recording, confirm overwrite
+    if (audioBlob) {
+      const confirmOverwrite = window.confirm(t.confirmOverwrite);
+      if (!confirmOverwrite) return;
+      // If confirmed, delete the existing recording
+      handleDelete(false); // Pass false to skip delete confirmation
+    }
+
     setErrorMessage("");
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      streamRef.current = stream; // Save the stream to stop it later
       mediaRecorderRef.current = new MediaRecorder(stream);
 
       const chunks = [];
@@ -165,7 +320,7 @@ const AudioRecorder = ({ onAudioReady }) => {
       setIsRecording(true);
       stopPlayback();
     } catch (err) {
-      setErrorMessage("Error: Could not access microphone.");
+      setErrorMessage(t.errorAccessMic);
       console.error(err);
     }
   };
@@ -176,34 +331,34 @@ const AudioRecorder = ({ onAudioReady }) => {
     try {
       // Create an audio context
       const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-      
+
       // Convert blob to array buffer
       const arrayBuffer = await originalBlob.arrayBuffer();
-      
+
       // Decode the audio data
       const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
-      
+
       // Create offline context for rendering
       const offlineContext = new OfflineAudioContext(
         audioBuffer.numberOfChannels,
         audioBuffer.length,
         audioBuffer.sampleRate
       );
-      
+
       // Create buffer source
       const source = offlineContext.createBufferSource();
       source.buffer = audioBuffer;
       source.connect(offlineContext.destination);
       source.start();
-      
+
       // Render audio
       const renderedBuffer = await offlineContext.startRendering();
-      
+
       // Convert to WAV format
       const wav = audioBufferToWav(renderedBuffer);
-      return new Blob([wav], { type: 'audio/wav' });
+      return new Blob([wav], { type: "audio/wav" });
     } catch (error) {
-      console.error('Error converting audio for playback:', error);
+      console.error("Error converting audio for playback:", error);
       return originalBlob;
     }
   };
@@ -214,24 +369,24 @@ const AudioRecorder = ({ onAudioReady }) => {
     const sampleRate = buffer.sampleRate;
     const format = 1; // PCM
     const bitDepth = 16;
-    
+
     const bytesPerSample = bitDepth / 8;
     const blockAlign = numChannels * bytesPerSample;
-    
+
     const wav = new ArrayBuffer(44 + buffer.length * bytesPerSample);
     const view = new DataView(wav);
-    
+
     // Write WAV header
     const writeString = (view, offset, string) => {
       for (let i = 0; i < string.length; i++) {
         view.setUint8(offset + i, string.charCodeAt(i));
       }
     };
-    
-    writeString(view, 0, 'RIFF');
+
+    writeString(view, 0, "RIFF");
     view.setUint32(4, 36 + buffer.length * bytesPerSample, true);
-    writeString(view, 8, 'WAVE');
-    writeString(view, 12, 'fmt ');
+    writeString(view, 8, "WAVE");
+    writeString(view, 12, "fmt ");
     view.setUint32(16, 16, true);
     view.setUint16(20, format, true);
     view.setUint16(22, numChannels, true);
@@ -239,14 +394,14 @@ const AudioRecorder = ({ onAudioReady }) => {
     view.setUint32(28, sampleRate * blockAlign, true);
     view.setUint16(32, blockAlign, true);
     view.setUint16(34, bitDepth, true);
-    writeString(view, 36, 'data');
+    writeString(view, 36, "data");
     view.setUint32(40, buffer.length * bytesPerSample, true);
-    
+
     const channels = [];
     for (let i = 0; i < numChannels; i++) {
       channels.push(buffer.getChannelData(i));
     }
-    
+
     let offset = 44;
     for (let i = 0; i < buffer.length; i++) {
       for (let channel = 0; channel < numChannels; channel++) {
@@ -255,25 +410,28 @@ const AudioRecorder = ({ onAudioReady }) => {
         offset += 2;
       }
     }
-    
+
     return wav;
   };
 
   const handlePlay = async () => {
     if (!audioBlob) return;
     stopPlayback();
-    
+
     try {
       // Convert blob for iOS if needed
       const playableBlob = await convertBlobForPlayback(audioBlob);
       const audioURL = URL.createObjectURL(playableBlob);
       audioPlayerRef.current = new Audio(audioURL);
-      audioPlayerRef.current.onended = () => setIsPlaying(false);
-      
+      audioPlayerRef.current.onended = () => {
+        setIsPlaying(false);
+        URL.revokeObjectURL(audioURL); // Revoke URL after playback
+      };
+
       await audioPlayerRef.current.play();
       setIsPlaying(true);
     } catch (err) {
-      setErrorMessage("Error playing audio.");
+      setErrorMessage(t.errorAccessMic); // Or another appropriate message
       console.error(err);
     }
   };
@@ -282,6 +440,11 @@ const AudioRecorder = ({ onAudioReady }) => {
     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
       mediaRecorderRef.current.stop();
       setIsRecording(false);
+      // Stop all tracks to release the microphone
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach((track) => track.stop());
+        streamRef.current = null;
+      }
     }
   };
 
@@ -294,7 +457,12 @@ const AudioRecorder = ({ onAudioReady }) => {
     }
   };
 
-  const handleDelete = () => {
+  const handleDelete = (confirm = true) => {
+    if (confirm) {
+      const confirmDelete = window.confirm(t.confirmDelete);
+      if (!confirmDelete) return;
+    }
+
     stopPlayback();
     setAudioBlob(null);
     onAudioReady(null);
@@ -302,47 +470,98 @@ const AudioRecorder = ({ onAudioReady }) => {
 
   const handleSaveLocally = () => {
     if (!audioBlob) {
-      alert("No recording available to save");
+      alert(t.noRecording);
       return;
     }
     onAudioReady(audioBlob);
-    alert("Audio is ready to be uploaded when you submit the form!");
+    alert(t.audioReady);
   };
+
+  // Cleanup audio object URLs to prevent memory leaks
+  useEffect(() => {
+    return () => {
+      if (audioPlayerRef.current) {
+        audioPlayerRef.current.pause();
+        audioPlayerRef.current.src = "";
+      }
+      // Stop any ongoing recording if component unmounts
+      if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
+        mediaRecorderRef.current.stop();
+      }
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach((track) => track.stop());
+        streamRef.current = null;
+      }
+    };
+  }, []);
 
   return (
     <div
-      style={{
-        maxWidth: "300px",
-        margin: "auto",
-        padding: "20px",
-        fontFamily: "sans-serif",
-      }}
+      className={`flex justify-center items-center ${isRTL ? "text-right" : "text-left"}`}
+      dir={isRTL ? "rtl" : "ltr"}
     >
-      <h2>Audio Recorder</h2>
+      {errorMessage && <div className="text-red-500 mb-2">{errorMessage}</div>}
 
-      {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
-
-      {!isRecording && (
-        <button onClick={handleStartRecording} disabled={isPlaying}>
-          Start Recording
+      {/* Show Start Recording button only when not recording and no audioBlob */}
+      {!isRecording && !audioBlob && (
+        <button
+          type="button" // Prevent form submission
+          onClick={handleStartRecording}
+          disabled={isPlaying}
+          className="px-4  py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:opacity-50"
+        >
+          {t.startRecording}
         </button>
       )}
+
+      {/* Show Stop Recording button only when recording */}
       {isRecording && (
-        <button onClick={handleStopRecording}>Stop Recording</button>
+        <button
+          type="button" // Prevent form submission
+          onClick={handleStopRecording}
+          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+        >
+          {t.stopRecording}
+        </button>
       )}
 
+      {/* Show Play, Delete, Use this Record buttons only when audioBlob exists and not recording */}
       {audioBlob && !isRecording && (
-        <div style={{ marginTop: "10px" }}>
+        <div
+          className={` flex justify-center items-center ${
+            isRTL ? "space-x-reverse space-x-2" : "space-x-2"
+          }`}
+        >
           {!isPlaying ? (
-            <button onClick={handlePlay}>Play</button>
+            <button
+              type="button" // Prevent form submission
+              onClick={handlePlay}
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            >
+              {t.play}
+            </button>
           ) : (
-            <button onClick={stopPlayback}>Stop</button>
+            <button
+              type="button" // Prevent form submission
+              onClick={stopPlayback}
+              className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
+            >
+              {t.stop}
+            </button>
           )}
-          <button onClick={handleDelete} style={{ marginLeft: "10px" }}>
-            Delete
+          <button
+            type="button" // Prevent form submission
+            onClick={() => handleDelete(true)}
+            className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+          >
+            {t.delete}
           </button>
-          <button onClick={handleSaveLocally} style={{ marginLeft: "10px" }}>
-            Save to Cloud
+          <button
+            type="button" // Prevent form submission
+            onClick={handleSaveLocally}
+            className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
+          >
+            {t.useThisRecord}
           </button>
         </div>
       )}
