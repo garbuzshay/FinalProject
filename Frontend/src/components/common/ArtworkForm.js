@@ -16,7 +16,7 @@ import {
 import AudioRecorder from "./AudioRecorder";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../configuration/firebaseConfig";
-import SmartAudioPlayer from "./SmartAudioPlayer";
+// import SmartAudioPlayer from "./SmartAudioPlayer";
 
 const ArtworkForm = ({
   onSubmit,
@@ -441,7 +441,7 @@ const ArtworkForm = ({
               </p>
             )}
           </div>
-          {/* {existingRecordUrl && !audioBlob && (
+          {existingRecordUrl && !audioBlob && (
             <div className="mb-4 text-center font-bold">
               <p className={isDarkMode ? "text-gray-300" : "text-gray-700"}>
                 {t.existingAudio}
@@ -450,14 +450,14 @@ const ArtworkForm = ({
                 Your browser does not support the audio element.
               </audio>
             </div>
-          )} */}
-          {existingRecordUrl && !audioBlob && (
+          )}
+          {/* {existingRecordUrl && !audioBlob && (
             <SmartAudioPlayer
               audioUrl={existingRecordUrl}
               isDarkMode={isDarkMode}
               t={t} // Pass translations for the text
             />
-          )}
+          )} */}
           <div className="mb-2 flex justify-center">
             <button
               type="button"
