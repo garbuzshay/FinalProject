@@ -87,6 +87,28 @@
         </form>
         {localError && <p className="text-red-500 mt-4">{localError}</p>}
         {error && <p className="text-red-500 mt-4">{error}</p>}
+        <div className="mt-8 p-6 bg-white bg-opacity-80 rounded-xl text-gray-700 shadow-lg backdrop-blur-sm border border-gray-100">
+  <div className="flex flex-col items-center space-y-4">
+    <h3 className="font-semibold text-lg text-gray-800">Need Help?</h3>
+    <div className="w-16 h-0.5 bg-blue-200 rounded-full"></div>
+    <p className="text-center max-w-sm">
+      Don't have your login details?
+    </p>
+    <p className="text-center text-sm text-gray-600">
+      No problem! You can either:
+    </p>
+    <div className="flex flex-col space-y-2 text-center">
+      <span className="flex items-center text-sm">
+        <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+        Scan the QR code at the museum entrance
+      </span>
+      <span className="flex items-center text-sm">
+        <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+        Ask any museum staff member for assistance
+      </span>
+    </div>
+  </div>
+</div>
       </div>
 
       <style>{`
@@ -123,6 +145,7 @@
           }
         }
       `}</style>
+      
     </div>
     );
   };
